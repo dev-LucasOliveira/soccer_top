@@ -1,0 +1,188 @@
+"use client";
+
+import { useCallback, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { formatListLabel } from "@/lib/voting";
+import type { VoteState } from "@/lib/types";
+
+export function VoteView({
+  sessionCode,
+  participantId,
+}: {
+  sessionCode: string;
+  participantId: string;
+}) {
+  const router = useRouter();
+  const [state, setState] = useState<VoteState | null>(null);
+  const [selectedAlias, setSelectedAlias] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [confirming, setConfirming] = useState(false);
+  const [error, setError] = useState("");
+
+  const fetchVoteState = useCallback(async () => {
+    try {
+      const res = await fetch(
+        `/api/sessions/${sessionCode}/vote?participantId=${participantId}`
+      );
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      setState(data);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Erro ao carregar votação");
+    } finally {
+      setLoading(false);
+    }
+  }, [sessionCode, participantId]);
+
+  useEffect(() => {
+    fetchVoteState();
+    const interval = setInterval(fetchVoteState, 5000);
+    return () => clearInterval(interval);
+  }, [fetchVoteState]);
+
+  useEffect(() => {
+    if (state?.hasVoted) {
+      setSelectedAlias(state.votedAlias);
+    }
+  }, [state?.hasVoted, state?.votedAlias]);
+
+  async function confirmVote() {
+    if (!selectedAlias) return;
+
+    setConfirming(true);
+    setError("");
+
+    try {
+      const res = await fetch(`/api/sessions/${sessionCode}/vote`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ participantId, alias: selectedAlias }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      router.push(`/s/${sessionCode}`);
+      router.refresh();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Erro ao votar");
+    } finally {
+      setConfirming(false);
+    }
+  }
+
+  if (loading) {
+    return (
+      <p className="text-center text-off-white/70">Carregando votação...</p>
+    );
+  }
+
+  if (error && !state) {
+    return <p className="text-center text-red-300">{error}</p>;
+  }
+
+  if (!state) return null;
+
+  const highlightAlias = state.hasVoted ? state.votedAlias : selectedAlias;
+
+  return (
+    <div className="space-y-5 pb-24">
+      <div className="text-center">
+        <p className="text-sm text-off-white/70">
+          Escolha o melhor top — os autores são revelados só no final
+        </p>
+        <Badge variant="gold" className="mt-3">
+          {state.votedCount}/{state.totalVoters} votaram
+        </Badge>
+      </div>
+
+      {state.hasVoted && (
+        <div className="rounded-xl bg-off-white/10 px-4 py-3 text-center text-sm text-off-white">
+          Você votou em{" "}
+          <strong>{formatListLabel(state.votedAlias ?? "")}</strong>. Aguardando
+          o criador encerrar a votação.
+        </div>
+      )}
+
+      {error && <p className="text-center text-sm text-red-300">{error}</p>}
+
+      <div className="grid gap-4 md:grid-cols-2">
+        {state.lists.map((list) => {
+          const isMine = list.alias === state.myAlias;
+          const isSelected = highlightAlias === list.alias;
+
+          return (
+            <Card
+              key={list.alias}
+              className={`overflow-hidden p-0 ${
+                isMine ? "opacity-60" : ""
+              } ${isSelected ? "ring-2 ring-gold" : ""}`}
+            >
+              <div className="flex items-center justify-between bg-pitch px-4 py-3 text-off-white">
+                <div>
+                  <h3 className="font-bold">{formatListLabel(list.alias)}</h3>
+                  {isMine && (
+                    <p className="text-xs text-off-white/70">Seu top</p>
+                  )}
+                </div>
+                <Badge variant="gold">{list.voteCount} votos</Badge>
+              </div>
+              <div className="space-y-1.5 p-4">
+                {list.picks.map((pick) => (
+                  <div
+                    key={pick.rank}
+                    className="flex items-center gap-3 rounded-lg bg-off-white-muted px-3 py-2"
+                  >
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-pitch text-xs font-bold text-off-white">
+                      {pick.rank}
+                    </span>
+                    <div>
+                      <p className="font-medium text-foreground">
+                        {pick.playerName}
+                      </p>
+                      <p className="text-xs text-text-muted">
+                        {pick.position} · {pick.nationality}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {!isMine && !state.hasVoted && (
+                <div className="border-t border-card-border p-4">
+                  <Button
+                    className="w-full"
+                    variant={selectedAlias === list.alias ? "primary" : "secondary"}
+                    onClick={() => setSelectedAlias(list.alias)}
+                  >
+                    {selectedAlias === list.alias
+                      ? "Selecionada"
+                      : "Selecionar esta lista"}
+                  </Button>
+                </div>
+              )}
+            </Card>
+          );
+        })}
+      </div>
+
+      {!state.hasVoted && (
+        <div className="fixed bottom-0 left-0 right-0 border-t border-off-white/10 bg-pitch-dark/95 px-4 py-4 backdrop-blur">
+          <div className="mx-auto max-w-4xl">
+            <Button
+              className="w-full"
+              disabled={confirming || !selectedAlias}
+              onClick={confirmVote}
+            >
+              {confirming
+                ? "Confirmando..."
+                : selectedAlias
+                  ? `Confirmar voto em ${formatListLabel(selectedAlias)}`
+                  : "Selecione uma lista para votar"}
+            </Button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

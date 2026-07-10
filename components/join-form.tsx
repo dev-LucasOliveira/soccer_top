@@ -1,0 +1,75 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card } from "@/components/ui/card";
+import { getOrCreateGuestToken } from "@/lib/guest";
+
+export function JoinForm({ defaultCode }: { defaultCode?: string }) {
+  const router = useRouter();
+  const [code, setCode] = useState(defaultCode ?? "");
+  const [displayName, setDisplayName] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    try {
+      const sessionCode = code.trim().toLowerCase().replace(/.*\/s\//, "");
+      const guestToken = getOrCreateGuestToken();
+
+      const res = await fetch(`/api/sessions/${sessionCode}/join`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ displayName, guestToken }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+
+      localStorage.setItem(`participant_${sessionCode}`, data.participantId);
+      router.push(`/s/${sessionCode}`);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Erro ao entrar");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <Card>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="mb-1 block text-sm font-medium">Código da session</label>
+          <Input
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+            placeholder="Ex: abc123 ou link completo"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="mb-1 block text-sm font-medium">Seu nome</label>
+          <Input
+            value={displayName}
+            onChange={(e) => setDisplayName(e.target.value)}
+            placeholder="Como você quer aparecer"
+            required
+          />
+        </div>
+
+        {error && <p className="text-sm text-red-600">{error}</p>}
+
+        <Button type="submit" variant="secondary" disabled={loading} className="w-full">
+          {loading ? "Entrando..." : "Entrar na session"}
+        </Button>
+      </form>
+    </Card>
+  );
+}

@@ -1,0 +1,902 @@
+[
+  {
+    "name": "Alessandro Nesta",
+    "primaryPosition": "Defensor",
+    "nationality": "ITA",
+    "teams": [
+      {
+        "name": "AC Milan",
+        "from": 2002,
+        "to": 2012
+      }
+    ],
+    "careerStart": 1993,
+    "careerEnd": 2014,
+    "curatedLists": [
+      "defensor_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Andrés Iniesta",
+    "primaryPosition": "Meia",
+    "nationality": "ESP",
+    "teams": [
+      {
+        "name": "Barcelona",
+        "from": 2002,
+        "to": 2018
+      }
+    ],
+    "careerStart": 2001,
+    "careerEnd": 2023,
+    "curatedLists": [
+      "meia_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Bobby Moore",
+    "primaryPosition": "Defensor",
+    "nationality": "ENG",
+    "teams": [
+      {
+        "name": "West Ham",
+        "from": 1958,
+        "to": 1974
+      }
+    ],
+    "careerStart": 1958,
+    "careerEnd": 1978,
+    "curatedLists": [
+      "defensor_top20"
+    ]
+  },
+  {
+    "name": "Cafu",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "AC Milan",
+        "from": 1995,
+        "to": 2003
+      },
+      {
+        "name": "Roma",
+        "from": 1997,
+        "to": 2003
+      }
+    ],
+    "careerStart": 1989,
+    "careerEnd": 2008,
+    "curatedLists": [
+      "defensor_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Carles Puyol",
+    "primaryPosition": "Defensor",
+    "nationality": "ESP",
+    "teams": [
+      {
+        "name": "Barcelona",
+        "from": 1999,
+        "to": 2014
+      }
+    ],
+    "careerStart": 1999,
+    "careerEnd": 2014,
+    "curatedLists": [
+      "defensor_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Casemiro",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Real Madrid",
+        "from": 2015,
+        "to": 2022
+      },
+      {
+        "name": "Manchester United",
+        "from": 2022,
+        "to": 2026
+      }
+    ],
+    "careerStart": 2010,
+    "careerEnd": 2026,
+    "curatedLists": [
+      "meia_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Claude Makélélé",
+    "primaryPosition": "Meia",
+    "nationality": "FRA",
+    "teams": [
+      {
+        "name": "Real Madrid",
+        "from": 2000,
+        "to": 2003
+      },
+      {
+        "name": "Chelsea",
+        "from": 2003,
+        "to": 2008
+      }
+    ],
+    "careerStart": 1990,
+    "careerEnd": 2011,
+    "curatedLists": [
+      "meia_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Cristiano Ronaldo",
+    "primaryPosition": "Atacante",
+    "nationality": "POR",
+    "teams": [
+      {
+        "name": "Manchester United",
+        "from": 2003,
+        "to": 2009
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2009,
+        "to": 2018
+      }
+    ],
+    "careerStart": 2002,
+    "careerEnd": 2026,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Diego Maradona",
+    "primaryPosition": "Atacante",
+    "nationality": "ARG",
+    "teams": [
+      {
+        "name": "Barcelona",
+        "from": 1982,
+        "to": 1984
+      },
+      {
+        "name": "Napoli",
+        "from": 1984,
+        "to": 1991
+      }
+    ],
+    "careerStart": 1976,
+    "careerEnd": 1997,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Eden Hazard",
+    "primaryPosition": "Atacante",
+    "nationality": "BEL",
+    "teams": [
+      {
+        "name": "Chelsea",
+        "from": 2012,
+        "to": 2019
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2019,
+        "to": 2023
+      }
+    ],
+    "careerStart": 2007,
+    "careerEnd": 2023,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Fabio Cannavaro",
+    "primaryPosition": "Defensor",
+    "nationality": "ITA",
+    "teams": [
+      {
+        "name": "Juventus",
+        "from": 2002,
+        "to": 2004
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2006,
+        "to": 2010
+      }
+    ],
+    "careerStart": 1992,
+    "careerEnd": 2011,
+    "curatedLists": [
+      "defensor_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Franco Baresi",
+    "primaryPosition": "Defensor",
+    "nationality": "ITA",
+    "teams": [
+      {
+        "name": "AC Milan",
+        "from": 1977,
+        "to": 1997
+      }
+    ],
+    "careerStart": 1977,
+    "careerEnd": 1997,
+    "curatedLists": [
+      "defensor_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Franz Beckenbauer",
+    "primaryPosition": "Defensor",
+    "nationality": "GER",
+    "teams": [
+      {
+        "name": "Bayern Munich",
+        "from": 1964,
+        "to": 1977
+      }
+    ],
+    "careerStart": 1964,
+    "careerEnd": 1983,
+    "curatedLists": [
+      "general_top100",
+      "defensor_top20"
+    ]
+  },
+  {
+    "name": "Gabriel Batistuta",
+    "primaryPosition": "Atacante",
+    "nationality": "ARG",
+    "teams": [
+      {
+        "name": "Fiorentina",
+        "from": 1991,
+        "to": 2000
+      },
+      {
+        "name": "Roma",
+        "from": 2000,
+        "to": 2003
+      }
+    ],
+    "careerStart": 1988,
+    "careerEnd": 2005,
+    "curatedLists": [
+      "atacante_top20"
+    ]
+  },
+  {
+    "name": "Gareth Bale",
+    "primaryPosition": "Atacante",
+    "nationality": "WAL",
+    "teams": [
+      {
+        "name": "Real Madrid",
+        "from": 2013,
+        "to": 2022
+      }
+    ],
+    "careerStart": 2006,
+    "careerEnd": 2023,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Garrincha",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Botafogo",
+        "from": 1953,
+        "to": 1966
+      }
+    ],
+    "careerStart": 1953,
+    "careerEnd": 1972,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Gianluigi Buffon",
+    "primaryPosition": "Goleiro",
+    "nationality": "ITA",
+    "teams": [
+      {
+        "name": "Juventus",
+        "from": 1995,
+        "to": 2021
+      }
+    ],
+    "careerStart": 1995,
+    "careerEnd": 2023,
+    "curatedLists": [
+      "goleiro_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Iker Casillas",
+    "primaryPosition": "Goleiro",
+    "nationality": "ESP",
+    "teams": [
+      {
+        "name": "Real Madrid",
+        "from": 1999,
+        "to": 2015
+      }
+    ],
+    "careerStart": 1999,
+    "careerEnd": 2020,
+    "curatedLists": [
+      "goleiro_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Jairzinho",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Botafogo",
+        "from": 1959,
+        "to": 1974
+      }
+    ],
+    "careerStart": 1959,
+    "careerEnd": 1982,
+    "curatedLists": [
+      "atacante_top20"
+    ]
+  },
+  {
+    "name": "Johan Cruyff",
+    "primaryPosition": "Atacante",
+    "nationality": "NED",
+    "teams": [
+      {
+        "name": "Barcelona",
+        "from": 1973,
+        "to": 1978
+      },
+      {
+        "name": "Ajax",
+        "from": 1964,
+        "to": 1973
+      }
+    ],
+    "careerStart": 1964,
+    "careerEnd": 1984,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Kaká",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "AC Milan",
+        "from": 2003,
+        "to": 2009
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2009,
+        "to": 2013
+      }
+    ],
+    "careerStart": 2001,
+    "careerEnd": 2017,
+    "curatedLists": [
+      "meia_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Kylian Mbappé",
+    "primaryPosition": "Atacante",
+    "nationality": "FRA",
+    "teams": [
+      {
+        "name": "PSG",
+        "from": 2017,
+        "to": 2024
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2024,
+        "to": 2026
+      }
+    ],
+    "careerStart": 2015,
+    "careerEnd": 2026,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Lev Yashin",
+    "primaryPosition": "Goleiro",
+    "nationality": "RUS",
+    "teams": [
+      {
+        "name": "Dynamo Moscow",
+        "from": 1950,
+        "to": 1970
+      }
+    ],
+    "careerStart": 1950,
+    "careerEnd": 1970,
+    "curatedLists": [
+      "goleiro_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Lionel Messi",
+    "primaryPosition": "Atacante",
+    "nationality": "ARG",
+    "teams": [
+      {
+        "name": "Barcelona",
+        "from": 2004,
+        "to": 2021
+      },
+      {
+        "name": "PSG",
+        "from": 2021,
+        "to": 2023
+      }
+    ],
+    "careerStart": 2004,
+    "careerEnd": 2026,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Luka Modrić",
+    "primaryPosition": "Meia",
+    "nationality": "CRO",
+    "teams": [
+      {
+        "name": "Real Madrid",
+        "from": 2012,
+        "to": 2026
+      }
+    ],
+    "careerStart": 2003,
+    "careerEnd": 2026,
+    "curatedLists": [
+      "meia_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Manuel Neuer",
+    "primaryPosition": "Goleiro",
+    "nationality": "GER",
+    "teams": [
+      {
+        "name": "Bayern Munich",
+        "from": 2011,
+        "to": 2026
+      }
+    ],
+    "careerStart": 2004,
+    "careerEnd": 2026,
+    "curatedLists": [
+      "goleiro_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Marcelo",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Real Madrid",
+        "from": 2007,
+        "to": 2022
+      }
+    ],
+    "careerStart": 2005,
+    "careerEnd": 2023,
+    "curatedLists": [
+      "defensor_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Neymar",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Barcelona",
+        "from": 2013,
+        "to": 2017
+      },
+      {
+        "name": "PSG",
+        "from": 2017,
+        "to": 2023
+      }
+    ],
+    "careerStart": 2009,
+    "careerEnd": 2026,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Paolo Maldini",
+    "primaryPosition": "Defensor",
+    "nationality": "ITA",
+    "teams": [
+      {
+        "name": "AC Milan",
+        "from": 1984,
+        "to": 2009
+      }
+    ],
+    "careerStart": 1984,
+    "careerEnd": 2009,
+    "curatedLists": [
+      "defensor_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Patrick Vieira",
+    "primaryPosition": "Meia",
+    "nationality": "FRA",
+    "teams": [
+      {
+        "name": "Arsenal",
+        "from": 1996,
+        "to": 2005
+      }
+    ],
+    "careerStart": 1993,
+    "careerEnd": 2011,
+    "curatedLists": [
+      "meia_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Pelé",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Santos",
+        "from": 1956,
+        "to": 1974
+      }
+    ],
+    "careerStart": 1956,
+    "careerEnd": 1977,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Rivaldo",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Barcelona",
+        "from": 1997,
+        "to": 2002
+      }
+    ],
+    "careerStart": 1991,
+    "careerEnd": 2014,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Roberto Carlos",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Real Madrid",
+        "from": 1996,
+        "to": 2007
+      }
+    ],
+    "careerStart": 1991,
+    "careerEnd": 2012,
+    "curatedLists": [
+      "defensor_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Romário",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Barcelona",
+        "from": 1993,
+        "to": 1995
+      },
+      {
+        "name": "Flamengo",
+        "from": 1995,
+        "to": 1999
+      }
+    ],
+    "careerStart": 1985,
+    "careerEnd": 2009,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Ronaldinho",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Barcelona",
+        "from": 2003,
+        "to": 2008
+      }
+    ],
+    "careerStart": 1998,
+    "careerEnd": 2015,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Ronaldo Nazário",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Real Madrid",
+        "from": 2002,
+        "to": 2007
+      },
+      {
+        "name": "Barcelona",
+        "from": 1996,
+        "to": 1997
+      }
+    ],
+    "careerStart": 1993,
+    "careerEnd": 2011,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Sergio Busquets",
+    "primaryPosition": "Meia",
+    "nationality": "ESP",
+    "teams": [
+      {
+        "name": "Barcelona",
+        "from": 2008,
+        "to": 2023
+      }
+    ],
+    "careerStart": 2006,
+    "careerEnd": 2024,
+    "curatedLists": [
+      "meia_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Sergio Ramos",
+    "primaryPosition": "Defensor",
+    "nationality": "ESP",
+    "teams": [
+      {
+        "name": "Real Madrid",
+        "from": 2005,
+        "to": 2021
+      },
+      {
+        "name": "PSG",
+        "from": 2021,
+        "to": 2023
+      }
+    ],
+    "careerStart": 2003,
+    "careerEnd": 2023,
+    "curatedLists": [
+      "defensor_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Sócrates",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Corinthians",
+        "from": 1978,
+        "to": 1984
+      }
+    ],
+    "careerStart": 1974,
+    "careerEnd": 1989,
+    "curatedLists": [
+      "meia_top20"
+    ]
+  },
+  {
+    "name": "Steven Gerrard",
+    "primaryPosition": "Meia",
+    "nationality": "ENG",
+    "teams": [
+      {
+        "name": "Liverpool",
+        "from": 1998,
+        "to": 2015
+      }
+    ],
+    "careerStart": 1998,
+    "careerEnd": 2016,
+    "curatedLists": [
+      "meia_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Taffarel",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Grêmio",
+        "from": 1985,
+        "to": 1988
+      },
+      {
+        "name": "Atlético Mineiro",
+        "from": 1998,
+        "to": 2001
+      }
+    ],
+    "careerStart": 1985,
+    "careerEnd": 2003,
+    "curatedLists": [
+      "goleiro_top20"
+    ]
+  },
+  {
+    "name": "Thierry Henry",
+    "primaryPosition": "Atacante",
+    "nationality": "FRA",
+    "teams": [
+      {
+        "name": "Arsenal",
+        "from": 1999,
+        "to": 2007
+      },
+      {
+        "name": "Barcelona",
+        "from": 2007,
+        "to": 2010
+      }
+    ],
+    "careerStart": 1994,
+    "careerEnd": 2014,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Xavi",
+    "primaryPosition": "Meia",
+    "nationality": "ESP",
+    "teams": [
+      {
+        "name": "Barcelona",
+        "from": 1998,
+        "to": 2015
+      }
+    ],
+    "careerStart": 1998,
+    "careerEnd": 2019,
+    "curatedLists": [
+      "meia_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Zico",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Flamengo",
+        "from": 1971,
+        "to": 1983
+      }
+    ],
+    "careerStart": 1971,
+    "careerEnd": 1994,
+    "curatedLists": [
+      "meia_top20",
+      "general_top100"
+    ]
+  },
+  {
+    "name": "Zinedine Zidane",
+    "primaryPosition": "Meia",
+    "nationality": "FRA",
+    "teams": [
+      {
+        "name": "Juventus",
+        "from": 1996,
+        "to": 2001
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2001,
+        "to": 2006
+      }
+    ],
+    "careerStart": 1989,
+    "careerEnd": 2006,
+    "curatedLists": [
+      "meia_top20",
+      "general_top100"
+    ]
+  }
+]
