@@ -9,6 +9,8 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SessionHeader } from "@/components/session-header";
 import { StandingsTable } from "@/components/standings-table";
+import { RoundSetupPanel } from "@/components/round-setup-panel";
+import { getGuestToken } from "@/lib/guest";
 import { Copy, Check, Users, Share2, ListOrdered } from "lucide-react";
 import { describeSessionFilters } from "@/lib/session-info";
 import type {
@@ -119,7 +121,10 @@ export function SessionLobby({
       const res = await fetch(`/api/sessions/${code}/advance`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ participantId }),
+        body: JSON.stringify({
+          participantId,
+          guestToken: getGuestToken(),
+        }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
@@ -146,12 +151,12 @@ export function SessionLobby({
 
   if (loading) {
     return (
-      <p className="text-center text-off-white/70">Carregando session...</p>
+      <p className="text-center text-off-white/70">Carregando sala...</p>
     );
   }
 
   if (!session) {
-    return <p className="text-center text-red-300">Session não encontrada</p>;
+    return <p className="text-center text-red-300">Sala não encontrada</p>;
   }
 
   const myParticipant = session.participants.find((p) => p.id === participantId);
@@ -201,7 +206,7 @@ export function SessionLobby({
       <Card>
         <div className="mb-3 flex items-center gap-2 text-foreground">
           <ListOrdered size={18} className="text-pitch" />
-          <h2 className="font-bold">Como funciona esta session</h2>
+          <h2 className="font-bold">Como funciona esta sala</h2>
         </div>
         <p className="mb-4 text-sm text-text-muted">{phase.description}</p>
         <div className="-mx-5 flex gap-2 overflow-x-auto scroll-smooth px-5 pb-1 sm:mx-0 sm:grid sm:grid-cols-5 sm:gap-1.5 sm:overflow-visible sm:px-0 sm:pb-0">
@@ -229,62 +234,72 @@ export function SessionLobby({
         </div>
       </Card>
 
-      <Card>
-        <h2 className="mb-2 font-bold text-foreground">
-          Rounds ({session.totalRounds})
-        </h2>
-        <div className="space-y-2">
-          {session.rounds.map((round) => (
-            <div
-              key={round.id}
-              className={`flex items-center justify-between rounded-xl px-3 py-2 ${
-                round.number === session.currentRoundNumber
-                  ? "bg-gold/15 ring-1 ring-gold"
-                  : "bg-off-white-muted"
-              }`}
-            >
-              <div>
-                <p className="text-sm font-medium text-foreground">
-                  Round {round.number}: {round.title}
-                </p>
-                <p className="text-xs text-text-muted">Top {round.topN}</p>
-              </div>
-              <Badge
-                variant={
-                  round.status === "completed"
-                    ? "success"
-                    : round.number === session.currentRoundNumber
-                      ? "gold"
-                      : "warning"
-                }
+      {session.status === "setup" && participantId ? (
+        <RoundSetupPanel
+          code={code}
+          participantId={participantId}
+          rounds={session.rounds}
+          isCreator={session.isCreator}
+          onRefresh={fetchSession}
+        />
+      ) : (
+        <Card>
+          <h2 className="mb-2 font-bold text-foreground">
+            Rodadas ({session.totalRounds})
+          </h2>
+          <div className="space-y-2">
+            {session.rounds.map((round) => (
+              <div
+                key={round.id}
+                className={`flex items-center justify-between rounded-xl px-3 py-2 ${
+                  round.number === session.currentRoundNumber
+                    ? "bg-gold/15 ring-1 ring-gold"
+                    : "bg-off-white-muted"
+                }`}
               >
-                {round.status === "pending"
-                  ? "Pendente"
-                  : round.status === "open"
-                    ? "Montando"
-                    : round.status === "voting"
-                      ? "Votando"
-                      : "Encerrado"}
-              </Badge>
-            </div>
-          ))}
-        </div>
-      </Card>
+                <div>
+                  <p className="text-sm font-medium text-foreground">
+                    Rodada {round.number}: {round.title}
+                  </p>
+                  <p className="text-xs text-text-muted">Top de {round.topN}</p>
+                </div>
+                <Badge
+                  variant={
+                    round.status === "completed"
+                      ? "success"
+                      : round.number === session.currentRoundNumber
+                        ? "gold"
+                        : "warning"
+                  }
+                >
+                  {round.status === "pending"
+                    ? "Pendente"
+                    : round.status === "open"
+                      ? "Montando"
+                      : round.status === "voting"
+                        ? "Votando"
+                        : "Encerrado"}
+                </Badge>
+              </div>
+            ))}
+          </div>
+        </Card>
+      )}
 
       {session.currentRound && session.status === "active" && (
         <Card>
           <h2 className="mb-2 font-bold text-foreground">
-            Round atual — {session.currentRound.title}
+            Rodada atual — {session.currentRound.title}
           </h2>
           <div className="space-y-1 text-sm text-text-muted">
             <p>
-              Top <strong className="text-foreground">{session.topN}</strong>{" "}
+              Top de <strong className="text-foreground">{session.topN}</strong>{" "}
               jogadores por participante
             </p>
             {filterDescriptions.length > 0 ? (
               filterDescriptions.map((f) => <p key={f}>· {f}</p>)
             ) : (
-              <p>· Sem filtros — todos os jogadores do dataset</p>
+              <p>· Sem filtros — todos os jogadores do catálogo</p>
             )}
           </div>
         </Card>
@@ -306,7 +321,7 @@ export function SessionLobby({
         </p>
         {session.status === "setup" && (
           <p className="mt-2 text-xs text-amber-800">
-            Novos jogadores podem entrar até o criador iniciar a session
+            Novos jogadores podem entrar até o criador iniciar a sala
           </p>
         )}
       </Card>
@@ -363,6 +378,13 @@ export function SessionLobby({
             Mínimo de 2 participantes para iniciar
           </p>
         )}
+        {session.status === "setup" &&
+          session.isCreator &&
+          session.totalRounds === 0 && (
+            <p className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800">
+              Adicione pelo menos 1 rodada para iniciar
+            </p>
+          )}
       </Card>
 
       {advanceError && (
@@ -387,7 +409,7 @@ export function SessionLobby({
             )}
             {myParticipant?.hasVoted && (
               <div className="rounded-xl bg-off-white/10 px-4 py-3 text-center text-sm text-off-white">
-                Você votou! Aguardando criador encerrar o round.
+                Você votou! Aguardando criador encerrar a rodada.
               </div>
             )}
             {session.isCreator && advanceAction && (
@@ -414,7 +436,7 @@ export function SessionLobby({
           <>
             <Link href={`/s/${code}/round-results`}>
               <Button variant="secondary" size="lg" className="w-full sm:w-auto">
-                Ver resultado do round
+                Ver resultado da rodada
               </Button>
             </Link>
             {session.isCreator && advanceAction && (
@@ -453,29 +475,43 @@ export function SessionLobby({
           ) : (
             <Link href={`/s/${code}/pick`}>
               <Button size="lg" className="w-full sm:w-auto">
-                Montar meu top
+                Montar meu ranking
               </Button>
             </Link>
           )
         ) : session.status === "setup" ? (
           session.isCreator && advanceAction ? (
-            <Button
-              variant="gold"
-              size="lg"
-              disabled={!advanceAction.canAdvance || advancing}
-              onClick={handleAdvance}
-              className="w-full sm:w-auto"
-            >
-              {advancing ? "Iniciando..." : advanceAction.label}
-            </Button>
+            <>
+              <Button
+                variant="gold"
+                size="lg"
+                disabled={!advanceAction.canAdvance || advancing}
+                onClick={handleAdvance}
+                className="w-full sm:w-auto"
+              >
+                {advancing ? "Iniciando..." : advanceAction.label}
+              </Button>
+              {!advanceAction.canAdvance && session.totalRounds === 0 && (
+                <p className="text-center text-sm text-off-white/70">
+                  Adicione pelo menos 1 rodada
+                </p>
+              )}
+              {!advanceAction.canAdvance &&
+                session.totalRounds > 0 &&
+                session.participants.length < 2 && (
+                  <p className="text-center text-sm text-off-white/70">
+                    Aguardando mais participantes
+                  </p>
+                )}
+            </>
           ) : (
             <p className="text-center text-sm text-off-white/70">
-              Aguardando criador iniciar a session
+              Aguardando criador configurar e iniciar a sala
             </p>
           )
         ) : (
           <p className="text-center text-sm text-off-white/70">
-            Entre na session para participar
+            Entre na sala para participar
           </p>
         )}
       </div>

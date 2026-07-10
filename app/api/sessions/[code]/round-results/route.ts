@@ -19,7 +19,7 @@ export async function GET(request: Request, context: RouteContext) {
     });
 
     if (!session) {
-      return NextResponse.json({ error: "Session não encontrada" }, { status: 404 });
+      return NextResponse.json({ error: "Sala não encontrada" }, { status: 404 });
     }
 
     const roundNumber = roundParam
@@ -28,7 +28,7 @@ export async function GET(request: Request, context: RouteContext) {
 
     const round = session.rounds.find((r) => r.number === roundNumber);
     if (!round) {
-      return NextResponse.json({ error: "Round não encontrado" }, { status: 404 });
+      return NextResponse.json({ error: "Rodada não encontrada" }, { status: 404 });
     }
 
     const roundResult = await prisma.roundResult.findUnique({
@@ -37,7 +37,7 @@ export async function GET(request: Request, context: RouteContext) {
 
     if (!roundResult) {
       return NextResponse.json(
-        { error: "Resultado do round ainda não disponível" },
+        { error: "Resultado da rodada ainda não disponível" },
         { status: 404 }
       );
     }
@@ -53,7 +53,7 @@ export async function GET(request: Request, context: RouteContext) {
   } catch (error) {
     console.error(error);
     return NextResponse.json(
-      { error: "Erro ao buscar resultado do round" },
+      { error: "Erro ao buscar resultado da rodada" },
       { status: 500 }
     );
   }

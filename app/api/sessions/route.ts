@@ -1,45 +1,20 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { createSessionCode } from "@/lib/guest";
-import type { RoundConfig } from "@/lib/types";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { title, displayName, guestToken, rounds } = body as {
-      title: string;
+    const { displayName, guestToken } = body as {
       displayName: string;
       guestToken?: string;
-      rounds: RoundConfig[];
     };
 
-    if (!title?.trim() || !displayName?.trim()) {
+    if (!displayName?.trim()) {
       return NextResponse.json(
-        { error: "Título e nome são obrigatórios" },
+        { error: "Nome é obrigatório" },
         { status: 400 }
       );
-    }
-
-    if (!rounds?.length || rounds.length < 1 || rounds.length > 10) {
-      return NextResponse.json(
-        { error: "Informe entre 1 e 10 rounds" },
-        { status: 400 }
-      );
-    }
-
-    for (const [i, round] of rounds.entries()) {
-      if (!round.title?.trim()) {
-        return NextResponse.json(
-          { error: `Round ${i + 1}: título é obrigatório` },
-          { status: 400 }
-        );
-      }
-      if (!round.topN || round.topN < 1 || round.topN > 50) {
-        return NextResponse.json(
-          { error: `Round ${i + 1}: Top N deve ser entre 1 e 50` },
-          { status: 400 }
-        );
-      }
     }
 
     let code = createSessionCode();
@@ -55,7 +30,7 @@ export async function POST(request: Request) {
       const created = await tx.session.create({
         data: {
           code,
-          title: title.trim(),
+          title: `Sala ${code}`,
           status: "setup",
           currentRoundNumber: 1,
           participants: {
@@ -64,15 +39,6 @@ export async function POST(request: Request) {
               guestToken: guestToken ?? null,
               status: "building",
             },
-          },
-          rounds: {
-            create: rounds.map((round, index) => ({
-              number: index + 1,
-              title: round.title.trim(),
-              topN: round.topN,
-              filters: JSON.stringify(round.filters ?? {}),
-              status: "pending",
-            })),
           },
         },
         include: {
@@ -98,7 +64,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error(error);
     return NextResponse.json(
-      { error: "Erro ao criar session" },
+      { error: "Erro ao criar sala" },
       { status: 500 }
     );
   }

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import { APP_NAME, APP_SLOGAN } from "@/lib/branding";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Soccer Top",
-  description: "Monte seu top de jogadores e compare com amigos",
+  title: APP_NAME,
+  description: APP_SLOGAN,
 };
 
 export const viewport: Viewport = {
@@ -40,10 +41,10 @@ export default function RootLayout({
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-off-white/20 text-base">
                 ⚽
               </span>
-              Soccer Top
+              {APP_NAME}
             </Link>
             <span className="hidden text-sm text-off-white/70 sm:block">
-              Seu ranking, seu time, sua opinião
+              {APP_SLOGAN}
             </span>
           </div>
         </header>

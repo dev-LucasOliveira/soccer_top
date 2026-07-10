@@ -1,4 +1,5 @@
 import { POSITIONS, NATIONALITIES } from "@/lib/constants";
+import { areRoundsValid } from "@/lib/round-config";
 import type { CurrentRound, SessionFilters, StandingEntry } from "@/lib/types";
 
 const POSITION_LABELS = Object.fromEntries(
@@ -40,19 +41,20 @@ export function getSessionPhase(session: {
   currentRound?: CurrentRound | null;
   participants: { status: string }[];
   voteProgress?: { voted: number; total: number };
+  rounds?: { title: string; topN: number }[];
 }): { step: number; label: string; description: string } {
   const count = session.participants.length;
   const confirmed = session.participants.filter(
     (p) => p.status === "confirmed"
   ).length;
   const voted = session.voteProgress?.voted ?? 0;
-  const roundLabel = `Round ${session.currentRoundNumber}/${session.totalRounds}`;
+  const roundLabel = `Rodada ${session.currentRoundNumber}/${session.totalRounds}`;
 
   if (session.status === "completed") {
     return {
       step: 5,
       label: "Finalizada",
-      description: "Todos os rounds encerrados — veja o ranking final.",
+      description: "Todas as rodadas encerradas — veja o ranking final.",
     };
   }
 
@@ -64,10 +66,22 @@ export function getSessionPhase(session: {
         description: "Compartilhe o link — precisa de pelo menos 2 participantes.",
       };
     }
+
+    const rounds = session.rounds ?? [];
+    if (!areRoundsValid(rounds)) {
+      return {
+        step: 1,
+        label: "Configurando rodadas",
+        description: session.totalRounds === 0
+          ? "O criador está montando as rodadas. Aguarde a configuração."
+          : "O criador está finalizando a configuração das rodadas.",
+      };
+    }
+
     return {
       step: 1,
       label: "Pronta para iniciar",
-      description: `${count} participantes. Criador pode iniciar a session.`,
+      description: `${count} participantes e ${session.totalRounds} rodada(s). Criador pode iniciar a sala.`,
     };
   }
 
@@ -87,8 +101,8 @@ export function getSessionPhase(session: {
       label: `${roundLabel} · Encerrado`,
       description:
         session.currentRoundNumber < session.totalRounds
-          ? "Round encerrado. Criador pode iniciar o próximo round."
-          : "Último round encerrado. Veja o resultado final.",
+          ? "Rodada encerrada. Criador pode iniciar a próxima rodada."
+          : "Última rodada encerrada. Veja o resultado final.",
     };
   }
 
@@ -103,7 +117,7 @@ export function getSessionPhase(session: {
   if (confirmed < count) {
     return {
       step: 2,
-      label: `${roundLabel} · Montando tops`,
+      label: `${roundLabel} · Montando rankings`,
       description: `${confirmed} de ${count} já confirmaram. Tema: ${session.currentRound?.title ?? ""}`,
     };
   }
@@ -124,13 +138,16 @@ export function getAdvanceAction(session: {
   participants: { status: string }[];
   voteProgress?: { voted: number; total: number };
   isCreator: boolean;
+  rounds?: { title: string; topN: number }[];
 }): { canAdvance: boolean; label: string; redirect?: string } | null {
   if (!session.isCreator) return null;
 
   if (session.status === "setup") {
+    const rounds = session.rounds ?? [];
+    const roundsReady = areRoundsValid(rounds);
     return {
-      canAdvance: session.participants.length >= 2,
-      label: "Iniciar session",
+      canAdvance: session.participants.length >= 2 && roundsReady,
+      label: "Iniciar sala",
     };
   }
 
@@ -155,7 +172,7 @@ export function getAdvanceAction(session: {
     const isLastRound = session.currentRoundNumber >= session.totalRounds;
     return {
       canAdvance: allVoted,
-      label: isLastRound ? "Ver resultado final" : "Encerrar round",
+      label: isLastRound ? "Ver resultado final" : "Encerrar rodada",
       redirect: isLastRound ? "/results" : "/round-results",
     };
   }
@@ -164,7 +181,7 @@ export function getAdvanceAction(session: {
     if (session.currentRoundNumber < session.totalRounds) {
       return {
         canAdvance: true,
-        label: `Iniciar round ${session.currentRoundNumber + 1}`,
+        label: `Iniciar rodada ${session.currentRoundNumber + 1}`,
       };
     }
     return {
@@ -206,8 +223,13 @@ export function canAdvanceToCompleted(session: {
 export function canStartSession(session: {
   status: string;
   participants: { status: string }[];
+  rounds?: { title: string; topN: number }[];
 }): boolean {
-  return session.status === "setup" && session.participants.length >= 2;
+  return (
+    session.status === "setup" &&
+    session.participants.length >= 2 &&
+    areRoundsValid(session.rounds ?? [])
+  );
 }
 
 export function canStartNextRound(session: {

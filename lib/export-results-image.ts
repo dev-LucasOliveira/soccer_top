@@ -22,8 +22,8 @@ export async function downloadResultsImage(
 
   const slug = slugifyTitle(title);
   const filename = slug
-    ? `soccer-top-${code}-${slug}.png`
-    : `soccer-top-${code}-resultados.png`;
+    ? `ranking-da-resenha-${code}-${slug}.png`
+    : `ranking-da-resenha-${code}-resultados.png`;
 
   const link = document.createElement("a");
   link.download = filename;

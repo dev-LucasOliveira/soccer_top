@@ -45,7 +45,7 @@ export default function RoundResultsPage({
         .find((r: { status: string }) => r.status === "completed");
 
       if (!lastCompleted) {
-        setError("Nenhum round encerrado ainda");
+        setError("Nenhuma rodada encerrada ainda");
         setLoading(false);
         return;
       }
@@ -58,7 +58,7 @@ export default function RoundResultsPage({
         setRoundResult(roundData.result);
         setRoundNumber(roundData.roundNumber);
       } else {
-        setError(roundData.error ?? "Resultado do round indisponível");
+        setError(roundData.error ?? "Resultado da rodada indisponível");
       }
 
       if (data.status === "completed") {
@@ -86,7 +86,7 @@ export default function RoundResultsPage({
           href={`/s/${code}`}
           className="mb-6 inline-block text-sm text-off-white/70 hover:text-off-white"
         >
-          ← Voltar ao lobby
+          ← Voltar à sala
         </Link>
         <p className="text-center text-red-300">{error || "Resultado indisponível"}</p>
       </main>
@@ -98,7 +98,7 @@ export default function RoundResultsPage({
       <SessionHeader
         title={title}
         code={code}
-        stepLabel={`Round ${roundNumber}/${totalRounds} encerrado`}
+        stepLabel={`Rodada ${roundNumber}/${totalRounds} encerrada`}
         backHref={`/s/${code}`}
       />
 

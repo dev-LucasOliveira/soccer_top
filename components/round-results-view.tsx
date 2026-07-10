@@ -25,14 +25,14 @@ export function RoundResultsView({
     <div className="space-y-6">
       <div className="text-center">
         <Badge variant="gold" className="mb-2">
-          Round {roundNumber}/{totalRounds} encerrado
+          Rodada {roundNumber}/{totalRounds} encerrada
         </Badge>
         <h2 className="text-xl font-bold text-off-white">
           {roundResult.roundTitle}
         </h2>
         {!isLastRound && (
           <p className="mt-2 text-sm text-off-white/70">
-            Aguardando criador iniciar o próximo round
+            Aguardando criador iniciar a próxima rodada
           </p>
         )}
       </div>
@@ -44,7 +44,7 @@ export function RoundResultsView({
 
       <Card>
         <h2 className="mb-4 font-bold text-foreground">
-          Resultado deste round
+          Resultado desta rodada
         </h2>
         <div className="space-y-3">
           {ranking.map((entry) => (

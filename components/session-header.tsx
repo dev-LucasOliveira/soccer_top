@@ -7,15 +7,18 @@ export function SessionHeader({
   stepLabel,
   topN,
   backHref,
-  backLabel = "← Voltar ao lobby",
+  backLabel = "← Voltar à sala",
 }: {
-  title: string;
+  title?: string;
   code?: string;
   stepLabel?: string;
   topN?: number;
   backHref?: string;
   backLabel?: string;
 }) {
+  const showTitle =
+    title && code && title !== `Sala ${code}` ? title : undefined;
+
   return (
     <header className="mb-6 space-y-4">
       <div className="text-center">
@@ -24,20 +27,26 @@ export function SessionHeader({
             {stepLabel}
           </Badge>
         )}
-        <h1 className="text-xl font-bold text-off-white sm:text-2xl">{title}</h1>
-        {(code || topN) && (
-          <p className="mt-1 text-sm text-off-white/70">
-            {topN != null && <>Top {topN}</>}
-            {topN != null && code && " · "}
-            {code && (
-              <>
-                Código{" "}
-                <span className="rounded bg-off-white/10 px-2 py-0.5 font-mono font-bold text-gold">
-                  {code}
-                </span>
-              </>
+        {code ? (
+          <>
+            <h1 className="text-xl font-bold text-off-white sm:text-2xl">
+              <span className="rounded bg-off-white/10 px-3 py-1 font-mono text-gold">
+                {code}
+              </span>
+            </h1>
+            {showTitle && (
+              <p className="mt-2 text-sm text-off-white/70">{showTitle}</p>
             )}
-          </p>
+          </>
+        ) : (
+          title && (
+            <h1 className="text-xl font-bold text-off-white sm:text-2xl">
+              {title}
+            </h1>
+          )
+        )}
+        {topN != null && (
+          <p className="mt-1 text-sm text-off-white/70">Top de {topN}</p>
         )}
       </div>
       {backHref && (

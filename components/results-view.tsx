@@ -150,14 +150,14 @@ export function ResultsView({
                 : "bg-off-white-muted text-foreground hover:bg-off-white"
             }`}
           >
-            Round {num}
+            Rodada {num}
           </button>
         ))}
       </div>
 
       {activeTab === "final" ? (
         <Card className="p-4">
-          <h2 className="mb-4 font-bold text-foreground">Resumo por round</h2>
+          <h2 className="mb-4 font-bold text-foreground">Resumo por rodada</h2>
           <div className="space-y-3">
             {result.roundSummaries.map((summary) => (
               <div
@@ -165,7 +165,7 @@ export function ResultsView({
                 className="rounded-xl bg-off-white-muted px-3 py-2"
               >
                 <p className="font-medium text-foreground">
-                  Round {summary.roundNumber}: {summary.title}
+                  Rodada {summary.roundNumber}: {summary.title}
                 </p>
                 <div className="mt-1 flex flex-wrap gap-2">
                   {Object.entries(summary.pointsByParticipant)

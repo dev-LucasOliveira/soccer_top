@@ -38,7 +38,7 @@ export default function VotePage({
         setTopN(sessionData.topN);
         if (sessionData.currentRound) {
           setRoundLabel(
-            `Round ${sessionData.currentRoundNumber}/${sessionData.totalRounds} · ${sessionData.currentRound.title}`
+            `Rodada ${sessionData.currentRoundNumber}/${sessionData.totalRounds} · ${sessionData.currentRound.title}`
           );
         }
         if (sessionData.status === "completed") {

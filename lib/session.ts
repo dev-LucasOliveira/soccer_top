@@ -1,4 +1,6 @@
 import { prisma } from "@/lib/db";
+import { assertCreator } from "@/lib/creator-auth";
+import { areRoundsValid } from "@/lib/round-config";
 import {
   computeRoundResult,
   computeSessionFinalResult,
@@ -58,37 +60,48 @@ export async function getActiveRound(sessionCode: string) {
 
 export async function advanceSession(
   sessionCode: string,
-  participantId: string
+  participantId: string,
+  guestToken?: string | null
 ) {
-  const session = await prisma.session.findUnique({
-    where: { code: sessionCode },
+  const { session } = await assertCreator(
+    sessionCode,
+    participantId,
+    guestToken
+  );
+
+  const sessionFull = await prisma.session.findUnique({
+    where: { id: session.id },
     include: {
       participants: { orderBy: { joinedAt: "asc" } },
       rounds: { orderBy: { number: "asc" } },
     },
   });
 
-  if (!session) {
-    throw new Error("Session não encontrada");
+  if (!sessionFull) {
+    throw new Error("Sala não encontrada");
   }
 
-  if (session.creatorParticipantId !== participantId) {
-    throw new Error("Apenas o criador pode avançar a fase");
+  const currentRound = getCurrentRound(sessionFull);
+  if (!currentRound && sessionFull.status !== "setup") {
+    throw new Error("Rodada não encontrada");
   }
 
-  const currentRound = getCurrentRound(session);
-  if (!currentRound) {
-    throw new Error("Round não encontrado");
-  }
-
-  if (session.status === "setup") {
-    if (session.participants.length < 2) {
+  if (sessionFull.status === "setup") {
+    if (sessionFull.participants.length < 2) {
       throw new Error("Mínimo de 2 participantes para iniciar");
+    }
+
+    if (!areRoundsValid(sessionFull.rounds)) {
+      throw new Error("Configure pelo menos 1 rodada válida antes de iniciar");
+    }
+
+    if (!currentRound) {
+      throw new Error("Rodada não encontrada");
     }
 
     await prisma.$transaction([
       prisma.session.update({
-        where: { id: session.id },
+        where: { id: sessionFull.id },
         data: { status: "active" },
       }),
       prisma.round.update({
@@ -96,18 +109,22 @@ export async function advanceSession(
         data: { status: "open" },
       }),
     ]);
-  } else if (session.status === "active") {
+  } else if (sessionFull.status === "active") {
+    if (!currentRound) {
+      throw new Error("Rodada não encontrada");
+    }
+
     if (currentRound.status === "open") {
-      const allConfirmed = session.participants.every(
+      const allConfirmed = sessionFull.participants.every(
         (p) => p.status === "confirmed"
       );
       if (!allConfirmed) {
         throw new Error(
-          "Todos os participantes precisam confirmar o top antes de avançar"
+          "Todos os participantes precisam confirmar o ranking antes de avançar"
         );
       }
 
-      const listAliases = generateListAliases(session.participants);
+      const listAliases = generateListAliases(sessionFull.participants);
 
       await prisma.round.update({
         where: { id: currentRound.id },
@@ -120,7 +137,7 @@ export async function advanceSession(
       const votes = await prisma.vote.count({
         where: { roundId: currentRound.id },
       });
-      if (votes < session.participants.length) {
+      if (votes < sessionFull.participants.length) {
         throw new Error("Todos os participantes precisam votar antes de encerrar");
       }
 
@@ -135,10 +152,10 @@ export async function advanceSession(
         },
       });
 
-      if (!roundFull) throw new Error("Round não encontrado");
+      if (!roundFull) throw new Error("Rodada não encontrada");
 
       const aliases = parseListAliases(roundFull.listAliases);
-      const participantsWithPicks = session.participants.map((p) => ({
+      const participantsWithPicks = sessionFull.participants.map((p) => ({
         id: p.id,
         displayName: p.displayName,
         picks: roundFull.picks
@@ -158,12 +175,12 @@ export async function advanceSession(
         currentRound.title
       );
 
-      const totalRounds = session.rounds.length;
+      const totalRounds = sessionFull.rounds.length;
       const isLastRound = currentRound.number >= totalRounds;
 
       if (isLastRound) {
         const allRoundResults = await prisma.roundResult.findMany({
-          where: { round: { sessionId: session.id } },
+          where: { round: { sessionId: sessionFull.id } },
           include: { round: true },
           orderBy: { round: { number: "asc" } },
         });
@@ -174,7 +191,7 @@ export async function advanceSession(
         existingResults.push(resultData);
 
         const finalResult = computeSessionFinalResult(
-          session.participants,
+          sessionFull.participants,
           existingResults
         );
 
@@ -192,13 +209,13 @@ export async function advanceSession(
             update: { data: JSON.stringify(resultData) },
           }),
           prisma.session.update({
-            where: { id: session.id },
+            where: { id: sessionFull.id },
             data: { status: "completed" },
           }),
           prisma.sessionResult.upsert({
-            where: { sessionId: session.id },
+            where: { sessionId: sessionFull.id },
             create: {
-              sessionId: session.id,
+              sessionId: sessionFull.id,
               data: JSON.stringify(finalResult),
             },
             update: { data: JSON.stringify(finalResult) },
@@ -221,16 +238,16 @@ export async function advanceSession(
         ]);
       }
     } else if (currentRound.status === "completed") {
-      const nextRound = session.rounds.find(
-        (r) => r.number === session.currentRoundNumber + 1
+      const nextRound = sessionFull.rounds.find(
+        (r) => r.number === sessionFull.currentRoundNumber + 1
       );
       if (!nextRound) {
-        throw new Error("Não há próximo round");
+        throw new Error("Não há próxima rodada");
       }
 
       await prisma.$transaction([
         prisma.session.update({
-          where: { id: session.id },
+          where: { id: sessionFull.id },
           data: { currentRoundNumber: nextRound.number },
         }),
         prisma.round.update({
@@ -238,15 +255,15 @@ export async function advanceSession(
           data: { status: "open" },
         }),
         prisma.participant.updateMany({
-          where: { sessionId: session.id },
+          where: { sessionId: sessionFull.id },
           data: { status: "building", confirmedAt: null },
         }),
       ]);
     } else {
-      throw new Error("Round não está em fase avançável");
+      throw new Error("Rodada não está em fase avançável");
     }
   } else {
-    throw new Error("Session já finalizada");
+    throw new Error("Sala já finalizada");
   }
 
   return getSessionWithRounds(sessionCode);
@@ -259,15 +276,15 @@ export async function getVoteState(
   const { session, round } = await getActiveRound(sessionCode);
 
   if (!session) {
-    throw new Error("Session não encontrada");
+    throw new Error("Sala não encontrada");
   }
 
   if (!round) {
-    throw new Error("Round não encontrado");
+    throw new Error("Rodada não encontrada");
   }
 
   if (round.status !== "voting") {
-    throw new Error("Round não está em fase de votação");
+    throw new Error("Rodada não está em fase de votação");
   }
 
   const aliases = parseListAliases(round.listAliases);
@@ -327,7 +344,7 @@ export async function castVote(
   const { session, round } = await getActiveRound(sessionCode);
 
   if (!session) {
-    throw new Error("Session não encontrada");
+    throw new Error("Sala não encontrada");
   }
 
   if (!round || round.status !== "voting") {
@@ -349,14 +366,14 @@ export async function castVote(
   }
 
   if (targetParticipantId === voterParticipantId) {
-    throw new Error("Você não pode votar no seu próprio top");
+    throw new Error("Você não pode votar no seu próprio ranking");
   }
 
   const existingVote = round.votes.find(
     (v) => v.voterParticipantId === voterParticipantId
   );
   if (existingVote) {
-    throw new Error("Você já votou neste round");
+    throw new Error("Você já votou nesta rodada");
   }
 
   await prisma.vote.create({

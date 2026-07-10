@@ -17,7 +17,7 @@ export async function GET(request: Request) {
         include: { rounds: { orderBy: { number: "asc" } } },
       });
       if (!session) {
-        return NextResponse.json({ error: "Session não encontrada" }, { status: 404 });
+        return NextResponse.json({ error: "Sala não encontrada" }, { status: 404 });
       }
       const currentRound = getCurrentRound(session);
       filters = parseFilters(currentRound?.filters ?? "{}");

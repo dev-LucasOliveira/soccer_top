@@ -34,7 +34,7 @@ export default function ResultsPage({
       setTitle(data.title);
 
       if (data.status !== "completed" || !data.result) {
-        setError("A session ainda não foi finalizada");
+        setError("A sala ainda não foi finalizada");
       } else {
         setResult(data.result);
       }
@@ -60,7 +60,7 @@ export default function ResultsPage({
           href={`/s/${code}`}
           className="mb-6 inline-block text-sm text-off-white/70 hover:text-off-white"
         >
-          ← Voltar ao lobby
+          ← Voltar à sala
         </Link>
         <p className="text-center text-red-300">{error || "Resultados indisponíveis"}</p>
       </main>

@@ -31,7 +31,7 @@ function normalizeSessionResult(
     roundSummaries: [
       {
         roundNumber: 1,
-        title: "Round 1",
+        title: "Rodada 1",
         pointsByParticipant: Object.fromEntries(
           legacy.voteRanking.map((e) => [e.participantId, e.voteCount])
         ),
@@ -44,7 +44,7 @@ function normalizeSessionResult(
           legacy.voteRanking.map((e) => [e.participantId, e.voteCount])
         ),
         roundNumber: 1,
-        roundTitle: "Round 1",
+        roundTitle: "Rodada 1",
       },
     },
   };
@@ -72,7 +72,7 @@ export async function GET(request: Request, context: RouteContext) {
     });
 
     if (!session) {
-      return NextResponse.json({ error: "Session não encontrada" }, { status: 404 });
+      return NextResponse.json({ error: "Sala não encontrada" }, { status: 404 });
     }
 
     const currentRoundRecord = getCurrentRound(session);
@@ -178,11 +178,13 @@ export async function GET(request: Request, context: RouteContext) {
       currentRound,
       participants: session.participants,
       voteProgress: sessionPayload.voteProgress,
+      rounds: session.rounds,
     });
 
     const advanceAction = getAdvanceAction({
       ...sessionPayload,
       isCreator,
+      rounds: session.rounds,
     });
 
     return NextResponse.json({
@@ -195,7 +197,7 @@ export async function GET(request: Request, context: RouteContext) {
   } catch (error) {
     console.error(error);
     return NextResponse.json(
-      { error: "Erro ao buscar session" },
+      { error: "Erro ao buscar sala" },
       { status: 500 }
     );
   }

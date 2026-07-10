@@ -22,19 +22,19 @@ export async function POST(request: Request, context: RouteContext) {
     });
 
     if (!session) {
-      return NextResponse.json({ error: "Session não encontrada" }, { status: 404 });
+      return NextResponse.json({ error: "Sala não encontrada" }, { status: 404 });
     }
 
     if (session.status === "completed") {
       return NextResponse.json(
-        { error: "Session já finalizada" },
+        { error: "Sala já finalizada" },
         { status: 400 }
       );
     }
 
     if (session.status !== "setup") {
       return NextResponse.json(
-        { error: "Session já iniciada — não é possível entrar" },
+        { error: "Sala já iniciada — não é possível entrar" },
         { status: 400 }
       );
     }
@@ -68,6 +68,6 @@ export async function POST(request: Request, context: RouteContext) {
     });
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: "Erro ao entrar na session" }, { status: 500 });
+    return NextResponse.json({ error: "Erro ao entrar na sala" }, { status: 500 });
   }
 }

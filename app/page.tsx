@@ -1,5 +1,6 @@
 import { SessionForm } from "@/components/session-form";
 import { JoinForm } from "@/components/join-form";
+import { APP_NAME, APP_SLOGAN } from "@/lib/branding";
 
 export default function HomePage() {
   return (
@@ -9,18 +10,16 @@ export default function HomePage() {
           ⚽
         </div>
         <h1 className="text-3xl font-bold text-off-white sm:text-4xl">
-          Monte seu Top
+          {APP_NAME}
         </h1>
-        <p className="mt-2 text-off-white/80">
-          Crie uma session, chame os amigos e compare os rankings — cada um no seu tempo
-        </p>
+        <p className="mt-2 text-off-white/80">{APP_SLOGAN}</p>
       </div>
 
       <div className="mb-6 grid gap-3 sm:grid-cols-3">
         {[
-          { icon: "🎯", text: "Defina o Top N e os filtros" },
-          { icon: "🔗", text: "Compartilhe o link da session" },
-          { icon: "🏆", text: "Compare os tops no final" },
+          { icon: "🎯", text: "Crie a sala e configure as rodadas" },
+          { icon: "🔗", text: "Compartilhe o código da sala" },
+          { icon: "🏆", text: "Compare os rankings no final" },
         ].map((item) => (
           <div
             key={item.text}
@@ -38,7 +37,7 @@ export default function HomePage() {
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gold text-sm text-foreground">
               1
             </span>
-            Criar session
+            Criar sala
           </h2>
           <SessionForm />
         </div>
@@ -47,7 +46,7 @@ export default function HomePage() {
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-off-white/20 text-sm">
               2
             </span>
-            Entrar em uma session
+            Entrar em uma sala
           </h2>
           <JoinForm />
         </div>

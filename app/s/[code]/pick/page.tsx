@@ -47,7 +47,7 @@ export default function PickPage({
         setTopN(sessionData.topN);
         if (sessionData.currentRound) {
           setRoundLabel(
-            `Round ${sessionData.currentRoundNumber}/${sessionData.totalRounds} · ${sessionData.currentRound.title}`
+            `Rodada ${sessionData.currentRoundNumber}/${sessionData.totalRounds} · ${sessionData.currentRound.title}`
           );
         }
         if (sessionData.status === "completed") {
@@ -97,7 +97,7 @@ export default function PickPage({
       <SessionHeader
         title={title}
         code={code}
-        stepLabel={roundLabel || "Montando top"}
+        stepLabel={roundLabel || "Montando ranking"}
         topN={topN}
         backHref={`/s/${code}`}
       />

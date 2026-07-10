@@ -90,7 +90,7 @@ export function VoteView({
     <div className="space-y-5 pb-24">
       <div className="text-center">
         <p className="text-sm text-off-white/70">
-          Escolha o melhor top — os autores são revelados só no final
+          Escolha o melhor ranking — os autores são revelados só no final
         </p>
         <Badge variant="gold" className="mt-3">
           {state.votedCount}/{state.totalVoters} votaram
@@ -123,7 +123,7 @@ export function VoteView({
                 <div>
                   <h3 className="font-bold">{formatListLabel(list.alias)}</h3>
                   {isMine && (
-                    <p className="text-xs text-off-white/70">Seu top</p>
+                    <p className="text-xs text-off-white/70">Seu ranking</p>
                   )}
                 </div>
                 <Badge variant="gold">{list.voteCount} votos</Badge>

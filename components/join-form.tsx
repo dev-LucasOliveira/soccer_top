@@ -45,7 +45,7 @@ export function JoinForm({ defaultCode }: { defaultCode?: string }) {
     <Card>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="mb-1 block text-sm font-medium">Código da session</label>
+          <label className="mb-1 block text-sm font-medium">Código da sala</label>
           <Input
             value={code}
             onChange={(e) => setCode(e.target.value)}
@@ -67,7 +67,7 @@ export function JoinForm({ defaultCode }: { defaultCode?: string }) {
         {error && <p className="text-sm text-red-600">{error}</p>}
 
         <Button type="submit" variant="secondary" disabled={loading} className="w-full">
-          {loading ? "Entrando..." : "Entrar na session"}
+          {loading ? "Entrando..." : "Entrar na sala"}
         </Button>
       </form>
     </Card>

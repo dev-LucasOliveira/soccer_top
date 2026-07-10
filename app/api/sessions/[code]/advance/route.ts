@@ -7,7 +7,10 @@ export async function POST(request: Request, context: RouteContext) {
   try {
     const { code } = await context.params;
     const body = await request.json();
-    const { participantId } = body as { participantId: string };
+    const { participantId, guestToken } = body as {
+      participantId: string;
+      guestToken?: string;
+    };
 
     if (!participantId) {
       return NextResponse.json(
@@ -16,7 +19,7 @@ export async function POST(request: Request, context: RouteContext) {
       );
     }
 
-    await advanceSession(code, participantId);
+    await advanceSession(code, participantId, guestToken);
 
     return NextResponse.json({ success: true });
   } catch (error) {

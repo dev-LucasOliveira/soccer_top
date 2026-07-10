@@ -48,7 +48,7 @@ export default function SessionPage({
           </Link>
           <div>
             <h2 className="mb-4 text-center text-lg font-bold text-off-white">
-              Entrar na session
+              Entrar na sala
             </h2>
             <JoinForm defaultCode={code} />
           </div>

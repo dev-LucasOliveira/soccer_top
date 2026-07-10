@@ -33,7 +33,7 @@ export async function GET(request: Request, context: RouteContext) {
 
     const currentRound = getCurrentRound(session);
     if (!currentRound) {
-      return NextResponse.json({ error: "Round não encontrado" }, { status: 404 });
+      return NextResponse.json({ error: "Rodada não encontrada" }, { status: 404 });
     }
 
     const participant = session.participants[0];
@@ -62,7 +62,7 @@ export async function GET(request: Request, context: RouteContext) {
     });
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: "Erro ao buscar picks" }, { status: 500 });
+    return NextResponse.json({ error: "Erro ao buscar ranking" }, { status: 500 });
   }
 }
 
@@ -92,17 +92,17 @@ export async function PUT(request: Request, context: RouteContext) {
     });
 
     if (!session) {
-      return NextResponse.json({ error: "Session não encontrada" }, { status: 404 });
+      return NextResponse.json({ error: "Sala não encontrada" }, { status: 404 });
     }
 
     const currentRound = getCurrentRound(session);
     if (!currentRound) {
-      return NextResponse.json({ error: "Round não encontrado" }, { status: 404 });
+      return NextResponse.json({ error: "Rodada não encontrada" }, { status: 404 });
     }
 
     if (session.status !== "active" || currentRound.status !== "open") {
       return NextResponse.json(
-        { error: "Round não aceita mais alterações de top" },
+        { error: "Rodada não aceita mais alterações de ranking" },
         { status: 400 }
       );
     }
@@ -114,7 +114,7 @@ export async function PUT(request: Request, context: RouteContext) {
 
     if (participant.status === "confirmed") {
       return NextResponse.json(
-        { error: "Top já confirmado, não pode ser editado" },
+        { error: "Ranking já confirmado, não pode ser editado" },
         { status: 400 }
       );
     }
@@ -131,7 +131,7 @@ export async function PUT(request: Request, context: RouteContext) {
       const uniqueRanks = new Set(ranks);
       if (uniqueRanks.size !== ranks.length) {
         return NextResponse.json(
-          { error: "Ranks duplicados não são permitidos" },
+          { error: "Posições duplicadas não são permitidas" },
           { status: 400 }
         );
       }
@@ -185,6 +185,6 @@ export async function PUT(request: Request, context: RouteContext) {
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: "Erro ao salvar picks" }, { status: 500 });
+    return NextResponse.json({ error: "Erro ao salvar ranking" }, { status: 500 });
   }
 }

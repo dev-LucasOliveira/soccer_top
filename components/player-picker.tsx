@@ -117,7 +117,7 @@ export function PlayerPicker({
     <div className="space-y-4">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <h2 className="text-lg font-bold text-off-white">
-          ⚽ Monte seu Top {topN}{" "}
+          ⚽ Monte seu ranking de {topN}{" "}
           <span className="text-sm font-normal text-off-white/60">
             ({top.length}/{topN})
           </span>
@@ -131,7 +131,7 @@ export function PlayerPicker({
 
       <div className="grid gap-4 lg:grid-cols-2">
         <Card className="space-y-3">
-          <h3 className="font-bold text-foreground">Seu Top</h3>
+          <h3 className="font-bold text-foreground">Seu ranking</h3>
           <TopList
             items={top}
             onReorder={setTop}
@@ -187,7 +187,7 @@ export function PlayerPicker({
           disabled={saving || !isComplete}
           className="w-full"
         >
-          {saving ? "Confirmando..." : "Confirmar top"}
+          {saving ? "Confirmando..." : "Confirmar ranking"}
         </Button>
       )}
     </div>
