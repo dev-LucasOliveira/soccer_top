@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { SessionHeader } from "@/components/session-header";
 import { StandingsTable } from "@/components/standings-table";
-import { WinningListCard } from "@/components/winning-list-card";
+import { MyRankingCard } from "@/components/my-ranking-card";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { getGuestToken } from "@/lib/guest";
@@ -12,11 +12,13 @@ import {
   buildParticipantPath,
   getWaitingMessage,
 } from "@/lib/session-info";
-import type {
-  CurrentRound,
-  StandingEntry,
-  WinningList,
-} from "@/lib/types";
+import type { CurrentRound, StandingEntry } from "@/lib/types";
+
+type MyPicksData = {
+  roundNumber: number;
+  roundTitle: string;
+  picks: { rank: number; playerName: string }[];
+};
 
 type SessionStatusData = {
   status: string;
@@ -27,7 +29,6 @@ type SessionStatusData = {
   currentRound: CurrentRound | null;
   isCreator: boolean;
   standings: StandingEntry[];
-  lastWinningList: WinningList | null;
   participants: {
     id: string;
     status: string;
@@ -50,26 +51,47 @@ export function SessionStatusView({
 }) {
   const router = useRouter();
   const [session, setSession] = useState<SessionStatusData | null>(null);
+  const [myPicks, setMyPicks] = useState<MyPicksData | null>(null);
   const [loading, setLoading] = useState(true);
   const [advancing, setAdvancing] = useState(false);
   const [advanceError, setAdvanceError] = useState("");
 
-  const fetchSession = useCallback(async () => {
+  const fetchData = useCallback(async () => {
     try {
-      const res = await fetch(
-        `/api/sessions/${code}?participantId=${participantId}`
-      );
-      const data = await res.json();
-      if (!res.ok) return;
+      const [sessionRes, picksRes] = await Promise.all([
+        fetch(`/api/sessions/${code}?participantId=${participantId}`),
+        fetch(`/api/sessions/${code}/picks?participantId=${participantId}`),
+      ]);
 
-      setSession(data);
+      const sessionData = await sessionRes.json();
+      if (!sessionRes.ok) return;
 
-      if (data.status === "setup") {
+      setSession(sessionData);
+
+      if (picksRes.ok) {
+        const picksData = await picksRes.json();
+        if (picksData.picks?.length > 0) {
+          setMyPicks({
+            roundNumber: picksData.roundNumber,
+            roundTitle: picksData.roundTitle,
+            picks: picksData.picks.map(
+              (p: { rank: number; playerName: string }) => ({
+                rank: p.rank,
+                playerName: p.playerName,
+              })
+            ),
+          });
+        } else {
+          setMyPicks(null);
+        }
+      }
+
+      if (sessionData.status === "setup") {
         router.replace(`/s/${code}`);
         return;
       }
 
-      const targetPath = buildParticipantPath(code, data, participantId);
+      const targetPath = buildParticipantPath(code, sessionData, participantId);
       if (!targetPath.endsWith("/status")) {
         router.replace(targetPath);
       }
@@ -79,10 +101,10 @@ export function SessionStatusView({
   }, [code, participantId, router]);
 
   useEffect(() => {
-    fetchSession();
-    const interval = setInterval(fetchSession, 5000);
+    fetchData();
+    const interval = setInterval(fetchData, 5000);
     return () => clearInterval(interval);
-  }, [fetchSession]);
+  }, [fetchData]);
 
   async function handleAdvance() {
     if (!session?.advanceAction) return;
@@ -105,7 +127,7 @@ export function SessionStatusView({
       if (redirect) {
         router.push(`/s/${code}${redirect}`);
       } else {
-        await fetchSession();
+        await fetchData();
       }
     } catch (err) {
       setAdvanceError(
@@ -129,9 +151,7 @@ export function SessionStatusView({
   }
 
   const roundTitle =
-    session.currentRound?.title ??
-    session.lastWinningList?.roundTitle ??
-    session.title;
+    session.currentRound?.title ?? myPicks?.roundTitle ?? session.title;
   const stepLabel =
     session.currentRound?.status === "completed"
       ? `Rodada ${session.currentRoundNumber}/${session.totalRounds} encerrada`
@@ -159,11 +179,15 @@ export function SessionStatusView({
         />
       )}
 
-      {session.lastWinningList ? (
-        <WinningListCard list={session.lastWinningList} />
+      {myPicks ? (
+        <MyRankingCard
+          roundNumber={myPicks.roundNumber}
+          roundTitle={myPicks.roundTitle}
+          picks={myPicks.picks}
+        />
       ) : (
         <Card className="px-4 py-6 text-center text-sm text-text-muted">
-          A lista vitoriosa aparece após a primeira votação.
+          Seu ranking aparece aqui após confirmar.
         </Card>
       )}
 
