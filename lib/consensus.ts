@@ -57,13 +57,16 @@ export function computeVoteRanking(
 export function computeSessionResult(
   participants: ParticipantWithPicks[],
   votes: VoteRecord[],
-  aliases: Record<string, string>
+  aliases: Record<string, string>,
+  messages: Record<string, string | null | undefined> = {}
 ): SessionResultData {
   const participantTops: SessionResultData["participantTops"] = {};
 
   for (const participant of participants) {
+    const message = messages[participant.id] ?? null;
     participantTops[participant.id] = {
       displayName: participant.displayName,
+      ...(message ? { message } : {}),
       picks: participant.picks
         .sort((a, b) => a.rank - b.rank)
         .map((p) => ({
@@ -87,9 +90,10 @@ export function computeRoundResult(
   votes: VoteRecord[],
   aliases: Record<string, string>,
   roundNumber: number,
-  roundTitle: string
+  roundTitle: string,
+  messages: Record<string, string | null | undefined> = {}
 ): RoundResultData {
-  const base = computeSessionResult(participants, votes, aliases);
+  const base = computeSessionResult(participants, votes, aliases, messages);
   const pointsByParticipant = awardRoundPoints(base.voteRanking);
 
   const voteRanking = base.voteRanking.map((entry) => ({

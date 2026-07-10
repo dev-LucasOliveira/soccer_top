@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { TopList } from "@/components/top-list";
+import { LIST_MESSAGE_MAX_LENGTH } from "@/lib/constants";
 import { Plus } from "lucide-react";
 
 type Player = {
@@ -27,18 +28,21 @@ export function PlayerPicker({
   participantId,
   topN,
   initialPicks,
+  initialMessage = "",
   confirmed,
 }: {
   sessionCode: string;
   participantId: string;
   topN: number;
   initialPicks: TopItem[];
+  initialMessage?: string;
   confirmed: boolean;
 }) {
   const router = useRouter();
   const [players, setPlayers] = useState<Player[]>([]);
   const [search, setSearch] = useState("");
   const [top, setTop] = useState<TopItem[]>(initialPicks);
+  const [message, setMessage] = useState(initialMessage);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
@@ -105,7 +109,12 @@ export function PlayerPicker({
       const res = await fetch(`/api/sessions/${sessionCode}/picks`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ participantId, picks, confirm }),
+        body: JSON.stringify({
+          participantId,
+          picks,
+          message: message.trim() || null,
+          confirm,
+        }),
       });
 
       const data = await res.json();
@@ -191,6 +200,30 @@ export function PlayerPicker({
           </Card>
         )}
       </div>
+
+      {!confirmed && (
+        <Card className="space-y-2">
+          <div className="flex items-center justify-between gap-3">
+            <label htmlFor="list-message" className="text-sm font-medium text-foreground">
+              Mensagem da lista (opcional)
+            </label>
+            <span className="text-xs text-text-muted">
+              {message.length}/{LIST_MESSAGE_MAX_LENGTH}
+            </span>
+          </div>
+          <textarea
+            id="list-message"
+            value={message}
+            onChange={(e) =>
+              setMessage(e.target.value.slice(0, LIST_MESSAGE_MAX_LENGTH))
+            }
+            maxLength={LIST_MESSAGE_MAX_LENGTH}
+            rows={2}
+            placeholder="Justifique sua lista em poucas palavras..."
+            className="w-full resize-none rounded-xl border border-card-border bg-white px-3 py-2.5 text-sm text-foreground placeholder:text-text-muted focus:border-pitch/50 focus:outline-none focus:ring-2 focus:ring-pitch/20"
+          />
+        </Card>
+      )}
 
       {error && <p className="text-sm text-red-600">{error}</p>}
 

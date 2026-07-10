@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ListMessage } from "@/components/list-message";
 import { formatListLabel } from "@/lib/voting";
 import type { WinningList } from "@/lib/types";
 
@@ -26,6 +27,7 @@ export function WinningListCard({
       <div className="border-b border-card-border px-4 py-2 text-sm text-text-muted">
         {list.winnerName} · {formatListLabel(list.alias)}
       </div>
+      <ListMessage message={list.message} />
       <div className="space-y-1.5 p-4">
         {list.picks.map((pick) => (
           <div

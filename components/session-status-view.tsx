@@ -17,6 +17,7 @@ import type { CurrentRound, StandingEntry } from "@/lib/types";
 type MyPicksData = {
   roundNumber: number;
   roundTitle: string;
+  message?: string | null;
   picks: { rank: number; playerName: string }[];
 };
 
@@ -74,6 +75,7 @@ export function SessionStatusView({
           setMyPicks({
             roundNumber: picksData.roundNumber,
             roundTitle: picksData.roundTitle,
+            message: picksData.message ?? null,
             picks: picksData.picks.map(
               (p: { rank: number; playerName: string }) => ({
                 rank: p.rank,
@@ -182,6 +184,7 @@ export function SessionStatusView({
         <MyRankingCard
           roundNumber={myPicks.roundNumber}
           roundTitle={myPicks.roundTitle}
+          message={myPicks.message}
           picks={myPicks.picks}
         />
       ) : (

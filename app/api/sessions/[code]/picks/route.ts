@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { getCurrentRound } from "@/lib/round";
+import { normalizeListMessage } from "@/lib/ranking-message";
 
 type RouteContext = { params: Promise<{ code: string }> };
 
@@ -38,20 +39,31 @@ export async function GET(request: Request, context: RouteContext) {
 
     const participant = session.participants[0];
 
-    const picks = await prisma.pick.findMany({
-      where: {
-        roundId: currentRound.id,
-        participantId,
-      },
-      include: { player: true },
-      orderBy: { rank: "asc" },
-    });
+    const [picks, rankingMeta] = await Promise.all([
+      prisma.pick.findMany({
+        where: {
+          roundId: currentRound.id,
+          participantId,
+        },
+        include: { player: true },
+        orderBy: { rank: "asc" },
+      }),
+      prisma.rankingMeta.findUnique({
+        where: {
+          roundId_participantId: {
+            roundId: currentRound.id,
+            participantId,
+          },
+        },
+      }),
+    ]);
 
     return NextResponse.json({
       status: participant.status,
       roundNumber: currentRound.number,
       roundTitle: currentRound.title,
       topN: currentRound.topN,
+      message: rankingMeta?.message ?? null,
       picks: picks.map((p) => ({
         rank: p.rank,
         playerId: p.playerId,
@@ -70,9 +82,10 @@ export async function PUT(request: Request, context: RouteContext) {
   try {
     const { code } = await context.params;
     const body = await request.json();
-    const { participantId, picks, confirm } = body as {
+    const { participantId, picks, message, confirm } = body as {
       participantId: string;
       picks?: { playerId: string; rank: number }[];
+      message?: string | null;
       confirm?: boolean;
     };
 
@@ -119,6 +132,18 @@ export async function PUT(request: Request, context: RouteContext) {
       );
     }
 
+    let normalizedMessage: string | null = null;
+    if (message !== undefined) {
+      try {
+        normalizedMessage = normalizeListMessage(message);
+      } catch (err) {
+        return NextResponse.json(
+          { error: err instanceof Error ? err.message : "Mensagem inválida" },
+          { status: 400 }
+        );
+      }
+    }
+
     if (picks) {
       if (picks.length > currentRound.topN) {
         return NextResponse.json(
@@ -160,6 +185,34 @@ export async function PUT(request: Request, context: RouteContext) {
           })
         ),
       ]);
+    }
+
+    if (message !== undefined) {
+      if (normalizedMessage) {
+        await prisma.rankingMeta.upsert({
+          where: {
+            roundId_participantId: {
+              roundId: currentRound.id,
+              participantId,
+            },
+          },
+          create: {
+            roundId: currentRound.id,
+            participantId,
+            message: normalizedMessage,
+          },
+          update: {
+            message: normalizedMessage,
+          },
+        });
+      } else {
+        await prisma.rankingMeta.deleteMany({
+          where: {
+            roundId: currentRound.id,
+            participantId,
+          },
+        });
+      }
     }
 
     if (confirm) {

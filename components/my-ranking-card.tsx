@@ -1,12 +1,15 @@
 import { Card } from "@/components/ui/card";
+import { ListMessage } from "@/components/list-message";
 
 export function MyRankingCard({
   roundNumber,
   roundTitle,
+  message,
   picks,
 }: {
   roundNumber: number;
   roundTitle: string;
+  message?: string | null;
   picks: { rank: number; playerName: string }[];
 }) {
   return (
@@ -17,6 +20,7 @@ export function MyRankingCard({
           Rodada {roundNumber}: {roundTitle}
         </p>
       </div>
+      <ListMessage message={message} />
       <div className="space-y-1.5 p-4">
         {picks.map((pick) => (
           <div

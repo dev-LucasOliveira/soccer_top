@@ -10,6 +10,7 @@ import { WinningListCard } from "@/components/winning-list-card";
 import { downloadResultsImage } from "@/lib/export-results-image";
 import { getRoundWinningList } from "@/lib/round-result";
 import { formatListLabel } from "@/lib/voting";
+import { ListMessage } from "@/components/list-message";
 import type { RoundResultData, SessionFinalResult } from "@/lib/types";
 
 function RoundRanking({ roundResult }: { roundResult: RoundResultData }) {
@@ -37,6 +38,7 @@ function RoundRanking({ roundResult }: { roundResult: RoundResultData }) {
                 </div>
               </div>
             </div>
+            <ListMessage message={top.message} />
             <div className="space-y-1.5 p-4">
               {top.picks.map((pick) => (
                 <div

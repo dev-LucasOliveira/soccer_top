@@ -26,6 +26,7 @@ export default function PickPage({
   const [roundTitle, setRoundTitle] = useState("");
   const [stepLabel, setStepLabel] = useState("");
   const [picks, setPicks] = useState<Pick[]>([]);
+  const [initialMessage, setInitialMessage] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -70,6 +71,7 @@ export default function PickPage({
       const picksData = await picksRes.json();
       if (picksRes.ok) {
         setPicks(picksData.picks);
+        setInitialMessage(picksData.message ?? "");
         setConfirmed(picksData.status === "confirmed");
         if (picksData.status === "confirmed") {
           router.push(`/s/${p.code}/status`);
@@ -112,6 +114,7 @@ export default function PickPage({
         participantId={participantId}
         topN={topN}
         initialPicks={topItems}
+        initialMessage={initialMessage}
         confirmed={confirmed}
       />
     </main>

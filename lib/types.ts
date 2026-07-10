@@ -42,7 +42,11 @@ export type VoteRankingEntry = {
 export type SessionResultData = {
   participantTops: Record<
     string,
-    { displayName: string; picks: { rank: number; playerId: string; playerName: string }[] }
+    {
+      displayName: string;
+      message?: string | null;
+      picks: { rank: number; playerId: string; playerName: string }[];
+    }
   >;
   voteRanking: VoteRankingEntry[];
 };
@@ -66,6 +70,7 @@ export type WinningList = {
   winnerName: string;
   alias: string;
   voteCount: number;
+  message?: string | null;
   picks: { rank: number; playerName: string }[];
 };
 
@@ -90,6 +95,7 @@ export type AnonymousPick = {
 
 export type AnonymousList = {
   alias: string;
+  message?: string | null;
   picks: AnonymousPick[];
   voteCount: number;
 };

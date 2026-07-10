@@ -161,6 +161,12 @@ export async function advanceSession(
       if (!roundFull) throw new Error("Rodada não encontrada");
 
       const aliases = parseListAliases(roundFull.listAliases);
+      const rankingMeta = await prisma.rankingMeta.findMany({
+        where: { roundId: currentRound.id },
+      });
+      const messages = Object.fromEntries(
+        rankingMeta.map((meta) => [meta.participantId, meta.message])
+      );
       const participantsWithPicks = sessionFull.participants.map((p) => ({
         id: p.id,
         displayName: p.displayName,
@@ -178,7 +184,8 @@ export async function advanceSession(
         roundFull.votes,
         aliases,
         currentRound.number,
-        currentRound.title
+        currentRound.title,
+        messages
       );
 
       const totalRounds = sessionFull.rounds.length;
@@ -294,6 +301,12 @@ export async function getVoteState(
   }
 
   const aliases = parseListAliases(round.listAliases);
+  const rankingMeta = await prisma.rankingMeta.findMany({
+    where: { roundId: round.id },
+  });
+  const messagesByParticipant = new Map(
+    rankingMeta.map((meta) => [meta.participantId, meta.message])
+  );
   const voteCounts = new Map<string, number>();
 
   for (const vote of round.votes) {
@@ -320,6 +333,7 @@ export async function getVoteState(
       const picks = picksByParticipant.get(pid) ?? [];
       return {
         alias,
+        message: messagesByParticipant.get(pid) ?? null,
         picks: picks.map((pick) => ({
           rank: pick.rank,
           playerName: pick.player.name,

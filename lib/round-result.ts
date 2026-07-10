@@ -15,6 +15,7 @@ export function getRoundWinningList(
     winnerName: winner.displayName,
     alias: winner.alias,
     voteCount: winner.voteCount,
+    message: top.message ?? null,
     picks: top.picks.map((p) => ({
       rank: p.rank,
       playerName: p.playerName,

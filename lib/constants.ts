@@ -26,3 +26,5 @@ export const POPULAR_TEAMS = [
 ];
 
 export const GUEST_TOKEN_KEY = "soccer_top_guest_token";
+
+export const LIST_MESSAGE_MAX_LENGTH = 80;

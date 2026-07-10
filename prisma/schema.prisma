@@ -57,6 +57,7 @@ model Round {
   picks       Pick[]
   votes       Vote[]
   result      RoundResult?
+  rankingMeta RankingMeta[]
 
   @@unique([sessionId, number])
   @@index([sessionId])
@@ -73,6 +74,7 @@ model Participant {
   joinedAt    DateTime  @default(now())
   confirmedAt DateTime?
   picks       Pick[]
+  rankingMeta RankingMeta[]
 
   @@unique([sessionId, guestToken])
   @@index([sessionId])
@@ -119,4 +121,18 @@ model SessionResult {
   session   Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
   data      String
   createdAt DateTime @default(now())
+}
+
+model RankingMeta {
+  id            String      @id @default(cuid())
+  roundId       String
+  round         Round       @relation(fields: [roundId], references: [id], onDelete: Cascade)
+  participantId String
+  participant   Participant @relation(fields: [participantId], references: [id], onDelete: Cascade)
+  message       String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  @@unique([roundId, participantId])
+  @@index([roundId])
 }

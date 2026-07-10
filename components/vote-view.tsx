@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { formatListLabel } from "@/lib/voting";
+import { ListMessage } from "@/components/list-message";
 import type { VoteState } from "@/lib/types";
 
 export function VoteView({
@@ -132,6 +133,7 @@ export function VoteView({
                 </div>
                 <Badge variant="gold">{list.voteCount} votos</Badge>
               </div>
+              <ListMessage message={list.message} />
               <div className="space-y-1.5 p-4">
                 {list.picks.map((pick) => (
                   <div

@@ -2,6 +2,7 @@
 
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ListMessage } from "@/components/list-message";
 import { StandingsTable } from "@/components/standings-table";
 import { formatListLabel } from "@/lib/voting";
 import type { RoundResultData, StandingEntry } from "@/lib/types";
@@ -93,6 +94,7 @@ export function RoundResultsView({
                 </div>
                 <Badge variant="gold">+{entry.points ?? 0} pts</Badge>
               </div>
+              <ListMessage message={top.message} />
               <div className="space-y-1.5 p-4">
                 {top.picks.map((pick) => (
                   <div
