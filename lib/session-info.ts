@@ -173,7 +173,7 @@ export function getAdvanceAction(session: {
     return {
       canAdvance: allVoted,
       label: isLastRound ? "Ver resultado final" : "Encerrar rodada",
-      redirect: isLastRound ? "/results" : "/round-results",
+      redirect: isLastRound ? "/results" : "/status",
     };
   }
 
@@ -249,4 +249,111 @@ export function formatStandingsLabel(standings: StandingEntry[]): string {
   if (standings.length === 0) return "";
   const leader = standings[0];
   return `${leader.displayName} lidera com ${leader.totalPoints} pts`;
+}
+
+type ParticipantForRouting = {
+  id: string;
+  status: string;
+  hasVoted?: boolean;
+};
+
+type SessionForRouting = {
+  status: string;
+  currentRoundNumber: number;
+  totalRounds: number;
+  currentRound?: CurrentRound | null;
+  participants: ParticipantForRouting[];
+  voteProgress?: { voted: number; total: number };
+};
+
+export function getWaitingMessage(
+  session: SessionForRouting,
+  participantId: string | null
+): string {
+  const count = session.participants.length;
+  const confirmed = session.participants.filter(
+    (p) => p.status === "confirmed"
+  ).length;
+  const voted = session.voteProgress?.voted ?? 0;
+  const myParticipant = participantId
+    ? session.participants.find((p) => p.id === participantId)
+    : null;
+  const roundStatus = session.currentRound?.status;
+
+  if (session.status === "completed") {
+    return "Todas as rodadas encerradas — veja o ranking final.";
+  }
+
+  if (roundStatus === "completed") {
+    if (session.currentRoundNumber < session.totalRounds) {
+      return "Rodada encerrada. Aguardando o criador iniciar a próxima.";
+    }
+    return "Última rodada encerrada. Aguardando o criador ver o resultado final.";
+  }
+
+  if (roundStatus === "voting") {
+    if (voted < count) {
+      return `Aguardando os outros votarem (${voted}/${count})`;
+    }
+    return "Todos votaram! Aguardando o criador encerrar a rodada.";
+  }
+
+  if (roundStatus === "open") {
+    if (myParticipant?.status === "confirmed" && confirmed < count) {
+      return `Aguardando os outros montarem o ranking (${confirmed}/${count} confirmados)`;
+    }
+    if (confirmed >= count) {
+      return "Todos confirmaram! Aguardando o criador iniciar a votação.";
+    }
+  }
+
+  return "Aguardando a próxima etapa.";
+}
+
+export function getParticipantRoute(
+  session: SessionForRouting,
+  participantId: string | null
+): string {
+  if (session.status === "completed") {
+    return "/results";
+  }
+
+  if (session.status === "setup") {
+    return "";
+  }
+
+  const myParticipant = participantId
+    ? session.participants.find((p) => p.id === participantId)
+    : null;
+  const roundStatus = session.currentRound?.status;
+
+  if (roundStatus === "open") {
+    if (!myParticipant || myParticipant.status !== "confirmed") {
+      return "/pick";
+    }
+    return "/status";
+  }
+
+  if (roundStatus === "voting") {
+    if (!myParticipant?.hasVoted) {
+      return "/vote";
+    }
+    return "/status";
+  }
+
+  if (roundStatus === "completed") {
+    return "/status";
+  }
+
+  return "/status";
+}
+
+export function buildParticipantPath(
+  code: string,
+  session: SessionForRouting,
+  participantId: string | null
+): string {
+  const route = getParticipantRoute(session, participantId);
+  if (route === "") return `/s/${code}`;
+  return `/s/${code}${route}`;
 }

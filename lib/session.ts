@@ -5,12 +5,18 @@ import {
   computeRoundResult,
   computeSessionFinalResult,
 } from "@/lib/consensus";
+import { getRoundWinningList } from "@/lib/round-result";
 import { getCurrentRound } from "@/lib/round";
 import {
   generateListAliases,
   parseListAliases,
 } from "@/lib/voting";
-import type { AnonymousList, RoundResultData, VoteState } from "@/lib/types";
+import type {
+  AnonymousList,
+  RoundResultData,
+  VoteState,
+  WinningList,
+} from "@/lib/types";
 
 const sessionInclude = {
   participants: {
@@ -409,4 +415,34 @@ export async function getStandings(sessionCode: string) {
   if (roundResults.length === 0) return [];
 
   return computeSessionFinalResult(session.participants, roundResults).standings;
+}
+
+export async function getLastWinningList(
+  sessionCode: string
+): Promise<WinningList | null> {
+  const session = await getSessionWithRounds(sessionCode);
+  if (!session) return null;
+
+  const lastResult = await prisma.roundResult.findFirst({
+    where: {
+      round: {
+        sessionId: session.id,
+        status: "completed",
+      },
+    },
+    include: { round: true },
+    orderBy: { round: { number: "desc" } },
+  });
+
+  if (!lastResult) return null;
+
+  const data = JSON.parse(lastResult.data) as RoundResultData;
+  const winning = getRoundWinningList({
+    ...data,
+    roundNumber: lastResult.round.number,
+    roundTitle: lastResult.round.title,
+  });
+  if (!winning) return null;
+
+  return winning;
 }

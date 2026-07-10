@@ -63,7 +63,7 @@ export function VoteView({
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
-      router.push(`/s/${sessionCode}`);
+      router.push(`/s/${sessionCode}/status`);
       router.refresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erro ao votar");

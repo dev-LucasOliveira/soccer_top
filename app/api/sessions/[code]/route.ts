@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { parseFilters } from "@/lib/filters";
 import { getCurrentRound, toCurrentRound, toRoundSummary } from "@/lib/round";
-import { getStandings } from "@/lib/session";
+import { getLastWinningList, getStandings } from "@/lib/session";
 import {
   getAdvanceAction,
   getSessionPhase,
@@ -129,7 +129,10 @@ export async function GET(request: Request, context: RouteContext) {
       viewerParticipantId != null &&
       viewerParticipantId === session.creatorParticipantId;
 
-    const standings = await getStandings(code);
+    const [standings, lastWinningList] = await Promise.all([
+      getStandings(code),
+      getLastWinningList(code),
+    ]);
 
     const sessionPayload = {
       id: session.id,
@@ -148,6 +151,7 @@ export async function GET(request: Request, context: RouteContext) {
         total: session.participants.length,
       },
       standings,
+      lastWinningList,
       participants: session.participants.map((p) => ({
         id: p.id,
         displayName: p.displayName,

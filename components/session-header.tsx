@@ -8,6 +8,7 @@ export function SessionHeader({
   topN,
   backHref,
   backLabel = "← Voltar à sala",
+  showCode = true,
 }: {
   title?: string;
   code?: string;
@@ -15,9 +16,10 @@ export function SessionHeader({
   topN?: number;
   backHref?: string;
   backLabel?: string;
+  showCode?: boolean;
 }) {
-  const showTitle =
-    title && code && title !== `Sala ${code}` ? title : undefined;
+  const showTitleSubtitle =
+    showCode && title && code && title !== `Sala ${code}` ? title : undefined;
 
   return (
     <header className="mb-6 space-y-4">
@@ -27,20 +29,20 @@ export function SessionHeader({
             {stepLabel}
           </Badge>
         )}
-        {code ? (
+        {showCode && code ? (
           <>
             <h1 className="text-xl font-bold text-off-white sm:text-2xl">
               <span className="rounded bg-off-white/10 px-3 py-1 font-mono text-gold">
                 {code}
               </span>
             </h1>
-            {showTitle && (
-              <p className="mt-2 text-sm text-off-white/70">{showTitle}</p>
+            {showTitleSubtitle && (
+              <p className="mt-2 text-sm text-off-white/70">{showTitleSubtitle}</p>
             )}
           </>
         ) : (
           title && (
-            <h1 className="text-xl font-bold text-off-white sm:text-2xl">
+            <h1 className="text-2xl font-bold text-off-white sm:text-3xl md:text-4xl">
               {title}
             </h1>
           )

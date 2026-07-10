@@ -70,10 +70,11 @@ export default function ResultsPage({
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
       <SessionHeader
-        title={title}
+        title={title || "Resultado final"}
         code={code}
         stepLabel="Resultado final"
         backHref={`/s/${code}`}
+        showCode={false}
       />
 
       <ResultsView title={title} sessionCode={code} result={result} />

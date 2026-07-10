@@ -60,6 +60,15 @@ export type StandingEntry = {
   rank: number;
 };
 
+export type WinningList = {
+  roundNumber: number;
+  roundTitle: string;
+  winnerName: string;
+  alias: string;
+  voteCount: number;
+  picks: { rank: number; playerName: string }[];
+};
+
 export type SessionFinalResult = {
   standings: StandingEntry[];
   roundSummaries: {

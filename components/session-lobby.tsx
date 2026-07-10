@@ -434,7 +434,7 @@ export function SessionLobby({
         ) : roundStatus === "completed" &&
           session.currentRoundNumber < session.totalRounds ? (
           <>
-            <Link href={`/s/${code}/round-results`}>
+            <Link href={`/s/${code}/status`}>
               <Button variant="secondary" size="lg" className="w-full sm:w-auto">
                 Ver resultado da rodada
               </Button>

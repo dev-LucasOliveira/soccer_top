@@ -1,19 +1,23 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { SessionLobby } from "@/components/session-lobby";
 import { JoinForm } from "@/components/join-form";
 import { getOrCreateGuestToken } from "@/lib/guest";
+import { buildParticipantPath } from "@/lib/session-info";
 
 export default function SessionPage({
   params,
 }: {
   params: Promise<{ code: string }>;
 }) {
+  const router = useRouter();
   const [code, setCode] = useState<string>("");
   const [participantId, setParticipantId] = useState<string | null>(null);
   const [showJoin, setShowJoin] = useState(false);
+  const [checkingRoute, setCheckingRoute] = useState(true);
 
   useEffect(() => {
     params.then((p) => {
@@ -24,9 +28,31 @@ export default function SessionPage({
       } else {
         getOrCreateGuestToken();
         setShowJoin(true);
+        setCheckingRoute(false);
       }
     });
   }, [params]);
+
+  useEffect(() => {
+    if (!code || !participantId) return;
+
+    async function checkRoute() {
+      try {
+        const res = await fetch(
+          `/api/sessions/${code}?participantId=${participantId}`
+        );
+        const data = await res.json();
+        if (res.ok && data.status !== "setup") {
+          router.replace(buildParticipantPath(code, data, participantId));
+          return;
+        }
+      } finally {
+        setCheckingRoute(false);
+      }
+    }
+
+    checkRoute();
+  }, [code, participantId, router]);
 
   if (!code) {
     return (
@@ -36,26 +62,36 @@ export default function SessionPage({
     );
   }
 
+  if (showJoin && !participantId) {
+    return (
+      <main className="mx-auto max-w-2xl px-4 py-8">
+        <Link
+          href="/"
+          className="mb-6 inline-block text-sm text-off-white/70 hover:text-off-white"
+        >
+          ← Voltar
+        </Link>
+        <div>
+          <h2 className="mb-4 text-center text-lg font-bold text-off-white">
+            Entrar na sala
+          </h2>
+          <JoinForm defaultCode={code} />
+        </div>
+      </main>
+    );
+  }
+
+  if (checkingRoute) {
+    return (
+      <main className="mx-auto max-w-2xl px-4 py-12">
+        <p className="text-center text-off-white/70">Carregando...</p>
+      </main>
+    );
+  }
+
   return (
     <main className="mx-auto max-w-2xl px-4 py-8">
-      {showJoin && !participantId ? (
-        <>
-          <Link
-            href="/"
-            className="mb-6 inline-block text-sm text-off-white/70 hover:text-off-white"
-          >
-            ← Voltar
-          </Link>
-          <div>
-            <h2 className="mb-4 text-center text-lg font-bold text-off-white">
-              Entrar na sala
-            </h2>
-            <JoinForm defaultCode={code} />
-          </div>
-        </>
-      ) : (
-        <SessionLobby code={code} participantId={participantId} />
-      )}
+      <SessionLobby code={code} participantId={participantId} />
     </main>
   );
 }

@@ -112,7 +112,7 @@ export function PlayerPicker({
       if (!res.ok) throw new Error(data.error);
 
       if (confirm) {
-        router.push(`/s/${sessionCode}`);
+        router.push(`/s/${sessionCode}/status`);
         router.refresh();
       }
     } catch (err) {

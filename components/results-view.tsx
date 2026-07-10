@@ -6,7 +6,9 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { StandingsTable } from "@/components/standings-table";
+import { WinningListCard } from "@/components/winning-list-card";
 import { downloadResultsImage } from "@/lib/export-results-image";
+import { getRoundWinningList } from "@/lib/round-result";
 import { formatListLabel } from "@/lib/voting";
 import type { RoundResultData, SessionFinalResult } from "@/lib/types";
 
@@ -125,6 +127,18 @@ export function ResultsView({
           standings={result.standings}
           title="Classificação final (pontos do pódio)"
         />
+
+        {roundNumbers.length > 0 && (
+          <div className="space-y-4">
+            <h2 className="font-bold text-off-white">Tops vitoriosos</h2>
+            {roundNumbers.map((num) => {
+              const winning = getRoundWinningList(result.rounds[num]);
+              return winning ? (
+                <WinningListCard key={num} list={winning} />
+              ) : null;
+            })}
+          </div>
+        )}
       </div>
 
       <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">

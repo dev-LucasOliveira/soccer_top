@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { PlayerPicker } from "@/components/player-picker";
 import { SessionHeader } from "@/components/session-header";
+import { buildParticipantPath } from "@/lib/session-info";
 
 type Pick = {
   rank: number;
@@ -22,8 +23,8 @@ export default function PickPage({
   const [code, setCode] = useState("");
   const [participantId, setParticipantId] = useState<string | null>(null);
   const [topN, setTopN] = useState(10);
-  const [title, setTitle] = useState("");
-  const [roundLabel, setRoundLabel] = useState("");
+  const [roundTitle, setRoundTitle] = useState("");
+  const [stepLabel, setStepLabel] = useState("");
   const [picks, setPicks] = useState<Pick[]>([]);
   const [confirmed, setConfirmed] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -43,11 +44,11 @@ export default function PickPage({
       const sessionRes = await fetch(`/api/sessions/${p.code}`);
       const sessionData = await sessionRes.json();
       if (sessionRes.ok) {
-        setTitle(sessionData.title);
         setTopN(sessionData.topN);
         if (sessionData.currentRound) {
-          setRoundLabel(
-            `Rodada ${sessionData.currentRoundNumber}/${sessionData.totalRounds} · ${sessionData.currentRound.title}`
+          setRoundTitle(sessionData.currentRound.title);
+          setStepLabel(
+            `Rodada ${sessionData.currentRoundNumber}/${sessionData.totalRounds}`
           );
         }
         if (sessionData.status === "completed") {
@@ -58,7 +59,7 @@ export default function PickPage({
           sessionData.status !== "active" ||
           sessionData.currentRound?.status !== "open"
         ) {
-          router.push(`/s/${p.code}`);
+          router.push(buildParticipantPath(p.code, sessionData, stored));
           return;
         }
       }
@@ -70,6 +71,10 @@ export default function PickPage({
       if (picksRes.ok) {
         setPicks(picksData.picks);
         setConfirmed(picksData.status === "confirmed");
+        if (picksData.status === "confirmed") {
+          router.push(`/s/${p.code}/status`);
+          return;
+        }
       }
 
       setLoading(false);
@@ -95,11 +100,12 @@ export default function PickPage({
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
       <SessionHeader
-        title={title}
+        title={roundTitle}
         code={code}
-        stepLabel={roundLabel || "Montando ranking"}
+        stepLabel={stepLabel || "Montando ranking"}
         topN={topN}
-        backHref={`/s/${code}`}
+        backHref={`/s/${code}/status`}
+        showCode={false}
       />
 
       <PlayerPicker
