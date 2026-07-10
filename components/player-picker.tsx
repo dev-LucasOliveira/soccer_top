@@ -43,18 +43,27 @@ export function PlayerPicker({
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
 
+  const MIN_SEARCH_LENGTH = 2;
+  const trimmedSearch = search.trim();
+  const canSearch = trimmedSearch.length >= MIN_SEARCH_LENGTH;
+
   const fetchPlayers = useCallback(async () => {
+    if (!canSearch) {
+      setPlayers([]);
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
     try {
-      const params = new URLSearchParams({ session: sessionCode });
-      if (search) params.set("search", search);
+      const params = new URLSearchParams({ session: sessionCode, search: trimmedSearch });
       const res = await fetch(`/api/players?${params}`);
       const data = await res.json();
       if (res.ok) setPlayers(data.players);
     } finally {
       setLoading(false);
     }
-  }, [sessionCode, search]);
+  }, [sessionCode, trimmedSearch, canSearch]);
 
   useEffect(() => {
     const timer = setTimeout(fetchPlayers, 300);
@@ -146,10 +155,14 @@ export function PlayerPicker({
             <Input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Buscar por nome..."
+              placeholder="Buscar por nome (mín. 2 letras)..."
             />
             <div className="max-h-[400px] space-y-1 overflow-y-auto">
-              {loading ? (
+              {!canSearch ? (
+                <p className="py-4 text-center text-sm text-text-muted">
+                  Digite pelo menos 2 caracteres para buscar jogadores
+                </p>
+              ) : loading ? (
                 <p className="py-4 text-center text-sm text-text-muted">Carregando...</p>
               ) : availablePlayers.length === 0 ? (
                 <p className="py-4 text-center text-sm text-text-muted">
