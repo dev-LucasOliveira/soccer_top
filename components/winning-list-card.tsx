@@ -12,10 +12,10 @@ export function WinningListCard({
 }) {
   return (
     <Card className="overflow-hidden p-0">
-      <div className="flex items-center justify-between bg-pitch px-4 py-3 text-off-white">
+      <div className="flex items-center justify-between bg-pitch/95 px-4 py-3 text-off-white">
         <div>
-          <h3 className="font-bold">{heading}</h3>
-          <p className="text-xs text-off-white/70">
+          <h3 className="font-display text-base">{heading}</h3>
+          <p className="text-xs text-on-pitch-subtle">
             Rodada {list.roundNumber}: {list.roundTitle}
           </p>
         </div>

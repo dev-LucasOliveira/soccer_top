@@ -49,7 +49,7 @@ function SortableItem({
         transition,
       }}
       className={cn(
-        "flex items-center gap-3 rounded-xl border-2 border-card-border bg-off-white p-3",
+        "flex items-center gap-3 rounded-lg border border-card-border/60 bg-off-white/80 p-3 transition-shadow duration-200",
         isDragging && "opacity-50 shadow-lg"
       )}
     >
@@ -114,7 +114,7 @@ export function TopList({
 
   if (items.length === 0) {
     return (
-      <div className="rounded-xl border-2 border-dashed border-card-border bg-off-white-muted/50 p-8 text-center text-sm text-text-muted">
+      <div className="rounded-xl border border-dashed border-card-border bg-off-white-muted p-8 text-center text-sm text-text-muted">
         Selecione jogadores da lista ao lado
       </div>
     );

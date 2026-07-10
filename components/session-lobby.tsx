@@ -151,7 +151,7 @@ export function SessionLobby({
 
   if (loading) {
     return (
-      <p className="text-center text-off-white/70">Carregando sala...</p>
+      <p className="loading-pulse text-center text-on-pitch-muted">Carregando sala...</p>
     );
   }
 
@@ -170,9 +170,9 @@ export function SessionLobby({
 
   function participantBadge(p: Participant) {
     if (roundStatus === "voting") {
-      return p.hasVoted ? "✓ Votou" : "Aguardando voto";
+      return p.hasVoted ? "Votou" : "Aguardando voto";
     }
-    if (p.status === "confirmed") return "✓ Confirmado";
+    if (p.status === "confirmed") return "Confirmado";
     return `Montando ${p.pickCount}/${session!.topN}`;
   }
 
@@ -194,7 +194,6 @@ export function SessionLobby({
         title={session.title}
         code={code}
         stepLabel={phase.label}
-        topN={session.topN}
         backHref="/"
         backLabel="← Voltar"
       />
@@ -206,29 +205,29 @@ export function SessionLobby({
       <Card>
         <div className="mb-3 flex items-center gap-2 text-foreground">
           <ListOrdered size={18} className="text-pitch" />
-          <h2 className="font-bold">Como funciona esta sala</h2>
+          <h2 className="font-display text-lg text-foreground">Como funciona esta sala</h2>
         </div>
         <p className="mb-4 text-sm text-text-muted">{phase.description}</p>
-        <div className="-mx-5 flex gap-2 overflow-x-auto scroll-smooth px-5 pb-1 sm:mx-0 sm:grid sm:grid-cols-5 sm:gap-1.5 sm:overflow-visible sm:px-0 sm:pb-0">
+        <div className="-mx-5 flex gap-2 overflow-x-auto scroll-smooth px-5 pb-1 sm:mx-0 sm:grid sm:grid-cols-5 sm:gap-2 sm:overflow-visible sm:px-0 sm:pb-0">
           {STEPS.map((s) => (
             <div
               key={s.num}
-              className={`min-w-[4.75rem] shrink-0 rounded-lg p-2 text-center text-xs leading-tight sm:min-w-0 sm:shrink ${
+              className={`min-w-[4.75rem] shrink-0 rounded-lg border p-2 text-center text-xs leading-tight transition-colors duration-200 sm:min-w-0 sm:shrink ${
                 phase.step >= s.num
-                  ? "bg-off-white-muted text-foreground font-semibold"
-                  : "bg-off-white-muted/50 text-text-muted"
+                  ? "border-pitch/20 bg-white font-medium text-foreground shadow-sm"
+                  : "border-card-border bg-white text-foreground/70"
               }`}
             >
               <div
-                className={`mx-auto mb-1 flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold ${
+                className={`mx-auto mb-1 flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium ${
                   phase.step >= s.num
                     ? "bg-pitch text-off-white"
-                    : "bg-zinc-200 text-zinc-500"
+                    : "border border-card-border bg-off-white text-foreground/70"
                 }`}
               >
                 {s.num}
               </div>
-              <p className="font-medium">{s.label}</p>
+              <p>{s.label}</p>
             </div>
           ))}
         </div>
@@ -311,16 +310,16 @@ export function SessionLobby({
             <Share2 size={18} className="text-pitch" />
             <p className="font-bold">Compartilhar</p>
           </div>
-          <Button variant="ghost" size="sm" onClick={copyLink} className="self-start sm:self-auto">
+          <Button variant="secondary" size="sm" onClick={copyLink} className="self-start sm:self-auto">
             {copied ? <Check size={16} /> : <Copy size={16} />}
             {copied ? "Copiado!" : "Copiar link"}
           </Button>
         </div>
-        <p className="mt-2 break-all rounded-lg bg-off-white-muted px-3 py-2 font-mono text-xs text-foreground sm:truncate">
+        <p className="mt-2 break-all rounded-lg border border-card-border bg-off-white-muted px-3 py-2 font-mono text-xs tracking-wide text-foreground sm:truncate">
           {shareUrl}
         </p>
         {session.status === "setup" && (
-          <p className="mt-2 text-xs text-amber-800">
+          <p className="mt-2 text-xs alert-banner px-3 py-2">
             Novos jogadores podem entrar até o criador iniciar a sala
           </p>
         )}
@@ -374,14 +373,14 @@ export function SessionLobby({
           ))}
         </div>
         {session.participants.length < 2 && (
-          <p className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800">
+          <p className="mt-3 alert-banner px-3 py-2 text-xs">
             Mínimo de 2 participantes para iniciar
           </p>
         )}
         {session.status === "setup" &&
           session.isCreator &&
           session.totalRounds === 0 && (
-            <p className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800">
+            <p className="mt-3 alert-banner px-3 py-2 text-xs">
               Adicione pelo menos 1 rodada para iniciar
             </p>
           )}
@@ -408,7 +407,7 @@ export function SessionLobby({
               </Link>
             )}
             {myParticipant?.hasVoted && (
-              <div className="rounded-xl bg-off-white/10 px-4 py-3 text-center text-sm text-off-white">
+              <div className="waiting-pill px-5 py-3 text-center text-sm text-off-white/85">
                 Você votou! Aguardando criador encerrar a rodada.
               </div>
             )}
@@ -454,7 +453,7 @@ export function SessionLobby({
         ) : showPickActions && myParticipant ? (
           myParticipant.status === "confirmed" ? (
             <>
-              <div className="rounded-xl bg-off-white/10 px-4 py-3 text-center text-sm text-off-white">
+              <div className="waiting-pill px-5 py-3 text-center text-sm text-off-white/85">
                 Você confirmou!{" "}
                 {advanceAction?.canAdvance
                   ? "Aguardando criador iniciar votação."
@@ -492,25 +491,25 @@ export function SessionLobby({
                 {advancing ? "Iniciando..." : advanceAction.label}
               </Button>
               {!advanceAction.canAdvance && session.totalRounds === 0 && (
-                <p className="text-center text-sm text-off-white/70">
+                <p className="text-center text-sm text-on-pitch-muted">
                   Adicione pelo menos 1 rodada
                 </p>
               )}
               {!advanceAction.canAdvance &&
                 session.totalRounds > 0 &&
                 session.participants.length < 2 && (
-                  <p className="text-center text-sm text-off-white/70">
+                  <p className="text-center text-sm text-on-pitch-muted">
                     Aguardando mais participantes
                   </p>
                 )}
             </>
           ) : (
-            <p className="text-center text-sm text-off-white/70">
+            <p className="text-center text-sm text-on-pitch-muted">
               Aguardando criador configurar e iniciar a sala
             </p>
           )
         ) : (
-          <p className="text-center text-sm text-off-white/70">
+          <p className="text-center text-sm text-on-pitch-muted">
             Entre na sala para participar
           </p>
         )}

@@ -57,7 +57,7 @@ export default function SessionPage({
   if (!code) {
     return (
       <main className="mx-auto max-w-2xl px-4 py-12">
-        <p className="text-center text-off-white/70">Carregando...</p>
+        <p className="loading-pulse text-center text-on-pitch-muted">Carregando...</p>
       </main>
     );
   }
@@ -67,7 +67,7 @@ export default function SessionPage({
       <main className="mx-auto max-w-2xl px-4 py-8">
         <Link
           href="/"
-          className="mb-6 inline-block text-sm text-off-white/70 hover:text-off-white"
+          className="mb-6 inline-block text-sm text-on-pitch-muted transition-colors duration-200 hover:text-off-white"
         >
           ← Voltar
         </Link>
@@ -84,7 +84,7 @@ export default function SessionPage({
   if (checkingRoute) {
     return (
       <main className="mx-auto max-w-2xl px-4 py-12">
-        <p className="text-center text-off-white/70">Carregando...</p>
+        <p className="loading-pulse text-center text-on-pitch-muted">Carregando...</p>
       </main>
     );
   }

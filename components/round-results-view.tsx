@@ -27,11 +27,11 @@ export function RoundResultsView({
         <Badge variant="gold" className="mb-2">
           Rodada {roundNumber}/{totalRounds} encerrada
         </Badge>
-        <h2 className="text-xl font-bold text-off-white">
+        <h2 className="font-display text-xl text-off-white">
           {roundResult.roundTitle}
         </h2>
         {!isLastRound && (
-          <p className="mt-2 text-sm text-off-white/70">
+          <p className="mt-2 text-sm text-on-pitch-muted">
             Aguardando criador iniciar a próxima rodada
           </p>
         )}
@@ -86,7 +86,7 @@ export function RoundResultsView({
                   </span>
                   <div>
                     <h3 className="font-bold">{entry.displayName}</h3>
-                    <p className="text-xs text-off-white/70">
+                    <p className="text-xs text-on-pitch-subtle">
                       {formatListLabel(entry.alias)}
                     </p>
                   </div>

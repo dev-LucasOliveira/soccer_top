@@ -185,7 +185,7 @@ export function RoundSetupPanel({
         {isCreator && localRounds.length < 10 && (
           <Button
             type="button"
-            variant="ghost"
+            variant="secondary"
             size="sm"
             onClick={handleAddRound}
             disabled={actionLoading}

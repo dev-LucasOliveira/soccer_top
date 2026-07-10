@@ -5,7 +5,6 @@ export function SessionHeader({
   title,
   code,
   stepLabel,
-  topN,
   backHref,
   backLabel = "← Voltar à sala",
   showCode = true,
@@ -13,7 +12,6 @@ export function SessionHeader({
   title?: string;
   code?: string;
   stepLabel?: string;
-  topN?: number;
   backHref?: string;
   backLabel?: string;
   showCode?: boolean;
@@ -25,36 +23,33 @@ export function SessionHeader({
     <header className="mb-6 space-y-4">
       <div className="text-center">
         {stepLabel && (
-          <Badge variant="gold" className="mb-2">
+          <Badge variant="gold" className="mb-3">
             {stepLabel}
           </Badge>
         )}
         {showCode && code ? (
           <>
-            <h1 className="text-xl font-bold text-off-white sm:text-2xl">
-              <span className="rounded bg-off-white/10 px-3 py-1 font-mono text-gold">
+            <h1 className="font-display text-xl text-off-white sm:text-2xl">
+              <span className="rounded-lg border border-gold/50 bg-pitch/60 px-4 py-1.5 font-mono text-gold-light tracking-wider">
                 {code}
               </span>
             </h1>
             {showTitleSubtitle && (
-              <p className="mt-2 text-sm text-off-white/70">{showTitleSubtitle}</p>
+              <p className="mt-2 text-sm text-on-pitch-muted">{showTitleSubtitle}</p>
             )}
           </>
         ) : (
           title && (
-            <h1 className="text-2xl font-bold text-off-white sm:text-3xl md:text-4xl">
+            <h1 className="font-display text-2xl text-off-white sm:text-3xl md:text-4xl">
               {title}
             </h1>
           )
-        )}
-        {topN != null && (
-          <p className="mt-1 text-sm text-off-white/70">Top de {topN}</p>
         )}
       </div>
       {backHref && (
         <Link
           href={backHref}
-          className="inline-block text-sm text-off-white/70 hover:text-off-white"
+          className="inline-block text-sm text-on-pitch-muted transition-colors duration-200 hover:text-off-white"
         >
           {backLabel}
         </Link>

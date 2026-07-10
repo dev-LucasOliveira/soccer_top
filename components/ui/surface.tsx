@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-export function Card({
+export function Surface({
   className,
   variant = "light",
   children,

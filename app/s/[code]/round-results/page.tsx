@@ -18,7 +18,7 @@ export default function RoundResultsPage({
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-12">
-      <p className="text-center text-off-white/70">Redirecionando...</p>
+      <p className="text-center text-on-pitch-muted">Redirecionando...</p>
     </main>
   );
 }

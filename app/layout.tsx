@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { DM_Serif_Display, Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import { APP_NAME, APP_SLOGAN } from "@/lib/branding";
+import { AppIcon } from "@/components/app-icon";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,6 +13,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const dmSerif = DM_Serif_Display({
+  variable: "--font-dm-serif",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -32,18 +39,21 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${dmSerif.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <header className="pitch-gradient text-off-white shadow-lg">
-          <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
-            <Link href="/" className="flex items-center gap-2 font-bold text-lg tracking-tight">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-off-white/20 text-base">
-                ⚽
+      <body className="flex min-h-full flex-col">
+        <header className="sticky top-0 z-50 border-b border-gold/20 bg-pitch-dark/95 text-off-white backdrop-blur-md">
+          <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
+            <Link
+              href="/"
+              className="flex items-center gap-2.5 font-display text-lg tracking-tight"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-off-white/10">
+                <AppIcon size={20} />
               </span>
               {APP_NAME}
             </Link>
-            <span className="hidden text-sm text-off-white/70 sm:block">
+            <span className="hidden text-xs tracking-wide text-on-pitch-muted sm:block">
               {APP_SLOGAN}
             </span>
           </div>

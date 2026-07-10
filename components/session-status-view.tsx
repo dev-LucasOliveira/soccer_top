@@ -140,7 +140,7 @@ export function SessionStatusView({
 
   if (loading) {
     return (
-      <p className="text-center text-off-white/70">Carregando...</p>
+      <p className="loading-pulse text-center text-on-pitch-muted">Carregando...</p>
     );
   }
 
@@ -164,11 +164,10 @@ export function SessionStatusView({
       <SessionHeader
         title={roundTitle}
         stepLabel={stepLabel}
-        topN={session.topN}
         showCode={false}
       />
 
-      <div className="rounded-xl bg-off-white/10 px-4 py-4 text-center text-sm text-off-white">
+      <div className="waiting-pill px-5 py-3.5 text-center text-sm text-off-white/85">
         {waitingMessage}
       </div>
 

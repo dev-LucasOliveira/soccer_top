@@ -85,7 +85,7 @@ export default function PickPage({
   if (loading || !participantId) {
     return (
       <main className="mx-auto max-w-4xl px-4 py-12">
-        <p className="text-center text-off-white/70">Carregando...</p>
+        <p className="loading-pulse text-center text-on-pitch-muted">Carregando...</p>
       </main>
     );
   }
@@ -103,7 +103,6 @@ export default function PickPage({
         title={roundTitle}
         code={code}
         stepLabel={stepLabel || "Montando ranking"}
-        topN={topN}
         backHref={`/s/${code}/status`}
         showCode={false}
       />

@@ -74,7 +74,9 @@ export function VoteView({
 
   if (loading) {
     return (
-      <p className="text-center text-off-white/70">Carregando votação...</p>
+      <p className="loading-pulse text-center text-on-pitch-muted">
+        Carregando votação...
+      </p>
     );
   }
 
@@ -89,7 +91,7 @@ export function VoteView({
   return (
     <div className="space-y-5 pb-24">
       <div className="text-center">
-        <p className="text-sm text-off-white/70">
+        <p className="text-sm text-on-pitch-muted">
           Escolha o melhor ranking — os autores são revelados só no final
         </p>
         <Badge variant="gold" className="mt-3">
@@ -98,10 +100,12 @@ export function VoteView({
       </div>
 
       {state.hasVoted && (
-        <div className="rounded-xl bg-off-white/10 px-4 py-3 text-center text-sm text-off-white">
+        <div className="waiting-pill px-5 py-3 text-center text-sm text-off-white/85">
           Você votou em{" "}
-          <strong>{formatListLabel(state.votedAlias ?? "")}</strong>. Aguardando
-          o criador encerrar a votação.
+          <strong className="text-gold-light">
+            {formatListLabel(state.votedAlias ?? "")}
+          </strong>
+          . Aguardando o criador encerrar a votação.
         </div>
       )}
 
@@ -115,15 +119,15 @@ export function VoteView({
           return (
             <Card
               key={list.alias}
-              className={`overflow-hidden p-0 ${
+              className={`overflow-hidden p-0 transition-all duration-200 ${
                 isMine ? "opacity-60" : ""
-              } ${isSelected ? "ring-2 ring-gold" : ""}`}
+              } ${isSelected ? "ring-1 ring-gold/70 shadow-md shadow-gold/10" : ""}`}
             >
-              <div className="flex items-center justify-between bg-pitch px-4 py-3 text-off-white">
+              <div className="flex items-center justify-between bg-pitch/95 px-4 py-3 text-off-white">
                 <div>
                   <h3 className="font-bold">{formatListLabel(list.alias)}</h3>
                   {isMine && (
-                    <p className="text-xs text-off-white/70">Seu ranking</p>
+                    <p className="text-xs text-on-pitch-subtle">Seu ranking</p>
                   )}
                 </div>
                 <Badge variant="gold">{list.voteCount} votos</Badge>
@@ -167,7 +171,7 @@ export function VoteView({
       </div>
 
       {!state.hasVoted && (
-        <div className="fixed bottom-0 left-0 right-0 border-t border-off-white/10 bg-pitch-dark/95 px-4 py-4 backdrop-blur">
+        <div className="fixed bottom-0 left-0 right-0 border-t border-off-white/8 bg-pitch-dark/90 px-4 py-4 backdrop-blur-md">
           <div className="mx-auto max-w-4xl">
             <Button
               className="w-full"

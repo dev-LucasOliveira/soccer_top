@@ -14,7 +14,6 @@ export default function VotePage({
   const router = useRouter();
   const [code, setCode] = useState("");
   const [roundTitle, setRoundTitle] = useState("");
-  const [topN, setTopN] = useState(10);
   const [stepLabel, setStepLabel] = useState("");
   const [participantId, setParticipantId] = useState<string | null>(null);
 
@@ -35,7 +34,6 @@ export default function VotePage({
       );
       const sessionData = await sessionRes.json();
       if (sessionRes.ok) {
-        setTopN(sessionData.topN);
         if (sessionData.currentRound) {
           setRoundTitle(sessionData.currentRound.title);
           setStepLabel(
@@ -65,7 +63,7 @@ export default function VotePage({
   if (!participantId) {
     return (
       <main className="mx-auto max-w-4xl px-4 py-12">
-        <p className="text-center text-off-white/70">Carregando...</p>
+        <p className="loading-pulse text-center text-on-pitch-muted">Carregando...</p>
       </main>
     );
   }
@@ -76,7 +74,6 @@ export default function VotePage({
         title={roundTitle}
         code={code}
         stepLabel={stepLabel || "Votação"}
-        topN={topN}
         backHref={`/s/${code}/status`}
         showCode={false}
       />

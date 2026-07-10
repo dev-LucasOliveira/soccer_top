@@ -11,9 +11,9 @@ export function MyRankingCard({
 }) {
   return (
     <Card className="overflow-hidden p-0">
-      <div className="bg-pitch px-4 py-3 text-off-white">
-        <h3 className="font-bold">Seu ranking</h3>
-        <p className="text-xs text-off-white/70">
+      <div className="bg-pitch/95 px-4 py-3 text-off-white">
+        <h3 className="font-display text-base">Seu ranking</h3>
+        <p className="text-xs text-on-pitch-subtle">
           Rodada {roundNumber}: {roundTitle}
         </p>
       </div>

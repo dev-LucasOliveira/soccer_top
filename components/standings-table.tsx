@@ -14,14 +14,14 @@ export function StandingsTable({
 
   return (
     <Card>
-      <h2 className="mb-4 font-bold text-foreground">{title}</h2>
+      <h2 className="mb-4 font-display text-lg text-foreground">{title}</h2>
       <div className="space-y-2">
         {standings.map((entry) => (
           <div
             key={entry.participantId}
-            className={`flex items-center justify-between rounded-xl px-3 py-2.5 ${
+            className={`flex items-center justify-between rounded-lg px-3 py-2.5 transition-colors duration-200 ${
               highlightLeader && entry.rank === 1
-                ? "bg-gold/20 ring-1 ring-gold"
+                ? "border border-gold/30 bg-gold/12"
                 : "bg-off-white-muted"
             }`}
           >

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Download, Check } from "lucide-react";
+import { Download, Check, Trophy } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,12 +11,6 @@ import { downloadResultsImage } from "@/lib/export-results-image";
 import { getRoundWinningList } from "@/lib/round-result";
 import { formatListLabel } from "@/lib/voting";
 import type { RoundResultData, SessionFinalResult } from "@/lib/types";
-
-const PODIUM_STYLES = [
-  { medal: "🥇", height: "h-20 sm:h-28", bg: "bg-gold/30", border: "border-gold" },
-  { medal: "🥈", height: "h-14 sm:h-20", bg: "bg-off-white-muted", border: "border-card-border" },
-  { medal: "🥉", height: "h-12 sm:h-16", bg: "bg-gold/15", border: "border-gold/50" },
-];
 
 function RoundRanking({ roundResult }: { roundResult: RoundResultData }) {
   const ranking = roundResult.voteRanking;
@@ -29,14 +23,14 @@ function RoundRanking({ roundResult }: { roundResult: RoundResultData }) {
 
         return (
           <Card key={entry.participantId} className="overflow-hidden p-0">
-            <div className="flex items-center justify-between bg-pitch px-4 py-3 text-off-white">
+            <div className="flex items-center justify-between bg-pitch/95 px-4 py-3 text-off-white">
               <div className="flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gold text-sm font-bold text-foreground">
                   {entry.rank}
                 </span>
                 <div>
                   <h3 className="font-bold">{entry.displayName}</h3>
-                  <p className="text-xs text-off-white/70">
+                  <p className="text-xs text-on-pitch-subtle">
                     {formatListLabel(entry.alias)} · {entry.voteCount}{" "}
                     {entry.voteCount === 1 ? "voto" : "votos"} · +{entry.points ?? 0} pts
                   </p>
@@ -109,15 +103,15 @@ export function ResultsView({
 
   return (
     <div className="space-y-6">
-      <div ref={exportRef} className="space-y-6 rounded-2xl bg-pitch-dark p-4 sm:p-6">
+      <div ref={exportRef} className="space-y-6 rounded-2xl border border-off-white/8 bg-pitch-dark p-4 sm:p-6">
         <div className="text-center">
-          <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-gold/20 text-2xl">
-            🏆
+          <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full border border-gold/25 bg-gold/10">
+            <Trophy size={28} strokeWidth={1.5} className="text-gold" />
           </div>
-          <h1 className="text-2xl font-bold text-off-white">Resultado Final</h1>
-          <p className="mt-1 text-off-white/70">{title}</p>
+          <h1 className="font-display text-2xl text-off-white">Resultado Final</h1>
+          <p className="mt-1 text-on-pitch-muted">{title}</p>
           {leader && (
-            <p className="mt-3 text-lg font-bold text-gold">
+            <p className="mt-3 text-lg font-medium text-gold">
               Campeão: {leader.displayName} ({leader.totalPoints} pts)
             </p>
           )}
@@ -130,7 +124,7 @@ export function ResultsView({
 
         {roundNumbers.length > 0 && (
           <div className="space-y-4">
-            <h2 className="font-bold text-off-white">Tops vitoriosos</h2>
+            <h2 className="font-display text-lg text-off-white">Tops vitoriosos</h2>
             {roundNumbers.map((num) => {
               const winning = getRoundWinningList(result.rounds[num]);
               return winning ? (
@@ -145,10 +139,10 @@ export function ResultsView({
         <button
           type="button"
           onClick={() => setActiveTab("final")}
-          className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+          className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
             activeTab === "final"
-              ? "bg-gold text-foreground"
-              : "bg-off-white-muted text-foreground hover:bg-off-white"
+              ? "border border-gold/30 bg-gold/20 text-foreground"
+              : "border border-transparent bg-off-white-muted text-foreground hover:bg-off-white"
           }`}
         >
           Geral
@@ -158,10 +152,10 @@ export function ResultsView({
             key={num}
             type="button"
             onClick={() => setActiveTab(num)}
-            className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+            className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
               activeTab === num
-                ? "bg-gold text-foreground"
-                : "bg-off-white-muted text-foreground hover:bg-off-white"
+                ? "border border-gold/30 bg-gold/20 text-foreground"
+                : "border border-transparent bg-off-white-muted text-foreground hover:bg-off-white"
             }`}
           >
             Rodada {num}
@@ -202,7 +196,7 @@ export function ResultsView({
       ) : (
         result.rounds[activeTab] && (
           <div className="space-y-4">
-            <h2 className="text-lg font-bold text-off-white">
+            <h2 className="font-display text-lg text-off-white">
               {result.rounds[activeTab].roundTitle}
             </h2>
             <RoundRanking roundResult={result.rounds[activeTab]} />

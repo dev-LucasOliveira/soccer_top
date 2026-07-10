@@ -1,52 +1,64 @@
+import { Target, Link2, Trophy } from "lucide-react";
 import { SessionForm } from "@/components/session-form";
 import { JoinForm } from "@/components/join-form";
-import { APP_NAME, APP_SLOGAN } from "@/lib/branding";
+import { APP_SLOGAN } from "@/lib/branding";
+
+const STEPS = [
+  { icon: Target, text: "Crie a sala e configure as rodadas" },
+  { icon: Link2, text: "Compartilhe o código da sala" },
+  { icon: Trophy, text: "Compare os rankings no final" },
+];
 
 export default function HomePage() {
   return (
-    <main className="mx-auto flex min-h-full w-full max-w-4xl flex-1 flex-col px-4 py-6 sm:py-10">
-      <div className="mb-8 text-center">
-        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-off-white/10 text-4xl backdrop-blur">
-          ⚽
-        </div>
-        <h1 className="text-3xl font-bold text-off-white sm:text-4xl">
-          {APP_NAME}
-        </h1>
-        <p className="mt-2 text-off-white/80">{APP_SLOGAN}</p>
+    <main className="relative mx-auto flex min-h-full w-full max-w-4xl flex-1 flex-col px-4 py-8 sm:py-12">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-8 mx-auto h-48 w-48 rounded-full border border-off-white/[0.04] sm:h-64 sm:w-64"
+        aria-hidden
+      />
+
+      <div className="relative mb-10 text-center">
+        <p className="font-display text-2xl text-off-white/95 sm:text-3xl">
+          {APP_SLOGAN}
+        </p>
+        <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-on-pitch-muted">
+          Monte rankings, vote na resenha e descubra quem tem o melhor critério
+          — ou a pior desculpa.
+        </p>
       </div>
 
-      <div className="mb-6 grid gap-3 sm:grid-cols-3">
-        {[
-          { icon: "🎯", text: "Crie a sala e configure as rodadas" },
-          { icon: "🔗", text: "Compartilhe o código da sala" },
-          { icon: "🏆", text: "Compare os rankings no final" },
-        ].map((item) => (
+      <div className="relative mb-8 grid gap-3 sm:grid-cols-3">
+        {STEPS.map(({ icon: Icon, text }) => (
           <div
-            key={item.text}
-            className="rounded-xl bg-off-white/10 px-4 py-3 text-center text-sm text-off-white backdrop-blur"
+            key={text}
+            className="glass-dark rounded-2xl px-4 py-4 text-center transition-colors duration-200 hover:bg-off-white/[0.08]"
           >
-            <span className="text-xl">{item.icon}</span>
-            <p className="mt-1 font-medium">{item.text}</p>
+            <Icon
+              size={20}
+              strokeWidth={1.5}
+              className="mx-auto text-gold/80"
+            />
+            <p className="mt-2 text-sm leading-snug text-on-pitch-muted">{text}</p>
           </div>
         ))}
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="relative grid gap-8 md:grid-cols-2">
         <div>
-          <h2 className="mb-3 flex items-center gap-2 text-lg font-bold text-off-white">
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gold text-sm text-foreground">
+          <h2 className="mb-4 flex items-center gap-2.5 text-off-white">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-off-white/25 text-xs font-medium text-on-pitch-muted">
               1
             </span>
-            Criar sala
+            <span className="font-display text-lg">Criar sala</span>
           </h2>
           <SessionForm />
         </div>
         <div>
-          <h2 className="mb-3 flex items-center gap-2 text-lg font-bold text-off-white">
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-off-white/20 text-sm">
+          <h2 className="mb-4 flex items-center gap-2.5 text-off-white">
+            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-off-white/25 text-xs font-medium text-on-pitch-muted">
               2
             </span>
-            Entrar em uma sala
+            <span className="font-display text-lg">Entrar em uma sala</span>
           </h2>
           <JoinForm />
         </div>

@@ -65,10 +65,10 @@ export function RoundConfigCard({
         {canRemove && !readOnly && (
           <Button
             type="button"
-            variant="ghost"
+            variant="secondary"
             size="sm"
             onClick={onRemove}
-            className="text-red-500"
+            className="text-red-600 hover:border-red-300 hover:bg-red-50"
           >
             <Trash2 size={16} />
           </Button>
@@ -120,7 +120,7 @@ export function RoundConfigCard({
           )}
 
           {(showFilters || readOnly) && (
-            <div className="space-y-4 rounded-xl border-2 border-card-border bg-off-white-muted/60 p-4">
+            <div className="space-y-4 rounded-xl border-2 border-card-border bg-off-white-muted p-4">
               <div>
                 <p className="mb-2 text-sm font-medium">Posições</p>
                 <div className="flex flex-wrap gap-2">

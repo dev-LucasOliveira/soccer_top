@@ -66,7 +66,7 @@ export function JoinForm({ defaultCode }: { defaultCode?: string }) {
 
         {error && <p className="text-sm text-red-600">{error}</p>}
 
-        <Button type="submit" variant="secondary" disabled={loading} className="w-full">
+        <Button type="submit" disabled={loading} className="w-full">
           {loading ? "Entrando..." : "Entrar na sala"}
         </Button>
       </form>

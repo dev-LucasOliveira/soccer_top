@@ -48,7 +48,7 @@ export default function ResultsPage({
   if (loading) {
     return (
       <main className="mx-auto max-w-4xl px-4 py-12">
-        <p className="text-center text-off-white/70">Carregando resultados...</p>
+        <p className="loading-pulse text-center text-on-pitch-muted">Carregando resultados...</p>
       </main>
     );
   }
@@ -58,7 +58,7 @@ export default function ResultsPage({
       <main className="mx-auto max-w-4xl px-4 py-12">
         <Link
           href={`/s/${code}`}
-          className="mb-6 inline-block text-sm text-off-white/70 hover:text-off-white"
+          className="mb-6 inline-block text-sm text-on-pitch-muted transition-colors duration-200 hover:text-off-white"
         >
           ← Voltar à sala
         </Link>

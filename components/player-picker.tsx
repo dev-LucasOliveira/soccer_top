@@ -125,15 +125,15 @@ export function PlayerPicker({
   return (
     <div className="space-y-4">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <h2 className="text-lg font-bold text-off-white">
-          ⚽ Monte seu ranking de {topN}{" "}
-          <span className="text-sm font-normal text-off-white/60">
+        <h2 className="font-display text-lg text-off-white">
+          Monte seu ranking de {topN}{" "}
+          <span className="text-sm font-normal text-on-pitch-muted">
             ({top.length}/{topN})
           </span>
         </h2>
         {confirmed && (
-          <span className="self-start rounded-full bg-pitch-bright/20 px-3 py-1 text-xs font-semibold text-pitch-bright sm:self-auto">
-            ✓ Confirmado
+          <span className="self-start rounded-full border border-pitch-bright/30 bg-pitch-bright/10 px-3 py-1 text-xs font-medium text-pitch-bright sm:self-auto">
+            Confirmado
           </span>
         )}
       </div>
@@ -157,7 +157,7 @@ export function PlayerPicker({
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Buscar por nome (mín. 2 letras)..."
             />
-            <div className="max-h-[400px] space-y-1 overflow-y-auto">
+            <div className="scroll-subtle max-h-[400px] space-y-0.5 overflow-y-auto">
               {!canSearch ? (
                 <p className="py-4 text-center text-sm text-text-muted">
                   Digite pelo menos 2 caracteres para buscar jogadores
@@ -175,7 +175,7 @@ export function PlayerPicker({
                     type="button"
                     onClick={() => addPlayer(player)}
                     disabled={top.length >= topN}
-                    className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left transition-colors hover:bg-off-white-muted disabled:opacity-50"
+                    className="flex w-full items-center justify-between rounded-lg border-b border-card-border/40 px-3 py-2.5 text-left transition-colors duration-200 last:border-0 hover:bg-off-white-muted/80 disabled:opacity-50"
                   >
                     <div>
                       <p className="text-sm font-medium text-foreground">{player.name}</p>

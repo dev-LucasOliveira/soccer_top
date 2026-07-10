@@ -1,21 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --pitch-dark: #0f3d22;
-  --pitch: #1a6b38;
-  --pitch-light: #2d9a55;
+  --pitch-dark: #0c3320;
+  --pitch: #165c36;
+  --pitch-light: #247a4a;
   --pitch-bright: #3ecf7a;
   --line-white: #f0fdf4;
   --gold: #c5a25d;
   --gold-dark: #a88642;
+  --gold-light: #e8d4a8;
   --off-white: #ede6d6;
   --off-white-muted: #e0d5c2;
-  --card-bg: #ede6d6;
-  --card-border: #c9b89a;
+  --card-bg: #f5efe4;
+  --card-border: #c4b49a;
   --text-primary: #2c2418;
-  --text-muted: #7a6b56;
+  --text-muted: #5c4f3e;
+  --text-on-pitch-muted: rgba(237, 230, 214, 0.85);
+  --text-on-pitch-subtle: rgba(237, 230, 214, 0.72);
+  --alert-bg: #fef3c7;
+  --alert-border: #d97706;
+  --alert-text: #78350f;
   --background: #e8dfd0;
   --foreground: var(--text-primary);
+  --surface-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
 @theme inline {
@@ -28,6 +35,7 @@
   --color-line-white: var(--line-white);
   --color-gold: var(--gold);
   --color-gold-dark: var(--gold-dark);
+  --color-gold-light: var(--gold-light);
   --color-off-white: var(--off-white);
   --color-off-white-muted: var(--off-white-muted);
   --color-card-bg: var(--card-bg);
@@ -35,6 +43,7 @@
   --color-text-muted: var(--text-muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-dm-serif);
 }
 
 body {
@@ -44,27 +53,102 @@ body {
   min-height: 100vh;
 }
 
+.font-display {
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+}
+
 .pitch-bg {
   background-color: var(--pitch-dark);
   background-image:
-    linear-gradient(0deg, transparent 49%, rgba(237, 230, 214, 0.04) 49%, rgba(237, 230, 214, 0.04) 51%, transparent 51%),
-    linear-gradient(90deg, transparent 49%, rgba(237, 230, 214, 0.04) 49%, rgba(237, 230, 214, 0.04) 51%, transparent 51%);
-  background-size: 80px 80px;
+    radial-gradient(ellipse at 50% 0%, rgba(45, 154, 85, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.25) 0%, transparent 50%),
+    linear-gradient(0deg, transparent 49.5%, rgba(237, 230, 214, 0.025) 49.5%, rgba(237, 230, 214, 0.025) 50.5%, transparent 50.5%),
+    linear-gradient(90deg, transparent 49.5%, rgba(237, 230, 214, 0.025) 49.5%, rgba(237, 230, 214, 0.025) 50.5%, transparent 50.5%);
+  background-size: 100% 100%, 100% 100%, 120px 120px, 120px 120px;
 }
 
 .pitch-gradient {
-  background: linear-gradient(135deg, var(--pitch-dark) 0%, var(--pitch) 50%, var(--pitch-light) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--pitch-dark) 0%,
+    var(--pitch) 60%,
+    var(--pitch-light) 100%
+  );
+}
+
+.glass-surface {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  box-shadow: var(--surface-shadow);
+  color: var(--text-primary);
 }
 
 .card-football {
   background: var(--card-bg);
-  border: 2px solid var(--card-border);
+  border: 1px solid var(--card-border);
   border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(44, 36, 24, 0.1);
+  box-shadow: var(--surface-shadow);
   color: var(--text-primary);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card-football:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.14);
+}
+
+.glass-dark {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(237, 230, 214, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.waiting-pill {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(237, 230, 214, 0.22);
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+}
+
+.text-on-pitch-muted {
+  color: var(--text-on-pitch-muted);
+}
+
+.text-on-pitch-subtle {
+  color: var(--text-on-pitch-subtle);
+}
+
+.alert-banner {
+  background: var(--alert-bg);
+  border: 1px solid var(--alert-border);
+  border-radius: 0.75rem;
+  color: var(--alert-text);
 }
 
 .section-title {
   color: var(--text-primary);
   font-weight: 700;
+}
+
+.scroll-subtle {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(22, 92, 54, 0.35) transparent;
+}
+
+.scroll-subtle::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-subtle::-webkit-scrollbar-thumb {
+  background: rgba(22, 92, 54, 0.35);
+  border-radius: 3px;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.loading-pulse {
+  animation: pulse-soft 1.5s ease-in-out infinite;
 }
