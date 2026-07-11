@@ -48,8 +48,8 @@ export default function RootLayout({
               href="/"
               className="flex items-center gap-2.5 font-display text-lg tracking-tight"
             >
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-off-white/10">
-                <AppIcon size={20} />
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-pitch">
+                <AppIcon size={18} />
               </span>
               {APP_NAME}
             </Link>
