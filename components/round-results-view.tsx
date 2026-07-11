@@ -40,7 +40,7 @@ export function RoundResultsView({
 
       <StandingsTable
         standings={standings}
-        title="Classificação geral (pontos acumulados)"
+        title="Classificação parcial"
       />
 
       <Card>

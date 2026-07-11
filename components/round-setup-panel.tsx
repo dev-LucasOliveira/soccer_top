@@ -205,9 +205,6 @@ export function RoundSetupPanel({
           <p className="mb-3 text-sm text-text-muted">
             Adicione a primeira rodada para começar a configurar.
           </p>
-          <Button onClick={handleAddRound} disabled={actionLoading}>
-            {actionLoading ? "Adicionando..." : "Adicionar primeira rodada"}
-          </Button>
         </div>
       )}
 

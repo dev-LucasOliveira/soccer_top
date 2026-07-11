@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ResultsView } from "@/components/results-view";
 import { SessionHeader } from "@/components/session-header";
+import { getGuestToken } from "@/lib/guest";
 import type { SessionFinalResult } from "@/lib/types";
 
 export default function ResultsPage({
@@ -11,39 +13,94 @@ export default function ResultsPage({
 }: {
   params: Promise<{ code: string }>;
 }) {
+  const router = useRouter();
   const [code, setCode] = useState("");
+  const [participantId, setParticipantId] = useState<string | null>(null);
   const [title, setTitle] = useState("");
   const [result, setResult] = useState<SessionFinalResult | null>(null);
+  const [isCreator, setIsCreator] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [restarting, setRestarting] = useState(false);
+  const [restartError, setRestartError] = useState("");
 
   useEffect(() => {
-    async function fetchResults() {
-      const p = await params;
+    params.then((p) => {
       setCode(p.code);
+      const stored = localStorage.getItem(`participant_${p.code}`);
+      if (stored) setParticipantId(stored);
+    });
+  }, [params]);
 
-      const res = await fetch(`/api/sessions/${p.code}`);
-      const data = await res.json();
+  const fetchSession = useCallback(async () => {
+    if (!code) return;
 
-      if (!res.ok) {
-        setError(data.error ?? "Erro ao carregar resultados");
-        setLoading(false);
-        return;
-      }
+    const query = participantId ? `?participantId=${participantId}` : "";
+    const res = await fetch(`/api/sessions/${code}${query}`);
+    const data = await res.json();
 
-      setTitle(data.title);
-
-      if (data.status !== "completed" || !data.result) {
-        setError("A sala ainda não foi finalizada");
-      } else {
-        setResult(data.result);
-      }
-
+    if (!res.ok) {
+      setError(data.error ?? "Erro ao carregar resultados");
       setLoading(false);
+      return;
     }
 
-    fetchResults();
-  }, [params]);
+    if (data.status !== "completed") {
+      router.replace(`/s/${code}`);
+      return;
+    }
+
+    setTitle(data.title);
+    setIsCreator(data.isCreator ?? false);
+
+    if (!data.result) {
+      setError("Resultados indisponíveis");
+    } else {
+      setResult(data.result);
+      setError("");
+    }
+
+    setLoading(false);
+  }, [code, participantId, router]);
+
+  useEffect(() => {
+    fetchSession();
+  }, [fetchSession]);
+
+  useEffect(() => {
+    if (!code) return;
+    const interval = setInterval(fetchSession, 5000);
+    return () => clearInterval(interval);
+  }, [code, fetchSession]);
+
+  async function handleRestart() {
+    if (!participantId) return;
+
+    setRestarting(true);
+    setRestartError("");
+
+    try {
+      const res = await fetch(`/api/sessions/${code}/restart`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          participantId,
+          guestToken: getGuestToken(),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+
+      router.replace(`/s/${code}`);
+      router.refresh();
+    } catch (err) {
+      setRestartError(
+        err instanceof Error ? err.message : "Erro ao reiniciar sessão"
+      );
+    } finally {
+      setRestarting(false);
+    }
+  }
 
   if (loading) {
     return (
@@ -70,14 +127,21 @@ export default function ResultsPage({
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
       <SessionHeader
-        title={title || "Resultado final"}
         code={code}
         stepLabel="Resultado final"
         backHref={`/s/${code}`}
         showCode={false}
       />
 
-      <ResultsView title={title} sessionCode={code} result={result} />
+      <ResultsView
+        title={title}
+        sessionCode={code}
+        result={result}
+        isCreator={isCreator}
+        onRestart={handleRestart}
+        restarting={restarting}
+        restartError={restartError}
+      />
     </main>
   );
 }

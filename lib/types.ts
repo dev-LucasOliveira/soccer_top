@@ -109,9 +109,10 @@ export type VoteState = {
   votedCount: number;
   roundNumber: number;
   roundTitle: string;
+  isSpectator?: boolean;
 };
 
-export type ParticipantStatus = "building" | "confirmed";
+export type ParticipantStatus = "building" | "confirmed" | "spectator";
 export type SessionStatus = "setup" | "active" | "completed";
 export type RoundStatus = "pending" | "open" | "voting" | "completed";
 

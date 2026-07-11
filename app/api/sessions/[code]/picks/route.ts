@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { getCurrentRound } from "@/lib/round";
 import { normalizeListMessage } from "@/lib/ranking-message";
+import { isSpectator } from "@/lib/participants";
 
 type RouteContext = { params: Promise<{ code: string }> };
 
@@ -38,6 +39,17 @@ export async function GET(request: Request, context: RouteContext) {
     }
 
     const participant = session.participants[0];
+
+    if (isSpectator(participant)) {
+      return NextResponse.json({
+        status: participant.status,
+        roundNumber: currentRound.number,
+        roundTitle: currentRound.title,
+        topN: currentRound.topN,
+        message: null,
+        picks: [],
+      });
+    }
 
     const [picks, rankingMeta] = await Promise.all([
       prisma.pick.findMany({
@@ -123,6 +135,13 @@ export async function PUT(request: Request, context: RouteContext) {
     const participant = session.participants.find((p) => p.id === participantId);
     if (!participant) {
       return NextResponse.json({ error: "Participante não encontrado" }, { status: 404 });
+    }
+
+    if (isSpectator(participant)) {
+      return NextResponse.json(
+        { error: "Espectadores não podem montar ranking" },
+        { status: 400 }
+      );
     }
 
     if (participant.status === "confirmed") {

@@ -11,6 +11,7 @@ import {
   generateListAliases,
   parseListAliases,
 } from "@/lib/voting";
+import { getPlayers, isSpectator } from "@/lib/participants";
 import type {
   AnonymousList,
   RoundResultData,
@@ -93,7 +94,8 @@ export async function advanceSession(
   }
 
   if (sessionFull.status === "setup") {
-    if (sessionFull.participants.length < 2) {
+    const players = getPlayers(sessionFull.participants);
+    if (players.length < 2) {
       throw new Error("Mínimo de 2 participantes para iniciar");
     }
 
@@ -121,16 +123,15 @@ export async function advanceSession(
     }
 
     if (currentRound.status === "open") {
-      const allConfirmed = sessionFull.participants.every(
-        (p) => p.status === "confirmed"
-      );
+      const players = getPlayers(sessionFull.participants);
+      const allConfirmed = players.every((p) => p.status === "confirmed");
       if (!allConfirmed) {
         throw new Error(
           "Todos os participantes precisam confirmar o ranking antes de avançar"
         );
       }
 
-      const listAliases = generateListAliases(sessionFull.participants);
+      const listAliases = generateListAliases(players);
 
       await prisma.round.update({
         where: { id: currentRound.id },
@@ -140,10 +141,11 @@ export async function advanceSession(
         },
       });
     } else if (currentRound.status === "voting") {
+      const players = getPlayers(sessionFull.participants);
       const votes = await prisma.vote.count({
         where: { roundId: currentRound.id },
       });
-      if (votes < sessionFull.participants.length) {
+      if (votes < players.length) {
         throw new Error("Todos os participantes precisam votar antes de encerrar");
       }
 
@@ -167,7 +169,7 @@ export async function advanceSession(
       const messages = Object.fromEntries(
         rankingMeta.map((meta) => [meta.participantId, meta.message])
       );
-      const participantsWithPicks = sessionFull.participants.map((p) => ({
+      const participantsWithPicks = getPlayers(sessionFull.participants).map((p) => ({
         id: p.id,
         displayName: p.displayName,
         picks: roundFull.picks
@@ -204,7 +206,7 @@ export async function advanceSession(
         existingResults.push(resultData);
 
         const finalResult = computeSessionFinalResult(
-          sessionFull.participants,
+          getPlayers(sessionFull.participants),
           existingResults
         );
 
@@ -300,6 +302,14 @@ export async function getVoteState(
     throw new Error("Rodada não está em fase de votação");
   }
 
+  const viewer = session.participants.find((p) => p.id === participantId);
+  if (!viewer) {
+    throw new Error("Participante não encontrado");
+  }
+
+  const players = getPlayers(session.participants);
+  const isViewerSpectator = isSpectator(viewer);
+
   const aliases = parseListAliases(round.listAliases);
   const rankingMeta = await prisma.rankingMeta.findMany({
     where: { roundId: round.id },
@@ -346,13 +356,18 @@ export async function getVoteState(
 
   return {
     lists,
-    myAlias: aliases[participantId] ?? null,
-    hasVoted: !!myVote,
-    votedAlias: myVote ? aliases[myVote.targetParticipantId] ?? null : null,
-    totalVoters: session.participants.length,
+    myAlias: isViewerSpectator ? null : aliases[participantId] ?? null,
+    hasVoted: isViewerSpectator ? false : !!myVote,
+    votedAlias: isViewerSpectator
+      ? null
+      : myVote
+        ? aliases[myVote.targetParticipantId] ?? null
+        : null,
+    totalVoters: players.length,
     votedCount: round.votes.length,
     roundNumber: round.number,
     roundTitle: round.title,
+    isSpectator: isViewerSpectator,
   };
 }
 
@@ -374,6 +389,10 @@ export async function castVote(
   const voter = session.participants.find((p) => p.id === voterParticipantId);
   if (!voter) {
     throw new Error("Participante não encontrado");
+  }
+
+  if (isSpectator(voter)) {
+    throw new Error("Espectadores não podem votar");
   }
 
   const aliases = parseListAliases(round.listAliases);
@@ -428,12 +447,14 @@ export async function getStandings(sessionCode: string) {
 
   if (roundResults.length === 0) return [];
 
-  return computeSessionFinalResult(session.participants, roundResults).standings;
+  return computeSessionFinalResult(getPlayers(session.participants), roundResults).standings;
 }
 
-export async function getLastWinningList(
-  sessionCode: string
-): Promise<WinningList | null> {
+export async function getLastCompletedRoundResult(sessionCode: string): Promise<{
+  roundNumber: number;
+  roundTitle: string;
+  data: RoundResultData;
+} | null> {
   const session = await getSessionWithRounds(sessionCode);
   if (!session) return null;
 
@@ -450,13 +471,50 @@ export async function getLastWinningList(
 
   if (!lastResult) return null;
 
-  const data = JSON.parse(lastResult.data) as RoundResultData;
-  const winning = getRoundWinningList({
-    ...data,
+  return {
     roundNumber: lastResult.round.number,
     roundTitle: lastResult.round.title,
+    data: JSON.parse(lastResult.data) as RoundResultData,
+  };
+}
+
+export async function getLastWinningList(
+  sessionCode: string
+): Promise<WinningList | null> {
+  const lastResult = await getLastCompletedRoundResult(sessionCode);
+  if (!lastResult) return null;
+
+  const winning = getRoundWinningList({
+    ...lastResult.data,
+    roundNumber: lastResult.roundNumber,
+    roundTitle: lastResult.roundTitle,
   });
   if (!winning) return null;
 
   return winning;
+}
+
+export async function restartSession(
+  sessionCode: string,
+  participantId: string,
+  guestToken: string | undefined | null
+) {
+  const { session } = await assertCreator(sessionCode, participantId, guestToken);
+
+  if (session.status !== "completed") {
+    throw new Error("Só é possível reiniciar após o jogo terminar");
+  }
+
+  await prisma.$transaction([
+    prisma.round.deleteMany({ where: { sessionId: session.id } }),
+    prisma.sessionResult.deleteMany({ where: { sessionId: session.id } }),
+    prisma.participant.updateMany({
+      where: { sessionId: session.id },
+      data: { status: "building", confirmedAt: null },
+    }),
+    prisma.session.update({
+      where: { id: session.id },
+      data: { status: "setup", currentRoundNumber: 1 },
+    }),
+  ]);
 }

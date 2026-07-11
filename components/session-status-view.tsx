@@ -1,18 +1,21 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { SessionHeader } from "@/components/session-header";
 import { StandingsTable } from "@/components/standings-table";
 import { MyRankingCard } from "@/components/my-ranking-card";
+import { WinningListCard } from "@/components/winning-list-card";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { getGuestToken } from "@/lib/guest";
 import {
   buildParticipantPath,
+  getStatusViewMode,
   getWaitingMessage,
 } from "@/lib/session-info";
-import type { CurrentRound, StandingEntry } from "@/lib/types";
+import type { CurrentRound, StandingEntry, WinningList } from "@/lib/types";
 
 type MyPicksData = {
   roundNumber: number;
@@ -30,6 +33,8 @@ type SessionStatusData = {
   currentRound: CurrentRound | null;
   isCreator: boolean;
   standings: StandingEntry[];
+  lastRoundPoints?: Record<string, number>;
+  lastWinningList?: WinningList | null;
   participants: {
     id: string;
     status: string;
@@ -160,6 +165,10 @@ export function SessionStatusView({
       : `Rodada ${session.currentRoundNumber}/${session.totalRounds}`;
   const waitingMessage = getWaitingMessage(session, participantId);
   const advanceAction = session.advanceAction;
+  const viewMode = getStatusViewMode(session, participantId);
+  const isSpectator =
+    session.participants.find((p) => p.id === participantId)?.status ===
+    "spectator";
 
   return (
     <div className="space-y-5">
@@ -173,24 +182,51 @@ export function SessionStatusView({
         {waitingMessage}
       </div>
 
-      {session.standings.length > 0 && (
+      {viewMode.showStandings && session.standings.length > 0 ? (
         <StandingsTable
           standings={session.standings}
-          title="Classificação geral (pontos acumulados)"
+          title="Classificação parcial"
+          roundPointsByParticipant={
+            session.currentRound?.status === "completed"
+              ? session.lastRoundPoints
+              : undefined
+          }
         />
+      ) : (
+        session.currentRound?.status === "voting" && (
+          <Card className="px-4 py-6 text-center text-sm text-text-muted">
+            Classificação revelada quando o criador encerrar a rodada.
+          </Card>
+        )
       )}
 
-      {myPicks ? (
+      {viewMode.list === "winning" && session.lastWinningList ? (
+        <WinningListCard list={session.lastWinningList} />
+      ) : viewMode.list === "winning" ? (
+        <Card className="px-4 py-6 text-center text-sm text-text-muted">
+          Lista vitoriosa indisponível.
+        </Card>
+      ) : viewMode.list === "mine" && myPicks ? (
         <MyRankingCard
           roundNumber={myPicks.roundNumber}
           roundTitle={myPicks.roundTitle}
           message={myPicks.message}
           picks={myPicks.picks}
         />
-      ) : (
+      ) : !isSpectator && session.currentRound?.status !== "voting" ? (
         <Card className="px-4 py-6 text-center text-sm text-text-muted">
           Seu ranking aparece aqui após confirmar.
         </Card>
+      ) : null}
+
+      {isSpectator && session.currentRound?.status === "voting" && (
+        <div className="flex justify-center">
+          <Link href={`/s/${code}/vote`}>
+            <Button variant="secondary" size="lg" className="w-full sm:w-auto">
+              Acompanhar votação
+            </Button>
+          </Link>
+        </div>
       )}
 
       {advanceError && (

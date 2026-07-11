@@ -51,7 +51,10 @@ export default function VotePage({
           const myParticipant = sessionData.participants.find(
             (participant: { id: string }) => participant.id === stored
           );
-          if (myParticipant?.hasVoted) {
+          if (
+            myParticipant?.hasVoted &&
+            myParticipant?.status !== "spectator"
+          ) {
             router.push(`/s/${p.code}/status`);
           }
         }

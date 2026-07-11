@@ -13,6 +13,7 @@ import { RoundSetupPanel } from "@/components/round-setup-panel";
 import { getGuestToken } from "@/lib/guest";
 import { Copy, Check, Users, Share2, ListOrdered } from "lucide-react";
 import { describeSessionFilters } from "@/lib/session-info";
+import { getPlayers } from "@/lib/participants";
 import type {
   CurrentRound,
   RoundSummary,
@@ -75,6 +76,8 @@ export function SessionLobby({
   const [loading, setLoading] = useState(true);
   const [advancing, setAdvancing] = useState(false);
   const [advanceError, setAdvanceError] = useState("");
+  const [restarting, setRestarting] = useState(false);
+  const [restartError, setRestartError] = useState("");
 
   const fetchSession = async () => {
     try {
@@ -149,6 +152,34 @@ export function SessionLobby({
     }
   }
 
+  async function handleRestart() {
+    if (!participantId) return;
+    setRestarting(true);
+    setRestartError("");
+
+    try {
+      const res = await fetch(`/api/sessions/${code}/restart`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          participantId,
+          guestToken: getGuestToken(),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+
+      await fetchSession();
+      router.refresh();
+    } catch (err) {
+      setRestartError(
+        err instanceof Error ? err.message : "Erro ao reiniciar sessão"
+      );
+    } finally {
+      setRestarting(false);
+    }
+  }
+
   if (loading) {
     return (
       <p className="loading-pulse text-center text-on-pitch-muted">Carregando sala...</p>
@@ -162,13 +193,13 @@ export function SessionLobby({
   const myParticipant = session.participants.find((p) => p.id === participantId);
   const phase = session.phase;
   const filterDescriptions = describeSessionFilters(session.filters);
-  const confirmedCount = session.participants.filter(
-    (p) => p.status === "confirmed"
-  ).length;
+  const players = getPlayers(session.participants);
+  const confirmedCount = players.filter((p) => p.status === "confirmed").length;
   const roundStatus = session.currentRound?.status;
   const advanceAction = session.advanceAction;
 
   function participantBadge(p: Participant) {
+    if (p.status === "spectator") return "Espectador";
     if (roundStatus === "voting") {
       return p.hasVoted ? "Votou" : "Aguardando voto";
     }
@@ -177,16 +208,19 @@ export function SessionLobby({
   }
 
   function participantBadgeVariant(p: Participant) {
+    if (p.status === "spectator") return "default";
     if (roundStatus === "voting") {
       return p.hasVoted ? "success" : "warning";
     }
     return p.status === "confirmed" ? "success" : "warning";
   }
 
+  const isSpectator = myParticipant?.status === "spectator";
+
   const showPickActions =
-    session.status === "active" && roundStatus === "open";
+    session.status === "active" && roundStatus === "open" && !isSpectator;
   const showVoteActions =
-    session.status === "active" && roundStatus === "voting";
+    session.status === "active" && roundStatus === "voting" && !isSpectator;
 
   return (
     <div className="space-y-5">
@@ -318,11 +352,6 @@ export function SessionLobby({
         <p className="mt-2 break-all rounded-lg border border-card-border bg-off-white-muted px-3 py-2 font-mono text-xs tracking-wide text-foreground sm:truncate">
           {shareUrl}
         </p>
-        {session.status === "setup" && (
-          <p className="mt-2 text-xs alert-banner px-3 py-2">
-            Novos jogadores podem entrar até o criador iniciar a sala
-          </p>
-        )}
       </Card>
 
       <Card>
@@ -340,14 +369,13 @@ export function SessionLobby({
           ) : showPickActions ? (
             <Badge
               variant={
-                confirmedCount === session.participants.length &&
-                session.participants.length >= 2
+                confirmedCount === players.length && players.length >= 2
                   ? "success"
                   : "warning"
               }
               className="self-start sm:self-auto"
             >
-              {confirmedCount}/{session.participants.length} confirmados
+              {confirmedCount}/{players.length} confirmados
             </Badge>
           ) : null}
         </div>
@@ -377,26 +405,55 @@ export function SessionLobby({
             Mínimo de 2 participantes para iniciar
           </p>
         )}
-        {session.status === "setup" &&
-          session.isCreator &&
-          session.totalRounds === 0 && (
-            <p className="mt-3 alert-banner px-3 py-2 text-xs">
-              Adicione pelo menos 1 rodada para iniciar
-            </p>
-          )}
       </Card>
 
       {advanceError && (
         <p className="text-center text-sm text-red-400">{advanceError}</p>
       )}
+      {restartError && (
+        <p className="text-center text-sm text-red-400">{restartError}</p>
+      )}
 
       <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
         {session.status === "completed" ? (
-          <Link href={`/s/${code}/results`}>
-            <Button variant="gold" size="lg" className="w-full sm:w-auto">
-              Ver resultados finais
-            </Button>
-          </Link>
+          <>
+            <Link href={`/s/${code}/results`}>
+              <Button variant="gold" size="lg" className="w-full sm:w-auto">
+                Ver resultados finais
+              </Button>
+            </Link>
+            {session.isCreator && (
+              <Button
+                variant="secondary"
+                size="lg"
+                disabled={restarting}
+                onClick={handleRestart}
+                className="w-full sm:w-auto"
+              >
+                {restarting ? "Reiniciando..." : "Começar novo jogo"}
+              </Button>
+            )}
+          </>
+        ) : isSpectator ? (
+          <>
+            <div className="waiting-pill px-5 py-3 text-center text-sm text-off-white/85">
+              Modo espectador — só assistindo.
+            </div>
+            {roundStatus === "voting" && (
+              <Link href={`/s/${code}/vote`}>
+                <Button size="lg" className="w-full sm:w-auto">
+                  Acompanhar votação
+                </Button>
+              </Link>
+            )}
+            {session.status === "active" && (
+              <Link href={`/s/${code}/status`}>
+                <Button variant="secondary" size="lg" className="w-full sm:w-auto">
+                  Acompanhar partida
+                </Button>
+              </Link>
+            )}
+          </>
         ) : showVoteActions ? (
           <>
             {myParticipant && !myParticipant.hasVoted && (

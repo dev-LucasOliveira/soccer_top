@@ -3,11 +3,13 @@
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { TopList } from "@/components/top-list";
+import { AvailablePlayersCard } from "@/components/available-players-card";
+import { ConfirmRankingDialog } from "@/components/confirm-ranking-dialog";
 import { LIST_MESSAGE_MAX_LENGTH } from "@/lib/constants";
-import { Plus } from "lucide-react";
+
+type ListAction = "add" | "remove" | "reorder";
 
 type Player = {
   id: string;
@@ -46,6 +48,8 @@ export function PlayerPicker({
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
+  const [lastAction, setLastAction] = useState<ListAction | null>(null);
+  const [confirmOpen, setConfirmOpen] = useState(false);
 
   const MIN_SEARCH_LENGTH = 2;
   const trimmedSearch = search.trim();
@@ -80,6 +84,7 @@ export function PlayerPicker({
 
   function addPlayer(player: Player) {
     if (top.length >= topN || confirmed) return;
+    setLastAction("add");
     setTop([
       ...top,
       {
@@ -93,15 +98,37 @@ export function PlayerPicker({
 
   function removePlayer(playerId: string) {
     if (confirmed) return;
+    setLastAction("remove");
     setTop(top.filter((t) => t.playerId !== playerId));
   }
 
-  async function savePicks(confirm = false) {
+  function handleReorder(items: TopItem[]) {
+    setLastAction("reorder");
+    setTop(items);
+  }
+
+  function handleConfirmClick() {
+    if (lastAction === "reorder") {
+      void savePicks(true);
+      return;
+    }
+    setConfirmOpen(true);
+  }
+
+  function handleModalConfirm(items: TopItem[]) {
+    setTop(items);
+    setConfirmOpen(false);
+    void savePicks(true, items);
+  }
+
+  async function savePicks(confirm = false, itemsOverride?: TopItem[]) {
     setSaving(true);
     setError("");
 
+    const itemsToSave = itemsOverride ?? top;
+
     try {
-      const picks = top.map((item, index) => ({
+      const picks = itemsToSave.map((item, index) => ({
         playerId: item.playerId,
         rank: index + 1,
       }));
@@ -148,57 +175,27 @@ export function PlayerPicker({
       </div>
 
       <div className="grid gap-4 lg:grid-cols-2">
+        {!confirmed && (
+          <AvailablePlayersCard
+            search={search}
+            onSearchChange={setSearch}
+            players={availablePlayers}
+            loading={loading}
+            canSearch={canSearch}
+            topCount={top.length}
+            topN={topN}
+            onAddPlayer={addPlayer}
+          />
+        )}
         <Card className="space-y-3">
           <h3 className="font-bold text-foreground">Seu ranking</h3>
           <TopList
             items={top}
-            onReorder={setTop}
+            onReorder={handleReorder}
             onRemove={removePlayer}
             disabled={confirmed}
           />
         </Card>
-
-        {!confirmed && (
-          <Card className="space-y-3">
-            <h3 className="font-bold text-foreground">Jogadores disponíveis</h3>
-            <Input
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Buscar por nome (mín. 2 letras)..."
-            />
-            <div className="scroll-subtle max-h-[400px] space-y-0.5 overflow-y-auto">
-              {!canSearch ? (
-                <p className="py-4 text-center text-sm text-text-muted">
-                  Digite pelo menos 2 caracteres para buscar jogadores
-                </p>
-              ) : loading ? (
-                <p className="py-4 text-center text-sm text-text-muted">Carregando...</p>
-              ) : availablePlayers.length === 0 ? (
-                <p className="py-4 text-center text-sm text-text-muted">
-                  Nenhum jogador encontrado
-                </p>
-              ) : (
-                availablePlayers.map((player) => (
-                  <button
-                    key={player.id}
-                    type="button"
-                    onClick={() => addPlayer(player)}
-                    disabled={top.length >= topN}
-                    className="flex w-full items-center justify-between rounded-lg border-b border-card-border/40 px-3 py-2.5 text-left transition-colors duration-200 last:border-0 hover:bg-off-white-muted/80 disabled:opacity-50"
-                  >
-                    <div>
-                      <p className="text-sm font-medium text-foreground">{player.name}</p>
-                      <p className="text-xs text-text-muted">
-                        {player.primaryPosition} · {player.nationality}
-                      </p>
-                    </div>
-                    <Plus size={16} className="text-pitch" />
-                  </button>
-                ))
-              )}
-            </div>
-          </Card>
-        )}
       </div>
 
       {!confirmed && (
@@ -229,13 +226,21 @@ export function PlayerPicker({
 
       {!confirmed && (
         <Button
-          onClick={() => savePicks(true)}
+          onClick={handleConfirmClick}
           disabled={saving || !isComplete}
           className="w-full"
         >
           {saving ? "Confirmando..." : "Confirmar ranking"}
         </Button>
       )}
+
+      <ConfirmRankingDialog
+        open={confirmOpen}
+        onClose={() => setConfirmOpen(false)}
+        onConfirm={handleModalConfirm}
+        items={top}
+        confirming={saving}
+      />
     </div>
   );
 }

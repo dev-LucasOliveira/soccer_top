@@ -5,15 +5,22 @@ type ParticipantForAlias = {
   joinedAt: Date;
 };
 
+function shuffle<T>(items: T[]): T[] {
+  const copy = [...items];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
 export function generateListAliases(
   participants: ParticipantForAlias[]
 ): ListAliases {
-  const sorted = [...participants].sort(
-    (a, b) => a.joinedAt.getTime() - b.joinedAt.getTime()
-  );
+  const ordered = shuffle(participants);
 
   const aliases: ListAliases = {};
-  sorted.forEach((p, index) => {
+  ordered.forEach((p, index) => {
     aliases[p.id] = `lista-${index + 1}`;
   });
 

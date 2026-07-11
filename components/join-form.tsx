@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { getOrCreateGuestToken } from "@/lib/guest";
+import { buildParticipantPath } from "@/lib/session-info";
 
 export function JoinForm({ defaultCode }: { defaultCode?: string }) {
   const router = useRouter();
@@ -13,11 +14,13 @@ export function JoinForm({ defaultCode }: { defaultCode?: string }) {
   const [displayName, setDisplayName] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [notice, setNotice] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError("");
+    setNotice("");
 
     try {
       const sessionCode = code.trim().toLowerCase().replace(/.*\/s\//, "");
@@ -33,7 +36,27 @@ export function JoinForm({ defaultCode }: { defaultCode?: string }) {
       if (!res.ok) throw new Error(data.error);
 
       localStorage.setItem(`participant_${sessionCode}`, data.participantId);
-      router.push(`/s/${sessionCode}`);
+
+      if (data.isSpectator) {
+        setNotice(
+          data.sessionStatus === "completed"
+            ? "Jogo encerrado — você entrou como espectador."
+            : "Partida já começou — você entrou como espectador."
+        );
+      }
+
+      const sessionRes = await fetch(
+        `/api/sessions/${sessionCode}?participantId=${data.participantId}`
+      );
+      const sessionData = await sessionRes.json();
+      if (!sessionRes.ok) {
+        router.push(`/s/${sessionCode}`);
+        return;
+      }
+
+      router.push(
+        buildParticipantPath(sessionCode, sessionData, data.participantId)
+      );
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erro ao entrar");
     } finally {
@@ -65,6 +88,7 @@ export function JoinForm({ defaultCode }: { defaultCode?: string }) {
         </div>
 
         {error && <p className="text-sm text-red-600">{error}</p>}
+        {notice && <p className="text-sm text-text-muted">{notice}</p>}
 
         <Button type="submit" disabled={loading} className="w-full">
           {loading ? "Entrando..." : "Entrar na sala"}

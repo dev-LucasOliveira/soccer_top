@@ -87,20 +87,29 @@ export function VoteView({
 
   if (!state) return null;
 
+  const isSpectator = state.isSpectator === true;
   const highlightAlias = state.hasVoted ? state.votedAlias : selectedAlias;
 
   return (
-    <div className="space-y-5 pb-24">
+    <div className={`space-y-5 ${!isSpectator && !state.hasVoted ? "pb-24" : ""}`}>
       <div className="text-center">
         <p className="text-sm text-on-pitch-muted">
-          Escolha o melhor ranking — os autores são revelados só no final
+          {isSpectator
+            ? "Modo espectador — acompanhe as listas e os votos"
+            : "Escolha o melhor ranking — os autores são revelados só no final"}
         </p>
         <Badge variant="gold" className="mt-3">
           {state.votedCount}/{state.totalVoters} votaram
         </Badge>
       </div>
 
-      {state.hasVoted && (
+      {isSpectator && (
+        <div className="waiting-pill px-5 py-3 text-center text-sm text-off-white/85">
+          Modo espectador — só assistindo.
+        </div>
+      )}
+
+      {state.hasVoted && !isSpectator && (
         <div className="waiting-pill px-5 py-3 text-center text-sm text-off-white/85">
           Você votou em{" "}
           <strong className="text-gold-light">
@@ -154,7 +163,7 @@ export function VoteView({
                   </div>
                 ))}
               </div>
-              {!isMine && !state.hasVoted && (
+              {!isSpectator && !isMine && !state.hasVoted && (
                 <div className="border-t border-card-border p-4">
                   <Button
                     className="w-full"
@@ -172,7 +181,7 @@ export function VoteView({
         })}
       </div>
 
-      {!state.hasVoted && (
+      {!isSpectator && !state.hasVoted && (
         <div className="fixed bottom-0 left-0 right-0 border-t border-off-white/8 bg-pitch-dark/90 px-4 py-4 backdrop-blur-md">
           <div className="mx-auto max-w-4xl">
             <Button

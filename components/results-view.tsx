@@ -65,10 +65,18 @@ export function ResultsView({
   title,
   sessionCode,
   result,
+  isCreator,
+  onRestart,
+  restarting,
+  restartError,
 }: {
   title: string;
   sessionCode: string;
   result: SessionFinalResult;
+  isCreator?: boolean;
+  onRestart?: () => void;
+  restarting?: boolean;
+  restartError?: string;
 }) {
   const exportRef = useRef<HTMLDivElement>(null);
   const [exporting, setExporting] = useState(false);
@@ -111,7 +119,6 @@ export function ResultsView({
             <Trophy size={28} strokeWidth={1.5} className="text-gold" />
           </div>
           <h1 className="font-display text-2xl text-off-white">Resultado Final</h1>
-          <p className="mt-1 text-on-pitch-muted">{title}</p>
           {leader && (
             <p className="mt-3 text-lg font-medium text-gold">
               Campeão: {leader.displayName} ({leader.totalPoints} pts)
@@ -121,7 +128,7 @@ export function ResultsView({
 
         <StandingsTable
           standings={result.standings}
-          title="Classificação final (pontos do pódio)"
+          title="Classificação final"
         />
 
         {roundNumbers.length > 0 && (
@@ -223,6 +230,20 @@ export function ResultsView({
         </Button>
         {exportError && (
           <p className="text-center text-sm text-red-300">{exportError}</p>
+        )}
+        {isCreator && onRestart && (
+          <Button
+            variant="secondary"
+            size="lg"
+            onClick={onRestart}
+            disabled={restarting}
+            className="w-full sm:w-auto"
+          >
+            {restarting ? "Reiniciando..." : "Começar novo jogo"}
+          </Button>
+        )}
+        {restartError && (
+          <p className="text-center text-sm text-red-300">{restartError}</p>
         )}
       </div>
     </div>

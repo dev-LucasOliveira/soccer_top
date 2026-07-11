@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { isSpectator } from "@/lib/participants";
 
 type RouteContext = { params: Promise<{ code: string }> };
 
@@ -25,20 +26,6 @@ export async function POST(request: Request, context: RouteContext) {
       return NextResponse.json({ error: "Sala não encontrada" }, { status: 404 });
     }
 
-    if (session.status === "completed") {
-      return NextResponse.json(
-        { error: "Sala já finalizada" },
-        { status: 400 }
-      );
-    }
-
-    if (session.status !== "setup") {
-      return NextResponse.json(
-        { error: "Sala já iniciada — não é possível entrar" },
-        { status: 400 }
-      );
-    }
-
     if (guestToken) {
       const existing = session.participants.find(
         (p) => p.guestToken === guestToken
@@ -48,16 +35,21 @@ export async function POST(request: Request, context: RouteContext) {
           participantId: existing.id,
           displayName: existing.displayName,
           alreadyJoined: true,
+          isSpectator: isSpectator(existing),
+          sessionStatus: session.status,
         });
       }
     }
+
+    const joinAsSpectator =
+      session.status === "active" || session.status === "completed";
 
     const participant = await prisma.participant.create({
       data: {
         sessionId: session.id,
         displayName: displayName.trim(),
         guestToken: guestToken ?? null,
-        status: "building",
+        status: joinAsSpectator ? "spectator" : "building",
       },
     });
 
@@ -65,6 +57,8 @@ export async function POST(request: Request, context: RouteContext) {
       participantId: participant.id,
       displayName: participant.displayName,
       alreadyJoined: false,
+      isSpectator: joinAsSpectator,
+      sessionStatus: session.status,
     });
   } catch (error) {
     console.error(error);

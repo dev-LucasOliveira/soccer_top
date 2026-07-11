@@ -70,6 +70,10 @@ export default function PickPage({
       );
       const picksData = await picksRes.json();
       if (picksRes.ok) {
+        if (picksData.status === "spectator") {
+          router.push(buildParticipantPath(p.code, sessionData, stored));
+          return;
+        }
         setPicks(picksData.picks);
         setInitialMessage(picksData.message ?? "");
         setConfirmed(picksData.status === "confirmed");

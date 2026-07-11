@@ -2,7 +2,9 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { parseFilters } from "@/lib/filters";
 import { getCurrentRound, toCurrentRound, toRoundSummary } from "@/lib/round";
-import { getStandings } from "@/lib/session";
+import { getStandings, getLastCompletedRoundResult } from "@/lib/session";
+import { getPlayers } from "@/lib/participants";
+import { getRoundWinningList } from "@/lib/round-result";
 import {
   getAdvanceAction,
   getSessionPhase,
@@ -131,6 +133,8 @@ export async function GET(request: Request, context: RouteContext) {
 
     const standings = await getStandings(code);
 
+    const playerCount = getPlayers(session.participants).length;
+
     const sessionPayload = {
       id: session.id,
       code: session.code,
@@ -145,7 +149,7 @@ export async function GET(request: Request, context: RouteContext) {
       currentRound,
       voteProgress: {
         voted: roundVotes.length,
-        total: session.participants.length,
+        total: playerCount,
       },
       standings,
       participants: session.participants.map((p) => ({
@@ -187,12 +191,29 @@ export async function GET(request: Request, context: RouteContext) {
       rounds: session.rounds,
     });
 
+    const lastCompletedRound =
+      currentRound?.status === "completed"
+        ? await getLastCompletedRoundResult(code)
+        : null;
+
+    const lastWinningList = lastCompletedRound
+      ? getRoundWinningList({
+          ...lastCompletedRound.data,
+          roundNumber: lastCompletedRound.roundNumber,
+          roundTitle: lastCompletedRound.roundTitle,
+        })
+      : null;
+
+    const lastRoundPoints = lastCompletedRound?.data.pointsByParticipant;
+
     return NextResponse.json({
       ...sessionPayload,
       phase,
       advanceAction,
       filters: currentRound?.filters ?? {},
       topN: currentRound?.topN ?? 10,
+      lastWinningList,
+      lastRoundPoints,
     });
   } catch (error) {
     console.error(error);

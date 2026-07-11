@@ -1,5 +1,6 @@
 import { POSITIONS, NATIONALITIES } from "@/lib/constants";
 import { areRoundsValid } from "@/lib/round-config";
+import { getPlayers, isSpectator } from "@/lib/participants";
 import type { CurrentRound, SessionFilters, StandingEntry } from "@/lib/types";
 
 const POSITION_LABELS = Object.fromEntries(
@@ -43,10 +44,9 @@ export function getSessionPhase(session: {
   voteProgress?: { voted: number; total: number };
   rounds?: { title: string; topN: number }[];
 }): { step: number; label: string; description: string } {
-  const count = session.participants.length;
-  const confirmed = session.participants.filter(
-    (p) => p.status === "confirmed"
-  ).length;
+  const players = getPlayers(session.participants);
+  const count = players.length;
+  const confirmed = players.filter((p) => p.status === "confirmed").length;
   const voted = session.voteProgress?.voted ?? 0;
   const roundLabel = `Rodada ${session.currentRoundNumber}/${session.totalRounds}`;
 
@@ -145,8 +145,9 @@ export function getAdvanceAction(session: {
   if (session.status === "setup") {
     const rounds = session.rounds ?? [];
     const roundsReady = areRoundsValid(rounds);
+    const players = getPlayers(session.participants);
     return {
-      canAdvance: session.participants.length >= 2 && roundsReady,
+      canAdvance: players.length >= 2 && roundsReady,
       label: "Iniciar sala",
     };
   }
@@ -154,12 +155,13 @@ export function getAdvanceAction(session: {
   if (session.status !== "active" || !session.currentRound) return null;
 
   const round = session.currentRound;
+  const players = getPlayers(session.participants);
 
   if (round.status === "open") {
     return {
       canAdvance:
-        session.participants.length >= 2 &&
-        session.participants.every((p) => p.status === "confirmed"),
+        players.length >= 2 &&
+        players.every((p) => p.status === "confirmed"),
       label: "Iniciar votação",
       redirect: "/vote",
     };
@@ -199,11 +201,12 @@ export function canAdvanceToVoting(session: {
   currentRound?: { status: string } | null;
   participants: { status: string }[];
 }): boolean {
+  const players = getPlayers(session.participants);
   return (
     session.status === "active" &&
     session.currentRound?.status === "open" &&
-    session.participants.length >= 2 &&
-    session.participants.every((p) => p.status === "confirmed")
+    players.length >= 2 &&
+    players.every((p) => p.status === "confirmed")
   );
 }
 
@@ -227,7 +230,7 @@ export function canStartSession(session: {
 }): boolean {
   return (
     session.status === "setup" &&
-    session.participants.length >= 2 &&
+    getPlayers(session.participants).length >= 2 &&
     areRoundsValid(session.rounds ?? [])
   );
 }
@@ -264,21 +267,73 @@ type SessionForRouting = {
   currentRound?: CurrentRound | null;
   participants: ParticipantForRouting[];
   voteProgress?: { voted: number; total: number };
+  isCreator?: boolean;
 };
+
+export type StatusViewMode = {
+  list: "mine" | "winning" | "none";
+  showStandings: boolean;
+};
+
+export function getStatusViewMode(
+  session: SessionForRouting,
+  participantId: string | null
+): StatusViewMode {
+  const roundStatus = session.currentRound?.status;
+  const myParticipant = participantId
+    ? session.participants.find((p) => p.id === participantId)
+    : null;
+
+  if (myParticipant && isSpectator(myParticipant)) {
+    if (roundStatus === "completed") {
+      return { list: "winning", showStandings: true };
+    }
+    if (roundStatus === "voting") {
+      return { list: "none", showStandings: false };
+    }
+    return { list: "none", showStandings: true };
+  }
+
+  if (roundStatus === "completed") {
+    return { list: "winning", showStandings: true };
+  }
+
+  if (roundStatus === "voting" && myParticipant?.hasVoted) {
+    return { list: "none", showStandings: false };
+  }
+
+  if (roundStatus === "open" && myParticipant?.status === "confirmed") {
+    return { list: "mine", showStandings: true };
+  }
+
+  return { list: "none", showStandings: true };
+}
 
 export function getWaitingMessage(
   session: SessionForRouting,
   participantId: string | null
 ): string {
-  const count = session.participants.length;
-  const confirmed = session.participants.filter(
-    (p) => p.status === "confirmed"
-  ).length;
+  const players = getPlayers(session.participants);
+  const count = players.length;
+  const confirmed = players.filter((p) => p.status === "confirmed").length;
   const voted = session.voteProgress?.voted ?? 0;
   const myParticipant = participantId
     ? session.participants.find((p) => p.id === participantId)
     : null;
   const roundStatus = session.currentRound?.status;
+
+  if (myParticipant && isSpectator(myParticipant)) {
+    if (session.status === "completed") {
+      return "Modo espectador — veja o resultado final.";
+    }
+    if (roundStatus === "voting") {
+      return "Modo espectador — acompanhe a votação.";
+    }
+    if (roundStatus === "completed") {
+      return "Modo espectador — rodada encerrada, aguardando próxima etapa.";
+    }
+    return "Modo espectador — acompanhe a partida.";
+  }
 
   if (session.status === "completed") {
     return "Todas as rodadas encerradas — veja o ranking final.";
@@ -286,12 +341,22 @@ export function getWaitingMessage(
 
   if (roundStatus === "completed") {
     if (session.currentRoundNumber < session.totalRounds) {
-      return "Rodada encerrada. Aguardando o criador iniciar a próxima.";
+      return session.isCreator
+        ? "Rodada encerrada — lista vitoriosa e classificação reveladas. Inicie a próxima rodada quando estiver pronto."
+        : "Rodada encerrada — lista vitoriosa e classificação reveladas. Aguardando o criador iniciar a próxima.";
     }
-    return "Última rodada encerrada. Aguardando o criador ver o resultado final.";
+    return session.isCreator
+      ? "Última rodada encerrada — veja a lista vitoriosa e a classificação. Avance para o resultado final."
+      : "Última rodada encerrada — veja a lista vitoriosa e a classificação. Aguardando o criador.";
   }
 
   if (roundStatus === "voting") {
+    if (myParticipant?.hasVoted) {
+      if (voted < count) {
+        return `Você votou! Aguardando os outros (${voted}/${count}). A classificação será revelada ao encerrar a rodada.`;
+      }
+      return "Todos votaram! Aguardando o criador encerrar a rodada e revelar a classificação.";
+    }
     if (voted < count) {
       return `Aguardando os outros votarem (${voted}/${count})`;
     }
@@ -314,6 +379,20 @@ export function getParticipantRoute(
   session: SessionForRouting,
   participantId: string | null
 ): string {
+  const myParticipant = participantId
+    ? session.participants.find((p) => p.id === participantId)
+    : null;
+
+  if (myParticipant && isSpectator(myParticipant)) {
+    if (session.status === "completed") {
+      return "/results";
+    }
+    if (session.currentRound?.status === "voting") {
+      return "/vote";
+    }
+    return "/status";
+  }
+
   if (session.status === "completed") {
     return "/results";
   }
@@ -322,9 +401,6 @@ export function getParticipantRoute(
     return "";
   }
 
-  const myParticipant = participantId
-    ? session.participants.find((p) => p.id === participantId)
-    : null;
   const roundStatus = session.currentRound?.status;
 
   if (roundStatus === "open") {
