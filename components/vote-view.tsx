@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { formatListLabel } from "@/lib/voting";
+import { buildParticipantPath } from "@/lib/session-info";
 import { ListMessage } from "@/components/list-message";
 import type { VoteState } from "@/lib/types";
 
@@ -29,14 +30,32 @@ export function VoteView({
         `/api/sessions/${sessionCode}/vote?participantId=${participantId}`
       );
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error);
+      if (!res.ok) {
+        const sessionRes = await fetch(
+          `/api/sessions/${sessionCode}?participantId=${participantId}`
+        );
+        const sessionData = await sessionRes.json();
+        if (sessionRes.ok) {
+          const targetPath = buildParticipantPath(
+            sessionCode,
+            sessionData,
+            participantId
+          );
+          if (!targetPath.endsWith("/vote")) {
+            router.replace(targetPath);
+            return;
+          }
+        }
+        throw new Error(data.error);
+      }
       setState(data);
+      setError("");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erro ao carregar votação");
     } finally {
       setLoading(false);
     }
-  }, [sessionCode, participantId]);
+  }, [sessionCode, participantId, router]);
 
   useEffect(() => {
     fetchVoteState();

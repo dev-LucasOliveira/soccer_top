@@ -108,7 +108,7 @@ export function PlayerPicker({
   }
 
   function handleConfirmClick() {
-    if (lastAction === "reorder") {
+    if (lastAction === "reorder" || topN === 1) {
       void savePicks(true);
       return;
     }
