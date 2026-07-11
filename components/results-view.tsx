@@ -24,9 +24,13 @@ function RoundRanking({ roundResult }: { roundResult: RoundResultData }) {
 
         return (
           <Card key={entry.participantId} className="overflow-hidden p-0">
-            <div className="flex items-center justify-between bg-pitch/95 px-4 py-3 text-off-white">
+            <div className="card-pitch-header flex items-center justify-between px-4 py-3 text-off-white">
               <div className="flex items-center gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gold text-sm font-bold text-foreground">
+                <span
+                  className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold ${
+                    entry.rank === 1 ? "rank-badge-gold gold-chip" : "rank-badge-card"
+                  }`}
+                >
                   {entry.rank}
                 </span>
                 <div>
@@ -45,7 +49,7 @@ function RoundRanking({ roundResult }: { roundResult: RoundResultData }) {
                   key={pick.rank}
                   className="flex items-center gap-3 rounded-lg bg-off-white-muted px-3 py-2"
                 >
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-pitch text-xs font-bold text-off-white">
+                  <span className="rank-badge-card flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
                     {pick.rank}
                   </span>
                   <span className="font-medium text-foreground">
@@ -113,7 +117,7 @@ export function ResultsView({
 
   return (
     <div className="space-y-6">
-      <div ref={exportRef} className="space-y-6 rounded-2xl border border-off-white/8 bg-pitch-dark p-4 sm:p-6">
+      <div ref={exportRef} className="pitch-bg space-y-6 rounded-2xl p-4 sm:p-6">
         <div className="text-center">
           <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full border border-gold/25 bg-gold/10">
             <Trophy size={28} strokeWidth={1.5} className="text-gold" />
@@ -150,8 +154,8 @@ export function ResultsView({
           onClick={() => setActiveTab("final")}
           className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
             activeTab === "final"
-              ? "border border-gold/30 bg-gold/20 text-foreground"
-              : "border border-transparent bg-off-white-muted text-foreground hover:bg-off-white"
+              ? "border border-gold-dark/35 bg-gradient-to-b from-gold-light to-gold text-gold-foreground shadow-sm"
+              : "border border-transparent bg-off-white-muted text-foreground hover:bg-off-white-surface"
           }`}
         >
           Geral
@@ -163,8 +167,8 @@ export function ResultsView({
             onClick={() => setActiveTab(num)}
             className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
               activeTab === num
-                ? "border border-gold/30 bg-gold/20 text-foreground"
-                : "border border-transparent bg-off-white-muted text-foreground hover:bg-off-white"
+                ? "border border-gold-dark/35 bg-gradient-to-b from-gold-light to-gold text-gold-foreground shadow-sm"
+                : "border border-transparent bg-off-white-muted text-foreground hover:bg-off-white-surface"
             }`}
           >
             Rodada {num}

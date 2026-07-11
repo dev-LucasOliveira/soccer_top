@@ -133,7 +133,7 @@ export function RoundConfigCard({
                       className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                         filters.positions?.includes(pos.value)
                           ? "bg-pitch text-off-white"
-                          : "bg-off-white-muted text-foreground hover:bg-off-white"
+                          : "bg-off-white-muted text-foreground hover:bg-off-white-surface"
                       } ${readOnly ? "cursor-default opacity-100" : ""}`}
                     >
                       {pos.label}
@@ -154,7 +154,7 @@ export function RoundConfigCard({
                       className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                         filters.nationalities?.includes(nat.value)
                           ? "bg-pitch text-off-white"
-                          : "bg-off-white-muted text-foreground hover:bg-off-white"
+                          : "bg-off-white-muted text-foreground hover:bg-off-white-surface"
                       } ${readOnly ? "cursor-default opacity-100" : ""}`}
                     >
                       {nat.label}

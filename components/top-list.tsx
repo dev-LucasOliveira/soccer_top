@@ -49,11 +49,11 @@ function TopItemPreview({
   return (
     <div
       className={cn(
-        "flex items-center gap-3 rounded-lg border border-card-border/60 bg-off-white/80 p-3 transition-shadow duration-200",
+        "surface-row flex items-center gap-3 rounded-lg p-3 transition-shadow duration-200",
         className
       )}
     >
-      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-pitch text-sm font-bold text-off-white">
+      <span className="rank-badge-card flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold">
         {rank}
       </span>
       {dragHandle}
@@ -67,7 +67,7 @@ function TopItemPreview({
         <button
           type="button"
           onClick={onRemove}
-          className="text-pitch/40 hover:text-red-500"
+          className="surface-icon hover:text-red-400"
         >
           <X size={18} />
         </button>
@@ -96,7 +96,7 @@ function SortableItem({
     !disabled ? (
       <button
         type="button"
-        className="cursor-grab touch-none text-pitch/40 hover:text-pitch active:cursor-grabbing"
+        className="surface-icon cursor-grab touch-none active:cursor-grabbing"
         {...attributes}
         {...listeners}
       >
@@ -227,7 +227,7 @@ export function TopList({
             item={activeItem}
             rank={activeRank}
             dragHandle={
-              <span className="text-pitch/40">
+              <span className="surface-icon">
                 <GripVertical size={18} />
               </span>
             }

@@ -217,7 +217,7 @@ export function PlayerPicker({
             maxLength={LIST_MESSAGE_MAX_LENGTH}
             rows={2}
             placeholder="Justifique sua lista em poucas palavras..."
-            className="w-full resize-none rounded-xl border border-card-border bg-white px-3 py-2.5 text-sm text-foreground placeholder:text-text-muted focus:border-pitch/50 focus:outline-none focus:ring-2 focus:ring-pitch/20"
+            className="w-full resize-none rounded-xl border border-card-border bg-surface-elevated px-3 py-2.5 text-sm text-foreground placeholder:text-text-muted focus:border-pitch/50 focus:outline-none focus:ring-2 focus:ring-pitch/20"
           />
         </Card>
       )}

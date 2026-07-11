@@ -20,9 +20,9 @@ export function Button({
         variant === "primary" &&
           "bg-pitch text-off-white shadow-sm hover:bg-pitch-dark hover:shadow-md active:scale-[0.98] disabled:bg-pitch/40 disabled:text-off-white/70 disabled:shadow-none disabled:active:scale-100",
         variant === "secondary" &&
-          "border border-card-border bg-white text-pitch hover:border-pitch/50 hover:bg-off-white disabled:border-card-border disabled:bg-off-white-muted disabled:text-foreground/50",
+          "border border-card-border bg-surface-elevated text-foreground hover:border-gold/40 hover:bg-off-white-surface disabled:border-card-border disabled:bg-off-white-muted disabled:text-foreground/50",
         variant === "gold" &&
-          "bg-gradient-to-b from-gold-light to-gold text-foreground shadow-sm hover:from-gold hover:to-gold-dark disabled:border disabled:border-gold/30 disabled:bg-gold/35 disabled:from-gold/35 disabled:to-gold/35 disabled:text-foreground/60 disabled:shadow-none",
+          "bg-gradient-to-b from-gold-light to-gold text-gold-foreground shadow-sm hover:from-gold hover:to-gold-dark disabled:border disabled:border-gold/30 disabled:bg-gold/35 disabled:from-gold/35 disabled:to-gold/35 disabled:text-gold-foreground/60 disabled:shadow-none",
         variant === "ghost" &&
           "bg-transparent text-off-white/85 hover:bg-off-white/10 hover:text-off-white disabled:text-off-white/45",
         variant === "danger" &&

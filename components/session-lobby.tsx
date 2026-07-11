@@ -248,15 +248,15 @@ export function SessionLobby({
               key={s.num}
               className={`min-w-[4.75rem] shrink-0 rounded-lg border p-2 text-center text-xs leading-tight transition-colors duration-200 sm:min-w-0 sm:shrink ${
                 phase.step >= s.num
-                  ? "border-pitch/20 bg-white font-medium text-foreground shadow-sm"
-                  : "border-card-border bg-white text-foreground/70"
+                  ? "border-pitch/20 bg-surface-elevated font-medium text-foreground shadow-sm"
+                  : "border-card-border bg-surface-elevated text-foreground/70"
               }`}
             >
               <div
                 className={`mx-auto mb-1 flex h-6 w-6 items-center justify-center rounded-full text-xs font-medium ${
                   phase.step >= s.num
-                    ? "bg-pitch text-off-white"
-                    : "border border-card-border bg-off-white text-foreground/70"
+                    ? "rank-badge-card"
+                    : "border border-card-border bg-off-white-surface text-foreground/70"
                 }`}
               >
                 {s.num}

@@ -43,8 +43,8 @@ export function StandingsTable({
                 <span
                   className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold ${
                     entry.rank === 1
-                      ? "bg-gold text-foreground"
-                      : "bg-pitch text-off-white"
+                      ? "rank-badge-gold gold-chip"
+                      : "rank-badge-card"
                   }`}
                 >
                   {entry.rank}
