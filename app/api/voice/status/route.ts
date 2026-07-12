@@ -1,16 +1,22 @@
 import { NextResponse } from "next/server";
 import {
-  isVoiceChatEnabled,
+  getVoiceConfigStatus,
   VOICE_DISABLED_MESSAGE,
 } from "@/lib/voice-config";
 
 export async function GET() {
-  if (isVoiceChatEnabled()) {
-    return NextResponse.json({ enabled: true });
+  const config = getVoiceConfigStatus();
+
+  if (!config.enabled) {
+    return NextResponse.json({
+      enabled: false,
+      config,
+      message: VOICE_DISABLED_MESSAGE,
+    });
   }
 
   return NextResponse.json({
-    enabled: false,
-    message: VOICE_DISABLED_MESSAGE,
+    enabled: true,
+    config,
   });
 }

@@ -16,8 +16,24 @@ export const VOICE_DISABLED_MESSAGE: VoiceDisabledMessage = {
   discordHint: "Cria um server, manda o link no chat e segue o jogo por aqui.",
 };
 
+function readEnv(name: string): string | undefined {
+  const value = process.env[name];
+  if (!value) return undefined;
+  const trimmed = value.trim();
+  return trimmed.length > 0 ? trimmed : undefined;
+}
+
+export function getVoiceConfigStatus() {
+  return {
+    enabled: isVoiceChatEnabled(),
+    hasApiKey: Boolean(readEnv("LIVEKIT_API_KEY")),
+    hasApiSecret: Boolean(readEnv("LIVEKIT_API_SECRET")),
+    hasUrl: Boolean(readEnv("LIVEKIT_URL")),
+  };
+}
+
 export function getLiveKitUrl(): string {
-  const url = process.env.LIVEKIT_URL;
+  const url = readEnv("LIVEKIT_URL");
   if (!url) {
     throw new Error("LIVEKIT_URL não configurada");
   }
@@ -25,10 +41,16 @@ export function getLiveKitUrl(): string {
 }
 
 export function getLiveKitCredentials(): { apiKey: string; apiSecret: string } {
-  const apiKey = process.env.LIVEKIT_API_KEY;
-  const apiSecret = process.env.LIVEKIT_API_SECRET;
-  if (!apiKey || !apiSecret) {
+  const apiKey = readEnv("LIVEKIT_API_KEY");
+  const apiSecret = readEnv("LIVEKIT_API_SECRET");
+  if (!apiKey && !apiSecret) {
     throw new Error("Credenciais LiveKit não configuradas");
+  }
+  if (!apiKey) {
+    throw new Error("LIVEKIT_API_KEY não configurada");
+  }
+  if (!apiSecret) {
+    throw new Error("LIVEKIT_API_SECRET não configurada");
   }
   return { apiKey, apiSecret };
 }
