@@ -1,0 +1,4825 @@
+{
+  "generatedAt": "2026-07-12T06:14:59.608Z",
+  "total": 286,
+  "flaggedCount": 199,
+  "entries": [
+    {
+      "name": "Adriano Imperador",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Flamengo\",\"from\":2000,\"to\":2001},{\"name\":\"Parma\",\"from\":2001,\"to\":2002},{\"name\":\"Inter Milan\",\"from\":2002,\"to\":2006},{\"name\":\"São Paulo\",\"from\":2006,\"to\":2007}]",
+      "career": "2000–2016",
+      "themes": [
+        "idolos-brasileirao",
+        "meias-brasileiros"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Alain Giresse",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Bordeaux\",\"from\":1970,\"to\":1987},{\"name\":\"Marseille\",\"from\":1987,\"to\":1988}]",
+      "career": "1970–1988",
+      "themes": [
+        "lendas-francesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Alan Shearer",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Southampton\",\"from\":1988,\"to\":1992},{\"name\":\"Blackburn Rovers\",\"from\":1992,\"to\":1996},{\"name\":\"Newcastle United\",\"from\":1996,\"to\":2006}]",
+      "career": "1988–2006",
+      "themes": [
+        "lendas-inglaterra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Aldair",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Flamengo\",\"from\":1983,\"to\":1989},{\"name\":\"Benfica\",\"from\":1989,\"to\":1990},{\"name\":\"Roma\",\"from\":1990,\"to\":2003}]",
+      "career": "1983–2005",
+      "themes": [
+        "defensores-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Alessandro Del Piero",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Juventus\",\"from\":1993,\"to\":2012},{\"name\":\"Sydney FC\",\"from\":2012,\"to\":2014}]",
+      "career": "1991–2014",
+      "themes": [
+        "lendas-italianas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Alessandro Nesta",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Defensor",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Lazio\",\"from\":1993,\"to\":2002},{\"name\":\"AC Milan\",\"from\":2002,\"to\":2012}]",
+      "career": "1993–2014",
+      "themes": [
+        "lendas-italianas",
+        "defensores-historicos",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Alex",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Santos\",\"from\":1990,\"to\":1995},{\"name\":\"Chelsea\",\"from\":2004,\"to\":2012},{\"name\":\"PSG\",\"from\":2012,\"to\":2014}]",
+      "career": "1990–2017",
+      "themes": [
+        "meias-brasileiros"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Alexandre Pato",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Internacional\",\"from\":2004,\"to\":2006},{\"name\":\"AC Milan\",\"from\":2007,\"to\":2013},{\"name\":\"Corinthians\",\"from\":2013,\"to\":2014}]",
+      "career": "2004–2021",
+      "themes": [
+        "atacantes-bra"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Alfredo Di Stéfano",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Millonarios\",\"from\":1949,\"to\":1953},{\"name\":\"Real Madrid\",\"from\":1953,\"to\":1964},{\"name\":\"Espanyol\",\"from\":1964,\"to\":1966}]",
+      "career": "1945–1966",
+      "themes": [
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Alisson Becker",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Internacional\",\"from\":2013,\"to\":2016},{\"name\":\"Roma\",\"from\":2016,\"to\":2018},{\"name\":\"Liverpool\",\"from\":2018,\"to\":2026}]",
+      "career": "2013–2026",
+      "themes": [
+        "goleiros-bra",
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Alphonso Davies",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Defensor",
+      "nationality": "CAN",
+      "teams": "[{\"name\":\"Vancouver Whitecaps\",\"from\":2016,\"to\":2019},{\"name\":\"Bayern\",\"from\":2019,\"to\":2026}]",
+      "career": "2016–2026",
+      "themes": [
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Álvaro Morata",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Real Madrid\",\"from\":2010,\"to\":2014},{\"name\":\"Juventus\",\"from\":2014,\"to\":2016},{\"name\":\"Chelsea\",\"from\":2017,\"to\":2019},{\"name\":\"Atlético Madrid\",\"from\":2019,\"to\":2024}]",
+      "career": "2010–2026",
+      "themes": [
+        "lendas-espanholas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Amancio Amaro",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Deportivo La Coruña\",\"from\":1958,\"to\":1962},{\"name\":\"Real Madrid\",\"from\":1962,\"to\":1976}]",
+      "career": "1958–1976",
+      "themes": [
+        "lendas-espanholas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Andoni Zubizarreta",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Athletic Bilbao\",\"from\":1981,\"to\":1988},{\"name\":\"Barcelona\",\"from\":1988,\"to\":1994},{\"name\":\"Valencia\",\"from\":1994,\"to\":1998}]",
+      "career": "1981–1998",
+      "themes": [
+        "lendas-espanholas",
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Andrea Pirlo",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Brescia\",\"from\":1995,\"to\":1998},{\"name\":\"Inter Milan\",\"from\":1998,\"to\":2001},{\"name\":\"AC Milan\",\"from\":2001,\"to\":2011},{\"name\":\"Juventus\",\"from\":2011,\"to\":2015},{\"name\":\"New York City\",\"from\":2015,\"to\":2017}]",
+      "career": "1995–2017",
+      "themes": [
+        "lendas-italianas",
+        "meias-historicos",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Andreas Brehme",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Kaiserslautern\",\"from\":1981,\"to\":1984},{\"name\":\"Bayern Munich\",\"from\":1987,\"to\":1992},{\"name\":\"Inter Milan\",\"from\":1992,\"to\":1993}]",
+      "career": "1981–1998",
+      "themes": [
+        "lendas-alemas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Andrés Iniesta",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Barcelona\",\"from\":2002,\"to\":2018},{\"name\":\"Vissel Kobe\",\"from\":2018,\"to\":2023}]",
+      "career": "2001–2023",
+      "themes": [
+        "lendas-champions",
+        "lendas-espanholas",
+        "meias-historicos",
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Andriy Shevchenko",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "UKR",
+      "teams": "[{\"name\":\"Dynamo Kyiv\",\"from\":1994,\"to\":1999},{\"name\":\"AC Milan\",\"from\":1999,\"to\":2006},{\"name\":\"Chelsea\",\"from\":2006,\"to\":2009},{\"name\":\"Dynamo Kyiv\",\"from\":2009,\"to\":2012}]",
+      "career": "1994–2012",
+      "themes": [
+        "lendas-champions",
+        "fenomenos-copa",
+        "artilheiros-champions",
+        "atacantes-historicos",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Ángel Di María",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Rosario Central\",\"from\":2005,\"to\":2007},{\"name\":\"Benfica\",\"from\":2007,\"to\":2010},{\"name\":\"Real Madrid\",\"from\":2010,\"to\":2014},{\"name\":\"PSG\",\"from\":2015,\"to\":2022}]",
+      "career": "2005–2026",
+      "themes": [
+        "craques-argentinos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Antoine Griezmann",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Real Sociedad\",\"from\":2009,\"to\":2014},{\"name\":\"Atlético Madrid\",\"from\":2014,\"to\":2019},{\"name\":\"Barcelona\",\"from\":2019,\"to\":2021},{\"name\":\"Atlético Madrid\",\"from\":2021,\"to\":2026}]",
+      "career": "2009–2026",
+      "themes": [
+        "lendas-francesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Antonio Cassano",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Bari\",\"from\":1999,\"to\":2001},{\"name\":\"Roma\",\"from\":2001,\"to\":2006},{\"name\":\"Real Madrid\",\"from\":2006,\"to\":2007},{\"name\":\"AC Milan\",\"from\":2010,\"to\":2011}]",
+      "career": "1999–2017",
+      "themes": [
+        "lendas-italianas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Arjen Robben",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Groningen\",\"from\":2000,\"to\":2002},{\"name\":\"PSV\",\"from\":2002,\"to\":2004},{\"name\":\"Chelsea\",\"from\":2004,\"to\":2007},{\"name\":\"Real Madrid\",\"from\":2007,\"to\":2009},{\"name\":\"Bayern\",\"from\":2009,\"to\":2019},{\"name\":\"Groningen\",\"from\":2020,\"to\":2021}]",
+      "career": "2000–2021",
+      "themes": [
+        "lendas-holandesas",
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Arrascaeta",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Defensor Sporting\",\"from\":2013,\"to\":2015},{\"name\":\"Cruzeiro\",\"from\":2015,\"to\":2018},{\"name\":\"Flamengo\",\"from\":2019,\"to\":2026}]",
+      "career": "2013–2026",
+      "themes": [
+        "idolos-brasileirao"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Ashley Cole",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Arsenal\",\"from\":1999,\"to\":2006},{\"name\":\"Chelsea\",\"from\":2006,\"to\":2014},{\"name\":\"Roma\",\"from\":2014,\"to\":2015}]",
+      "career": "1999–2018",
+      "themes": [
+        "lendas-inglaterra",
+        "defensores-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Basílio",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Santos\",\"from\":1952,\"to\":1961},{\"name\":\"Palmeiras\",\"from\":1961,\"to\":1964}]",
+      "career": "1952–1968",
+      "themes": [
+        "goleiros-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Bastian Schweinsteiger",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Bayern\",\"from\":2002,\"to\":2015},{\"name\":\"Manchester United\",\"from\":2015,\"to\":2017},{\"name\":\"Chicago Fire\",\"from\":2017,\"to\":2019}]",
+      "career": "2002–2019",
+      "themes": [
+        "lendas-alemas",
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Bebeto",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Flamengo\",\"from\":1983,\"to\":1986},{\"name\":\"Vitória\",\"from\":1986,\"to\":1988},{\"name\":\"Deportivo La Coruña\",\"from\":1992,\"to\":1996},{\"name\":\"Botafogo\",\"from\":1996,\"to\":1999}]",
+      "career": "1983–2002",
+      "themes": [
+        "atacantes-bra"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Bellini",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"São Paulo\",\"from\":1952,\"to\":1965}]",
+      "career": "1952–1965",
+      "themes": [
+        "defensores-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource",
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Bernard Lama",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Goleiro",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Lille\",\"from\":1988,\"to\":1991},{\"name\":\"Paris Saint-Germain\",\"from\":1992,\"to\":2000}]",
+      "career": "1983–2001",
+      "themes": [
+        "lendas-francesas",
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Bernardo Silva",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Benfica\",\"from\":2014,\"to\":2015},{\"name\":\"Monaco\",\"from\":2015,\"to\":2017},{\"name\":\"Manchester City\",\"from\":2017,\"to\":2026}]",
+      "career": "2014–2026",
+      "themes": [
+        "lendas-portuguesas"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Bernd Schuster",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Köln\",\"from\":1978,\"to\":1980},{\"name\":\"Barcelona\",\"from\":1980,\"to\":1988},{\"name\":\"Real Madrid\",\"from\":1988,\"to\":1990}]",
+      "career": "1978–1993",
+      "themes": [
+        "lendas-alemas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Bixente Lizarazu",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Bordeaux\",\"from\":1988,\"to\":1996},{\"name\":\"Bayern Munich\",\"from\":1997,\"to\":2005}]",
+      "career": "1988–2006",
+      "themes": [
+        "lendas-francesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Bobby Charlton",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Manchester United\",\"from\":1956,\"to\":1973},{\"name\":\"Preston North End\",\"from\":1974,\"to\":1975}]",
+      "career": "1954–1975",
+      "themes": [
+        "fenomenos-copa",
+        "lendas-inglaterra",
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Bobby Moore",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Defensor",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"West Ham\",\"from\":1958,\"to\":1974},{\"name\":\"Fulham\",\"from\":1974,\"to\":1977}]",
+      "career": "1958–1978",
+      "themes": [
+        "lendas-inglaterra",
+        "defensores-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Branco",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Fluminense\",\"from\":1982,\"to\":1984},{\"name\":\"Udinese\",\"from\":1988,\"to\":1991},{\"name\":\"Fluminense\",\"from\":1991,\"to\":1994},{\"name\":\"Flamengo\",\"from\":1994,\"to\":1998}]",
+      "career": "1982–2002",
+      "themes": [
+        "defensores-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Bruno Fernandes",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Sporting CP\",\"from\":2017,\"to\":2020},{\"name\":\"Manchester United\",\"from\":2020,\"to\":2026}]",
+      "career": "2012–2026",
+      "themes": [
+        "lendas-portuguesas"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Bryan Robson",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"West Bromwich Albion\",\"from\":1974,\"to\":1981},{\"name\":\"Manchester United\",\"from\":1981,\"to\":1994}]",
+      "career": "1974–1997",
+      "themes": [
+        "lendas-inglaterra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Cafu",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"São Paulo\",\"from\":1989,\"to\":1995},{\"name\":\"Roma\",\"from\":1997,\"to\":2003},{\"name\":\"AC Milan\",\"from\":2003,\"to\":2008}]",
+      "career": "1989–2008",
+      "themes": [
+        "idolos-brasileirao",
+        "defensores-bra",
+        "fenomenos-copa",
+        "defensores-historicos",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Calleri",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"São Paulo\",\"from\":2014,\"to\":2016},{\"name\":\"West Ham\",\"from\":2016,\"to\":2017},{\"name\":\"São Paulo\",\"from\":2019,\"to\":2026}]",
+      "career": "2014–2026",
+      "themes": [
+        "idolos-brasileirao"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Careca",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"São Paulo\",\"from\":1978,\"to\":1983},{\"name\":\"Napoli\",\"from\":1987,\"to\":1993},{\"name\":\"Kashima Antlers\",\"from\":1993,\"to\":1996}]",
+      "career": "1978–1997",
+      "themes": [
+        "atacantes-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Carles Puyol",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Defensor",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Barcelona\",\"from\":1999,\"to\":2014}]",
+      "career": "1999–2014",
+      "themes": [
+        "lendas-espanholas",
+        "defensores-historicos",
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": [
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Carlos Alberto Torres",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Santos\",\"from\":1963,\"to\":1974},{\"name\":\"Fluminense\",\"from\":1974,\"to\":1977},{\"name\":\"New York Cosmos\",\"from\":1977,\"to\":1982}]",
+      "career": "1963–1982",
+      "themes": [
+        "defensores-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Carlos Tévez",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Boca Juniors\",\"from\":2001,\"to\":2004},{\"name\":\"Corinthians\",\"from\":2005,\"to\":2006},{\"name\":\"West Ham\",\"from\":2006,\"to\":2007},{\"name\":\"Manchester United\",\"from\":2007,\"to\":2009},{\"name\":\"Manchester City\",\"from\":2009,\"to\":2011},{\"name\":\"Juventus\",\"from\":2013,\"to\":2015},{\"name\":\"Boca Juniors\",\"from\":2015,\"to\":2016},{\"name\":\"Shanghai Shenhua\",\"from\":2017,\"to\":2021}]",
+      "career": "2000–2021",
+      "themes": [
+        "craques-argentinos",
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Casemiro",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"São Paulo\",\"from\":2010,\"to\":2013},{\"name\":\"Real Madrid\",\"from\":2015,\"to\":2022},{\"name\":\"Manchester United\",\"from\":2022,\"to\":2026}]",
+      "career": "2010–2026",
+      "themes": [
+        "meias-brasileiros",
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Cássio",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Grêmio\",\"from\":2006,\"to\":2011},{\"name\":\"Corinthians\",\"from\":2012,\"to\":2026}]",
+      "career": "2006–2026",
+      "themes": [
+        "goleiros-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "César Maluco",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Santos\",\"from\":1965,\"to\":1972},{\"name\":\"Flamengo\",\"from\":1972,\"to\":1975}]",
+      "career": "1965–1978",
+      "themes": [
+        "goleiros-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "César Rodríguez",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Granada\",\"from\":1939,\"to\":1940},{\"name\":\"Barcelona\",\"from\":1942,\"to\":1955},{\"name\":\"Cultural Leonesa\",\"from\":1955,\"to\":1956}]",
+      "career": "1939–1960",
+      "themes": [
+        "lendas-espanholas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Cesc Fàbregas",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Arsenal\",\"from\":2003,\"to\":2011},{\"name\":\"Barcelona\",\"from\":2011,\"to\":2014},{\"name\":\"Chelsea\",\"from\":2014,\"to\":2019},{\"name\":\"Monaco\",\"from\":2019,\"to\":2022},{\"name\":\"Como\",\"from\":2022,\"to\":2023}]",
+      "career": "2003–2023",
+      "themes": [
+        "lendas-espanholas",
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Chris Sutton",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Norwich City\",\"from\":1991,\"to\":1994},{\"name\":\"Blackburn Rovers\",\"from\":1994,\"to\":1999},{\"name\":\"Chelsea\",\"from\":1999,\"to\":2000}]",
+      "career": "1991–2007",
+      "themes": [
+        "lendas-inglaterra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Christian Vieri",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Juventus\",\"from\":1991,\"to\":1992},{\"name\":\"Atlético Madrid\",\"from\":1997,\"to\":1998},{\"name\":\"Lazio\",\"from\":1998,\"to\":1999},{\"name\":\"Inter Milan\",\"from\":1999,\"to\":2005}]",
+      "career": "1991–2009",
+      "themes": [
+        "lendas-italianas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Clarence Seedorf",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Ajax\",\"from\":1992,\"to\":1995},{\"name\":\"Sampdoria\",\"from\":1995,\"to\":1996},{\"name\":\"Real Madrid\",\"from\":1996,\"to\":1999},{\"name\":\"Inter Milan\",\"from\":1999,\"to\":2002},{\"name\":\"AC Milan\",\"from\":2002,\"to\":2012},{\"name\":\"Botafogo\",\"from\":2012,\"to\":2014}]",
+      "career": "1992–2014",
+      "themes": [
+        "lendas-holandesas",
+        "meias-historicos",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Claude Makélélé",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Nantes\",\"from\":1992,\"to\":1997},{\"name\":\"Real Madrid\",\"from\":2000,\"to\":2003},{\"name\":\"Chelsea\",\"from\":2003,\"to\":2008}]",
+      "career": "1990–2011",
+      "themes": [
+        "lendas-francesas",
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Claudio Gentile",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Inter Milan\",\"from\":1972,\"to\":1984},{\"name\":\"Fiorentina\",\"from\":1984,\"to\":1987}]",
+      "career": "1972–1987",
+      "themes": [
+        "lendas-italianas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Claudio Pizarro",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "PER",
+      "teams": "[{\"name\":\"Alianza Lima\",\"from\":1996,\"to\":1999},{\"name\":\"Werder Bremen\",\"from\":1999,\"to\":2001},{\"name\":\"Bayern\",\"from\":2001,\"to\":2007},{\"name\":\"Chelsea\",\"from\":2007,\"to\":2008},{\"name\":\"Werder Bremen\",\"from\":2008,\"to\":2012},{\"name\":\"Bayern\",\"from\":2012,\"to\":2015},{\"name\":\"Werder Bremen\",\"from\":2015,\"to\":2017},{\"name\":\"1. FC Köln\",\"from\":2017,\"to\":2020}]",
+      "career": "1996–2020",
+      "themes": [
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Clodoaldo",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Santos\",\"from\":1965,\"to\":1974},{\"name\":\"Paris Saint-Germain\",\"from\":1974,\"to\":1979}]",
+      "career": "1965–1980",
+      "themes": [
+        "defensores-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Cole Palmer",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Manchester City\",\"from\":2020,\"to\":2023},{\"name\":\"Chelsea\",\"from\":2023,\"to\":2026}]",
+      "career": "2020–2026",
+      "themes": [
+        "lendas-inglaterra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Coutinho",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Vasco da Gama\",\"from\":1958,\"to\":1960},{\"name\":\"Santos\",\"from\":1960,\"to\":1970},{\"name\":\"Botafogo\",\"from\":1970,\"to\":1972}]",
+      "career": "1958–1973",
+      "themes": [
+        "goleiros-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Cristiano Ronaldo",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Atacante",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Sporting CP\",\"from\":2002,\"to\":2003},{\"name\":\"Manchester United\",\"from\":2003,\"to\":2009},{\"name\":\"Real Madrid\",\"from\":2009,\"to\":2018},{\"name\":\"Juventus\",\"from\":2018,\"to\":2021}]",
+      "career": "2002–2026",
+      "themes": [
+        "lendas-champions",
+        "artilheiros-champions",
+        "lendas-portuguesas",
+        "atacantes-historicos",
+        "lendas-real-madrid",
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Real Madrid",
+        "Manchester United"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Dani Alves",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Bahia\",\"from\":2001,\"to\":2003},{\"name\":\"Sevilla\",\"from\":2003,\"to\":2008},{\"name\":\"Barcelona\",\"from\":2008,\"to\":2016},{\"name\":\"Juventus\",\"from\":2016,\"to\":2017},{\"name\":\"PSG\",\"from\":2017,\"to\":2019},{\"name\":\"São Paulo\",\"from\":2021,\"to\":2023}]",
+      "career": "2001–2023",
+      "themes": [
+        "defensores-bra",
+        "defensores-historicos",
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Dani Olmo",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Dinamo Zagreb\",\"from\":2015,\"to\":2019},{\"name\":\"RB Leipzig\",\"from\":2020,\"to\":2024},{\"name\":\"Barcelona\",\"from\":2024,\"to\":2026}]",
+      "career": "2015–2026",
+      "themes": [
+        "lendas-espanholas"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Dani Parejo",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Real Madrid\",\"from\":2008,\"to\":2011},{\"name\":\"Valencia\",\"from\":2011,\"to\":2020},{\"name\":\"Villarreal\",\"from\":2020,\"to\":2026}]",
+      "career": "2008–2026",
+      "themes": [
+        "lendas-espanholas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Dante",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Juventude\",\"from\":2003,\"to\":2004},{\"name\":\"Lille\",\"from\":2006,\"to\":2007},{\"name\":\"Charleroi\",\"from\":2007,\"to\":2008},{\"name\":\"Standard Liège\",\"from\":2008,\"to\":2009},{\"name\":\"Monaco\",\"from\":2009,\"to\":2012},{\"name\":\"Bayern\",\"from\":2012,\"to\":2015},{\"name\":\"Wolfsburg\",\"from\":2015,\"to\":2018},{\"name\":\"Nice\",\"from\":2018,\"to\":2021}]",
+      "career": "2003–2021",
+      "themes": [
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "David Beckham",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Manchester United\",\"from\":1992,\"to\":2003},{\"name\":\"Real Madrid\",\"from\":2003,\"to\":2007},{\"name\":\"LA Galaxy\",\"from\":2007,\"to\":2012},{\"name\":\"PSG\",\"from\":2013,\"to\":2013}]",
+      "career": "1992–2013",
+      "themes": [
+        "lendas-champions",
+        "lendas-inglaterra",
+        "meias-historicos",
+        "lendas-real-madrid",
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Real Madrid",
+        "Manchester United"
+      ],
+      "flags": []
+    },
+    {
+      "name": "David de Gea",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Goleiro",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Atlético Madrid\",\"from\":2009,\"to\":2011},{\"name\":\"Manchester United\",\"from\":2011,\"to\":2023},{\"name\":\"Fiorentina\",\"from\":2024,\"to\":2026}]",
+      "career": "2009–2026",
+      "themes": [
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "David Luiz",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Vitória\",\"from\":2006,\"to\":2007},{\"name\":\"Benfica\",\"from\":2007,\"to\":2011},{\"name\":\"Chelsea\",\"from\":2011,\"to\":2014},{\"name\":\"PSG\",\"from\":2014,\"to\":2016}]",
+      "career": "2006–2024",
+      "themes": [
+        "defensores-bra"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "David Seaman",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Goleiro",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Birmingham City\",\"from\":1985,\"to\":1988},{\"name\":\"Queens Park Rangers\",\"from\":1988,\"to\":1990},{\"name\":\"Arsenal\",\"from\":1990,\"to\":2003},{\"name\":\"Manchester City\",\"from\":2003,\"to\":2004}]",
+      "career": "1985–2004",
+      "themes": [
+        "lendas-inglaterra"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "David Silva",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Valencia\",\"from\":2004,\"to\":2010},{\"name\":\"Manchester City\",\"from\":2010,\"to\":2020},{\"name\":\"Real Sociedad\",\"from\":2020,\"to\":2022}]",
+      "career": "2003–2023",
+      "themes": [
+        "lendas-espanholas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "David Trezeguet",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Monaco\",\"from\":1995,\"to\":2000},{\"name\":\"Juventus\",\"from\":2000,\"to\":2010},{\"name\":\"River Plate\",\"from\":2012,\"to\":2013}]",
+      "career": "1995–2014",
+      "themes": [
+        "lendas-francesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "David Villa",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Sporting Gijón\",\"from\":2000,\"to\":2003},{\"name\":\"Zaragoza\",\"from\":2003,\"to\":2005},{\"name\":\"Valencia\",\"from\":2005,\"to\":2010},{\"name\":\"Barcelona\",\"from\":2010,\"to\":2013},{\"name\":\"Atlético Madrid\",\"from\":2013,\"to\":2014},{\"name\":\"New York City\",\"from\":2014,\"to\":2018},{\"name\":\"Vissel Kobe\",\"from\":2019,\"to\":2020}]",
+      "career": "2000–2020",
+      "themes": [
+        "artilheiros-champions",
+        "lendas-espanholas",
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Deco",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Benfica\",\"from\":1997,\"to\":1999},{\"name\":\"Al-Salmiya\",\"from\":1999,\"to\":2000},{\"name\":\"Porto\",\"from\":2000,\"to\":2004},{\"name\":\"Barcelona\",\"from\":2004,\"to\":2008},{\"name\":\"Chelsea\",\"from\":2008,\"to\":2010},{\"name\":\"Fluminense\",\"from\":2010,\"to\":2013}]",
+      "career": "1997–2013",
+      "themes": [
+        "lendas-portuguesas",
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Dedê",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Vasco da Gama\",\"from\":1994,\"to\":1997},{\"name\":\"Atlético Mineiro\",\"from\":1997,\"to\":2001},{\"name\":\"Borussia Dortmund\",\"from\":2001,\"to\":2006}]",
+      "career": "1994–2013",
+      "themes": [
+        "goleiros-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Dennis Bergkamp",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Ajax\",\"from\":1986,\"to\":1993},{\"name\":\"Inter Milan\",\"from\":1993,\"to\":1995},{\"name\":\"Arsenal\",\"from\":1995,\"to\":2006}]",
+      "career": "1986–2006",
+      "themes": [
+        "lendas-holandesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Deyverson",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Ceará\",\"from\":2011,\"to\":2013},{\"name\":\"Palmeiras\",\"from\":2016,\"to\":2021},{\"name\":\"América Mineiro\",\"from\":2022,\"to\":2024}]",
+      "career": "2011–2026",
+      "themes": [
+        "atacantes-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Dida",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Vitória\",\"from\":1992,\"to\":1995},{\"name\":\"Cruzeiro\",\"from\":1995,\"to\":1999},{\"name\":\"AC Milan\",\"from\":2000,\"to\":2010}]",
+      "career": "1992–2015",
+      "themes": [
+        "idolos-brasileirao",
+        "goleiros-bra",
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Didier Drogba",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "CIV",
+      "teams": "[{\"name\":\"Le Mans\",\"from\":1998,\"to\":2002},{\"name\":\"Guingamp\",\"from\":2002,\"to\":2003},{\"name\":\"Marseille\",\"from\":2003,\"to\":2004},{\"name\":\"Chelsea\",\"from\":2004,\"to\":2012},{\"name\":\"Galatasaray\",\"from\":2014,\"to\":2015}]",
+      "career": "1998–2018",
+      "themes": [
+        "artilheiros-champions",
+        "atacantes-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Diego Maradona",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Argentinos Juniors\",\"from\":1976,\"to\":1981},{\"name\":\"Boca Juniors\",\"from\":1981,\"to\":1982},{\"name\":\"Barcelona\",\"from\":1982,\"to\":1984},{\"name\":\"Napoli\",\"from\":1984,\"to\":1991}]",
+      "career": "1976–1997",
+      "themes": [
+        "craques-argentinos",
+        "fenomenos-copa",
+        "atacantes-historicos",
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Diego Milito",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Racing Club\",\"from\":1999,\"to\":2003},{\"name\":\"Genoa\",\"from\":2005,\"to\":2008},{\"name\":\"Zaragoza\",\"from\":2008,\"to\":2009},{\"name\":\"Inter Milan\",\"from\":2009,\"to\":2012}]",
+      "career": "1999–2016",
+      "themes": [
+        "craques-argentinos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Diego Ribas",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Santos\",\"from\":2002,\"to\":2004},{\"name\":\"Porto\",\"from\":2004,\"to\":2006},{\"name\":\"Werder Bremen\",\"from\":2006,\"to\":2009},{\"name\":\"Atlético Madrid\",\"from\":2010,\"to\":2014}]",
+      "career": "2002–2021",
+      "themes": [
+        "meias-brasileiros"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Diego Simeone",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Vélez Sarsfield\",\"from\":1987,\"to\":1992},{\"name\":\"Sevilla\",\"from\":1994,\"to\":1995},{\"name\":\"Atlético Madrid\",\"from\":1995,\"to\":2003},{\"name\":\"Inter Milan\",\"from\":1997,\"to\":1998}]",
+      "career": "1987–2006",
+      "themes": [
+        "craques-argentinos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Dimitar Berbatov",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BUL",
+      "teams": "[{\"name\":\"CSKA Sofia\",\"from\":1998,\"to\":2001},{\"name\":\"Bayer Leverkusen\",\"from\":2001,\"to\":2006},{\"name\":\"Tottenham\",\"from\":2006,\"to\":2008},{\"name\":\"Manchester United\",\"from\":2008,\"to\":2012},{\"name\":\"Fulham\",\"from\":2012,\"to\":2014},{\"name\":\"PAOK\",\"from\":2015,\"to\":2016}]",
+      "career": "1998–2016",
+      "themes": [
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Dino Zoff",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Udinese\",\"from\":1961,\"to\":1963},{\"name\":\"Mantova\",\"from\":1963,\"to\":1964},{\"name\":\"Napoli\",\"from\":1964,\"to\":1967},{\"name\":\"Juventus\",\"from\":1967,\"to\":1983}]",
+      "career": "1961–1983",
+      "themes": [
+        "lendas-italianas",
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Dixie Dean",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Tranmere Rovers\",\"from\":1923,\"to\":1925},{\"name\":\"Everton\",\"from\":1925,\"to\":1937}]",
+      "career": "1923–1939",
+      "themes": [
+        "lendas-inglaterra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Djalma Santos",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Portuguesa\",\"from\":1948,\"to\":1959},{\"name\":\"Palmeiras\",\"from\":1959,\"to\":1965},{\"name\":\"Atlético Paranaense\",\"from\":1965,\"to\":1967}]",
+      "career": "1948–1970",
+      "themes": [
+        "defensores-bra"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Djalminha",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Palmeiras\",\"from\":1992,\"to\":1996},{\"name\":\"Deportivo La Coruña\",\"from\":1996,\"to\":2004}]",
+      "career": "1992–2008",
+      "themes": [
+        "meias-brasileiros"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Eden Hazard",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Atacante",
+      "nationality": "BEL",
+      "teams": "[{\"name\":\"Lille\",\"from\":2007,\"to\":2012},{\"name\":\"Chelsea\",\"from\":2012,\"to\":2019},{\"name\":\"Real Madrid\",\"from\":2019,\"to\":2023}]",
+      "career": "2007–2023",
+      "themes": [],
+      "requiredTeams": [],
+      "flags": [
+        "legendOnly"
+      ]
+    },
+    {
+      "name": "Éder Aleixo",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Atlético Mineiro\",\"from\":1971,\"to\":1976},{\"name\":\"São Paulo\",\"from\":1976,\"to\":1978},{\"name\":\"Torino\",\"from\":1980,\"to\":1982}]",
+      "career": "1971–1985",
+      "themes": [
+        "idolos-brasileirao",
+        "meias-brasileiros"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Ederson",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"São Paulo\",\"from\":2011,\"to\":2012},{\"name\":\"Rio Ave\",\"from\":2012,\"to\":2015},{\"name\":\"Benfica\",\"from\":2015,\"to\":2017},{\"name\":\"Manchester City\",\"from\":2017,\"to\":2026}]",
+      "career": "2011–2026",
+      "themes": [
+        "goleiros-bra",
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Edgar Davids",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Ajax\",\"from\":1991,\"to\":1996},{\"name\":\"AC Milan\",\"from\":1996,\"to\":1997},{\"name\":\"Juventus\",\"from\":1997,\"to\":2004},{\"name\":\"Tottenham\",\"from\":2005,\"to\":2007}]",
+      "career": "1991–2014",
+      "themes": [
+        "lendas-holandesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Edmundo",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Vasco da Gama\",\"from\":1991,\"to\":1996},{\"name\":\"Fiorentina\",\"from\":1997,\"to\":1998},{\"name\":\"Vasco da Gama\",\"from\":1999,\"to\":2000},{\"name\":\"Flamengo\",\"from\":2000,\"to\":2002}]",
+      "career": "1991–2011",
+      "themes": [
+        "atacantes-bra",
+        "defensores-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Edwin van der Sar",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Ajax\",\"from\":1990,\"to\":1999},{\"name\":\"Juventus\",\"from\":1999,\"to\":2001},{\"name\":\"Fulham\",\"from\":2001,\"to\":2005},{\"name\":\"Manchester United\",\"from\":2005,\"to\":2011}]",
+      "career": "1990–2011",
+      "themes": [
+        "lendas-holandesas",
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Emilio Butragueño",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Real Madrid\",\"from\":1983,\"to\":1995},{\"name\":\"Celaya\",\"from\":1995,\"to\":1998}]",
+      "career": "1983–1998",
+      "themes": [
+        "lendas-espanholas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Emlyn Hughes",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Blackpool\",\"from\":1962,\"to\":1967},{\"name\":\"Liverpool\",\"from\":1967,\"to\":1979},{\"name\":\"Wolverhampton\",\"from\":1979,\"to\":1981}]",
+      "career": "1962–1984",
+      "themes": [
+        "lendas-inglaterra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Endrick",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Palmeiras\",\"from\":2022,\"to\":2024},{\"name\":\"Real Madrid\",\"from\":2024,\"to\":2026}]",
+      "career": "2022–2026",
+      "themes": [
+        "idolos-brasileirao"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Eric Cantona",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Auxerre\",\"from\":1983,\"to\":1988},{\"name\":\"Marseille\",\"from\":1988,\"to\":1991},{\"name\":\"Leeds United\",\"from\":1992,\"to\":1992},{\"name\":\"Manchester United\",\"from\":1992,\"to\":1997}]",
+      "career": "1983–1997",
+      "themes": [
+        "lendas-francesas",
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Esteban Cambiasso",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Independiente\",\"from\":1995,\"to\":1998},{\"name\":\"Real Madrid\",\"from\":2002,\"to\":2004},{\"name\":\"Inter Milan\",\"from\":2004,\"to\":2014},{\"name\":\"Olympiacos\",\"from\":2014,\"to\":2015}]",
+      "career": "1995–2017",
+      "themes": [
+        "craques-argentinos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Evair",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Guarani\",\"from\":1985,\"to\":1988},{\"name\":\"Yokohama Marinos\",\"from\":1993,\"to\":1996},{\"name\":\"Palmeiras\",\"from\":1996,\"to\":1998},{\"name\":\"Atlético Mineiro\",\"from\":1999,\"to\":2001}]",
+      "career": "1985–2005",
+      "themes": [
+        "atacantes-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Ezequiel Lavezzi",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"San Lorenzo\",\"from\":2003,\"to\":2007},{\"name\":\"Napoli\",\"from\":2007,\"to\":2012},{\"name\":\"PSG\",\"from\":2012,\"to\":2016},{\"name\":\"Hebei China Fortune\",\"from\":2016,\"to\":2019}]",
+      "career": "2003–2019",
+      "themes": [
+        "craques-argentinos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Fabio Cannavaro",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Defensor",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Napoli\",\"from\":1992,\"to\":1995},{\"name\":\"Parma\",\"from\":1995,\"to\":2002},{\"name\":\"Juventus\",\"from\":2002,\"to\":2004},{\"name\":\"Real Madrid\",\"from\":2006,\"to\":2010}]",
+      "career": "1992–2011",
+      "themes": [
+        "lendas-italianas",
+        "defensores-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Falcão",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Internacional\",\"from\":1972,\"to\":1980},{\"name\":\"Roma\",\"from\":1980,\"to\":1985},{\"name\":\"São Paulo\",\"from\":1985,\"to\":1986}]",
+      "career": "1972–1986",
+      "themes": [
+        "idolos-brasileirao",
+        "meias-brasileiros"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Felipe",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Corinthians\",\"from\":2006,\"to\":2009},{\"name\":\"Fluminense\",\"from\":2009,\"to\":2013},{\"name\":\"Atlético Madrid\",\"from\":2013,\"to\":2019}]",
+      "career": "2006–2023",
+      "themes": [
+        "goleiros-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Ferenc Puskás",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "HUN",
+      "teams": "[{\"name\":\"Budapest Honvéd\",\"from\":1943,\"to\":1956},{\"name\":\"Real Madrid\",\"from\":1958,\"to\":1966}]",
+      "career": "1943–1966",
+      "themes": [
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Fernando Cavenaghi",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"River Plate\",\"from\":2001,\"to\":2004},{\"name\":\"Spartak Moscow\",\"from\":2004,\"to\":2006},{\"name\":\"Bordeaux\",\"from\":2011,\"to\":2013},{\"name\":\"Independiente\",\"from\":2014,\"to\":2016}]",
+      "career": "2001–2018",
+      "themes": [
+        "craques-argentinos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Fernando Hierro",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Real Valladolid\",\"from\":1987,\"to\":1989},{\"name\":\"Real Madrid\",\"from\":1989,\"to\":2003},{\"name\":\"Bolton Wanderers\",\"from\":2004,\"to\":2005}]",
+      "career": "1987–2005",
+      "themes": [
+        "lendas-espanholas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Fernando Redondo",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Argentinos Juniors\",\"from\":1985,\"to\":1994},{\"name\":\"Real Madrid\",\"from\":1994,\"to\":2000},{\"name\":\"Inter Milan\",\"from\":2000,\"to\":2002},{\"name\":\"Aldosivi\",\"from\":2003,\"to\":2004}]",
+      "career": "1985–2004",
+      "themes": [
+        "craques-argentinos",
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Fernando Torres",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Atlético Madrid\",\"from\":2001,\"to\":2007},{\"name\":\"Liverpool\",\"from\":2007,\"to\":2011},{\"name\":\"Chelsea\",\"from\":2011,\"to\":2014},{\"name\":\"Atlético Madrid\",\"from\":2014,\"to\":2018}]",
+      "career": "2001–2019",
+      "themes": [
+        "lendas-espanholas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Filipe Luís",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Figueirense\",\"from\":2003,\"to\":2004},{\"name\":\"Ajax\",\"from\":2004,\"to\":2006},{\"name\":\"Atlético Madrid\",\"from\":2010,\"to\":2019},{\"name\":\"Flamengo\",\"from\":2019,\"to\":2024}]",
+      "career": "2003–2024",
+      "themes": [
+        "defensores-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Filippo Inzaghi",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Piacenza\",\"from\":1991,\"to\":1996},{\"name\":\"Leffe\",\"from\":1995,\"to\":1996},{\"name\":\"Verona\",\"from\":1996,\"to\":1997},{\"name\":\"Atalanta\",\"from\":1997,\"to\":1998},{\"name\":\"Juventus\",\"from\":1998,\"to\":1999},{\"name\":\"AC Milan\",\"from\":1999,\"to\":2012}]",
+      "career": "1991–2012",
+      "themes": [
+        "artilheiros-champions",
+        "lendas-italianas",
+        "atacantes-historicos",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Florian Wirtz",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Bayer Leverkusen\",\"from\":2020,\"to\":2025},{\"name\":\"Liverpool\",\"from\":2025,\"to\":2026}]",
+      "career": "2020–2026",
+      "themes": [
+        "lendas-alemas"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Francesco Totti",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Roma\",\"from\":1992,\"to\":2017}]",
+      "career": "1992–2017",
+      "themes": [
+        "lendas-italianas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource",
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Franck Ribéry",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Boulogne\",\"from\":2000,\"to\":2002},{\"name\":\"Metz\",\"from\":2002,\"to\":2004},{\"name\":\"Galatasaray\",\"from\":2005,\"to\":2005},{\"name\":\"Marseille\",\"from\":2005,\"to\":2007},{\"name\":\"Bayern\",\"from\":2007,\"to\":2019},{\"name\":\"Fiorentina\",\"from\":2019,\"to\":2022}]",
+      "career": "2000–2022",
+      "themes": [
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Franco Baresi",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Defensor",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"AC Milan\",\"from\":1977,\"to\":1997}]",
+      "career": "1977–1997",
+      "themes": [
+        "lendas-italianas",
+        "defensores-historicos",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": [
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Frank Lampard",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"West Ham\",\"from\":1995,\"to\":2001},{\"name\":\"Chelsea\",\"from\":2001,\"to\":2014},{\"name\":\"Manchester City\",\"from\":2014,\"to\":2015}]",
+      "career": "1995–2017",
+      "themes": [
+        "lendas-inglaterra",
+        "meias-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Frank Rijkaard",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Ajax\",\"from\":1980,\"to\":1987},{\"name\":\"Real Sociedad\",\"from\":1987,\"to\":1988},{\"name\":\"AC Milan\",\"from\":1988,\"to\":1993},{\"name\":\"Ajax\",\"from\":1993,\"to\":1995}]",
+      "career": "1980–1995",
+      "themes": [
+        "lendas-holandesas",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Franz Beckenbauer",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Defensor",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Bayern Munich\",\"from\":1964,\"to\":1977},{\"name\":\"New York Cosmos\",\"from\":1977,\"to\":1980}]",
+      "career": "1964–1983",
+      "themes": [
+        "fenomenos-copa",
+        "lendas-alemas",
+        "defensores-historicos",
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Fred",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"América Mineiro\",\"from\":2003,\"to\":2004},{\"name\":\"Lyon\",\"from\":2005,\"to\":2009},{\"name\":\"Fluminense\",\"from\":2009,\"to\":2013},{\"name\":\"Manchester United\",\"from\":2014,\"to\":2016}]",
+      "career": "2003–2023",
+      "themes": [
+        "idolos-brasileirao",
+        "goleiros-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Frenkie de Jong",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Willem II\",\"from\":2016,\"to\":2016},{\"name\":\"Ajax\",\"from\":2016,\"to\":2019},{\"name\":\"Barcelona\",\"from\":2019,\"to\":2026}]",
+      "career": "2016–2026",
+      "themes": [
+        "lendas-holandesas",
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Fritz Walter",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Kaiserslautern\",\"from\":1937,\"to\":1959}]",
+      "career": "1937–1959",
+      "themes": [
+        "lendas-alemas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource",
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Gabigol",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Santos\",\"from\":2013,\"to\":2016},{\"name\":\"Inter Milan\",\"from\":2016,\"to\":2018},{\"name\":\"Flamengo\",\"from\":2019,\"to\":2024}]",
+      "career": "2013–2026",
+      "themes": [
+        "idolos-brasileirao"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Gabriel Batistuta",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Atacante",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Newell's Old Boys\",\"from\":1988,\"to\":1989},{\"name\":\"River Plate\",\"from\":1989,\"to\":1991},{\"name\":\"Fiorentina\",\"from\":1991,\"to\":2000},{\"name\":\"Roma\",\"from\":2000,\"to\":2003}]",
+      "career": "1988–2005",
+      "themes": [
+        "craques-argentinos",
+        "atacantes-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Gareth Bale",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Atacante",
+      "nationality": "WAL",
+      "teams": "[{\"name\":\"Southampton\",\"from\":2006,\"to\":2007},{\"name\":\"Tottenham\",\"from\":2007,\"to\":2013},{\"name\":\"Real Madrid\",\"from\":2013,\"to\":2022}]",
+      "career": "2006–2023",
+      "themes": [
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Garrincha",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Botafogo\",\"from\":1953,\"to\":1966},{\"name\":\"Corinthians\",\"from\":1966,\"to\":1969}]",
+      "career": "1953–1972",
+      "themes": [
+        "atacantes-bra",
+        "fenomenos-copa"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Gary Lineker",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Leicester City\",\"from\":1978,\"to\":1985},{\"name\":\"Everton\",\"from\":1985,\"to\":1986},{\"name\":\"Barcelona\",\"from\":1986,\"to\":1989},{\"name\":\"Tottenham\",\"from\":1989,\"to\":1992}]",
+      "career": "1978–1994",
+      "themes": [
+        "lendas-inglaterra"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Gary Neville",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Manchester United\",\"from\":1992,\"to\":2011}]",
+      "career": "1992–2011",
+      "themes": [
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": [
+        "fallbackSource",
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Gennaro Gattuso",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Perugia\",\"from\":1995,\"to\":1997},{\"name\":\"Salernitana\",\"from\":1997,\"to\":1998},{\"name\":\"AC Milan\",\"from\":1999,\"to\":2012},{\"name\":\"Sion\",\"from\":2012,\"to\":2013}]",
+      "career": "1995–2013",
+      "themes": [
+        "lendas-italianas",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Geoff Hurst",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"West Ham\",\"from\":1959,\"to\":1972},{\"name\":\"Stoke City\",\"from\":1972,\"to\":1975}]",
+      "career": "1959–1976",
+      "themes": [
+        "fenomenos-copa",
+        "lendas-inglaterra"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "George Best",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "NIR",
+      "teams": "[{\"name\":\"Manchester United\",\"from\":1963,\"to\":1974},{\"name\":\"Fulham\",\"from\":1976,\"to\":1978},{\"name\":\"Los Angeles Aztecs\",\"from\":1976,\"to\":1977},{\"name\":\"Fort Lauderdale Strikers\",\"from\":1978,\"to\":1979},{\"name\":\"Hibernian\",\"from\":1979,\"to\":1980}]",
+      "career": "1963–1984",
+      "themes": [
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Gerard Piqué",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Defensor",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Manchester United\",\"from\":2004,\"to\":2008},{\"name\":\"Barcelona\",\"from\":2008,\"to\":2022}]",
+      "career": "2004–2023",
+      "themes": [
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Gerd Müller",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Bayern\",\"from\":1964,\"to\":1979},{\"name\":\"Fort Lauderdale Strikers\",\"from\":1979,\"to\":1981}]",
+      "career": "1963–1981",
+      "themes": [
+        "lendas-alemas",
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Gianluca Vialli",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Sampdoria\",\"from\":1982,\"to\":1992},{\"name\":\"Juventus\",\"from\":1992,\"to\":1996},{\"name\":\"Chelsea\",\"from\":1996,\"to\":1999}]",
+      "career": "1982–1999",
+      "themes": [
+        "lendas-italianas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Gianluigi Buffon",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Goleiro",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Parma\",\"from\":1995,\"to\":2001},{\"name\":\"Juventus\",\"from\":2001,\"to\":2018},{\"name\":\"Paris Saint-Germain\",\"from\":2018,\"to\":2019}]",
+      "career": "1995–2023",
+      "themes": [
+        "lendas-champions",
+        "lendas-italianas",
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Gianni Rivera",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Alessandria\",\"from\":1959,\"to\":1960},{\"name\":\"AC Milan\",\"from\":1960,\"to\":1979}]",
+      "career": "1959–1979",
+      "themes": [
+        "lendas-italianas",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Gilberto Silva",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Atlético Mineiro\",\"from\":1997,\"to\":2002},{\"name\":\"Arsenal\",\"from\":2002,\"to\":2008},{\"name\":\"Panathinaikos\",\"from\":2008,\"to\":2010}]",
+      "career": "1997–2015",
+      "themes": [
+        "meias-brasileiros"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Giuseppe Meazza",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Inter Milan\",\"from\":1927,\"to\":1940},{\"name\":\"AC Milan\",\"from\":1940,\"to\":1942},{\"name\":\"Juventus\",\"from\":1942,\"to\":1946},{\"name\":\"Inter Milan\",\"from\":1946,\"to\":1947}]",
+      "career": "1927–1947",
+      "themes": [
+        "lendas-italianas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Glenn Hoddle",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Tottenham\",\"from\":1975,\"to\":1987},{\"name\":\"Monaco\",\"from\":1987,\"to\":1990},{\"name\":\"Chelsea\",\"from\":1993,\"to\":1995}]",
+      "career": "1975–1998",
+      "themes": [
+        "lendas-inglaterra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Gonzalo Higuaín",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"River Plate\",\"from\":2005,\"to\":2007},{\"name\":\"Real Madrid\",\"from\":2007,\"to\":2013},{\"name\":\"Napoli\",\"from\":2013,\"to\":2016},{\"name\":\"Juventus\",\"from\":2016,\"to\":2019}]",
+      "career": "2005–2022",
+      "themes": [
+        "craques-argentinos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Harry Kane",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Tottenham\",\"from\":2010,\"to\":2023},{\"name\":\"Bayern\",\"from\":2023,\"to\":2026}]",
+      "career": "2010–2026",
+      "themes": [
+        "artilheiros-champions",
+        "lendas-inglaterra",
+        "atacantes-historicos",
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Hernán Crespo",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"River Plate\",\"from\":1993,\"to\":1996},{\"name\":\"Parma\",\"from\":1996,\"to\":2000},{\"name\":\"Lazio\",\"from\":2000,\"to\":2002},{\"name\":\"Inter Milan\",\"from\":2002,\"to\":2003},{\"name\":\"Chelsea\",\"from\":2003,\"to\":2005},{\"name\":\"AC Milan\",\"from\":2005,\"to\":2006},{\"name\":\"Chelsea\",\"from\":2006,\"to\":2008},{\"name\":\"Inter Milan\",\"from\":2008,\"to\":2009},{\"name\":\"Genoa\",\"from\":2009,\"to\":2010},{\"name\":\"AC Milan\",\"from\":2010,\"to\":2011},{\"name\":\"Boca Juniors\",\"from\":2011,\"to\":2012}]",
+      "career": "1993–2012",
+      "themes": [
+        "craques-argentinos",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Hristo Stoichkov",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BUL",
+      "teams": "[{\"name\":\"CSKA Sofia\",\"from\":1982,\"to\":1990},{\"name\":\"Barcelona\",\"from\":1990,\"to\":1995},{\"name\":\"Parma\",\"from\":1995,\"to\":1996},{\"name\":\"Al-Nassr\",\"from\":1996,\"to\":1998},{\"name\":\"Kashiwa Reysol\",\"from\":1998,\"to\":1999},{\"name\":\"Chicago Fire\",\"from\":1999,\"to\":2000}]",
+      "career": "1982–2003",
+      "themes": [
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Hugo Lloris",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Nice\",\"from\":2005,\"to\":2008},{\"name\":\"Lyon\",\"from\":2008,\"to\":2012},{\"name\":\"Tottenham\",\"from\":2012,\"to\":2023},{\"name\":\"LAFC\",\"from\":2024,\"to\":2026}]",
+      "career": "2005–2026",
+      "themes": [
+        "lendas-francesas",
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Hulk",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Vitória\",\"from\":2006,\"to\":2008},{\"name\":\"Porto\",\"from\":2008,\"to\":2012},{\"name\":\"Zenit\",\"from\":2012,\"to\":2016},{\"name\":\"Atlético Mineiro\",\"from\":2021,\"to\":2024}]",
+      "career": "2006–2026",
+      "themes": [
+        "idolos-brasileirao"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Iker Casillas",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Goleiro",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Real Madrid\",\"from\":1999,\"to\":2015},{\"name\":\"Porto\",\"from\":2015,\"to\":2020}]",
+      "career": "1999–2020",
+      "themes": [
+        "lendas-champions",
+        "lendas-espanholas",
+        "goleiros-historicos",
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Jaap Stam",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Willem II\",\"from\":1992,\"to\":1993},{\"name\":\"PSV\",\"from\":1993,\"to\":1995},{\"name\":\"Manchester United\",\"from\":1998,\"to\":2001},{\"name\":\"AC Milan\",\"from\":2001,\"to\":2004}]",
+      "career": "1992–2007",
+      "themes": [
+        "lendas-holandesas",
+        "defensores-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Jairzinho",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Botafogo\",\"from\":1959,\"to\":1974},{\"name\":\"Cruzeiro\",\"from\":1974,\"to\":1975}]",
+      "career": "1959–1982",
+      "themes": [
+        "atacantes-bra"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Javier Mascherano",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"River Plate\",\"from\":2003,\"to\":2005},{\"name\":\"Corinthians\",\"from\":2005,\"to\":2006},{\"name\":\"Liverpool\",\"from\":2007,\"to\":2010},{\"name\":\"Barcelona\",\"from\":2010,\"to\":2018}]",
+      "career": "2003–2020",
+      "themes": [
+        "craques-argentinos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Javier Pastore",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Huracán\",\"from\":2007,\"to\":2009},{\"name\":\"Palermo\",\"from\":2009,\"to\":2011},{\"name\":\"PSG\",\"from\":2011,\"to\":2018},{\"name\":\"Roma\",\"from\":2018,\"to\":2021}]",
+      "career": "2007–2023",
+      "themes": [
+        "craques-argentinos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Jean-Pierre Papin",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Valenciennes\",\"from\":1984,\"to\":1985},{\"name\":\"Club Brugge\",\"from\":1985,\"to\":1987},{\"name\":\"Marseille\",\"from\":1987,\"to\":1992},{\"name\":\"AC Milan\",\"from\":1992,\"to\":1994}]",
+      "career": "1984–1998",
+      "themes": [
+        "lendas-francesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Jefferson",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Botafogo\",\"from\":2004,\"to\":2016},{\"name\":\"Botafogo\",\"from\":2018,\"to\":2020}]",
+      "career": "2004–2020",
+      "themes": [
+        "goleiros-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Jimmy Floyd Hasselbaink",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Telstar\",\"from\":1992,\"to\":1994},{\"name\":\"Leeds United\",\"from\":1997,\"to\":1999},{\"name\":\"Atlético Madrid\",\"from\":1999,\"to\":2000},{\"name\":\"Chelsea\",\"from\":2000,\"to\":2004}]",
+      "career": "1992–2008",
+      "themes": [
+        "lendas-holandesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "João Félix",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Benfica\",\"from\":2018,\"to\":2019},{\"name\":\"Atlético Madrid\",\"from\":2019,\"to\":2024},{\"name\":\"Barcelona\",\"from\":2024,\"to\":2025}]",
+      "career": "2018–2026",
+      "themes": [
+        "lendas-portuguesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "João Moutinho",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Sporting CP\",\"from\":2004,\"to\":2010},{\"name\":\"Monaco\",\"from\":2010,\"to\":2013},{\"name\":\"Wolverhampton\",\"from\":2018,\"to\":2023}]",
+      "career": "2004–2024",
+      "themes": [
+        "lendas-portuguesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "João Neves",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Benfica\",\"from\":2022,\"to\":2024},{\"name\":\"PSG\",\"from\":2024,\"to\":2026}]",
+      "career": "2022–2026",
+      "themes": [
+        "lendas-portuguesas"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Johan Cruyff",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Ajax\",\"from\":1964,\"to\":1973},{\"name\":\"Barcelona\",\"from\":1973,\"to\":1978},{\"name\":\"Los Angeles Aztecs\",\"from\":1979,\"to\":1981}]",
+      "career": "1964–1984",
+      "themes": [
+        "fenomenos-copa",
+        "lendas-holandesas",
+        "meias-historicos",
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": []
+    },
+    {
+      "name": "John Terry",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Chelsea\",\"from\":1998,\"to\":2017},{\"name\":\"Aston Villa\",\"from\":2017,\"to\":2018}]",
+      "career": "1998–2018",
+      "themes": [
+        "lendas-inglaterra",
+        "defensores-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "José Fonte",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Benfica\",\"from\":2004,\"to\":2006},{\"name\":\"Southampton\",\"from\":2010,\"to\":2017},{\"name\":\"Lille\",\"from\":2021,\"to\":2023}]",
+      "career": "2004–2024",
+      "themes": [
+        "lendas-portuguesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Joshua Kimmich",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"RB Leipzig\",\"from\":2013,\"to\":2015},{\"name\":\"Bayern\",\"from\":2015,\"to\":2026}]",
+      "career": "2013–2026",
+      "themes": [
+        "lendas-alemas",
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Juan Román Riquelme",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Boca Juniors\",\"from\":1995,\"to\":2002},{\"name\":\"Barcelona\",\"from\":2002,\"to\":2003},{\"name\":\"Villarreal\",\"from\":2003,\"to\":2007},{\"name\":\"Boca Juniors\",\"from\":2007,\"to\":2014}]",
+      "career": "1995–2015",
+      "themes": [
+        "craques-argentinos",
+        "meias-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Juan Sebastián Verón",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Estudiantes\",\"from\":1993,\"to\":1996},{\"name\":\"Sampdoria\",\"from\":1996,\"to\":1998},{\"name\":\"Parma\",\"from\":1998,\"to\":1999},{\"name\":\"Lazio\",\"from\":1999,\"to\":2001},{\"name\":\"Manchester United\",\"from\":2001,\"to\":2003}]",
+      "career": "1993–2014",
+      "themes": [
+        "craques-argentinos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Julio César",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Flamengo\",\"from\":1997,\"to\":2005},{\"name\":\"Inter Milan\",\"from\":2005,\"to\":2012},{\"name\":\"Toronto FC\",\"from\":2013,\"to\":2016}]",
+      "career": "1997–2020",
+      "themes": [
+        "goleiros-bra",
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Juninho Paulista",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"São Paulo\",\"from\":1991,\"to\":1995},{\"name\":\"Middlesbrough\",\"from\":1995,\"to\":2004},{\"name\":\"São Paulo\",\"from\":2004,\"to\":2008}]",
+      "career": "1991–2010",
+      "themes": [
+        "goleiros-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Júnior",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Flamengo\",\"from\":1974,\"to\":1984},{\"name\":\"Torino\",\"from\":1984,\"to\":1986},{\"name\":\"Flamengo\",\"from\":1986,\"to\":1993}]",
+      "career": "1974–1993",
+      "themes": [
+        "meias-brasileiros"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Jürgen Klinsmann",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Stuttgart\",\"from\":1984,\"to\":1989},{\"name\":\"Inter Milan\",\"from\":1989,\"to\":1992},{\"name\":\"Monaco\",\"from\":1992,\"to\":1994},{\"name\":\"Tottenham\",\"from\":1994,\"to\":1997}]",
+      "career": "1984–2003",
+      "themes": [
+        "lendas-alemas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Kaká",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"São Paulo\",\"from\":2001,\"to\":2003},{\"name\":\"AC Milan\",\"from\":2003,\"to\":2009},{\"name\":\"Real Madrid\",\"from\":2009,\"to\":2013}]",
+      "career": "2001–2017",
+      "themes": [
+        "lendas-champions",
+        "meias-brasileiros",
+        "meias-historicos",
+        "lendas-real-madrid",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "Real Madrid",
+        "AC Milan"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Karim Benzema",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Lyon\",\"from\":2004,\"to\":2009},{\"name\":\"Real Madrid\",\"from\":2009,\"to\":2023},{\"name\":\"Al-Ittihad\",\"from\":2023,\"to\":2025}]",
+      "career": "2004–2025",
+      "themes": [
+        "lendas-champions",
+        "artilheiros-champions",
+        "lendas-francesas",
+        "atacantes-historicos",
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Karl-Heinz Rummenigge",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Bayern\",\"from\":1974,\"to\":1984},{\"name\":\"Inter Milan\",\"from\":1984,\"to\":1987}]",
+      "career": "1974–1989",
+      "themes": [
+        "lendas-alemas",
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Kasper Schmeichel",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Goleiro",
+      "nationality": "DEN",
+      "teams": "[{\"name\":\"Manchester City\",\"from\":2006,\"to\":2009},{\"name\":\"Leeds United\",\"from\":2010,\"to\":2011},{\"name\":\"Leicester City\",\"from\":2011,\"to\":2022},{\"name\":\"Nice\",\"from\":2022,\"to\":2023},{\"name\":\"Anderlecht\",\"from\":2023,\"to\":2024},{\"name\":\"Celtic\",\"from\":2024,\"to\":2026}]",
+      "career": "2006–2026",
+      "themes": [
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Kevin De Bruyne",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BEL",
+      "teams": "[{\"name\":\"Genk\",\"from\":2008,\"to\":2012},{\"name\":\"Chelsea\",\"from\":2012,\"to\":2014},{\"name\":\"Wolfsburg\",\"from\":2014,\"to\":2015},{\"name\":\"Manchester City\",\"from\":2015,\"to\":2025},{\"name\":\"Napoli\",\"from\":2025,\"to\":2026}]",
+      "career": "2008–2026",
+      "themes": [
+        "meias-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Kingsley Coman",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"PSG\",\"from\":2013,\"to\":2014},{\"name\":\"Juventus\",\"from\":2014,\"to\":2015},{\"name\":\"Bayern\",\"from\":2015,\"to\":2026}]",
+      "career": "2013–2026",
+      "themes": [
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Kylian Mbappé",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Atacante",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Monaco\",\"from\":2015,\"to\":2017},{\"name\":\"PSG\",\"from\":2017,\"to\":2024},{\"name\":\"Real Madrid\",\"from\":2024,\"to\":2026}]",
+      "career": "2015–2026",
+      "themes": [
+        "fenomenos-copa",
+        "artilheiros-champions",
+        "lendas-francesas",
+        "atacantes-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Laurent Blanc",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Montpellier\",\"from\":1983,\"to\":1991},{\"name\":\"Napoli\",\"from\":1991,\"to\":1992},{\"name\":\"Manchester United\",\"from\":2001,\"to\":2003}]",
+      "career": "1983–2003",
+      "themes": [
+        "lendas-francesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Lautaro Martínez",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Racing Club\",\"from\":2015,\"to\":2018},{\"name\":\"Inter Milan\",\"from\":2018,\"to\":2026}]",
+      "career": "2015–2026",
+      "themes": [
+        "craques-argentinos",
+        "fenomenos-copa"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Leão",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Palmeiras\",\"from\":1967,\"to\":1978},{\"name\":\"Fluminense\",\"from\":1978,\"to\":1980}]",
+      "career": "1967–1982",
+      "themes": [
+        "goleiros-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Leon Goretzka",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Bochum\",\"from\":2013,\"to\":2013},{\"name\":\"Schalke 04\",\"from\":2013,\"to\":2018},{\"name\":\"Bayern\",\"from\":2018,\"to\":2026}]",
+      "career": "2013–2026",
+      "themes": [
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Leonardo",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Flamengo\",\"from\":1987,\"to\":1991},{\"name\":\"São Paulo\",\"from\":1991,\"to\":1994},{\"name\":\"AC Milan\",\"from\":1999,\"to\":2002},{\"name\":\"Inter Milan\",\"from\":2002,\"to\":2003}]",
+      "career": "1987–2013",
+      "themes": [
+        "idolos-brasileirao"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Leonardo Bonucci",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Defensor",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Inter Milan\",\"from\":2005,\"to\":2006},{\"name\":\"Treviso\",\"from\":2006,\"to\":2007},{\"name\":\"Bari\",\"from\":2007,\"to\":2009},{\"name\":\"Juventus\",\"from\":2010,\"to\":2017},{\"name\":\"AC Milan\",\"from\":2017,\"to\":2018},{\"name\":\"Juventus\",\"from\":2018,\"to\":2021},{\"name\":\"Union Berlin\",\"from\":2023,\"to\":2024}]",
+      "career": "2005–2024",
+      "themes": [
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Lev Yashin",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Goleiro",
+      "nationality": "RUS",
+      "teams": "[{\"name\":\"Dynamo Moscow\",\"from\":1950,\"to\":1970}]",
+      "career": "1950–1970",
+      "themes": [
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Lilian Thuram",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Defensor",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Monaco\",\"from\":1991,\"to\":1996},{\"name\":\"Parma\",\"from\":1996,\"to\":2001},{\"name\":\"Juventus\",\"from\":2001,\"to\":2006},{\"name\":\"Barcelona\",\"from\":2006,\"to\":2008}]",
+      "career": "1991–2008",
+      "themes": [
+        "lendas-francesas",
+        "defensores-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Lionel Messi",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Atacante",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Barcelona\",\"from\":2004,\"to\":2021},{\"name\":\"PSG\",\"from\":2021,\"to\":2023},{\"name\":\"Inter Miami\",\"from\":2023,\"to\":2026}]",
+      "career": "2004–2026",
+      "themes": [
+        "lendas-champions",
+        "craques-argentinos",
+        "fenomenos-copa",
+        "artilheiros-champions",
+        "atacantes-historicos",
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Lothar Matthäus",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Borussia Mönchengladbach\",\"from\":1979,\"to\":1984},{\"name\":\"Bayern\",\"from\":1984,\"to\":1988},{\"name\":\"Inter Milan\",\"from\":1988,\"to\":1992},{\"name\":\"Bayern\",\"from\":1992,\"to\":2000}]",
+      "career": "1979–2000",
+      "themes": [
+        "lendas-alemas",
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Lucas Moura",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"São Paulo\",\"from\":2010,\"to\":2012},{\"name\":\"PSG\",\"from\":2012,\"to\":2018},{\"name\":\"Tottenham\",\"from\":2018,\"to\":2023}]",
+      "career": "2010–2026",
+      "themes": [
+        "meias-brasileiros"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Lucio",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Internacional\",\"from\":1998,\"to\":2000},{\"name\":\"Bayer Leverkusen\",\"from\":2001,\"to\":2004},{\"name\":\"Bayern Munich\",\"from\":2004,\"to\":2009},{\"name\":\"Inter Milan\",\"from\":2009,\"to\":2012}]",
+      "career": "1998–2016",
+      "themes": [
+        "defensores-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Luis Enrique",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Sporting Gijón\",\"from\":1989,\"to\":1991},{\"name\":\"Real Madrid\",\"from\":1991,\"to\":1996},{\"name\":\"Barcelona\",\"from\":1996,\"to\":2004}]",
+      "career": "1989–2004",
+      "themes": [
+        "lendas-espanholas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Luís Fabiano",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"São Paulo\",\"from\":1997,\"to\":2004},{\"name\":\"Sevilla\",\"from\":2005,\"to\":2011},{\"name\":\"São Paulo\",\"from\":2011,\"to\":2015}]",
+      "career": "1997–2017",
+      "themes": [
+        "atacantes-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Luis Figo",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Sporting CP\",\"from\":1989,\"to\":1995},{\"name\":\"Barcelona\",\"from\":1995,\"to\":2000},{\"name\":\"Real Madrid\",\"from\":2000,\"to\":2005},{\"name\":\"Inter Milan\",\"from\":2005,\"to\":2009}]",
+      "career": "1989–2009",
+      "themes": [
+        "lendas-portuguesas",
+        "meias-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Luis Suárez",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "URU",
+      "teams": "[{\"name\":\"Nacional\",\"from\":2005,\"to\":2006},{\"name\":\"Groningen\",\"from\":2006,\"to\":2007},{\"name\":\"Ajax\",\"from\":2007,\"to\":2011},{\"name\":\"Liverpool\",\"from\":2011,\"to\":2014},{\"name\":\"Barcelona\",\"from\":2014,\"to\":2020},{\"name\":\"Atlético Madrid\",\"from\":2020,\"to\":2022},{\"name\":\"Nacional\",\"from\":2022,\"to\":2023},{\"name\":\"Grêmio\",\"from\":2023,\"to\":2024},{\"name\":\"Inter Miami\",\"from\":2024,\"to\":2025}]",
+      "career": "2005–2025",
+      "themes": [
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Luis Suárez Miramontes",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Deportivo La Coruña\",\"from\":1953,\"to\":1954},{\"name\":\"Espanyol\",\"from\":1954,\"to\":1961},{\"name\":\"Inter Milan\",\"from\":1961,\"to\":1970}]",
+      "career": "1953–1973",
+      "themes": [
+        "lendas-espanholas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Luka Modrić",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "CRO",
+      "teams": "[{\"name\":\"Dinamo Zagreb\",\"from\":2003,\"to\":2008},{\"name\":\"Tottenham\",\"from\":2008,\"to\":2012},{\"name\":\"Real Madrid\",\"from\":2012,\"to\":2026}]",
+      "career": "2003–2026",
+      "themes": [
+        "lendas-champions",
+        "fenomenos-copa",
+        "meias-historicos",
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Maicon",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Cruzeiro\",\"from\":2001,\"to\":2004},{\"name\":\"Inter Milan\",\"from\":2006,\"to\":2012},{\"name\":\"Roma\",\"from\":2012,\"to\":2013}]",
+      "career": "2001–2016",
+      "themes": [
+        "defensores-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Manuel Neuer",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Goleiro",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Schalke 04\",\"from\":2004,\"to\":2011},{\"name\":\"Bayern Munich\",\"from\":2011,\"to\":2026}]",
+      "career": "2004–2026",
+      "themes": [
+        "lendas-champions",
+        "lendas-alemas",
+        "goleiros-historicos",
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Marc Overmars",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Ajax\",\"from\":1990,\"to\":1996},{\"name\":\"Arsenal\",\"from\":1997,\"to\":2000},{\"name\":\"Barcelona\",\"from\":2000,\"to\":2004}]",
+      "career": "1990–2009",
+      "themes": [
+        "lendas-holandesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Marcel Desailly",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Nantes\",\"from\":1986,\"to\":1992},{\"name\":\"Marseille\",\"from\":1992,\"to\":1993},{\"name\":\"AC Milan\",\"from\":1993,\"to\":1998},{\"name\":\"Chelsea\",\"from\":1998,\"to\":2004}]",
+      "career": "1986–2006",
+      "themes": [
+        "lendas-francesas",
+        "defensores-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Marcelo",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Fluminense\",\"from\":2005,\"to\":2007},{\"name\":\"Real Madrid\",\"from\":2007,\"to\":2022},{\"name\":\"Olympiacos\",\"from\":2022,\"to\":2023}]",
+      "career": "2005–2023",
+      "themes": [
+        "defensores-bra",
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Marco Materazzi",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Perugia\",\"from\":1995,\"to\":1998},{\"name\":\"Everton\",\"from\":1998,\"to\":1999},{\"name\":\"Inter Milan\",\"from\":2001,\"to\":2011}]",
+      "career": "1995–2011",
+      "themes": [
+        "lendas-italianas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Marco Reus",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Borussia Dortmund\",\"from\":2012,\"to\":2024}]",
+      "career": "2006–2024",
+      "themes": [
+        "lendas-alemas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource",
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Marco van Basten",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Ajax\",\"from\":1981,\"to\":1987},{\"name\":\"AC Milan\",\"from\":1987,\"to\":1995}]",
+      "career": "1981–1995",
+      "themes": [
+        "artilheiros-champions",
+        "lendas-holandesas",
+        "atacantes-historicos",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Marcos",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Palmeiras\",\"from\":1993,\"to\":2012}]",
+      "career": "1993–2012",
+      "themes": [
+        "goleiros-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource",
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Mario Gómez",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Stuttgart\",\"from\":2003,\"to\":2009},{\"name\":\"Bayern\",\"from\":2009,\"to\":2013},{\"name\":\"Fiorentina\",\"from\":2013,\"to\":2015},{\"name\":\"Beşiktaş\",\"from\":2015,\"to\":2016},{\"name\":\"VfL Wolfsburg\",\"from\":2016,\"to\":2018},{\"name\":\"Stuttgart\",\"from\":2018,\"to\":2020}]",
+      "career": "2003–2020",
+      "themes": [
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Mario Kempes",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Instituto\",\"from\":1970,\"to\":1974},{\"name\":\"Valencia\",\"from\":1976,\"to\":1981},{\"name\":\"River Plate\",\"from\":1981,\"to\":1982}]",
+      "career": "1970–1996",
+      "themes": [
+        "craques-argentinos",
+        "fenomenos-copa"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Memphis Depay",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"PSV\",\"from\":2011,\"to\":2015},{\"name\":\"Manchester United\",\"from\":2015,\"to\":2017},{\"name\":\"Lyon\",\"from\":2017,\"to\":2021},{\"name\":\"Barcelona\",\"from\":2022,\"to\":2023}]",
+      "career": "2011–2026",
+      "themes": [
+        "lendas-holandesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Mesut Özil",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Schalke 04\",\"from\":2006,\"to\":2008},{\"name\":\"Werder Bremen\",\"from\":2008,\"to\":2010},{\"name\":\"Real Madrid\",\"from\":2010,\"to\":2013},{\"name\":\"Arsenal\",\"from\":2013,\"to\":2021},{\"name\":\"Fenerbahçe\",\"from\":2021,\"to\":2024}]",
+      "career": "2006–2024",
+      "themes": [
+        "meias-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Michael Ballack",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Kaiserslautern\",\"from\":1997,\"to\":1999},{\"name\":\"Bayer Leverkusen\",\"from\":1999,\"to\":2002},{\"name\":\"Bayern Munich\",\"from\":2002,\"to\":2006},{\"name\":\"Chelsea\",\"from\":2006,\"to\":2010}]",
+      "career": "1995–2012",
+      "themes": [
+        "lendas-alemas"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Michel Platini",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Nancy\",\"from\":1972,\"to\":1979},{\"name\":\"Saint-Étienne\",\"from\":1979,\"to\":1982},{\"name\":\"Juventus\",\"from\":1982,\"to\":1987}]",
+      "career": "1972–1987",
+      "themes": [
+        "lendas-francesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Miranda",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Corinthians\",\"from\":2005,\"to\":2006},{\"name\":\"São Paulo\",\"from\":2006,\"to\":2011},{\"name\":\"Atlético Madrid\",\"from\":2011,\"to\":2014},{\"name\":\"Inter Milan\",\"from\":2014,\"to\":2017}]",
+      "career": "2005–2020",
+      "themes": [
+        "defensores-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Miroslav Klose",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Kaiserslautern\",\"from\":1998,\"to\":2004},{\"name\":\"Werder Bremen\",\"from\":2004,\"to\":2007},{\"name\":\"Bayern Munich\",\"from\":2007,\"to\":2011},{\"name\":\"Lazio\",\"from\":2011,\"to\":2016}]",
+      "career": "1998–2016",
+      "themes": [
+        "lendas-alemas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Mohamed Salah",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "EGY",
+      "teams": "[{\"name\":\"Basel\",\"from\":2012,\"to\":2014},{\"name\":\"Chelsea\",\"from\":2014,\"to\":2015},{\"name\":\"Roma\",\"from\":2015,\"to\":2017},{\"name\":\"Liverpool\",\"from\":2017,\"to\":2026}]",
+      "career": "2010–2026",
+      "themes": [
+        "lendas-champions",
+        "artilheiros-champions"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "N'Golo Kanté",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Caen\",\"from\":2013,\"to\":2015},{\"name\":\"Leicester City\",\"from\":2015,\"to\":2016},{\"name\":\"Chelsea\",\"from\":2016,\"to\":2023},{\"name\":\"Al-Ittihad\",\"from\":2023,\"to\":2026}]",
+      "career": "2013–2026",
+      "themes": [
+        "lendas-francesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Nemanja Vidić",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "SRB",
+      "teams": "[{\"name\":\"Red Star Belgrade\",\"from\":2000,\"to\":2004},{\"name\":\"Spartak Moscow\",\"from\":2004,\"to\":2006},{\"name\":\"Manchester United\",\"from\":2006,\"to\":2014},{\"name\":\"Inter Milan\",\"from\":2014,\"to\":2016}]",
+      "career": "2000–2016",
+      "themes": [
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Neymar",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Santos\",\"from\":2009,\"to\":2013},{\"name\":\"Barcelona\",\"from\":2013,\"to\":2017},{\"name\":\"PSG\",\"from\":2017,\"to\":2023}]",
+      "career": "2009–2026",
+      "themes": [
+        "atacantes-bra",
+        "artilheiros-champions",
+        "atacantes-historicos",
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Nilton Santos",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Botafogo\",\"from\":1948,\"to\":1964}]",
+      "career": "1948–1964",
+      "themes": [
+        "defensores-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource",
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Nuno Mendes",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Sporting CP\",\"from\":2020,\"to\":2022},{\"name\":\"PSG\",\"from\":2022,\"to\":2026}]",
+      "career": "2020–2026",
+      "themes": [
+        "lendas-portuguesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Ole Gunnar Solskjær",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "NOR",
+      "teams": "[{\"name\":\"Manchester United\",\"from\":1996,\"to\":2007},{\"name\":\"Molde\",\"from\":2007,\"to\":2011}]",
+      "career": "1995–2011",
+      "themes": [
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Oliver Kahn",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Karlsruher SC\",\"from\":1987,\"to\":1994},{\"name\":\"Bayern\",\"from\":1994,\"to\":2008}]",
+      "career": "1987–2008",
+      "themes": [
+        "lendas-alemas",
+        "goleiros-historicos",
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Oscar",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Internacional\",\"from\":2009,\"to\":2012},{\"name\":\"Chelsea\",\"from\":2012,\"to\":2017},{\"name\":\"Shanghai SIPG\",\"from\":2017,\"to\":2024}]",
+      "career": "2009–2026",
+      "themes": [
+        "meias-brasileiros"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Palhinha",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Botafogo\",\"from\":2017,\"to\":2019},{\"name\":\"Sporting CP\",\"from\":2020,\"to\":2022},{\"name\":\"Fulham\",\"from\":2022,\"to\":2024}]",
+      "career": "2017–2026",
+      "themes": [
+        "goleiros-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Paolo Maldini",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Defensor",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"AC Milan\",\"from\":1984,\"to\":2009}]",
+      "career": "1984–2009",
+      "themes": [
+        "lendas-champions",
+        "fenomenos-copa",
+        "lendas-italianas",
+        "defensores-historicos",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": [
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Patrice Evra",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Marsala\",\"from\":1999,\"to\":2000},{\"name\":\"Monaco\",\"from\":2000,\"to\":2006},{\"name\":\"Manchester United\",\"from\":2006,\"to\":2014},{\"name\":\"Juventus\",\"from\":2014,\"to\":2016},{\"name\":\"Marseille\",\"from\":2016,\"to\":2017},{\"name\":\"West Ham\",\"from\":2018,\"to\":2019}]",
+      "career": "1999–2019",
+      "themes": [
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Patrick Kluivert",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Ajax\",\"from\":1994,\"to\":1997},{\"name\":\"AC Milan\",\"from\":1997,\"to\":1998},{\"name\":\"Barcelona\",\"from\":1998,\"to\":2004},{\"name\":\"PSV\",\"from\":2004,\"to\":2006}]",
+      "career": "1994–2008",
+      "themes": [
+        "lendas-holandesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Patrick Vieira",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Cannes\",\"from\":1993,\"to\":1994},{\"name\":\"AC Milan\",\"from\":1995,\"to\":1996},{\"name\":\"Arsenal\",\"from\":1996,\"to\":2005},{\"name\":\"Juventus\",\"from\":2005,\"to\":2006}]",
+      "career": "1993–2011",
+      "themes": [
+        "lendas-francesas"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Paul Pogba",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Manchester United\",\"from\":2009,\"to\":2011},{\"name\":\"Juventus\",\"from\":2012,\"to\":2016},{\"name\":\"Manchester United\",\"from\":2016,\"to\":2022},{\"name\":\"Juventus\",\"from\":2022,\"to\":2024},{\"name\":\"Monaco\",\"from\":2024,\"to\":2026}]",
+      "career": "2009–2026",
+      "themes": [
+        "meias-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Paul Scholes",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Meia",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Manchester United\",\"from\":1994,\"to\":2013}]",
+      "career": "1994–2013",
+      "themes": [
+        "lendas-inglaterra",
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": [
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Pauleta",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Salamanca\",\"from\":1995,\"to\":1997},{\"name\":\"Bordeaux\",\"from\":2000,\"to\":2003},{\"name\":\"PSG\",\"from\":2003,\"to\":2008}]",
+      "career": "1995–2008",
+      "themes": [
+        "lendas-portuguesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Paulinho",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Corinthians\",\"from\":2010,\"to\":2013},{\"name\":\"Tottenham\",\"from\":2013,\"to\":2015},{\"name\":\"Guangzhou Evergrande\",\"from\":2015,\"to\":2017},{\"name\":\"Barcelona\",\"from\":2017,\"to\":2018}]",
+      "career": "2010–2024",
+      "themes": [
+        "meias-brasileiros"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Paulo Futre",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Porto\",\"from\":1983,\"to\":1986},{\"name\":\"Atlético Madrid\",\"from\":1987,\"to\":1993},{\"name\":\"AC Milan\",\"from\":1993,\"to\":1994},{\"name\":\"West Ham\",\"from\":1995,\"to\":1996}]",
+      "career": "1983–1998",
+      "themes": [
+        "lendas-portuguesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Paulo Sousa",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Benfica\",\"from\":1988,\"to\":1994},{\"name\":\"Juventus\",\"from\":1994,\"to\":1996},{\"name\":\"Borussia Dortmund\",\"from\":1996,\"to\":1997},{\"name\":\"Inter Milan\",\"from\":1997,\"to\":1998}]",
+      "career": "1988–2003",
+      "themes": [
+        "lendas-portuguesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Pelé",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Santos\",\"from\":1956,\"to\":1974},{\"name\":\"New York Cosmos\",\"from\":1975,\"to\":1977}]",
+      "career": "1956–1977",
+      "themes": [
+        "atacantes-bra",
+        "fenomenos-copa",
+        "atacantes-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Pepe",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Marítimo\",\"from\":2001,\"to\":2003},{\"name\":\"Porto\",\"from\":2003,\"to\":2007},{\"name\":\"Real Madrid\",\"from\":2007,\"to\":2017},{\"name\":\"Beşiktaş\",\"from\":2017,\"to\":2018}]",
+      "career": "2001–2023",
+      "themes": [
+        "lendas-portuguesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Peter Schmeichel",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "DEN",
+      "teams": "[{\"name\":\"Brøndby\",\"from\":1987,\"to\":1991},{\"name\":\"Manchester United\",\"from\":1991,\"to\":1999},{\"name\":\"Sporting CP\",\"from\":1999,\"to\":2001},{\"name\":\"Aston Villa\",\"from\":2001,\"to\":2002},{\"name\":\"Manchester City\",\"from\":2002,\"to\":2003}]",
+      "career": "1981–2003",
+      "themes": [
+        "goleiros-historicos",
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Petr Čech",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Goleiro",
+      "nationality": "CZE",
+      "teams": "[{\"name\":\"Sparta Prague\",\"from\":2001,\"to\":2002},{\"name\":\"Rennes\",\"from\":2002,\"to\":2004},{\"name\":\"Chelsea\",\"from\":2004,\"to\":2015},{\"name\":\"Arsenal\",\"from\":2015,\"to\":2019}]",
+      "career": "2001–2019",
+      "themes": [
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Philipp Lahm",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Bayern\",\"from\":2002,\"to\":2017}]",
+      "career": "2002–2017",
+      "themes": [
+        "lendas-alemas",
+        "defensores-historicos",
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": [
+        "fallbackSource",
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Raí",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Botafogo\",\"from\":1985,\"to\":1987},{\"name\":\"São Paulo\",\"from\":1987,\"to\":1993},{\"name\":\"PSG\",\"from\":1993,\"to\":1998}]",
+      "career": "1985–2000",
+      "themes": [
+        "meias-brasileiros"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Raphinha",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Vitória\",\"from\":2014,\"to\":2016},{\"name\":\"Sporting CP\",\"from\":2016,\"to\":2018},{\"name\":\"Rennes\",\"from\":2018,\"to\":2020},{\"name\":\"Leeds United\",\"from\":2020,\"to\":2022},{\"name\":\"Barcelona\",\"from\":2022,\"to\":2026}]",
+      "career": "2014–2026",
+      "themes": [
+        "atacantes-bra"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Raúl González",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Real Madrid\",\"from\":1994,\"to\":2010},{\"name\":\"Schalke 04\",\"from\":2010,\"to\":2012},{\"name\":\"Al Sadd\",\"from\":2012,\"to\":2013},{\"name\":\"New York Cosmos\",\"from\":2014,\"to\":2015}]",
+      "career": "1994–2015",
+      "themes": [
+        "lendas-champions",
+        "artilheiros-champions",
+        "lendas-espanholas",
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Renato Gaúcho",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Grêmio\",\"from\":1980,\"to\":1986},{\"name\":\"Flamengo\",\"from\":1986,\"to\":1987},{\"name\":\"Grêmio\",\"from\":1988,\"to\":1991}]",
+      "career": "1980–2007",
+      "themes": [
+        "idolos-brasileirao"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Renato Sanches",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Benfica\",\"from\":2014,\"to\":2016},{\"name\":\"Bayern Munich\",\"from\":2016,\"to\":2020},{\"name\":\"Lille\",\"from\":2021,\"to\":2022}]",
+      "career": "2014–2026",
+      "themes": [
+        "lendas-portuguesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Ricardo Carvalho",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Porto\",\"from\":1998,\"to\":2004},{\"name\":\"Chelsea\",\"from\":2004,\"to\":2010},{\"name\":\"Real Madrid\",\"from\":2010,\"to\":2013},{\"name\":\"Monaco\",\"from\":2013,\"to\":2016}]",
+      "career": "1998–2017",
+      "themes": [
+        "lendas-portuguesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Rio Ferdinand",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Defensor",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"West Ham\",\"from\":1995,\"to\":2000},{\"name\":\"Leeds United\",\"from\":2000,\"to\":2002},{\"name\":\"Manchester United\",\"from\":2002,\"to\":2014},{\"name\":\"Queens Park Rangers\",\"from\":2014,\"to\":2015}]",
+      "career": "1995–2015",
+      "themes": [
+        "defensores-historicos",
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Rivaldo",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Palmeiras\",\"from\":1993,\"to\":1996},{\"name\":\"Deportivo La Coruña\",\"from\":1996,\"to\":1997},{\"name\":\"Barcelona\",\"from\":1997,\"to\":2002},{\"name\":\"AC Milan\",\"from\":2002,\"to\":2003}]",
+      "career": "1991–2014",
+      "themes": [
+        "atacantes-bra",
+        "idolos-brasileirao",
+        "meias-brasileiros",
+        "lendas-barcelona",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "Barcelona",
+        "AC Milan"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Rivelino",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Corinthians\",\"from\":1965,\"to\":1974},{\"name\":\"Fluminense\",\"from\":1975,\"to\":1978},{\"name\":\"Al-Hilal\",\"from\":1979,\"to\":1981}]",
+      "career": "1965–1981",
+      "themes": [
+        "idolos-brasileirao",
+        "meias-brasileiros",
+        "fenomenos-copa"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Robert Lewandowski",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "POL",
+      "teams": "[{\"name\":\"Lech Poznań\",\"from\":2006,\"to\":2008},{\"name\":\"Borussia Dortmund\",\"from\":2010,\"to\":2014},{\"name\":\"Bayern\",\"from\":2014,\"to\":2022},{\"name\":\"Barcelona\",\"from\":2022,\"to\":2026}]",
+      "career": "2006–2026",
+      "themes": [
+        "lendas-champions",
+        "artilheiros-champions",
+        "atacantes-historicos",
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Roberto Baggio",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Vicenza\",\"from\":1982,\"to\":1985},{\"name\":\"Fiorentina\",\"from\":1985,\"to\":1990},{\"name\":\"Juventus\",\"from\":1990,\"to\":1995},{\"name\":\"AC Milan\",\"from\":1995,\"to\":1997},{\"name\":\"Bologna\",\"from\":1997,\"to\":1998},{\"name\":\"Inter Milan\",\"from\":1998,\"to\":2000},{\"name\":\"Brescia\",\"from\":2000,\"to\":2004}]",
+      "career": "1982–2004",
+      "themes": [
+        "lendas-italianas",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Roberto Carlos",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Palmeiras\",\"from\":1991,\"to\":1993},{\"name\":\"Inter Milan\",\"from\":1995,\"to\":1996},{\"name\":\"Real Madrid\",\"from\":1996,\"to\":2007},{\"name\":\"Corinthians\",\"from\":2010,\"to\":2012}]",
+      "career": "1991–2012",
+      "themes": [
+        "defensores-bra",
+        "defensores-historicos",
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Roberto Dinamite",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Vasco da Gama\",\"from\":1969,\"to\":1979},{\"name\":\"Barcelona\",\"from\":1980,\"to\":1981},{\"name\":\"Vasco da Gama\",\"from\":1981,\"to\":1993}]",
+      "career": "1969–1993",
+      "themes": [
+        "atacantes-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Robin van Persie",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Feyenoord\",\"from\":2001,\"to\":2004},{\"name\":\"Arsenal\",\"from\":2004,\"to\":2012},{\"name\":\"Manchester United\",\"from\":2012,\"to\":2015},{\"name\":\"Fenerbahçe\",\"from\":2015,\"to\":2018},{\"name\":\"Feyenoord\",\"from\":2018,\"to\":2019}]",
+      "career": "2001–2019",
+      "themes": [
+        "lendas-holandesas",
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Robinho",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Santos\",\"from\":2002,\"to\":2005},{\"name\":\"Real Madrid\",\"from\":2005,\"to\":2008},{\"name\":\"Manchester City\",\"from\":2008,\"to\":2010},{\"name\":\"AC Milan\",\"from\":2010,\"to\":2015}]",
+      "career": "2002–2020",
+      "themes": [
+        "meias-brasileiros"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Rodrygo",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Santos\",\"from\":2017,\"to\":2019},{\"name\":\"Real Madrid\",\"from\":2019,\"to\":2026}]",
+      "career": "2017–2026",
+      "themes": [
+        "atacantes-bra"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Rogério Ceni",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"São Paulo\",\"from\":1990,\"to\":2015}]",
+      "career": "1990–2015",
+      "themes": [
+        "goleiros-bra",
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource",
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Romário",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Vasco da Gama\",\"from\":1985,\"to\":1988},{\"name\":\"PSV\",\"from\":1988,\"to\":1993},{\"name\":\"Barcelona\",\"from\":1993,\"to\":1995},{\"name\":\"Flamengo\",\"from\":1995,\"to\":1999}]",
+      "career": "1985–2009",
+      "themes": [
+        "atacantes-bra",
+        "idolos-brasileirao",
+        "atacantes-historicos",
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Ronald Koeman",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Defensor",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Groningen\",\"from\":1980,\"to\":1983},{\"name\":\"Ajax\",\"from\":1983,\"to\":1986},{\"name\":\"PSV\",\"from\":1986,\"to\":1989},{\"name\":\"Barcelona\",\"from\":1989,\"to\":1995}]",
+      "career": "1980–1997",
+      "themes": [
+        "lendas-holandesas"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Ronaldinho",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Grêmio\",\"from\":1998,\"to\":2001},{\"name\":\"Paris Saint-Germain\",\"from\":2001,\"to\":2003},{\"name\":\"Barcelona\",\"from\":2003,\"to\":2008},{\"name\":\"AC Milan\",\"from\":2009,\"to\":2011}]",
+      "career": "1998–2015",
+      "themes": [
+        "atacantes-bra",
+        "idolos-brasileirao",
+        "meias-brasileiros",
+        "meias-historicos",
+        "lendas-barcelona",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "Barcelona",
+        "AC Milan"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Ronaldo Nazário",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Cruzeiro\",\"from\":1993,\"to\":1994},{\"name\":\"PSV\",\"from\":1994,\"to\":1996},{\"name\":\"Barcelona\",\"from\":1996,\"to\":1997},{\"name\":\"Inter Milan\",\"from\":1997,\"to\":2002},{\"name\":\"Real Madrid\",\"from\":2002,\"to\":2007}]",
+      "career": "1993–2011",
+      "themes": [
+        "atacantes-bra",
+        "fenomenos-copa",
+        "artilheiros-champions",
+        "atacantes-historicos",
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Roy Keane",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "IRL",
+      "teams": "[{\"name\":\"Nottingham Forest\",\"from\":1989,\"to\":1993},{\"name\":\"Manchester United\",\"from\":1993,\"to\":2005},{\"name\":\"Celtic\",\"from\":2005,\"to\":2006}]",
+      "career": "1989–2006",
+      "themes": [
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Roy Makaay",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Vitesse\",\"from\":1993,\"to\":1997},{\"name\":\"Deportivo La Coruña\",\"from\":1997,\"to\":1999},{\"name\":\"Bayern Munich\",\"from\":1999,\"to\":2007}]",
+      "career": "1993–2010",
+      "themes": [
+        "lendas-holandesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Rúben Dias",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Benfica\",\"from\":2015,\"to\":2017},{\"name\":\"AS Monaco\",\"from\":2017,\"to\":2019},{\"name\":\"Manchester City\",\"from\":2020,\"to\":2026}]",
+      "career": "2015–2026",
+      "themes": [
+        "lendas-portuguesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Rui Costa",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Benfica\",\"from\":1990,\"to\":1994},{\"name\":\"Fiorentina\",\"from\":1994,\"to\":1998},{\"name\":\"AC Milan\",\"from\":1998,\"to\":2006}]",
+      "career": "1990–2010",
+      "themes": [
+        "lendas-portuguesas",
+        "meias-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Ruud Gullit",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Haarlem\",\"from\":1979,\"to\":1982},{\"name\":\"Feyenoord\",\"from\":1982,\"to\":1985},{\"name\":\"PSV\",\"from\":1985,\"to\":1987},{\"name\":\"AC Milan\",\"from\":1987,\"to\":1993},{\"name\":\"Sampdoria\",\"from\":1993,\"to\":1994},{\"name\":\"Chelsea\",\"from\":1995,\"to\":1998}]",
+      "career": "1979–1998",
+      "themes": [
+        "lendas-holandesas",
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Ruud Krol",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Ajax\",\"from\":1968,\"to\":1980},{\"name\":\"Napoli\",\"from\":1980,\"to\":1982},{\"name\":\"Marseille\",\"from\":1982,\"to\":1984}]",
+      "career": "1968–1986",
+      "themes": [
+        "lendas-holandesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Ruud van Nistelrooy",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"PSV\",\"from\":1998,\"to\":2001},{\"name\":\"Manchester United\",\"from\":2001,\"to\":2006},{\"name\":\"Real Madrid\",\"from\":2006,\"to\":2010},{\"name\":\"Hamburg\",\"from\":2010,\"to\":2012},{\"name\":\"Málaga\",\"from\":2011,\"to\":2012}]",
+      "career": "1994–2012",
+      "themes": [
+        "artilheiros-champions",
+        "lendas-holandesas",
+        "atacantes-historicos",
+        "lendas-real-madrid",
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Real Madrid",
+        "Manchester United"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Ryan Giggs",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "WAL",
+      "teams": "[{\"name\":\"Manchester United\",\"from\":1991,\"to\":2014}]",
+      "career": "1990–2014",
+      "themes": [
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": [
+        "fallbackSource",
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Samuel Eto'o",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "CMR",
+      "teams": "[{\"name\":\"Real Madrid\",\"from\":1997,\"to\":2000},{\"name\":\"Mallorca\",\"from\":2000,\"to\":2004},{\"name\":\"Barcelona\",\"from\":2004,\"to\":2009},{\"name\":\"Inter Milan\",\"from\":2009,\"to\":2011},{\"name\":\"Anzhi\",\"from\":2011,\"to\":2013},{\"name\":\"Chelsea\",\"from\":2013,\"to\":2014},{\"name\":\"Everton\",\"from\":2014,\"to\":2015},{\"name\":\"Sampdoria\",\"from\":2015,\"to\":2016},{\"name\":\"Antalyaspor\",\"from\":2016,\"to\":2018}]",
+      "career": "1997–2019",
+      "themes": [
+        "artilheiros-champions",
+        "atacantes-historicos",
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Sandro Mazzola",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Inter Milan\",\"from\":1960,\"to\":1977}]",
+      "career": "1960–1977",
+      "themes": [
+        "lendas-italianas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Sepp Maier",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Bayern Munich\",\"from\":1962,\"to\":1979}]",
+      "career": "1962–1979",
+      "themes": [
+        "lendas-alemas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource",
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Serginho",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"São Paulo\",\"from\":1984,\"to\":1989},{\"name\":\"AC Milan\",\"from\":1989,\"to\":2005}]",
+      "career": "1984–2008",
+      "themes": [
+        "defensores-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Sergio Agüero",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "ARG",
+      "teams": "[{\"name\":\"Independiente\",\"from\":2003,\"to\":2006},{\"name\":\"Atlético Madrid\",\"from\":2006,\"to\":2011},{\"name\":\"Manchester City\",\"from\":2011,\"to\":2021},{\"name\":\"Barcelona\",\"from\":2021,\"to\":2021}]",
+      "career": "2003–2021",
+      "themes": [
+        "craques-argentinos",
+        "artilheiros-champions",
+        "atacantes-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Sergio Busquets",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Barcelona\",\"from\":2008,\"to\":2023},{\"name\":\"Inter Miami\",\"from\":2023,\"to\":2024}]",
+      "career": "2006–2024",
+      "themes": [
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Sergio Ramos",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Defensor",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Sevilla\",\"from\":2003,\"to\":2005},{\"name\":\"Real Madrid\",\"from\":2005,\"to\":2021},{\"name\":\"PSG\",\"from\":2021,\"to\":2023}]",
+      "career": "2003–2023",
+      "themes": [
+        "lendas-espanholas",
+        "defensores-historicos",
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Sócrates",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Botafogo-SP\",\"from\":1974,\"to\":1978},{\"name\":\"Corinthians\",\"from\":1978,\"to\":1984},{\"name\":\"Fiorentina\",\"from\":1984,\"to\":1985}]",
+      "career": "1974–1989",
+      "themes": [
+        "idolos-brasileirao",
+        "meias-brasileiros",
+        "fenomenos-copa"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Steven Gerrard",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Liverpool\",\"from\":1998,\"to\":2015},{\"name\":\"LA Galaxy\",\"from\":2015,\"to\":2016}]",
+      "career": "1998–2016",
+      "themes": [
+        "lendas-inglaterra",
+        "meias-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Sylvain Wiltord",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Rennes\",\"from\":1994,\"to\":1997},{\"name\":\"Bordeaux\",\"from\":1997,\"to\":2000},{\"name\":\"Arsenal\",\"from\":2000,\"to\":2004},{\"name\":\"Lyon\",\"from\":2004,\"to\":2007}]",
+      "career": "1994–2012",
+      "themes": [
+        "lendas-francesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Taffarel",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Goleiro",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Internacional\",\"from\":1985,\"to\":1988},{\"name\":\"Grêmio\",\"from\":1988,\"to\":1998},{\"name\":\"Galatasaray\",\"from\":2001,\"to\":2002}]",
+      "career": "1985–2003",
+      "themes": [
+        "idolos-brasileirao",
+        "goleiros-bra",
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Thiago Silva",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Fluminense\",\"from\":2002,\"to\":2004},{\"name\":\"AC Milan\",\"from\":2009,\"to\":2012},{\"name\":\"PSG\",\"from\":2012,\"to\":2020},{\"name\":\"Chelsea\",\"from\":2020,\"to\":2024}]",
+      "career": "2002–2024",
+      "themes": [
+        "defensores-bra",
+        "defensores-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Thierry Henry",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Atacante",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Monaco\",\"from\":1994,\"to\":1999},{\"name\":\"Arsenal\",\"from\":1999,\"to\":2007},{\"name\":\"Barcelona\",\"from\":2007,\"to\":2010}]",
+      "career": "1994–2014",
+      "themes": [
+        "lendas-champions",
+        "fenomenos-copa",
+        "artilheiros-champions",
+        "lendas-francesas",
+        "atacantes-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Thomas Müller",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Bayern\",\"from\":2008,\"to\":2026}]",
+      "career": "2008–2026",
+      "themes": [
+        "lendas-champions",
+        "artilheiros-champions",
+        "lendas-alemas",
+        "lendas-bayern"
+      ],
+      "requiredTeams": [
+        "Bayern"
+      ],
+      "flags": [
+        "singleClubOnly"
+      ]
+    },
+    {
+      "name": "Toni Kroos",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "GER",
+      "teams": "[{\"name\":\"Bayern\",\"from\":2007,\"to\":2009},{\"name\":\"Bayer Leverkusen\",\"from\":2009,\"to\":2014},{\"name\":\"Real Madrid\",\"from\":2014,\"to\":2024}]",
+      "career": "2007–2024",
+      "themes": [
+        "lendas-champions",
+        "lendas-alemas",
+        "meias-historicos",
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Túlio Maravilha",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Goiás\",\"from\":1988,\"to\":1991},{\"name\":\"Botafogo\",\"from\":1991,\"to\":1994},{\"name\":\"Vitória\",\"from\":1994,\"to\":1996},{\"name\":\"Atlético Mineiro\",\"from\":1996,\"to\":1998}]",
+      "career": "1988–2012",
+      "themes": [
+        "atacantes-bra"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Victor",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Grêmio\",\"from\":2006,\"to\":2012},{\"name\":\"Atlético Mineiro\",\"from\":2012,\"to\":2021}]",
+      "career": "2006–2021",
+      "themes": [
+        "goleiros-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Vinícius Júnior",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Flamengo\",\"from\":2017,\"to\":2018},{\"name\":\"Real Madrid\",\"from\":2018,\"to\":2026}]",
+      "career": "2017–2026",
+      "themes": [
+        "atacantes-bra"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Virgil van Dijk",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Defensor",
+      "nationality": "NED",
+      "teams": "[{\"name\":\"Groningen\",\"from\":2010,\"to\":2011},{\"name\":\"Celtic\",\"from\":2013,\"to\":2015},{\"name\":\"Southampton\",\"from\":2015,\"to\":2018},{\"name\":\"Liverpool\",\"from\":2018,\"to\":2026}]",
+      "career": "2010–2026",
+      "themes": [
+        "defensores-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Vitinha",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "POR",
+      "teams": "[{\"name\":\"Porto\",\"from\":2020,\"to\":2022},{\"name\":\"PSG\",\"from\":2022,\"to\":2026}]",
+      "career": "2020–2026",
+      "themes": [
+        "lendas-portuguesas"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Walter Zenga",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "ITA",
+      "teams": "[{\"name\":\"Inter Milan\",\"from\":1983,\"to\":1994},{\"name\":\"Internacional\",\"from\":1994,\"to\":1995},{\"name\":\"Padova\",\"from\":1995,\"to\":1997},{\"name\":\"Venezia\",\"from\":1997,\"to\":1999},{\"name\":\"Arezzo\",\"from\":1999,\"to\":2003}]",
+      "career": "1983–2003",
+      "themes": [
+        "goleiros-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Wayne Rooney",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "ENG",
+      "teams": "[{\"name\":\"Everton\",\"from\":2002,\"to\":2004},{\"name\":\"Manchester United\",\"from\":2004,\"to\":2017},{\"name\":\"Everton\",\"from\":2017,\"to\":2018},{\"name\":\"DC United\",\"from\":2018,\"to\":2020},{\"name\":\"Derby County\",\"from\":2020,\"to\":2021}]",
+      "career": "2002–2021",
+      "themes": [
+        "lendas-inglaterra",
+        "lendas-manchester-united"
+      ],
+      "requiredTeams": [
+        "Manchester United"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Weverton",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Goleiro",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Fortaleza\",\"from\":2008,\"to\":2012},{\"name\":\"Atlético Paranaense\",\"from\":2012,\"to\":2018},{\"name\":\"Palmeiras\",\"from\":2018,\"to\":2026}]",
+      "career": "2008–2026",
+      "themes": [
+        "goleiros-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Xavi",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Barcelona\",\"from\":1998,\"to\":2015},{\"name\":\"Al Sadd\",\"from\":2015,\"to\":2019}]",
+      "career": "1998–2019",
+      "themes": [],
+      "requiredTeams": [],
+      "flags": [
+        "legendOnly"
+      ]
+    },
+    {
+      "name": "Xavi Hernández",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Meia",
+      "nationality": "ESP",
+      "teams": "[{\"name\":\"Barcelona\",\"from\":1998,\"to\":2015},{\"name\":\"Al Sadd\",\"from\":2015,\"to\":2019}]",
+      "career": "1998–2019",
+      "themes": [
+        "lendas-champions",
+        "lendas-espanholas",
+        "meias-historicos",
+        "lendas-barcelona"
+      ],
+      "requiredTeams": [
+        "Barcelona"
+      ],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Zagallo",
+      "inLegends": false,
+      "source": "fallback",
+      "position": "Atacante",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Flamengo\",\"from\":1951,\"to\":1958},{\"name\":\"Botafogo\",\"from\":1958,\"to\":1965}]",
+      "career": "1951–1967",
+      "themes": [
+        "defensores-bra"
+      ],
+      "requiredTeams": [],
+      "flags": [
+        "fallbackSource"
+      ]
+    },
+    {
+      "name": "Zico",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "BRA",
+      "teams": "[{\"name\":\"Flamengo\",\"from\":1971,\"to\":1983},{\"name\":\"Udinese\",\"from\":1983,\"to\":1985},{\"name\":\"Flamengo\",\"from\":1985,\"to\":1989}]",
+      "career": "1971–1994",
+      "themes": [
+        "idolos-brasileirao",
+        "meias-brasileiros",
+        "meias-historicos"
+      ],
+      "requiredTeams": [],
+      "flags": []
+    },
+    {
+      "name": "Zinedine Zidane",
+      "inLegends": true,
+      "source": "legend",
+      "position": "Meia",
+      "nationality": "FRA",
+      "teams": "[{\"name\":\"Cannes\",\"from\":1989,\"to\":1992},{\"name\":\"Bordeaux\",\"from\":1992,\"to\":1996},{\"name\":\"Juventus\",\"from\":1996,\"to\":2001},{\"name\":\"Real Madrid\",\"from\":2001,\"to\":2006}]",
+      "career": "1989–2006",
+      "themes": [
+        "lendas-champions",
+        "fenomenos-copa",
+        "lendas-francesas",
+        "meias-historicos",
+        "lendas-real-madrid"
+      ],
+      "requiredTeams": [
+        "Real Madrid"
+      ],
+      "flags": []
+    },
+    {
+      "name": "Zlatan Ibrahimović",
+      "inLegends": false,
+      "source": "wikipedia",
+      "position": "Atacante",
+      "nationality": "SWE",
+      "teams": "[{\"name\":\"Malmö\",\"from\":1999,\"to\":2001},{\"name\":\"Ajax\",\"from\":2001,\"to\":2004},{\"name\":\"Juventus\",\"from\":2004,\"to\":2006},{\"name\":\"Inter Milan\",\"from\":2006,\"to\":2009},{\"name\":\"Barcelona\",\"from\":2009,\"to\":2011},{\"name\":\"AC Milan\",\"from\":2010,\"to\":2012},{\"name\":\"PSG\",\"from\":2012,\"to\":2016},{\"name\":\"Manchester United\",\"from\":2016,\"to\":2018},{\"name\":\"LA Galaxy\",\"from\":2018,\"to\":2019},{\"name\":\"AC Milan\",\"from\":2020,\"to\":2023}]",
+      "career": "1999–2023",
+      "themes": [
+        "lendas-milan"
+      ],
+      "requiredTeams": [
+        "AC Milan"
+      ],
+      "flags": []
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "generatedAt": "2026-07-12T06:59:16.032Z",
+  "themesWithMismatches": 0,
+  "totalMismatches": 0,
+  "reports": [
+    {
+      "id": "atacantes-bra",
+      "title": "Maiores atacantes brasileiros",
+      "searchFilters": {
+        "nationalities": [
+          "BRA"
+        ],
+        "positions": [
+          "Atacante"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "lendas-champions",
+      "title": "Lendas da Champions League",
+      "searchFilters": {},
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "craques-argentinos",
+      "title": "Craques argentinos históricos",
+      "searchFilters": {
+        "nationalities": [
+          "ARG"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "idolos-brasileirao",
+      "title": "Ídolos do Brasileirão",
+      "searchFilters": {
+        "nationalities": [
+          "BRA"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "meias-brasileiros",
+      "title": "Meias brasileiros históricos",
+      "searchFilters": {
+        "nationalities": [
+          "BRA"
+        ],
+        "positions": [
+          "Meia"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "defensores-bra",
+      "title": "Defensores brasileiros históricos",
+      "searchFilters": {
+        "nationalities": [
+          "BRA"
+        ],
+        "positions": [
+          "Defensor"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "goleiros-bra",
+      "title": "Goleiros brasileiros históricos",
+      "searchFilters": {
+        "nationalities": [
+          "BRA"
+        ],
+        "positions": [
+          "Goleiro"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "fenomenos-copa",
+      "title": "Fenômenos da Copa do Mundo",
+      "searchFilters": {},
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "artilheiros-champions",
+      "title": "Artilheiros da Champions",
+      "searchFilters": {},
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "lendas-espanholas",
+      "title": "Lendas espanholas",
+      "searchFilters": {
+        "nationalities": [
+          "ESP"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "lendas-francesas",
+      "title": "Lendas francesas",
+      "searchFilters": {
+        "nationalities": [
+          "FRA"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "lendas-italianas",
+      "title": "Lendas italianas",
+      "searchFilters": {
+        "nationalities": [
+          "ITA"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "lendas-alemas",
+      "title": "Lendas alemãs",
+      "searchFilters": {
+        "nationalities": [
+          "GER"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "lendas-portuguesas",
+      "title": "Lendas portuguesas",
+      "searchFilters": {
+        "nationalities": [
+          "POR"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "lendas-holandesas",
+      "title": "Lendas holandesas",
+      "searchFilters": {
+        "nationalities": [
+          "NED"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "lendas-inglaterra",
+      "title": "Lendas da Inglaterra",
+      "searchFilters": {
+        "nationalities": [
+          "ENG"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "goleiros-historicos",
+      "title": "Goleiros históricos",
+      "searchFilters": {
+        "positions": [
+          "Goleiro"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "meias-historicos",
+      "title": "Meias históricos",
+      "searchFilters": {
+        "positions": [
+          "Meia"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "defensores-historicos",
+      "title": "Defensores históricos",
+      "searchFilters": {
+        "positions": [
+          "Defensor"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "atacantes-historicos",
+      "title": "Atacantes históricos",
+      "searchFilters": {
+        "positions": [
+          "Atacante"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "lendas-barcelona",
+      "title": "Lendas do Barcelona",
+      "searchFilters": {
+        "teams": [
+          "Barcelona"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "lendas-real-madrid",
+      "title": "Lendas do Real Madrid",
+      "searchFilters": {
+        "teams": [
+          "Real Madrid"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "lendas-milan",
+      "title": "Lendas do Milan",
+      "searchFilters": {
+        "teams": [
+          "AC Milan"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "lendas-manchester-united",
+      "title": "Lendas do Manchester United",
+      "searchFilters": {
+        "teams": [
+          "Manchester United"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    },
+    {
+      "id": "lendas-bayern",
+      "title": "Lendas do Bayern",
+      "searchFilters": {
+        "teams": [
+          "Bayern"
+        ]
+      },
+      "poolSize": 20,
+      "mismatches": []
+    }
+  ]
+}

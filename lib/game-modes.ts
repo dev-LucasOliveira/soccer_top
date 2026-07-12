@@ -1,8 +1,8 @@
 import type { GameMode } from "@/lib/types";
 
-export type HomeModeId = "tradicional" | "impostor" | "solo";
+export type HomeModeId = "tradicional" | "impostor" | "adivinhe" | "ranking";
 
-export type GameModeIconId = "trophy" | "eye" | "user";
+export type GameModeIconId = "trophy" | "eye" | "target" | "list";
 
 export type GameModeConfig = {
   id: HomeModeId;
@@ -41,14 +41,26 @@ export const GAME_MODES: GameModeConfig[] = [
     sessionGameMode: "impostor",
   },
   {
-    id: "solo",
-    label: "Solo",
-    cardDescription: "Monte seu Top N sozinho e exporte uma imagem.",
+    id: "adivinhe",
+    label: "Adivinhe o Top",
+    cardDescription:
+      "25 temas, 5 jogadores secretos por rodada, dicas de clube — 5 erros na sessão.",
     panelDescription:
-      "Sem sala, sem votação — só você, um tema livre, filtros opcionais e um ranking personalizado para compartilhar no grupo.",
-    hint: "Leva menos de um minuto para começar.",
+      "Cada rodada sorteia um tema e 5 jogadores secretos de um pool curado. Cada carta mostra uma dica de clube e período — pesquise e descubra quem está na lista antes de esgotar seus erros.",
+    hint: "Cada partida sorteia temas e jogadores diferentes.",
+    submitLabel: "Jogar agora",
+    icon: "target",
+  },
+  {
+    id: "ranking",
+    label: "Ranking livre",
+    cardDescription:
+      "Monte seu Top N, filtre jogadores e exporte uma imagem.",
+    panelDescription:
+      "Crie um ranking personalizado com o tema e filtros que quiser, monte a lista na ordem que preferir e exporte uma imagem pronta para compartilhar.",
+    hint: "Rascunho salvo neste navegador.",
     submitLabel: "Começar meu ranking",
-    icon: "user",
+    icon: "list",
   },
 ];
 
@@ -60,7 +72,13 @@ export function getGameModeConfig(id: HomeModeId): GameModeConfig {
 }
 
 export function parseHomeModeParam(value: string | null): HomeModeId | null {
-  if (value === "tradicional" || value === "impostor" || value === "solo") {
+  if (value === "solo") return "adivinhe";
+  if (
+    value === "tradicional" ||
+    value === "impostor" ||
+    value === "adivinhe" ||
+    value === "ranking"
+  ) {
     return value;
   }
   return null;

@@ -203,3 +203,16 @@ export async function downloadSoloRankingImage(
 
   return deliverImageBlob(blob, filename);
 }
+
+export async function downloadGuessTopRecapImage(
+  element: HTMLElement,
+  {
+    tops,
+    errors,
+    theme,
+  }: { tops: number; errors: number; theme?: Theme }
+): Promise<ExportImageResult> {
+  const blob = await captureElementAsBlob(element, theme);
+  const filename = `ranking-da-resenha-adivinhe-${tops}tops-${errors}erros.png`;
+  return deliverImageBlob(blob, filename);
+}

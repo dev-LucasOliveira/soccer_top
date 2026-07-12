@@ -136,17 +136,27 @@
   },
   {
     "name": "Adriano Imperador",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Inter Milan",
+        "name": "Flamengo",
         "from": 2000,
-        "to": 2000
+        "to": 2002
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2002,
+        "to": 2009
+      },
+      {
+        "name": "Roma",
+        "from": 2009,
+        "to": 2010
       }
     ],
     "careerStart": 2000,
-    "careerEnd": 2000,
+    "careerEnd": 2016,
     "curatedLists": []
   },
   {
@@ -215,13 +225,18 @@
     "nationality": "FRA",
     "teams": [
       {
-        "name": "Marseille",
+        "name": "Bordeaux",
         "from": 1970,
         "to": 1986
+      },
+      {
+        "name": "Marseille",
+        "from": 1986,
+        "to": 1988
       }
     ],
     "careerStart": 1970,
-    "careerEnd": 1986,
+    "careerEnd": 1988,
     "curatedLists": []
   },
   {
@@ -260,8 +275,18 @@
     "nationality": "ENG",
     "teams": [
       {
-        "name": "Everton",
+        "name": "Southampton",
         "from": 1988,
+        "to": 1992
+      },
+      {
+        "name": "Blackburn Rovers",
+        "from": 1992,
+        "to": 1996
+      },
+      {
+        "name": "Newcastle United",
+        "from": 1996,
         "to": 2006
       }
     ],
@@ -301,17 +326,22 @@
   },
   {
     "name": "Aldair",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Defensor",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Inter Milan",
+        "name": "Benfica",
+        "from": 1989,
+        "to": 1990
+      },
+      {
+        "name": "Roma",
         "from": 1990,
-        "to": 2000
+        "to": 2003
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerStart": 1985,
+    "careerEnd": 2003,
     "curatedLists": []
   },
   {
@@ -391,17 +421,22 @@
   },
   {
     "name": "Alessandro Del Piero",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "ITA",
     "teams": [
       {
-        "name": "AC Milan",
+        "name": "Juventus",
         "from": 1993,
         "to": 2012
+      },
+      {
+        "name": "Sydney FC",
+        "from": 2012,
+        "to": 2014
       }
     ],
-    "careerStart": 1993,
-    "careerEnd": 2012,
+    "careerStart": 1991,
+    "careerEnd": 2014,
     "curatedLists": []
   },
   {
@@ -409,6 +444,11 @@
     "primaryPosition": "Defensor",
     "nationality": "ITA",
     "teams": [
+      {
+        "name": "Lazio",
+        "from": 1993,
+        "to": 2002
+      },
       {
         "name": "AC Milan",
         "from": 2002,
@@ -428,13 +468,23 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "PSG",
-        "from": 2000,
+        "name": "Grêmio",
+        "from": 1997,
         "to": 2000
+      },
+      {
+        "name": "PSG",
+        "from": 2001,
+        "to": 2004
+      },
+      {
+        "name": "Chelsea",
+        "from": 2004,
+        "to": 2008
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2000,
+    "careerStart": 1997,
+    "careerEnd": 2013,
     "curatedLists": []
   },
   {
@@ -504,11 +554,21 @@
     "teams": [
       {
         "name": "Internacional",
-        "from": 2000,
-        "to": 2020
+        "from": 2006,
+        "to": 2007
+      },
+      {
+        "name": "AC Milan",
+        "from": 2007,
+        "to": 2013
+      },
+      {
+        "name": "São Paulo",
+        "from": 2013,
+        "to": 2014
       }
     ],
-    "careerStart": 2000,
+    "careerStart": 2006,
     "careerEnd": 2020,
     "curatedLists": []
   },
@@ -529,31 +589,51 @@
   },
   {
     "name": "Alfredo Di Stéfano",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "ARG",
     "teams": [
       {
-        "name": "Athletic Bilbao",
+        "name": "Millonarios",
+        "from": 1949,
+        "to": 1953
+      },
+      {
+        "name": "Real Madrid",
         "from": 1953,
+        "to": 1964
+      },
+      {
+        "name": "Espanyol",
+        "from": 1964,
         "to": 1966
       }
     ],
-    "careerStart": 1953,
+    "careerStart": 1945,
     "careerEnd": 1966,
     "curatedLists": []
   },
   {
     "name": "Alisson Becker",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Goleiro",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Leeds United",
+        "name": "Internacional",
+        "from": 2013,
+        "to": 2016
+      },
+      {
+        "name": "Roma",
+        "from": 2016,
+        "to": 2018
+      },
+      {
+        "name": "Liverpool",
         "from": 2018,
         "to": 2026
       }
     ],
-    "careerStart": 2018,
+    "careerStart": 2013,
     "careerEnd": 2026,
     "curatedLists": []
   },
@@ -604,17 +684,22 @@
   },
   {
     "name": "Alphonso Davies",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Defensor",
     "nationality": "CAN",
     "teams": [
       {
+        "name": "Vancouver Whitecaps",
+        "from": 2016,
+        "to": 2019
+      },
+      {
         "name": "Bayern",
-        "from": 2010,
-        "to": 2020
+        "from": 2019,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2016,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -623,13 +708,33 @@
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Real Sociedad",
+        "name": "Real Madrid",
         "from": 2010,
+        "to": 2014
+      },
+      {
+        "name": "Juventus",
+        "from": 2014,
+        "to": 2016
+      },
+      {
+        "name": "Chelsea",
+        "from": 2017,
+        "to": 2019
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 2019,
         "to": 2020
+      },
+      {
+        "name": "AC Milan",
+        "from": 2022,
+        "to": 2026
       }
     ],
     "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -649,17 +754,22 @@
   },
   {
     "name": "Amancio Amaro",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Villarreal",
-        "from": 1960,
-        "to": 1970
+        "name": "Deportivo La Coruña",
+        "from": 1958,
+        "to": 1962
+      },
+      {
+        "name": "Real Madrid",
+        "from": 1962,
+        "to": 1976
       }
     ],
-    "careerStart": 1960,
-    "careerEnd": 1970,
+    "careerStart": 1958,
+    "careerEnd": 1982,
     "curatedLists": []
   },
   {
@@ -713,13 +823,23 @@
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Atlético Madrid",
+        "name": "Athletic Bilbao",
         "from": 1980,
-        "to": 1990
+        "to": 1988
+      },
+      {
+        "name": "Barcelona",
+        "from": 1988,
+        "to": 1994
+      },
+      {
+        "name": "Valencia",
+        "from": 1994,
+        "to": 1998
       }
     ],
     "careerStart": 1980,
-    "careerEnd": 1990,
+    "careerEnd": 1998,
     "curatedLists": []
   },
   {
@@ -803,13 +923,33 @@
     "nationality": "ITA",
     "teams": [
       {
-        "name": "Lazio",
+        "name": "Brescia",
         "from": 1995,
+        "to": 1998
+      },
+      {
+        "name": "Inter Milan",
+        "from": 1998,
+        "to": 2001
+      },
+      {
+        "name": "AC Milan",
+        "from": 2001,
+        "to": 2011
+      },
+      {
+        "name": "Juventus",
+        "from": 2011,
         "to": 2015
+      },
+      {
+        "name": "New York City",
+        "from": 2015,
+        "to": 2017
       }
     ],
     "careerStart": 1995,
-    "careerEnd": 2015,
+    "careerEnd": 2017,
     "curatedLists": []
   },
   {
@@ -818,13 +958,23 @@
     "nationality": "GER",
     "teams": [
       {
-        "name": "Wolfsburg",
+        "name": "1. FC Kaiserslautern",
         "from": 1980,
-        "to": 1990
+        "to": 1984
+      },
+      {
+        "name": "Inter Milan",
+        "from": 1984,
+        "to": 1988
+      },
+      {
+        "name": "Bayern Munich",
+        "from": 1992,
+        "to": 1993
       }
     ],
     "careerStart": 1980,
-    "careerEnd": 1990,
+    "careerEnd": 1998,
     "curatedLists": []
   },
   {
@@ -866,6 +1016,11 @@
         "name": "Barcelona",
         "from": 2002,
         "to": 2018
+      },
+      {
+        "name": "Vissel Kobe",
+        "from": 2018,
+        "to": 2023
       }
     ],
     "careerStart": 2001,
@@ -907,17 +1062,32 @@
   },
   {
     "name": "Andriy Shevchenko",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "UKR",
     "teams": [
       {
-        "name": "Napoli",
+        "name": "Dynamo Kyiv",
+        "from": 1994,
+        "to": 1999
+      },
+      {
+        "name": "AC Milan",
         "from": 1999,
+        "to": 2006
+      },
+      {
+        "name": "Chelsea",
+        "from": 2006,
         "to": 2009
+      },
+      {
+        "name": "Dynamo Kyiv",
+        "from": 2009,
+        "to": 2012
       }
     ],
-    "careerStart": 1999,
-    "careerEnd": 2009,
+    "careerStart": 1994,
+    "careerEnd": 2012,
     "curatedLists": []
   },
   {
@@ -926,13 +1096,43 @@
     "nationality": "ARG",
     "teams": [
       {
-        "name": "Atlético Madrid",
-        "from": 2010,
+        "name": "Rosario Central",
+        "from": 2005,
+        "to": 2007
+      },
+      {
+        "name": "Benfica",
+        "from": 2007,
         "to": 2010
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2010,
+        "to": 2014
+      },
+      {
+        "name": "Manchester United",
+        "from": 2014,
+        "to": 2015
+      },
+      {
+        "name": "PSG",
+        "from": 2015,
+        "to": 2022
+      },
+      {
+        "name": "Juventus",
+        "from": 2022,
+        "to": 2023
+      },
+      {
+        "name": "Benfica",
+        "from": 2023,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2010,
+    "careerStart": 2005,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -997,16 +1197,31 @@
   },
   {
     "name": "Antoine Griezmann",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "FRA",
     "teams": [
       {
-        "name": "Real Madrid",
-        "from": 2010,
+        "name": "Real Sociedad",
+        "from": 2009,
+        "to": 2014
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 2014,
+        "to": 2019
+      },
+      {
+        "name": "Barcelona",
+        "from": 2019,
+        "to": 2021
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 2021,
         "to": 2026
       }
     ],
-    "careerStart": 2010,
+    "careerStart": 2009,
     "careerEnd": 2026,
     "curatedLists": []
   },
@@ -1057,17 +1272,42 @@
   },
   {
     "name": "Antonio Cassano",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "ITA",
     "teams": [
       {
-        "name": "Fiorentina",
-        "from": 1990,
-        "to": 2010
+        "name": "Bari",
+        "from": 1999,
+        "to": 2001
+      },
+      {
+        "name": "Roma",
+        "from": 2001,
+        "to": 2006
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2006,
+        "to": 2007
+      },
+      {
+        "name": "Sampdoria",
+        "from": 2007,
+        "to": 2011
+      },
+      {
+        "name": "AC Milan",
+        "from": 2011,
+        "to": 2012
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2012,
+        "to": 2013
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2010,
+    "careerStart": 1999,
+    "careerEnd": 2017,
     "curatedLists": []
   },
   {
@@ -1128,6 +1368,26 @@
     ],
     "careerStart": 1920,
     "careerEnd": 1930,
+    "curatedLists": []
+  },
+  {
+    "name": "Aranha",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Grêmio",
+        "from": 1970,
+        "to": 1983
+      },
+      {
+        "name": "Internacional",
+        "from": 1984,
+        "to": 1985
+      }
+    ],
+    "careerStart": 1970,
+    "careerEnd": 1987,
     "curatedLists": []
   },
   {
@@ -1192,17 +1452,42 @@
   },
   {
     "name": "Arjen Robben",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "NED",
     "teams": [
       {
-        "name": "Arsenal",
+        "name": "Groningen",
         "from": 2000,
-        "to": 2000
+        "to": 2002
+      },
+      {
+        "name": "PSV",
+        "from": 2002,
+        "to": 2004
+      },
+      {
+        "name": "Chelsea",
+        "from": 2004,
+        "to": 2007
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2007,
+        "to": 2009
+      },
+      {
+        "name": "Bayern",
+        "from": 2009,
+        "to": 2019
+      },
+      {
+        "name": "Groningen",
+        "from": 2020,
+        "to": 2021
       }
     ],
     "careerStart": 2000,
-    "careerEnd": 2000,
+    "careerEnd": 2021,
     "curatedLists": []
   },
   {
@@ -1222,16 +1507,21 @@
   },
   {
     "name": "Arrascaeta",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "URU",
     "teams": [
       {
-        "name": "São Paulo",
+        "name": "Cruzeiro",
         "from": 2015,
+        "to": 2018
+      },
+      {
+        "name": "Flamengo",
+        "from": 2019,
         "to": 2026
       }
     ],
-    "careerStart": 2015,
+    "careerStart": 2012,
     "careerEnd": 2026,
     "curatedLists": []
   },
@@ -1271,13 +1561,28 @@
     "nationality": "ENG",
     "teams": [
       {
-        "name": "Manchester United",
+        "name": "Arsenal",
         "from": 1999,
+        "to": 2006
+      },
+      {
+        "name": "Chelsea",
+        "from": 2006,
         "to": 2014
+      },
+      {
+        "name": "Roma",
+        "from": 2014,
+        "to": 2016
+      },
+      {
+        "name": "LA Galaxy",
+        "from": 2016,
+        "to": 2019
       }
     ],
     "careerStart": 1999,
-    "careerEnd": 2014,
+    "careerEnd": 2019,
     "curatedLists": []
   },
   {
@@ -1417,17 +1722,17 @@
   },
   {
     "name": "Basílio",
-    "primaryPosition": "Goleiro",
+    "primaryPosition": "Meia",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Flamengo",
-        "from": 1970,
-        "to": 1980
+        "name": "Corinthians",
+        "from": 1975,
+        "to": 1984
       }
     ],
     "careerStart": 1970,
-    "careerEnd": 1980,
+    "careerEnd": 1984,
     "curatedLists": []
   },
   {
@@ -1436,13 +1741,23 @@
     "nationality": "GER",
     "teams": [
       {
-        "name": "Borussia Dortmund",
+        "name": "Bayern",
         "from": 2002,
         "to": 2015
+      },
+      {
+        "name": "Manchester United",
+        "from": 2015,
+        "to": 2017
+      },
+      {
+        "name": "Chicago Fire",
+        "from": 2017,
+        "to": 2019
       }
     ],
     "careerStart": 2002,
-    "careerEnd": 2015,
+    "careerEnd": 2019,
     "curatedLists": []
   },
   {
@@ -1451,28 +1766,38 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Valencia",
-        "from": 1990,
-        "to": 1990
+        "name": "Flamengo",
+        "from": 1983,
+        "to": 1986
+      },
+      {
+        "name": "Deportivo La Coruña",
+        "from": 1992,
+        "to": 1996
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 1990,
+    "careerStart": 1983,
+    "careerEnd": 1999,
     "curatedLists": []
   },
   {
     "name": "Bellini",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Defensor",
     "nationality": "BRA",
     "teams": [
       {
         "name": "Santos",
-        "from": 1950,
-        "to": 1960
+        "from": 1956,
+        "to": 1967
+      },
+      {
+        "name": "São Paulo",
+        "from": 1967,
+        "to": 1969
       }
     ],
-    "careerStart": 1950,
-    "careerEnd": 1960,
+    "careerStart": 1956,
+    "careerEnd": 1969,
     "curatedLists": []
   },
   {
@@ -1601,13 +1926,18 @@
     "nationality": "FRA",
     "teams": [
       {
-        "name": "PSG",
-        "from": 1980,
+        "name": "Lille",
+        "from": 1983,
+        "to": 1986
+      },
+      {
+        "name": "Paris Saint-Germain",
+        "from": 1992,
         "to": 2000
       }
     ],
-    "careerStart": 1980,
-    "careerEnd": 2000,
+    "careerStart": 1983,
+    "careerEnd": 2001,
     "curatedLists": []
   },
   {
@@ -1616,13 +1946,23 @@
     "nationality": "POR",
     "teams": [
       {
-        "name": "Everton",
-        "from": 2010,
-        "to": 2020
+        "name": "Benfica",
+        "from": 2014,
+        "to": 2015
+      },
+      {
+        "name": "Monaco",
+        "from": 2015,
+        "to": 2017
+      },
+      {
+        "name": "Manchester City",
+        "from": 2017,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2014,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -1672,17 +2012,27 @@
   },
   {
     "name": "Bernd Schuster",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "GER",
     "teams": [
       {
-        "name": "Sevilla",
+        "name": "1. FC Köln",
+        "from": 1974,
+        "to": 1980
+      },
+      {
+        "name": "Barcelona",
         "from": 1980,
+        "to": 1988
+      },
+      {
+        "name": "Real Madrid",
+        "from": 1988,
         "to": 1990
       }
     ],
-    "careerStart": 1980,
-    "careerEnd": 1990,
+    "careerStart": 1974,
+    "careerEnd": 1992,
     "curatedLists": []
   },
   {
@@ -1751,13 +2101,18 @@
     "nationality": "FRA",
     "teams": [
       {
-        "name": "Lens",
-        "from": 1980,
-        "to": 1990
+        "name": "Bordeaux",
+        "from": 1988,
+        "to": 1996
+      },
+      {
+        "name": "Bayern Munich",
+        "from": 1997,
+        "to": 2006
       }
     ],
-    "careerStart": 1980,
-    "careerEnd": 1990,
+    "careerStart": 1988,
+    "careerEnd": 2006,
     "curatedLists": []
   },
   {
@@ -1777,17 +2132,22 @@
   },
   {
     "name": "Bobby Charlton",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "ENG",
     "teams": [
       {
         "name": "Manchester United",
-        "from": 1950,
-        "to": 1970
+        "from": 1956,
+        "to": 1973
+      },
+      {
+        "name": "Preston North End",
+        "from": 1974,
+        "to": 1975
       }
     ],
-    "careerStart": 1950,
-    "careerEnd": 1970,
+    "careerStart": 1954,
+    "careerEnd": 1975,
     "curatedLists": []
   },
   {
@@ -1799,6 +2159,11 @@
         "name": "West Ham",
         "from": 1958,
         "to": 1974
+      },
+      {
+        "name": "Fulham",
+        "from": 1974,
+        "to": 1977
       }
     ],
     "careerStart": 1958,
@@ -1854,17 +2219,27 @@
   },
   {
     "name": "Branco",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Defensor",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Internacional",
-        "from": 1980,
-        "to": 1990
+        "name": "Fluminense",
+        "from": 1982,
+        "to": 1987
+      },
+      {
+        "name": "Brescia",
+        "from": 1991,
+        "to": 1993
+      },
+      {
+        "name": "Porto",
+        "from": 1993,
+        "to": 1994
       }
     ],
-    "careerStart": 1980,
-    "careerEnd": 1990,
+    "careerStart": 1982,
+    "careerEnd": 2002,
     "curatedLists": []
   },
   {
@@ -1933,13 +2308,28 @@
     "nationality": "POR",
     "teams": [
       {
+        "name": "Sporting CP",
+        "from": 2012,
+        "to": 2013
+      },
+      {
+        "name": "Udinese",
+        "from": 2013,
+        "to": 2016
+      },
+      {
+        "name": "Sampdoria",
+        "from": 2016,
+        "to": 2017
+      },
+      {
         "name": "Manchester United",
         "from": 2020,
-        "to": 2020
+        "to": 2026
       }
     ],
-    "careerStart": 2020,
-    "careerEnd": 2020,
+    "careerStart": 2012,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -2004,17 +2394,27 @@
   },
   {
     "name": "Bryan Robson",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "ENG",
     "teams": [
       {
-        "name": "Arsenal",
-        "from": 1980,
-        "to": 1990
+        "name": "West Bromwich Albion",
+        "from": 1972,
+        "to": 1981
+      },
+      {
+        "name": "Manchester United",
+        "from": 1981,
+        "to": 1994
+      },
+      {
+        "name": "Middlesbrough",
+        "from": 1994,
+        "to": 1997
       }
     ],
-    "careerStart": 1980,
-    "careerEnd": 1990,
+    "careerStart": 1972,
+    "careerEnd": 1997,
     "curatedLists": []
   },
   {
@@ -2053,14 +2453,19 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "AC Milan",
-        "from": 1995,
-        "to": 2003
+        "name": "São Paulo",
+        "from": 1989,
+        "to": 1995
       },
       {
         "name": "Roma",
         "from": 1997,
         "to": 2003
+      },
+      {
+        "name": "AC Milan",
+        "from": 2003,
+        "to": 2008
       }
     ],
     "careerStart": 1989,
@@ -2072,17 +2477,22 @@
   },
   {
     "name": "Calleri",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "ARG",
     "teams": [
       {
+        "name": "São Paulo",
+        "from": 2016,
+        "to": 2018
+      },
+      {
         "name": "Palmeiras",
-        "from": 2010,
-        "to": 2020
+        "from": 2022,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2014,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -2106,13 +2516,18 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Roma",
-        "from": 1980,
-        "to": 1990
+        "name": "São Paulo",
+        "from": 1983,
+        "to": 1987
+      },
+      {
+        "name": "Napoli",
+        "from": 1987,
+        "to": 1993
       }
     ],
-    "careerStart": 1980,
-    "careerEnd": 1990,
+    "careerStart": 1978,
+    "careerEnd": 1997,
     "curatedLists": []
   },
   {
@@ -2165,17 +2580,22 @@
   },
   {
     "name": "Carlos Alberto Torres",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Defensor",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Palmeiras",
+        "name": "Santos",
         "from": 1963,
+        "to": 1974
+      },
+      {
+        "name": "Fluminense",
+        "from": 1974,
         "to": 1977
       }
     ],
     "careerStart": 1963,
-    "careerEnd": 1977,
+    "careerEnd": 1982,
     "curatedLists": []
   },
   {
@@ -2240,17 +2660,52 @@
   },
   {
     "name": "Carlos Tévez",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "ARG",
     "teams": [
       {
-        "name": "Everton",
-        "from": 2000,
-        "to": 2010
+        "name": "Boca Juniors",
+        "from": 2001,
+        "to": 2004
+      },
+      {
+        "name": "Corinthians",
+        "from": 2005,
+        "to": 2006
+      },
+      {
+        "name": "West Ham",
+        "from": 2006,
+        "to": 2007
+      },
+      {
+        "name": "Manchester United",
+        "from": 2007,
+        "to": 2009
+      },
+      {
+        "name": "Manchester City",
+        "from": 2009,
+        "to": 2011
+      },
+      {
+        "name": "Juventus",
+        "from": 2013,
+        "to": 2015
+      },
+      {
+        "name": "Boca Juniors",
+        "from": 2015,
+        "to": 2016
+      },
+      {
+        "name": "Shanghai Shenhua",
+        "from": 2017,
+        "to": 2021
       }
     ],
     "careerStart": 2000,
-    "careerEnd": 2010,
+    "careerEnd": 2021,
     "curatedLists": []
   },
   {
@@ -2304,6 +2759,11 @@
     "nationality": "BRA",
     "teams": [
       {
+        "name": "São Paulo",
+        "from": 2010,
+        "to": 2013
+      },
+      {
         "name": "Real Madrid",
         "from": 2015,
         "to": 2022
@@ -2323,32 +2783,32 @@
   },
   {
     "name": "Cássio",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Goleiro",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "São Paulo",
+        "name": "Corinthians",
         "from": 2012,
         "to": 2026
       }
     ],
-    "careerStart": 2012,
+    "careerStart": 2006,
     "careerEnd": 2026,
     "curatedLists": []
   },
   {
     "name": "Castilho",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Goleiro",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Fluminense",
-        "from": 1940,
-        "to": 1960
+        "name": "Flamengo",
+        "from": 1937,
+        "to": 1954
       }
     ],
-    "careerStart": 1940,
-    "careerEnd": 1960,
+    "careerStart": 1937,
+    "careerEnd": 1954,
     "curatedLists": []
   },
   {
@@ -2368,27 +2828,42 @@
   },
   {
     "name": "César Maluco",
-    "primaryPosition": "Goleiro",
+    "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Internacional",
-        "from": 1960,
-        "to": 1970
+        "name": "Flamengo",
+        "from": 1965,
+        "to": 1968
+      },
+      {
+        "name": "Palmeiras",
+        "from": 1968,
+        "to": 1975
       }
     ],
-    "careerStart": 1960,
-    "careerEnd": 1970,
+    "careerStart": 1965,
+    "careerEnd": 1981,
     "curatedLists": []
   },
   {
     "name": "César Rodríguez",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Atlético Madrid",
+        "name": "Granada",
         "from": 1939,
+        "to": 1940
+      },
+      {
+        "name": "Barcelona",
+        "from": 1942,
+        "to": 1955
+      },
+      {
+        "name": "Cultural Leonesa",
+        "from": 1955,
         "to": 1960
       }
     ],
@@ -2417,13 +2892,33 @@
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Manchester United",
+        "name": "Arsenal",
         "from": 2003,
+        "to": 2011
+      },
+      {
+        "name": "Barcelona",
+        "from": 2011,
+        "to": 2014
+      },
+      {
+        "name": "Chelsea",
+        "from": 2014,
         "to": 2019
+      },
+      {
+        "name": "Monaco",
+        "from": 2019,
+        "to": 2022
+      },
+      {
+        "name": "Como",
+        "from": 2022,
+        "to": 2023
       }
     ],
     "careerStart": 2003,
-    "careerEnd": 2019,
+    "careerEnd": 2023,
     "curatedLists": []
   },
   {
@@ -2443,17 +2938,32 @@
   },
   {
     "name": "Chris Sutton",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "ENG",
     "teams": [
       {
-        "name": "Newcastle",
-        "from": 1990,
+        "name": "Norwich City",
+        "from": 1991,
+        "to": 1994
+      },
+      {
+        "name": "Blackburn Rovers",
+        "from": 1994,
+        "to": 1999
+      },
+      {
+        "name": "Chelsea",
+        "from": 1999,
         "to": 2000
+      },
+      {
+        "name": "Celtic",
+        "from": 2000,
+        "to": 2006
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerStart": 1991,
+    "careerEnd": 2007,
     "curatedLists": []
   },
   {
@@ -2533,17 +3043,42 @@
   },
   {
     "name": "Christian Vieri",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "ITA",
     "teams": [
       {
-        "name": "Napoli",
-        "from": 1990,
-        "to": 2000
+        "name": "Torino",
+        "from": 1991,
+        "to": 1992
+      },
+      {
+        "name": "Atalanta",
+        "from": 1993,
+        "to": 1994
+      },
+      {
+        "name": "Juventus",
+        "from": 1996,
+        "to": 1997
+      },
+      {
+        "name": "Lazio",
+        "from": 1998,
+        "to": 1999
+      },
+      {
+        "name": "Inter Milan",
+        "from": 1999,
+        "to": 2005
+      },
+      {
+        "name": "AC Milan",
+        "from": 2005,
+        "to": 2006
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerStart": 1991,
+    "careerEnd": 2009,
     "curatedLists": []
   },
   {
@@ -2623,17 +3158,42 @@
   },
   {
     "name": "Clarence Seedorf",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "NED",
     "teams": [
       {
-        "name": "Villarreal",
-        "from": 1990,
-        "to": 1990
+        "name": "Ajax",
+        "from": 1992,
+        "to": 1995
+      },
+      {
+        "name": "Sampdoria",
+        "from": 1995,
+        "to": 1996
+      },
+      {
+        "name": "Real Madrid",
+        "from": 1996,
+        "to": 1999
+      },
+      {
+        "name": "Inter Milan",
+        "from": 1999,
+        "to": 2002
+      },
+      {
+        "name": "AC Milan",
+        "from": 2002,
+        "to": 2012
+      },
+      {
+        "name": "Botafogo",
+        "from": 2012,
+        "to": 2014
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 1990,
+    "careerStart": 1992,
+    "careerEnd": 2014,
     "curatedLists": []
   },
   {
@@ -2641,6 +3201,11 @@
     "primaryPosition": "Meia",
     "nationality": "FRA",
     "teams": [
+      {
+        "name": "Nantes",
+        "from": 1992,
+        "to": 1997
+      },
       {
         "name": "Real Madrid",
         "from": 2000,
@@ -2661,17 +3226,27 @@
   },
   {
     "name": "Claudio Gentile",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Defensor",
     "nationality": "ITA",
     "teams": [
       {
+        "name": "Inter Milan",
+        "from": 1972,
+        "to": 1984
+      },
+      {
         "name": "Juventus",
-        "from": 1970,
-        "to": 1980
+        "from": 1984,
+        "to": 1988
+      },
+      {
+        "name": "Fiorentina",
+        "from": 1988,
+        "to": 1989
       }
     ],
-    "careerStart": 1970,
-    "careerEnd": 1980,
+    "careerStart": 1972,
+    "careerEnd": 1989,
     "curatedLists": []
   },
   {
@@ -2710,12 +3285,47 @@
     "nationality": "PER",
     "teams": [
       {
-        "name": "Bayern",
+        "name": "Alianza Lima",
+        "from": 1996,
+        "to": 1999
+      },
+      {
+        "name": "Werder Bremen",
         "from": 1999,
+        "to": 2001
+      },
+      {
+        "name": "Bayern",
+        "from": 2001,
+        "to": 2007
+      },
+      {
+        "name": "Chelsea",
+        "from": 2007,
+        "to": 2008
+      },
+      {
+        "name": "Werder Bremen",
+        "from": 2008,
+        "to": 2012
+      },
+      {
+        "name": "Bayern",
+        "from": 2012,
+        "to": 2015
+      },
+      {
+        "name": "Werder Bremen",
+        "from": 2015,
+        "to": 2017
+      },
+      {
+        "name": "1. FC Köln",
+        "from": 2017,
         "to": 2020
       }
     ],
-    "careerStart": 1999,
+    "careerStart": 1996,
     "careerEnd": 2020,
     "curatedLists": []
   },
@@ -2736,17 +3346,22 @@
   },
   {
     "name": "Clodoaldo",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Botafogo",
-        "from": 1960,
-        "to": 1970
+        "name": "Santos",
+        "from": 1966,
+        "to": 1974
+      },
+      {
+        "name": "PSG",
+        "from": 1974,
+        "to": 1977
       }
     ],
-    "careerStart": 1960,
-    "careerEnd": 1970,
+    "careerStart": 1966,
+    "careerEnd": 1981,
     "curatedLists": []
   },
   {
@@ -2755,13 +3370,18 @@
     "nationality": "ENG",
     "teams": [
       {
-        "name": "Tottenham",
+        "name": "Manchester City",
         "from": 2020,
-        "to": 2020
+        "to": 2023
+      },
+      {
+        "name": "Chelsea",
+        "from": 2023,
+        "to": 2026
       }
     ],
     "careerStart": 2020,
-    "careerEnd": 2020,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -2796,13 +3416,13 @@
   },
   {
     "name": "Coutinho",
-    "primaryPosition": "Goleiro",
+    "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Grêmio",
+        "name": "Santos",
         "from": 1958,
-        "to": 1973
+        "to": 1970
       }
     ],
     "careerStart": 1958,
@@ -2845,6 +3465,11 @@
     "nationality": "POR",
     "teams": [
       {
+        "name": "Sporting CP",
+        "from": 2002,
+        "to": 2003
+      },
+      {
         "name": "Manchester United",
         "from": 2003,
         "to": 2009
@@ -2853,6 +3478,11 @@
         "name": "Real Madrid",
         "from": 2009,
         "to": 2018
+      },
+      {
+        "name": "Juventus",
+        "from": 2018,
+        "to": 2021
       }
     ],
     "careerStart": 2002,
@@ -2883,13 +3513,38 @@
     "nationality": "BRA",
     "teams": [
       {
+        "name": "Bahia",
+        "from": 2001,
+        "to": 2003
+      },
+      {
+        "name": "Sevilla",
+        "from": 2003,
+        "to": 2008
+      },
+      {
         "name": "Barcelona",
-        "from": 2002,
-        "to": 2022
+        "from": 2008,
+        "to": 2016
+      },
+      {
+        "name": "Juventus",
+        "from": 2016,
+        "to": 2017
+      },
+      {
+        "name": "PSG",
+        "from": 2017,
+        "to": 2019
+      },
+      {
+        "name": "São Paulo",
+        "from": 2021,
+        "to": 2023
       }
     ],
-    "careerStart": 2002,
-    "careerEnd": 2022,
+    "careerStart": 2001,
+    "careerEnd": 2023,
     "curatedLists": []
   },
   {
@@ -2924,32 +3579,57 @@
   },
   {
     "name": "Dani Olmo",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Bayer Leverkusen",
-        "from": 2010,
-        "to": 2020
+        "name": "Dinamo Zagreb",
+        "from": 2015,
+        "to": 2019
+      },
+      {
+        "name": "RB Leipzig",
+        "from": 2019,
+        "to": 2024
+      },
+      {
+        "name": "Barcelona",
+        "from": 2024,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2015,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
     "name": "Dani Parejo",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Barcelona",
-        "from": 2000,
+        "name": "Real Madrid",
+        "from": 2008,
+        "to": 2009
+      },
+      {
+        "name": "Getafe",
+        "from": 2009,
+        "to": 2011
+      },
+      {
+        "name": "Valencia",
+        "from": 2011,
         "to": 2020
+      },
+      {
+        "name": "Villarreal",
+        "from": 2020,
+        "to": 2026
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2020,
+    "careerStart": 2008,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -3059,17 +3739,52 @@
   },
   {
     "name": "Dante",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Defensor",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Bayern Munich",
-        "from": 2000,
-        "to": 2020
+        "name": "Juventude",
+        "from": 2003,
+        "to": 2004
+      },
+      {
+        "name": "Lille",
+        "from": 2006,
+        "to": 2007
+      },
+      {
+        "name": "Charleroi",
+        "from": 2007,
+        "to": 2008
+      },
+      {
+        "name": "Standard Liège",
+        "from": 2008,
+        "to": 2009
+      },
+      {
+        "name": "Monaco",
+        "from": 2009,
+        "to": 2012
+      },
+      {
+        "name": "Bayern",
+        "from": 2012,
+        "to": 2015
+      },
+      {
+        "name": "Wolfsburg",
+        "from": 2015,
+        "to": 2018
+      },
+      {
+        "name": "Nice",
+        "from": 2018,
+        "to": 2021
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2020,
+    "careerStart": 2003,
+    "careerEnd": 2021,
     "curatedLists": []
   },
   {
@@ -3138,13 +3853,28 @@
     "nationality": "ENG",
     "teams": [
       {
-        "name": "Manchester City",
-        "from": 1995,
+        "name": "Manchester United",
+        "from": 1992,
         "to": 2003
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2003,
+        "to": 2007
+      },
+      {
+        "name": "LA Galaxy",
+        "from": 2007,
+        "to": 2012
+      },
+      {
+        "name": "PSG",
+        "from": 2013,
+        "to": 2013
       }
     ],
-    "careerStart": 1995,
-    "careerEnd": 2003,
+    "careerStart": 1992,
+    "careerEnd": 2013,
     "curatedLists": []
   },
   {
@@ -3153,13 +3883,23 @@
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Leeds United",
-        "from": 2010,
-        "to": 2020
+        "name": "Atlético Madrid",
+        "from": 2009,
+        "to": 2011
+      },
+      {
+        "name": "Manchester United",
+        "from": 2011,
+        "to": 2023
+      },
+      {
+        "name": "Fiorentina",
+        "from": 2024,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2009,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -3183,13 +3923,23 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Marseille",
-        "from": 2010,
-        "to": 2010
+        "name": "Benfica",
+        "from": 2007,
+        "to": 2011
+      },
+      {
+        "name": "Chelsea",
+        "from": 2011,
+        "to": 2014
+      },
+      {
+        "name": "Arsenal",
+        "from": 2019,
+        "to": 2021
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2010,
+    "careerStart": 2005,
+    "careerEnd": 2024,
     "curatedLists": []
   },
   {
@@ -3198,13 +3948,28 @@
     "nationality": "ENG",
     "teams": [
       {
+        "name": "Birmingham City",
+        "from": 1981,
+        "to": 1984
+      },
+      {
+        "name": "Queens Park Rangers",
+        "from": 1984,
+        "to": 1988
+      },
+      {
         "name": "Arsenal",
-        "from": 1980,
-        "to": 2000
+        "from": 1988,
+        "to": 2003
+      },
+      {
+        "name": "Manchester City",
+        "from": 2003,
+        "to": 2004
       }
     ],
-    "careerStart": 1980,
-    "careerEnd": 2000,
+    "careerStart": 1981,
+    "careerEnd": 2004,
     "curatedLists": []
   },
   {
@@ -3213,13 +3978,23 @@
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Everton",
+        "name": "Valencia",
+        "from": 2003,
+        "to": 2010
+      },
+      {
+        "name": "Manchester City",
         "from": 2010,
         "to": 2020
+      },
+      {
+        "name": "Real Sociedad",
+        "from": 2020,
+        "to": 2023
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2003,
+    "careerEnd": 2023,
     "curatedLists": []
   },
   {
@@ -3228,13 +4003,23 @@
     "nationality": "FRA",
     "teams": [
       {
-        "name": "Napoli",
-        "from": 2000,
+        "name": "Monaco",
+        "from": 1993,
         "to": 2000
+      },
+      {
+        "name": "Juventus",
+        "from": 2000,
+        "to": 2010
+      },
+      {
+        "name": "River Plate",
+        "from": 2012,
+        "to": 2013
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2000,
+    "careerStart": 1993,
+    "careerEnd": 2014,
     "curatedLists": []
   },
   {
@@ -3243,13 +4028,43 @@
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Barcelona",
+        "name": "Sporting Gijón",
+        "from": 2000,
+        "to": 2003
+      },
+      {
+        "name": "Zaragoza",
         "from": 2003,
+        "to": 2005
+      },
+      {
+        "name": "Valencia",
+        "from": 2005,
+        "to": 2010
+      },
+      {
+        "name": "Barcelona",
+        "from": 2010,
+        "to": 2013
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 2013,
         "to": 2014
+      },
+      {
+        "name": "New York City",
+        "from": 2014,
+        "to": 2018
+      },
+      {
+        "name": "Vissel Kobe",
+        "from": 2019,
+        "to": 2020
       }
     ],
-    "careerStart": 2003,
-    "careerEnd": 2014,
+    "careerStart": 2000,
+    "careerEnd": 2020,
     "curatedLists": []
   },
   {
@@ -3284,32 +4099,67 @@
   },
   {
     "name": "Deco",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "POR",
     "teams": [
       {
-        "name": "Sevilla",
-        "from": 2000,
+        "name": "Benfica",
+        "from": 1997,
+        "to": 1999
+      },
+      {
+        "name": "Al-Salmiya",
+        "from": 1999,
         "to": 2000
+      },
+      {
+        "name": "Porto",
+        "from": 2000,
+        "to": 2004
+      },
+      {
+        "name": "Barcelona",
+        "from": 2004,
+        "to": 2008
+      },
+      {
+        "name": "Chelsea",
+        "from": 2008,
+        "to": 2010
+      },
+      {
+        "name": "Fluminense",
+        "from": 2010,
+        "to": 2013
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2000,
+    "careerStart": 1997,
+    "careerEnd": 2013,
     "curatedLists": []
   },
   {
     "name": "Dedê",
-    "primaryPosition": "Goleiro",
+    "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
       {
+        "name": "Vasco da Gama",
+        "from": 1994,
+        "to": 1997
+      },
+      {
+        "name": "Atlético Mineiro",
+        "from": 1997,
+        "to": 2001
+      },
+      {
         "name": "Borussia Dortmund",
-        "from": 1990,
-        "to": 2000
+        "from": 2001,
+        "to": 2006
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerStart": 1994,
+    "careerEnd": 2013,
     "curatedLists": []
   },
   {
@@ -3389,16 +4239,26 @@
   },
   {
     "name": "Dennis Bergkamp",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "NED",
     "teams": [
       {
-        "name": "Manchester United",
+        "name": "Ajax",
+        "from": 1986,
+        "to": 1993
+      },
+      {
+        "name": "Inter Milan",
+        "from": 1993,
+        "to": 1995
+      },
+      {
+        "name": "Arsenal",
         "from": 1995,
         "to": 2006
       }
     ],
-    "careerStart": 1995,
+    "careerStart": 1986,
     "careerEnd": 2006,
     "curatedLists": []
   },
@@ -3453,28 +4313,43 @@
     "nationality": "BRA",
     "teams": [
       {
+        "name": "Palmeiras",
+        "from": 2016,
+        "to": 2021
+      },
+      {
         "name": "Atlético Mineiro",
-        "from": 2010,
-        "to": 2020
+        "from": 2021,
+        "to": 2023
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2011,
+    "careerEnd": 2024,
     "curatedLists": []
   },
   {
     "name": "Dida",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Goleiro",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Fiorentina",
-        "from": 1990,
+        "name": "Cruzeiro",
+        "from": 1991,
+        "to": 2000
+      },
+      {
+        "name": "Corinthians",
+        "from": 2000,
+        "to": 2001
+      },
+      {
+        "name": "AC Milan",
+        "from": 2000,
         "to": 2010
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2010,
+    "careerStart": 1991,
+    "careerEnd": 2015,
     "curatedLists": []
   },
   {
@@ -3509,17 +4384,37 @@
   },
   {
     "name": "Didier Drogba",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "CIV",
     "teams": [
       {
-        "name": "Liverpool",
+        "name": "Le Mans",
+        "from": 1998,
+        "to": 2002
+      },
+      {
+        "name": "Guingamp",
+        "from": 2002,
+        "to": 2003
+      },
+      {
+        "name": "Marseille",
+        "from": 2003,
+        "to": 2004
+      },
+      {
+        "name": "Chelsea",
         "from": 2004,
+        "to": 2012
+      },
+      {
+        "name": "Galatasaray",
+        "from": 2014,
         "to": 2015
       }
     ],
-    "careerStart": 2004,
-    "careerEnd": 2015,
+    "careerStart": 1998,
+    "careerEnd": 2018,
     "curatedLists": []
   },
   {
@@ -3614,9 +4509,19 @@
   },
   {
     "name": "Diego Maradona",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "ARG",
     "teams": [
+      {
+        "name": "Argentinos Juniors",
+        "from": 1976,
+        "to": 1981
+      },
+      {
+        "name": "Boca Juniors",
+        "from": 1981,
+        "to": 1982
+      },
       {
         "name": "Barcelona",
         "from": 1982,
@@ -3641,13 +4546,33 @@
     "nationality": "ARG",
     "teams": [
       {
-        "name": "Villarreal",
-        "from": 2000,
-        "to": 2000
+        "name": "Racing Club",
+        "from": 1999,
+        "to": 2003
+      },
+      {
+        "name": "Zaragoza",
+        "from": 2005,
+        "to": 2008
+      },
+      {
+        "name": "Genoa",
+        "from": 2008,
+        "to": 2009
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2009,
+        "to": 2012
+      },
+      {
+        "name": "Racing Club",
+        "from": 2012,
+        "to": 2016
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2000,
+    "careerStart": 1999,
+    "careerEnd": 2016,
     "curatedLists": []
   },
   {
@@ -3656,13 +4581,23 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Borussia Mönchengladbach",
-        "from": 2000,
-        "to": 2000
+        "name": "Santos",
+        "from": 2002,
+        "to": 2004
+      },
+      {
+        "name": "Porto",
+        "from": 2004,
+        "to": 2006
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 2010,
+        "to": 2014
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2000,
+    "careerStart": 2002,
+    "careerEnd": 2020,
     "curatedLists": []
   },
   {
@@ -3682,17 +4617,42 @@
   },
   {
     "name": "Diego Simeone",
-    "primaryPosition": "Goleiro",
+    "primaryPosition": "Meia",
     "nationality": "ARG",
     "teams": [
       {
-        "name": "Real Sociedad",
-        "from": 1990,
+        "name": "Vélez Sarsfield",
+        "from": 1987,
+        "to": 1992
+      },
+      {
+        "name": "Pisa",
+        "from": 1992,
+        "to": 1993
+      },
+      {
+        "name": "Sevilla",
+        "from": 1994,
+        "to": 1995
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 1995,
         "to": 2000
+      },
+      {
+        "name": "Inter Milan",
+        "from": 1997,
+        "to": 1998
+      },
+      {
+        "name": "Lazio",
+        "from": 1999,
+        "to": 2003
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerStart": 1987,
+    "careerEnd": 2006,
     "curatedLists": []
   },
   {
@@ -3757,17 +4717,42 @@
   },
   {
     "name": "Dimitar Berbatov",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "BUL",
     "teams": [
       {
-        "name": "Chelsea",
-        "from": 2000,
-        "to": 2010
+        "name": "CSKA Sofia",
+        "from": 1998,
+        "to": 2001
+      },
+      {
+        "name": "Bayer Leverkusen",
+        "from": 2001,
+        "to": 2006
+      },
+      {
+        "name": "Tottenham",
+        "from": 2006,
+        "to": 2008
+      },
+      {
+        "name": "Manchester United",
+        "from": 2008,
+        "to": 2012
+      },
+      {
+        "name": "Fulham",
+        "from": 2012,
+        "to": 2014
+      },
+      {
+        "name": "PAOK",
+        "from": 2015,
+        "to": 2016
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2010,
+    "careerStart": 1998,
+    "careerEnd": 2016,
     "curatedLists": []
   },
   {
@@ -3836,8 +4821,23 @@
     "nationality": "ITA",
     "teams": [
       {
-        "name": "Atalanta",
+        "name": "Udinese",
         "from": 1961,
+        "to": 1963
+      },
+      {
+        "name": "Mantova",
+        "from": 1963,
+        "to": 1964
+      },
+      {
+        "name": "Napoli",
+        "from": 1964,
+        "to": 1972
+      },
+      {
+        "name": "Juventus",
+        "from": 1972,
         "to": 1983
       }
     ],
@@ -3862,17 +4862,22 @@
   },
   {
     "name": "Dixie Dean",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "ENG",
     "teams": [
       {
-        "name": "Arsenal",
-        "from": 1920,
-        "to": 1930
+        "name": "Tranmere Rovers",
+        "from": 1923,
+        "to": 1925
+      },
+      {
+        "name": "Everton",
+        "from": 1925,
+        "to": 1938
       }
     ],
-    "careerStart": 1920,
-    "careerEnd": 1930,
+    "careerStart": 1923,
+    "careerEnd": 1938,
     "curatedLists": []
   },
   {
@@ -3882,12 +4887,17 @@
     "teams": [
       {
         "name": "Santos",
-        "from": 1948,
+        "from": 1959,
+        "to": 1965
+      },
+      {
+        "name": "Botafogo",
+        "from": 1965,
         "to": 1968
       }
     ],
     "careerStart": 1948,
-    "careerEnd": 1968,
+    "careerEnd": 1970,
     "curatedLists": []
   },
   {
@@ -3898,11 +4908,16 @@
       {
         "name": "São Paulo",
         "from": 1992,
+        "to": 1994
+      },
+      {
+        "name": "Deportivo La Coruña",
+        "from": 1994,
         "to": 2004
       }
     ],
-    "careerStart": 1992,
-    "careerEnd": 2004,
+    "careerStart": 1990,
+    "careerEnd": 2005,
     "curatedLists": []
   },
   {
@@ -4136,6 +5151,11 @@
     "nationality": "BEL",
     "teams": [
       {
+        "name": "Lille",
+        "from": 2007,
+        "to": 2012
+      },
+      {
         "name": "Chelsea",
         "from": 2012,
         "to": 2019
@@ -4155,32 +5175,47 @@
   },
   {
     "name": "Éder Aleixo",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Flamengo",
-        "from": 1970,
-        "to": 1990
+        "name": "Botafogo",
+        "from": 1976,
+        "to": 1982
+      },
+      {
+        "name": "Torino",
+        "from": 1982,
+        "to": 1985
       }
     ],
-    "careerStart": 1970,
-    "careerEnd": 1990,
+    "careerStart": 1972,
+    "careerEnd": 1986,
     "curatedLists": []
   },
   {
     "name": "Ederson",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Goleiro",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Leeds United",
-        "from": 2010,
-        "to": 2020
+        "name": "São Paulo",
+        "from": 2011,
+        "to": 2012
+      },
+      {
+        "name": "Benfica",
+        "from": 2012,
+        "to": 2017
+      },
+      {
+        "name": "Manchester City",
+        "from": 2017,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2011,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -4189,13 +5224,38 @@
     "nationality": "NED",
     "teams": [
       {
-        "name": "Roma",
-        "from": 1990,
-        "to": 2000
+        "name": "Ajax",
+        "from": 1991,
+        "to": 1996
+      },
+      {
+        "name": "AC Milan",
+        "from": 1996,
+        "to": 1998
+      },
+      {
+        "name": "Juventus",
+        "from": 1998,
+        "to": 2004
+      },
+      {
+        "name": "Barcelona",
+        "from": 2004,
+        "to": 2005
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2005,
+        "to": 2006
+      },
+      {
+        "name": "Tottenham",
+        "from": 2005,
+        "to": 2007
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerStart": 1991,
+    "careerEnd": 2014,
     "curatedLists": []
   },
   {
@@ -4236,10 +5296,20 @@
       {
         "name": "Palmeiras",
         "from": 1992,
-        "to": 2008
+        "to": 1996
+      },
+      {
+        "name": "Vasco da Gama",
+        "from": 1996,
+        "to": 2000
+      },
+      {
+        "name": "Flamengo",
+        "from": 2000,
+        "to": 2002
       }
     ],
-    "careerStart": 1992,
+    "careerStart": 1991,
     "careerEnd": 2008,
     "curatedLists": []
   },
@@ -4275,16 +5345,31 @@
   },
   {
     "name": "Edwin van der Sar",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Goleiro",
     "nationality": "NED",
     "teams": [
       {
-        "name": "West Ham",
+        "name": "Ajax",
+        "from": 1990,
+        "to": 1999
+      },
+      {
+        "name": "Juventus",
+        "from": 1999,
+        "to": 2001
+      },
+      {
+        "name": "Fulham",
         "from": 2001,
+        "to": 2005
+      },
+      {
+        "name": "Manchester United",
+        "from": 2005,
         "to": 2011
       }
     ],
-    "careerStart": 2001,
+    "careerStart": 1990,
     "careerEnd": 2011,
     "curatedLists": []
   },
@@ -4335,11 +5420,11 @@
   },
   {
     "name": "Emilio Butragueño",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Sevilla",
+        "name": "Real Madrid",
         "from": 1984,
         "to": 1995
       }
@@ -4354,13 +5439,23 @@
     "nationality": "ENG",
     "teams": [
       {
-        "name": "Tottenham",
-        "from": 1960,
-        "to": 1980
+        "name": "Blackpool",
+        "from": 1964,
+        "to": 1967
+      },
+      {
+        "name": "Liverpool",
+        "from": 1967,
+        "to": 1979
+      },
+      {
+        "name": "Wolverhampton Wanderers",
+        "from": 1979,
+        "to": 1981
       }
     ],
-    "careerStart": 1960,
-    "careerEnd": 1980,
+    "careerStart": 1964,
+    "careerEnd": 1984,
     "curatedLists": []
   },
   {
@@ -4410,17 +5505,22 @@
   },
   {
     "name": "Endrick",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "São Paulo",
+        "name": "Palmeiras",
         "from": 2022,
         "to": 2024
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2024,
+        "to": 2026
       }
     ],
     "careerStart": 2022,
-    "careerEnd": 2024,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -4470,16 +5570,31 @@
   },
   {
     "name": "Eric Cantona",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "FRA",
     "teams": [
       {
-        "name": "West Ham",
+        "name": "Auxerre",
+        "from": 1983,
+        "to": 1988
+      },
+      {
+        "name": "Marseille",
+        "from": 1988,
+        "to": 1991
+      },
+      {
+        "name": "Leeds United",
+        "from": 1992,
+        "to": 1992
+      },
+      {
+        "name": "Manchester United",
         "from": 1992,
         "to": 1997
       }
     ],
-    "careerStart": 1992,
+    "careerStart": 1983,
     "careerEnd": 1997,
     "curatedLists": []
   },
@@ -4519,13 +5634,28 @@
     "nationality": "ARG",
     "teams": [
       {
-        "name": "Juventus",
-        "from": 2000,
-        "to": 2010
+        "name": "Independiente",
+        "from": 1995,
+        "to": 1998
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2002,
+        "to": 2004
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2004,
+        "to": 2014
+      },
+      {
+        "name": "Olympiacos",
+        "from": 2014,
+        "to": 2015
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2010,
+    "careerStart": 1995,
+    "careerEnd": 2015,
     "curatedLists": []
   },
   {
@@ -4544,18 +5674,41 @@
     "curatedLists": []
   },
   {
+    "name": "Eusébio",
+    "primaryPosition": "Atacante",
+    "nationality": "POR",
+    "teams": [
+      {
+        "name": "Benfica",
+        "from": 1960,
+        "to": 1975
+      }
+    ],
+    "careerStart": 1957,
+    "careerEnd": 1980,
+    "curatedLists": [
+      "atacante_top20",
+      "general_top100"
+    ]
+  },
+  {
     "name": "Evair",
     "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Internacional",
-        "from": 1980,
-        "to": 2000
+        "name": "Atlético Mineiro",
+        "from": 1988,
+        "to": 1991
+      },
+      {
+        "name": "Palmeiras",
+        "from": 1993,
+        "to": 1996
       }
     ],
-    "careerStart": 1980,
-    "careerEnd": 2000,
+    "careerStart": 1985,
+    "careerEnd": 2002,
     "curatedLists": []
   },
   {
@@ -4605,17 +5758,32 @@
   },
   {
     "name": "Ezequiel Lavezzi",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "ARG",
     "teams": [
       {
-        "name": "Roma",
-        "from": 2000,
-        "to": 2010
+        "name": "San Lorenzo",
+        "from": 2003,
+        "to": 2007
+      },
+      {
+        "name": "Napoli",
+        "from": 2007,
+        "to": 2012
+      },
+      {
+        "name": "PSG",
+        "from": 2012,
+        "to": 2016
+      },
+      {
+        "name": "Hebei China Fortune",
+        "from": 2016,
+        "to": 2019
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2010,
+    "careerStart": 2003,
+    "careerEnd": 2019,
     "curatedLists": []
   },
   {
@@ -4653,6 +5821,16 @@
     "primaryPosition": "Defensor",
     "nationality": "ITA",
     "teams": [
+      {
+        "name": "Napoli",
+        "from": 1992,
+        "to": 1995
+      },
+      {
+        "name": "Parma",
+        "from": 1995,
+        "to": 2002
+      },
       {
         "name": "Juventus",
         "from": 2002,
@@ -4733,16 +5911,21 @@
   },
   {
     "name": "Falcão",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Grêmio",
-        "from": 1973,
-        "to": 1986
+        "name": "Internacional",
+        "from": 1972,
+        "to": 1980
+      },
+      {
+        "name": "Roma",
+        "from": 1980,
+        "to": 1984
       }
     ],
-    "careerStart": 1973,
+    "careerStart": 1972,
     "careerEnd": 1986,
     "curatedLists": []
   },
@@ -4778,17 +5961,22 @@
   },
   {
     "name": "Felipe",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Goleiro",
     "nationality": "BRA",
     "teams": [
       {
         "name": "Corinthians",
-        "from": 1990,
+        "from": 2007,
         "to": 2010
+      },
+      {
+        "name": "Flamengo",
+        "from": 2011,
+        "to": 2015
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2010,
+    "careerStart": 2003,
+    "careerEnd": 2024,
     "curatedLists": []
   },
   {
@@ -4808,16 +5996,21 @@
   },
   {
     "name": "Ferenc Puskás",
-    "primaryPosition": "Goleiro",
+    "primaryPosition": "Atacante",
     "nationality": "HUN",
     "teams": [
       {
-        "name": "Barcelona",
+        "name": "Budapest Honvéd",
+        "from": 1943,
+        "to": 1956
+      },
+      {
+        "name": "Real Madrid",
         "from": 1958,
         "to": 1966
       }
     ],
-    "careerStart": 1958,
+    "careerStart": 1943,
     "careerEnd": 1966,
     "curatedLists": []
   },
@@ -4842,13 +6035,28 @@
     "nationality": "ARG",
     "teams": [
       {
-        "name": "Lyon",
-        "from": 2000,
-        "to": 2000
+        "name": "River Plate",
+        "from": 2001,
+        "to": 2004
+      },
+      {
+        "name": "Spartak Moscow",
+        "from": 2004,
+        "to": 2006
+      },
+      {
+        "name": "Santos",
+        "from": 2006,
+        "to": 2007
+      },
+      {
+        "name": "Independiente",
+        "from": 2011,
+        "to": 2015
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2000,
+    "careerStart": 2001,
+    "careerEnd": 2022,
     "curatedLists": []
   },
   {
@@ -4868,17 +6076,22 @@
   },
   {
     "name": "Fernando Hierro",
-    "primaryPosition": "Goleiro",
+    "primaryPosition": "Defensor",
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Barcelona",
+        "name": "Valladolid",
+        "from": 1987,
+        "to": 1989
+      },
+      {
+        "name": "Real Madrid",
         "from": 1989,
         "to": 2003
       }
     ],
-    "careerStart": 1989,
-    "careerEnd": 2003,
+    "careerStart": 1987,
+    "careerEnd": 2005,
     "curatedLists": []
   },
   {
@@ -4917,28 +6130,63 @@
     "nationality": "ARG",
     "teams": [
       {
+        "name": "Argentinos Juniors",
+        "from": 1985,
+        "to": 1994
+      },
+      {
         "name": "Real Madrid",
-        "from": 1990,
+        "from": 1994,
         "to": 2000
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2000,
+        "to": 2002
+      },
+      {
+        "name": "Aldosivi",
+        "from": 2003,
+        "to": 2004
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerStart": 1985,
+    "careerEnd": 2004,
     "curatedLists": []
   },
   {
     "name": "Fernando Torres",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Tottenham",
-        "from": 2000,
-        "to": 2010
+        "name": "Atlético Madrid",
+        "from": 2001,
+        "to": 2007
+      },
+      {
+        "name": "Liverpool",
+        "from": 2007,
+        "to": 2011
+      },
+      {
+        "name": "Chelsea",
+        "from": 2011,
+        "to": 2014
+      },
+      {
+        "name": "AC Milan",
+        "from": 2014,
+        "to": 2015
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 2015,
+        "to": 2018
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2010,
+    "careerStart": 2001,
+    "careerEnd": 2019,
     "curatedLists": []
   },
   {
@@ -4947,28 +6195,63 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Real Sociedad",
+        "name": "Flamengo",
+        "from": 2003,
+        "to": 2004
+      },
+      {
+        "name": "Atlético Madrid",
         "from": 2010,
-        "to": 2010
+        "to": 2014
+      },
+      {
+        "name": "Flamengo",
+        "from": 2019,
+        "to": 2024
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2010,
+    "careerStart": 2003,
+    "careerEnd": 2024,
     "curatedLists": []
   },
   {
     "name": "Filippo Inzaghi",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "ITA",
     "teams": [
       {
-        "name": "Inter Milan",
-        "from": 1990,
-        "to": 2010
+        "name": "Piacenza",
+        "from": 1991,
+        "to": 1996
+      },
+      {
+        "name": "Leffe",
+        "from": 1995,
+        "to": 1996
+      },
+      {
+        "name": "Verona",
+        "from": 1996,
+        "to": 1997
+      },
+      {
+        "name": "Atalanta",
+        "from": 1997,
+        "to": 1998
+      },
+      {
+        "name": "Juventus",
+        "from": 1998,
+        "to": 1999
+      },
+      {
+        "name": "AC Milan",
+        "from": 1999,
+        "to": 2012
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2010,
+    "careerStart": 1991,
+    "careerEnd": 2012,
     "curatedLists": []
   },
   {
@@ -5007,13 +6290,18 @@
     "nationality": "GER",
     "teams": [
       {
-        "name": "Wolfsburg",
+        "name": "Bayer Leverkusen",
         "from": 2020,
         "to": 2025
+      },
+      {
+        "name": "Liverpool",
+        "from": 2025,
+        "to": 2026
       }
     ],
     "careerStart": 2020,
-    "careerEnd": 2025,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -5093,16 +6381,16 @@
   },
   {
     "name": "Francesco Totti",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "ITA",
     "teams": [
       {
-        "name": "AC Milan",
-        "from": 1993,
+        "name": "Roma",
+        "from": 1992,
         "to": 2017
       }
     ],
-    "careerStart": 1993,
+    "careerStart": 1992,
     "careerEnd": 2017,
     "curatedLists": []
   },
@@ -5112,13 +6400,38 @@
     "nationality": "FRA",
     "teams": [
       {
-        "name": "Bayer Leverkusen",
+        "name": "Boulogne",
+        "from": 2000,
+        "to": 2002
+      },
+      {
+        "name": "Metz",
+        "from": 2002,
+        "to": 2004
+      },
+      {
+        "name": "Galatasaray",
+        "from": 2005,
+        "to": 2005
+      },
+      {
+        "name": "Marseille",
+        "from": 2005,
+        "to": 2007
+      },
+      {
+        "name": "Bayern",
         "from": 2007,
         "to": 2019
+      },
+      {
+        "name": "Fiorentina",
+        "from": 2019,
+        "to": 2022
       }
     ],
-    "careerStart": 2007,
-    "careerEnd": 2019,
+    "careerStart": 2000,
+    "careerEnd": 2022,
     "curatedLists": []
   },
   {
@@ -5156,32 +6469,62 @@
   },
   {
     "name": "Frank Lampard",
-    "primaryPosition": "Goleiro",
+    "primaryPosition": "Meia",
     "nationality": "ENG",
     "teams": [
       {
-        "name": "Manchester United",
+        "name": "West Ham United",
         "from": 1995,
+        "to": 2001
+      },
+      {
+        "name": "Chelsea",
+        "from": 2001,
+        "to": 2014
+      },
+      {
+        "name": "Manchester City",
+        "from": 2014,
         "to": 2015
+      },
+      {
+        "name": "New York City FC",
+        "from": 2015,
+        "to": 2016
       }
     ],
     "careerStart": 1995,
-    "careerEnd": 2015,
+    "careerEnd": 2017,
     "curatedLists": []
   },
   {
     "name": "Frank Rijkaard",
-    "primaryPosition": "Goleiro",
+    "primaryPosition": "Meia",
     "nationality": "NED",
     "teams": [
       {
-        "name": "Napoli",
+        "name": "Ajax",
         "from": 1980,
-        "to": 1990
+        "to": 1987
+      },
+      {
+        "name": "Real Sociedad",
+        "from": 1987,
+        "to": 1988
+      },
+      {
+        "name": "AC Milan",
+        "from": 1988,
+        "to": 1993
+      },
+      {
+        "name": "Ajax",
+        "from": 1993,
+        "to": 1995
       }
     ],
     "careerStart": 1980,
-    "careerEnd": 1990,
+    "careerEnd": 1995,
     "curatedLists": []
   },
   {
@@ -5193,6 +6536,11 @@
         "name": "Bayern Munich",
         "from": 1964,
         "to": 1977
+      },
+      {
+        "name": "New York Cosmos",
+        "from": 1977,
+        "to": 1980
       }
     ],
     "careerStart": 1964,
@@ -5204,17 +6552,22 @@
   },
   {
     "name": "Fred",
-    "primaryPosition": "Goleiro",
+    "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Marseille",
-        "from": 2000,
-        "to": 2000
+        "name": "Lyon",
+        "from": 2005,
+        "to": 2009
+      },
+      {
+        "name": "Fluminense",
+        "from": 2009,
+        "to": 2016
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2000,
+    "careerStart": 2003,
+    "careerEnd": 2022,
     "curatedLists": []
   },
   {
@@ -5268,27 +6621,37 @@
     "nationality": "NED",
     "teams": [
       {
+        "name": "Willem II",
+        "from": 2016,
+        "to": 2016
+      },
+      {
+        "name": "Ajax",
+        "from": 2016,
+        "to": 2019
+      },
+      {
         "name": "Barcelona",
-        "from": 2010,
-        "to": 2020
+        "from": 2019,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2016,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
     "name": "Fritz Walter",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "GER",
     "teams": [
       {
-        "name": "Bayern Munich",
-        "from": 1937,
+        "name": "1. FC Kaiserslautern",
+        "from": 1938,
         "to": 1959
       }
     ],
-    "careerStart": 1937,
+    "careerStart": 1938,
     "careerEnd": 1959,
     "curatedLists": []
   },
@@ -5309,12 +6672,17 @@
   },
   {
     "name": "Gabigol",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Internacional",
+        "name": "Santos",
         "from": 2013,
+        "to": 2016
+      },
+      {
+        "name": "Flamengo",
+        "from": 2019,
         "to": 2026
       }
     ],
@@ -5342,6 +6710,16 @@
     "primaryPosition": "Atacante",
     "nationality": "ARG",
     "teams": [
+      {
+        "name": "Newell's Old Boys",
+        "from": 1988,
+        "to": 1989
+      },
+      {
+        "name": "River Plate",
+        "from": 1989,
+        "to": 1991
+      },
       {
         "name": "Fiorentina",
         "from": 1991,
@@ -5455,6 +6833,16 @@
     "nationality": "WAL",
     "teams": [
       {
+        "name": "Southampton",
+        "from": 2006,
+        "to": 2007
+      },
+      {
+        "name": "Tottenham",
+        "from": 2007,
+        "to": 2013
+      },
+      {
         "name": "Real Madrid",
         "from": 2013,
         "to": 2022
@@ -5491,6 +6879,11 @@
         "name": "Botafogo",
         "from": 1953,
         "to": 1966
+      },
+      {
+        "name": "Corinthians",
+        "from": 1966,
+        "to": 1969
       }
     ],
     "careerStart": 1953,
@@ -5506,28 +6899,58 @@
     "nationality": "ENG",
     "teams": [
       {
+        "name": "Leicester City",
+        "from": 1978,
+        "to": 1985
+      },
+      {
+        "name": "Everton",
+        "from": 1985,
+        "to": 1986
+      },
+      {
         "name": "Barcelona",
-        "from": 1980,
-        "to": 1990
+        "from": 1986,
+        "to": 1989
+      },
+      {
+        "name": "Tottenham",
+        "from": 1989,
+        "to": 1992
       }
     ],
-    "careerStart": 1980,
-    "careerEnd": 1990,
+    "careerStart": 1978,
+    "careerEnd": 1994,
     "curatedLists": []
   },
   {
     "name": "Gary Neville",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Defensor",
     "nationality": "ENG",
     "teams": [
       {
-        "name": "Tottenham",
-        "from": 1990,
-        "to": 2000
+        "name": "Manchester United",
+        "from": 1992,
+        "to": 2011
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerStart": 1992,
+    "careerEnd": 2011,
+    "curatedLists": []
+  },
+  {
+    "name": "Gatti",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Grêmio",
+        "from": 1970,
+        "to": 1986
+      }
+    ],
+    "careerStart": 1970,
+    "careerEnd": 1988,
     "curatedLists": []
   },
   {
@@ -5547,17 +6970,27 @@
   },
   {
     "name": "Gennaro Gattuso",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "ITA",
     "teams": [
       {
-        "name": "Fiorentina",
-        "from": 1990,
-        "to": 2010
+        "name": "Perugia",
+        "from": 1995,
+        "to": 1997
+      },
+      {
+        "name": "Salernitana",
+        "from": 1997,
+        "to": 1998
+      },
+      {
+        "name": "AC Milan",
+        "from": 1999,
+        "to": 2012
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2010,
+    "careerStart": 1995,
+    "careerEnd": 2013,
     "curatedLists": []
   },
   {
@@ -5566,13 +6999,13 @@
     "nationality": "ENG",
     "teams": [
       {
-        "name": "Everton",
-        "from": 1950,
-        "to": 1970
+        "name": "West Ham United",
+        "from": 1959,
+        "to": 1972
       }
     ],
-    "careerStart": 1950,
-    "careerEnd": 1970,
+    "careerStart": 1959,
+    "careerEnd": 1977,
     "curatedLists": []
   },
   {
@@ -5582,12 +7015,32 @@
     "teams": [
       {
         "name": "Manchester United",
-        "from": 1960,
-        "to": 1970
+        "from": 1963,
+        "to": 1974
+      },
+      {
+        "name": "Fulham",
+        "from": 1976,
+        "to": 1978
+      },
+      {
+        "name": "Los Angeles Aztecs",
+        "from": 1976,
+        "to": 1977
+      },
+      {
+        "name": "Fort Lauderdale Strikers",
+        "from": 1978,
+        "to": 1979
+      },
+      {
+        "name": "Hibernian",
+        "from": 1979,
+        "to": 1980
       }
     ],
-    "careerStart": 1960,
-    "careerEnd": 1970,
+    "careerStart": 1963,
+    "careerEnd": 1984,
     "curatedLists": []
   },
   {
@@ -5641,13 +7094,18 @@
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Sevilla",
-        "from": 2000,
-        "to": 2020
+        "name": "Manchester United",
+        "from": 2004,
+        "to": 2008
+      },
+      {
+        "name": "Barcelona",
+        "from": 2008,
+        "to": 2022
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2020,
+    "careerStart": 2004,
+    "careerEnd": 2023,
     "curatedLists": []
   },
   {
@@ -5656,13 +7114,18 @@
     "nationality": "GER",
     "teams": [
       {
-        "name": "Eintracht Frankfurt",
-        "from": 1965,
+        "name": "Bayern",
+        "from": 1964,
         "to": 1979
+      },
+      {
+        "name": "Fort Lauderdale Strikers",
+        "from": 1979,
+        "to": 1981
       }
     ],
-    "careerStart": 1965,
-    "careerEnd": 1979,
+    "careerStart": 1963,
+    "careerEnd": 1981,
     "curatedLists": []
   },
   {
@@ -5776,13 +7239,23 @@
     "nationality": "ITA",
     "teams": [
       {
-        "name": "AC Milan",
-        "from": 1984,
+        "name": "Sampdoria",
+        "from": 1982,
+        "to": 1992
+      },
+      {
+        "name": "Juventus",
+        "from": 1992,
         "to": 1996
+      },
+      {
+        "name": "Chelsea",
+        "from": 1996,
+        "to": 1999
       }
     ],
-    "careerStart": 1984,
-    "careerEnd": 1996,
+    "careerStart": 1982,
+    "careerEnd": 1999,
     "curatedLists": []
   },
   {
@@ -5806,9 +7279,19 @@
     "nationality": "ITA",
     "teams": [
       {
-        "name": "Juventus",
+        "name": "Parma",
         "from": 1995,
-        "to": 2021
+        "to": 2001
+      },
+      {
+        "name": "Juventus",
+        "from": 2001,
+        "to": 2018
+      },
+      {
+        "name": "Paris Saint-Germain",
+        "from": 2018,
+        "to": 2019
       }
     ],
     "careerStart": 1995,
@@ -5835,12 +7318,17 @@
   },
   {
     "name": "Gianni Rivera",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "ITA",
     "teams": [
       {
-        "name": "AC Milan",
+        "name": "Alessandria",
         "from": 1959,
+        "to": 1960
+      },
+      {
+        "name": "AC Milan",
+        "from": 1960,
         "to": 1979
       }
     ],
@@ -5854,13 +7342,43 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "West Ham",
-        "from": 2000,
-        "to": 2000
+        "name": "Atlético Mineiro",
+        "from": 1997,
+        "to": 2002
+      },
+      {
+        "name": "Arsenal",
+        "from": 2002,
+        "to": 2008
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2000,
+    "careerStart": 1997,
+    "careerEnd": 2015,
+    "curatedLists": []
+  },
+  {
+    "name": "Gilmar",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "Jabaquara",
+        "from": 1951,
+        "to": 1953
+      },
+      {
+        "name": "Santos",
+        "from": 1953,
+        "to": 1969
+      },
+      {
+        "name": "Corinthians",
+        "from": 1969,
+        "to": 1970
+      }
+    ],
+    "careerStart": 1951,
+    "careerEnd": 1970,
     "curatedLists": []
   },
   {
@@ -5955,16 +7473,31 @@
   },
   {
     "name": "Giuseppe Meazza",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "ITA",
     "teams": [
       {
-        "name": "Atalanta",
-        "from": 1929,
+        "name": "Inter Milan",
+        "from": 1927,
+        "to": 1940
+      },
+      {
+        "name": "AC Milan",
+        "from": 1940,
+        "to": 1942
+      },
+      {
+        "name": "Juventus",
+        "from": 1942,
+        "to": 1946
+      },
+      {
+        "name": "Inter Milan",
+        "from": 1946,
         "to": 1947
       }
     ],
-    "careerStart": 1929,
+    "careerStart": 1927,
     "careerEnd": 1947,
     "curatedLists": []
   },
@@ -6004,28 +7537,68 @@
     "nationality": "ENG",
     "teams": [
       {
-        "name": "Manchester City",
-        "from": 1970,
-        "to": 1980
+        "name": "Tottenham",
+        "from": 1974,
+        "to": 1987
+      },
+      {
+        "name": "Monaco",
+        "from": 1987,
+        "to": 1990
+      },
+      {
+        "name": "Chelsea",
+        "from": 1993,
+        "to": 1995
+      },
+      {
+        "name": "Swindon Town",
+        "from": 1995,
+        "to": 1996
       }
     ],
-    "careerStart": 1970,
-    "careerEnd": 1980,
+    "careerStart": 1974,
+    "careerEnd": 1998,
     "curatedLists": []
   },
   {
     "name": "Gonzalo Higuaín",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "ARG",
     "teams": [
       {
-        "name": "Villarreal",
-        "from": 2000,
-        "to": 2010
+        "name": "River Plate",
+        "from": 2005,
+        "to": 2007
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2007,
+        "to": 2013
+      },
+      {
+        "name": "Napoli",
+        "from": 2013,
+        "to": 2016
+      },
+      {
+        "name": "Juventus",
+        "from": 2016,
+        "to": 2019
+      },
+      {
+        "name": "Chelsea",
+        "from": 2019,
+        "to": 2020
+      },
+      {
+        "name": "AC Milan",
+        "from": 2020,
+        "to": 2021
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2010,
+    "careerStart": 2005,
+    "careerEnd": 2022,
     "curatedLists": []
   },
   {
@@ -6274,13 +7847,18 @@
     "nationality": "ENG",
     "teams": [
       {
-        "name": "Bayern",
-        "from": 2012,
+        "name": "Tottenham",
+        "from": 2010,
         "to": 2023
+      },
+      {
+        "name": "Bayern",
+        "from": 2023,
+        "to": 2026
       }
     ],
-    "careerStart": 2012,
-    "careerEnd": 2023,
+    "careerStart": 2010,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -6394,13 +7972,63 @@
     "nationality": "ARG",
     "teams": [
       {
+        "name": "River Plate",
+        "from": 1993,
+        "to": 1996
+      },
+      {
+        "name": "Parma",
+        "from": 1996,
+        "to": 2000
+      },
+      {
+        "name": "Lazio",
+        "from": 2000,
+        "to": 2002
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2002,
+        "to": 2003
+      },
+      {
+        "name": "Chelsea",
+        "from": 2003,
+        "to": 2005
+      },
+      {
         "name": "AC Milan",
-        "from": 1990,
+        "from": 2005,
+        "to": 2006
+      },
+      {
+        "name": "Chelsea",
+        "from": 2006,
+        "to": 2008
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2008,
+        "to": 2009
+      },
+      {
+        "name": "Genoa",
+        "from": 2009,
         "to": 2010
+      },
+      {
+        "name": "AC Milan",
+        "from": 2010,
+        "to": 2011
+      },
+      {
+        "name": "Boca Juniors",
+        "from": 2011,
+        "to": 2012
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2010,
+    "careerStart": 1993,
+    "careerEnd": 2012,
     "curatedLists": []
   },
   {
@@ -6495,32 +8123,72 @@
   },
   {
     "name": "Hristo Stoichkov",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "BUL",
     "teams": [
       {
-        "name": "Villarreal",
-        "from": 1990,
+        "name": "CSKA Sofia",
+        "from": 1982,
         "to": 1990
+      },
+      {
+        "name": "Barcelona",
+        "from": 1990,
+        "to": 1995
+      },
+      {
+        "name": "Parma",
+        "from": 1995,
+        "to": 1996
+      },
+      {
+        "name": "Al-Nassr",
+        "from": 1996,
+        "to": 1998
+      },
+      {
+        "name": "Kashiwa Reysol",
+        "from": 1998,
+        "to": 1999
+      },
+      {
+        "name": "Chicago Fire",
+        "from": 1999,
+        "to": 2000
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 1990,
+    "careerStart": 1982,
+    "careerEnd": 2003,
     "curatedLists": []
   },
   {
     "name": "Hugo Lloris",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Goleiro",
     "nationality": "FRA",
     "teams": [
       {
-        "name": "Manchester United",
-        "from": 2010,
-        "to": 2020
+        "name": "Nice",
+        "from": 2005,
+        "to": 2008
+      },
+      {
+        "name": "Lyon",
+        "from": 2008,
+        "to": 2012
+      },
+      {
+        "name": "Tottenham",
+        "from": 2012,
+        "to": 2023
+      },
+      {
+        "name": "LAFC",
+        "from": 2024,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2005,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -6540,12 +8208,22 @@
   },
   {
     "name": "Hulk",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Botafogo",
-        "from": 2004,
+        "name": "Porto",
+        "from": 2008,
+        "to": 2012
+      },
+      {
+        "name": "Zenit",
+        "from": 2012,
+        "to": 2020
+      },
+      {
+        "name": "Atlético Mineiro",
+        "from": 2021,
         "to": 2026
       }
     ],
@@ -6622,6 +8300,11 @@
         "name": "Real Madrid",
         "from": 1999,
         "to": 2015
+      },
+      {
+        "name": "Porto",
+        "from": 2015,
+        "to": 2020
       }
     ],
     "careerStart": 1999,
@@ -6742,13 +8425,43 @@
     "nationality": "NED",
     "teams": [
       {
-        "name": "Manchester City",
-        "from": 1990,
-        "to": 2000
+        "name": "PEC Zwolle",
+        "from": 1992,
+        "to": 1993
+      },
+      {
+        "name": "Willem II",
+        "from": 1993,
+        "to": 1995
+      },
+      {
+        "name": "PSV",
+        "from": 1995,
+        "to": 1998
+      },
+      {
+        "name": "Manchester United",
+        "from": 1998,
+        "to": 2001
+      },
+      {
+        "name": "Lazio",
+        "from": 2001,
+        "to": 2004
+      },
+      {
+        "name": "AC Milan",
+        "from": 2004,
+        "to": 2006
+      },
+      {
+        "name": "Ajax",
+        "from": 2006,
+        "to": 2008
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerStart": 1992,
+    "careerEnd": 2008,
     "curatedLists": []
   },
   {
@@ -6820,6 +8533,11 @@
         "name": "Botafogo",
         "from": 1959,
         "to": 1974
+      },
+      {
+        "name": "Cruzeiro",
+        "from": 1974,
+        "to": 1975
       }
     ],
     "careerStart": 1959,
@@ -7040,32 +8758,77 @@
   },
   {
     "name": "Javier Mascherano",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "ARG",
     "teams": [
       {
+        "name": "River Plate",
+        "from": 2003,
+        "to": 2005
+      },
+      {
+        "name": "Corinthians",
+        "from": 2005,
+        "to": 2006
+      },
+      {
+        "name": "West Ham United",
+        "from": 2006,
+        "to": 2007
+      },
+      {
         "name": "Liverpool",
-        "from": 2000,
-        "to": 2000
+        "from": 2007,
+        "to": 2010
+      },
+      {
+        "name": "Barcelona",
+        "from": 2010,
+        "to": 2018
+      },
+      {
+        "name": "Hebei China Fortune",
+        "from": 2018,
+        "to": 2020
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2000,
+    "careerStart": 2003,
+    "careerEnd": 2020,
     "curatedLists": []
   },
   {
     "name": "Javier Pastore",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "ARG",
     "teams": [
       {
-        "name": "Rennes",
-        "from": 2010,
-        "to": 2010
+        "name": "Huracán",
+        "from": 2007,
+        "to": 2009
+      },
+      {
+        "name": "Palermo",
+        "from": 2009,
+        "to": 2011
+      },
+      {
+        "name": "PSG",
+        "from": 2011,
+        "to": 2018
+      },
+      {
+        "name": "Roma",
+        "from": 2018,
+        "to": 2021
+      },
+      {
+        "name": "Elche",
+        "from": 2021,
+        "to": 2022
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2010,
+    "careerStart": 2007,
+    "careerEnd": 2022,
     "curatedLists": []
   },
   {
@@ -7175,13 +8938,28 @@
   },
   {
     "name": "Jean-Pierre Papin",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "FRA",
     "teams": [
       {
-        "name": "PSG",
+        "name": "Valenciennes",
         "from": 1984,
-        "to": 1998
+        "to": 1985
+      },
+      {
+        "name": "Marseille",
+        "from": 1986,
+        "to": 1992
+      },
+      {
+        "name": "AC Milan",
+        "from": 1992,
+        "to": 1994
+      },
+      {
+        "name": "Bayern Munich",
+        "from": 1994,
+        "to": 1996
       }
     ],
     "careerStart": 1984,
@@ -7190,17 +8968,17 @@
   },
   {
     "name": "Jefferson",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Goleiro",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Corinthians",
-        "from": 2000,
-        "to": 2010
+        "name": "Botafogo",
+        "from": 2004,
+        "to": 2018
       }
     ],
     "careerStart": 2000,
-    "careerEnd": 2010,
+    "careerEnd": 2018,
     "curatedLists": []
   },
   {
@@ -7344,13 +9122,38 @@
     "nationality": "NED",
     "teams": [
       {
+        "name": "Telstar",
+        "from": 1992,
+        "to": 1994
+      },
+      {
+        "name": "AZ",
+        "from": 1994,
+        "to": 1996
+      },
+      {
         "name": "Leeds United",
         "from": 1997,
+        "to": 1999
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 1999,
+        "to": 2000
+      },
+      {
+        "name": "Chelsea",
+        "from": 2000,
+        "to": 2004
+      },
+      {
+        "name": "Middlesbrough",
+        "from": 2004,
         "to": 2007
       }
     ],
-    "careerStart": 1997,
-    "careerEnd": 2007,
+    "careerStart": 1992,
+    "careerEnd": 2008,
     "curatedLists": []
   },
   {
@@ -7385,17 +9188,32 @@
   },
   {
     "name": "João Félix",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "POR",
     "teams": [
       {
+        "name": "Benfica",
+        "from": 2018,
+        "to": 2019
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 2019,
+        "to": 2024
+      },
+      {
+        "name": "Chelsea",
+        "from": 2023,
+        "to": 2024
+      },
+      {
         "name": "Barcelona",
-        "from": 2010,
-        "to": 2020
+        "from": 2024,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2018,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -7404,13 +9222,28 @@
     "nationality": "POR",
     "teams": [
       {
-        "name": "Lens",
-        "from": 2010,
-        "to": 2010
+        "name": "Sporting CP",
+        "from": 2004,
+        "to": 2005
+      },
+      {
+        "name": "Monaco",
+        "from": 2013,
+        "to": 2018
+      },
+      {
+        "name": "Wolverhampton Wanderers",
+        "from": 2018,
+        "to": 2023
+      },
+      {
+        "name": "Braga",
+        "from": 2023,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2010,
+    "careerStart": 2004,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -7419,13 +9252,18 @@
     "nationality": "POR",
     "teams": [
       {
-        "name": "Lens",
-        "from": 2020,
-        "to": 2020
+        "name": "Benfica",
+        "from": 2022,
+        "to": 2024
+      },
+      {
+        "name": "PSG",
+        "from": 2024,
+        "to": 2026
       }
     ],
-    "careerStart": 2020,
-    "careerEnd": 2020,
+    "careerStart": 2022,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -7505,18 +9343,23 @@
   },
   {
     "name": "Johan Cruyff",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "NED",
     "teams": [
+      {
+        "name": "Ajax",
+        "from": 1964,
+        "to": 1973
+      },
       {
         "name": "Barcelona",
         "from": 1973,
         "to": 1978
       },
       {
-        "name": "Ajax",
-        "from": 1964,
-        "to": 1973
+        "name": "Los Angeles Aztecs",
+        "from": 1979,
+        "to": 1981
       }
     ],
     "careerStart": 1964,
@@ -7573,17 +9416,17 @@
   },
   {
     "name": "John Terry",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Defensor",
     "nationality": "ENG",
     "teams": [
       {
-        "name": "West Ham",
+        "name": "Chelsea",
         "from": 1998,
         "to": 2017
       }
     ],
     "careerStart": 1998,
-    "careerEnd": 2017,
+    "careerEnd": 2018,
     "curatedLists": []
   },
   {
@@ -7723,17 +9566,32 @@
   },
   {
     "name": "José Fonte",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Defensor",
     "nationality": "POR",
     "teams": [
       {
-        "name": "PSG",
-        "from": 2010,
-        "to": 2020
+        "name": "Estrela Amadora",
+        "from": 2002,
+        "to": 2004
+      },
+      {
+        "name": "Crystal Palace",
+        "from": 2004,
+        "to": 2006
+      },
+      {
+        "name": "Southampton",
+        "from": 2009,
+        "to": 2017
+      },
+      {
+        "name": "Lille",
+        "from": 2021,
+        "to": 2023
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2002,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -7802,8 +9660,13 @@
     "nationality": "GER",
     "teams": [
       {
-        "name": "Bayern",
+        "name": "RB Leipzig",
         "from": 2013,
+        "to": 2015
+      },
+      {
+        "name": "Bayern",
+        "from": 2015,
         "to": 2026
       }
     ],
@@ -7918,17 +9781,37 @@
   },
   {
     "name": "Juan Román Riquelme",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "ARG",
     "teams": [
       {
-        "name": "Valencia",
-        "from": 2000,
-        "to": 2000
+        "name": "Argentinos Juniors",
+        "from": 1995,
+        "to": 1996
+      },
+      {
+        "name": "Boca Juniors",
+        "from": 1996,
+        "to": 2002
+      },
+      {
+        "name": "Barcelona",
+        "from": 2002,
+        "to": 2003
+      },
+      {
+        "name": "Villarreal",
+        "from": 2003,
+        "to": 2007
+      },
+      {
+        "name": "Boca Juniors",
+        "from": 2007,
+        "to": 2015
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2000,
+    "careerStart": 1995,
+    "careerEnd": 2015,
     "curatedLists": []
   },
   {
@@ -7937,13 +9820,48 @@
     "nationality": "ARG",
     "teams": [
       {
-        "name": "Fiorentina",
+        "name": "Estudiantes",
+        "from": 1993,
+        "to": 1995
+      },
+      {
+        "name": "Sampdoria",
+        "from": 1995,
+        "to": 1996
+      },
+      {
+        "name": "Parma",
         "from": 1996,
+        "to": 1998
+      },
+      {
+        "name": "Lazio",
+        "from": 1998,
+        "to": 2001
+      },
+      {
+        "name": "Manchester United",
+        "from": 2001,
         "to": 2003
+      },
+      {
+        "name": "Chelsea",
+        "from": 2003,
+        "to": 2004
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2004,
+        "to": 2006
+      },
+      {
+        "name": "Estudiantes",
+        "from": 2006,
+        "to": 2010
       }
     ],
-    "careerStart": 1996,
-    "careerEnd": 2003,
+    "careerStart": 1993,
+    "careerEnd": 2010,
     "curatedLists": []
   },
   {
@@ -8083,17 +10001,27 @@
   },
   {
     "name": "Julio César",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Goleiro",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Atalanta",
-        "from": 2000,
-        "to": 2010
+        "name": "Flamengo",
+        "from": 1997,
+        "to": 2004
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2005,
+        "to": 2012
+      },
+      {
+        "name": "Toronto FC",
+        "from": 2014,
+        "to": 2016
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2010,
+    "careerStart": 1997,
+    "careerEnd": 2018,
     "curatedLists": []
   },
   {
@@ -8113,17 +10041,27 @@
   },
   {
     "name": "Juninho Paulista",
-    "primaryPosition": "Goleiro",
+    "primaryPosition": "Meia",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Tottenham",
-        "from": 1990,
-        "to": 2000
+        "name": "São Paulo",
+        "from": 1993,
+        "to": 1995
+      },
+      {
+        "name": "Middlesbrough",
+        "from": 1995,
+        "to": 2004
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 1997,
+        "to": 1998
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerStart": 1993,
+    "careerEnd": 2010,
     "curatedLists": []
   },
   {
@@ -8143,13 +10081,18 @@
   },
   {
     "name": "Júnior",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "São Paulo",
+        "name": "Flamengo",
         "from": 1974,
-        "to": 1993
+        "to": 1984
+      },
+      {
+        "name": "Torino",
+        "from": 1984,
+        "to": 1987
       }
     ],
     "careerStart": 1974,
@@ -8203,17 +10146,37 @@
   },
   {
     "name": "Jürgen Klinsmann",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "GER",
     "teams": [
       {
-        "name": "Borussia Mönchengladbach",
+        "name": "VfB Stuttgart",
         "from": 1984,
-        "to": 1998
+        "to": 1989
+      },
+      {
+        "name": "Inter Milan",
+        "from": 1989,
+        "to": 1992
+      },
+      {
+        "name": "Monaco",
+        "from": 1992,
+        "to": 1994
+      },
+      {
+        "name": "Tottenham",
+        "from": 1994,
+        "to": 1995
+      },
+      {
+        "name": "Bayern Munich",
+        "from": 1995,
+        "to": 1997
       }
     ],
     "careerStart": 1984,
-    "careerEnd": 1998,
+    "careerEnd": 2003,
     "curatedLists": []
   },
   {
@@ -8282,6 +10245,11 @@
     "nationality": "BRA",
     "teams": [
       {
+        "name": "São Paulo",
+        "from": 2001,
+        "to": 2003
+      },
+      {
         "name": "AC Milan",
         "from": 2003,
         "to": 2009
@@ -8331,17 +10299,27 @@
   },
   {
     "name": "Karim Benzema",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "FRA",
     "teams": [
+      {
+        "name": "Lyon",
+        "from": 2004,
+        "to": 2009
+      },
       {
         "name": "Real Madrid",
         "from": 2009,
         "to": 2023
+      },
+      {
+        "name": "Al-Ittihad",
+        "from": 2023,
+        "to": 2025
       }
     ],
-    "careerStart": 2009,
-    "careerEnd": 2023,
+    "careerStart": 2004,
+    "careerEnd": 2025,
     "curatedLists": []
   },
   {
@@ -8380,13 +10358,18 @@
     "nationality": "GER",
     "teams": [
       {
-        "name": "Borussia Dortmund",
+        "name": "Bayern",
         "from": 1974,
         "to": 1984
+      },
+      {
+        "name": "Inter Milan",
+        "from": 1984,
+        "to": 1987
       }
     ],
     "careerStart": 1974,
-    "careerEnd": 1984,
+    "careerEnd": 1989,
     "curatedLists": []
   },
   {
@@ -8396,12 +10379,37 @@
     "teams": [
       {
         "name": "Manchester City",
-        "from": 2000,
-        "to": 2020
+        "from": 2006,
+        "to": 2009
+      },
+      {
+        "name": "Leeds United",
+        "from": 2010,
+        "to": 2011
+      },
+      {
+        "name": "Leicester City",
+        "from": 2011,
+        "to": 2022
+      },
+      {
+        "name": "Nice",
+        "from": 2022,
+        "to": 2023
+      },
+      {
+        "name": "Anderlecht",
+        "from": 2023,
+        "to": 2024
+      },
+      {
+        "name": "Celtic",
+        "from": 2024,
+        "to": 2026
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2020,
+    "careerStart": 2006,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -8436,17 +10444,37 @@
   },
   {
     "name": "Kevin De Bruyne",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "BEL",
     "teams": [
       {
-        "name": "Liverpool",
+        "name": "Genk",
+        "from": 2008,
+        "to": 2012
+      },
+      {
+        "name": "Chelsea",
+        "from": 2012,
+        "to": 2014
+      },
+      {
+        "name": "Wolfsburg",
+        "from": 2014,
+        "to": 2015
+      },
+      {
+        "name": "Manchester City",
         "from": 2015,
         "to": 2025
+      },
+      {
+        "name": "Napoli",
+        "from": 2025,
+        "to": 2026
       }
     ],
-    "careerStart": 2015,
-    "careerEnd": 2025,
+    "careerStart": 2008,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -8601,17 +10629,27 @@
   },
   {
     "name": "Kingsley Coman",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "FRA",
     "teams": [
       {
-        "name": "Bayern Munich",
-        "from": 2010,
-        "to": 2020
+        "name": "PSG",
+        "from": 2013,
+        "to": 2014
+      },
+      {
+        "name": "Juventus",
+        "from": 2014,
+        "to": 2015
+      },
+      {
+        "name": "Bayern",
+        "from": 2015,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2013,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -8755,6 +10793,11 @@
     "nationality": "FRA",
     "teams": [
       {
+        "name": "Monaco",
+        "from": 2015,
+        "to": 2017
+      },
+      {
         "name": "PSG",
         "from": 2017,
         "to": 2024
@@ -8849,17 +10892,47 @@
   },
   {
     "name": "Laurent Blanc",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Defensor",
     "nationality": "FRA",
     "teams": [
       {
-        "name": "Lyon",
+        "name": "Montpellier",
         "from": 1983,
+        "to": 1991
+      },
+      {
+        "name": "Napoli",
+        "from": 1991,
+        "to": 1992
+      },
+      {
+        "name": "Saint-Étienne",
+        "from": 1993,
+        "to": 1995
+      },
+      {
+        "name": "Auxerre",
+        "from": 1995,
         "to": 1996
+      },
+      {
+        "name": "Barcelona",
+        "from": 1996,
+        "to": 1999
+      },
+      {
+        "name": "Marseille",
+        "from": 1999,
+        "to": 2001
+      },
+      {
+        "name": "Manchester United",
+        "from": 2001,
+        "to": 2003
       }
     ],
     "careerStart": 1983,
-    "careerEnd": 1996,
+    "careerEnd": 2003,
     "curatedLists": []
   },
   {
@@ -8898,12 +10971,17 @@
     "nationality": "ARG",
     "teams": [
       {
-        "name": "Milan",
+        "name": "Racing Club",
+        "from": 2015,
+        "to": 2018
+      },
+      {
+        "name": "Inter Milan",
         "from": 2018,
         "to": 2026
       }
     ],
-    "careerStart": 2018,
+    "careerStart": 2015,
     "careerEnd": 2026,
     "curatedLists": []
   },
@@ -8943,13 +11021,23 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "São Paulo",
-        "from": 1960,
-        "to": 1980
+        "name": "Palmeiras",
+        "from": 1969,
+        "to": 1978
+      },
+      {
+        "name": "Grêmio",
+        "from": 1981,
+        "to": 1983
+      },
+      {
+        "name": "Palmeiras",
+        "from": 1984,
+        "to": 1986
       }
     ],
-    "careerStart": 1960,
-    "careerEnd": 1980,
+    "careerStart": 1967,
+    "careerEnd": 1987,
     "curatedLists": []
   },
   {
@@ -8984,32 +11072,52 @@
   },
   {
     "name": "Leon Goretzka",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "GER",
     "teams": [
       {
-        "name": "Bayern Munich",
-        "from": 2010,
-        "to": 2020
+        "name": "Bochum",
+        "from": 2013,
+        "to": 2013
+      },
+      {
+        "name": "Schalke 04",
+        "from": 2013,
+        "to": 2018
+      },
+      {
+        "name": "Bayern",
+        "from": 2018,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2013,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
     "name": "Leonardo",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "BRA",
     "teams": [
       {
+        "name": "São Paulo",
+        "from": 1987,
+        "to": 1993
+      },
+      {
+        "name": "AC Milan",
+        "from": 1993,
+        "to": 1998
+      },
+      {
         "name": "PSG",
-        "from": 1990,
-        "to": 1990
+        "from": 1998,
+        "to": 2002
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 1990,
+    "careerStart": 1987,
+    "careerEnd": 2005,
     "curatedLists": []
   },
   {
@@ -9018,13 +11126,43 @@
     "nationality": "ITA",
     "teams": [
       {
+        "name": "Inter Milan",
+        "from": 2005,
+        "to": 2006
+      },
+      {
+        "name": "Treviso",
+        "from": 2006,
+        "to": 2007
+      },
+      {
+        "name": "Bari",
+        "from": 2007,
+        "to": 2009
+      },
+      {
+        "name": "Juventus",
+        "from": 2010,
+        "to": 2017
+      },
+      {
         "name": "AC Milan",
-        "from": 2000,
-        "to": 2020
+        "from": 2017,
+        "to": 2018
+      },
+      {
+        "name": "Juventus",
+        "from": 2018,
+        "to": 2021
+      },
+      {
+        "name": "Union Berlin",
+        "from": 2023,
+        "to": 2024
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2020,
+    "careerStart": 2005,
+    "careerEnd": 2024,
     "curatedLists": []
   },
   {
@@ -9126,13 +11264,28 @@
     "nationality": "FRA",
     "teams": [
       {
-        "name": "Roma",
+        "name": "Monaco",
+        "from": 1991,
+        "to": 1996
+      },
+      {
+        "name": "Parma",
         "from": 1996,
+        "to": 2001
+      },
+      {
+        "name": "Juventus",
+        "from": 2001,
         "to": 2006
+      },
+      {
+        "name": "Barcelona",
+        "from": 2006,
+        "to": 2008
       }
     ],
-    "careerStart": 1996,
-    "careerEnd": 2006,
+    "careerStart": 1991,
+    "careerEnd": 2008,
     "curatedLists": []
   },
   {
@@ -9149,6 +11302,11 @@
         "name": "PSG",
         "from": 2021,
         "to": 2023
+      },
+      {
+        "name": "Inter Miami",
+        "from": 2023,
+        "to": 2026
       }
     ],
     "careerStart": 2004,
@@ -9254,13 +11412,28 @@
     "nationality": "GER",
     "teams": [
       {
-        "name": "Napoli",
+        "name": "Borussia Mönchengladbach",
+        "from": 1979,
+        "to": 1984
+      },
+      {
+        "name": "Bayern",
+        "from": 1984,
+        "to": 1988
+      },
+      {
+        "name": "Inter Milan",
         "from": 1988,
         "to": 1992
+      },
+      {
+        "name": "Bayern",
+        "from": 1992,
+        "to": 2000
       }
     ],
-    "careerStart": 1988,
-    "careerEnd": 1992,
+    "careerStart": 1979,
+    "careerEnd": 2000,
     "curatedLists": []
   },
   {
@@ -9310,17 +11483,27 @@
   },
   {
     "name": "Lucas Moura",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Marseille",
+        "name": "São Paulo",
         "from": 2010,
-        "to": 2010
+        "to": 2012
+      },
+      {
+        "name": "PSG",
+        "from": 2012,
+        "to": 2018
+      },
+      {
+        "name": "Tottenham",
+        "from": 2018,
+        "to": 2023
       }
     ],
     "careerStart": 2010,
-    "careerEnd": 2010,
+    "careerEnd": 2024,
     "curatedLists": []
   },
   {
@@ -9355,17 +11538,27 @@
   },
   {
     "name": "Lucio",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Defensor",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Fiorentina",
-        "from": 2000,
-        "to": 2010
+        "name": "Bayer Leverkusen",
+        "from": 2001,
+        "to": 2004
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2004,
+        "to": 2009
+      },
+      {
+        "name": "Internacional",
+        "from": 2010,
+        "to": 2011
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2010,
+    "careerStart": 1997,
+    "careerEnd": 2020,
     "curatedLists": []
   },
   {
@@ -9430,17 +11623,27 @@
   },
   {
     "name": "Luis Enrique",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Sevilla",
-        "from": 1990,
-        "to": 2000
+        "name": "Sporting Gijón",
+        "from": 1991,
+        "to": 1996
+      },
+      {
+        "name": "Real Madrid",
+        "from": 1996,
+        "to": 1999
+      },
+      {
+        "name": "Barcelona",
+        "from": 1999,
+        "to": 2004
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerStart": 1991,
+    "careerEnd": 2004,
     "curatedLists": []
   },
   {
@@ -9449,13 +11652,23 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Palmeiras",
-        "from": 2001,
+        "name": "Lyon",
+        "from": 2004,
+        "to": 2005
+      },
+      {
+        "name": "Sevilla",
+        "from": 2005,
+        "to": 2011
+      },
+      {
+        "name": "São Paulo",
+        "from": 2011,
         "to": 2015
       }
     ],
-    "careerStart": 2001,
-    "careerEnd": 2015,
+    "careerStart": 1998,
+    "careerEnd": 2017,
     "curatedLists": []
   },
   {
@@ -9475,17 +11688,32 @@
   },
   {
     "name": "Luis Figo",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "POR",
     "teams": [
       {
-        "name": "Athletic Bilbao",
+        "name": "Sporting CP",
+        "from": 1989,
+        "to": 1995
+      },
+      {
+        "name": "Barcelona",
         "from": 1995,
+        "to": 2000
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2000,
         "to": 2005
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2005,
+        "to": 2009
       }
     ],
-    "careerStart": 1995,
-    "careerEnd": 2005,
+    "careerStart": 1989,
+    "careerEnd": 2009,
     "curatedLists": []
   },
   {
@@ -9524,13 +11752,53 @@
     "nationality": "URU",
     "teams": [
       {
-        "name": "Manchester United",
-        "from": 2010,
-        "to": 2010
+        "name": "Nacional",
+        "from": 2005,
+        "to": 2006
+      },
+      {
+        "name": "Groningen",
+        "from": 2006,
+        "to": 2007
+      },
+      {
+        "name": "Ajax",
+        "from": 2007,
+        "to": 2011
+      },
+      {
+        "name": "Liverpool",
+        "from": 2011,
+        "to": 2014
+      },
+      {
+        "name": "Barcelona",
+        "from": 2014,
+        "to": 2020
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 2020,
+        "to": 2022
+      },
+      {
+        "name": "Nacional",
+        "from": 2022,
+        "to": 2023
+      },
+      {
+        "name": "Grêmio",
+        "from": 2023,
+        "to": 2024
+      },
+      {
+        "name": "Inter Miami",
+        "from": 2024,
+        "to": 2025
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2010,
+    "careerStart": 2005,
+    "careerEnd": 2025,
     "curatedLists": []
   },
   {
@@ -9539,13 +11807,23 @@
     "nationality": "ESP",
     "teams": [
       {
+        "name": "Deportivo La Coruña",
+        "from": 1953,
+        "to": 1954
+      },
+      {
         "name": "Barcelona",
-        "from": 1950,
-        "to": 1960
+        "from": 1955,
+        "to": 1961
+      },
+      {
+        "name": "Inter Milan",
+        "from": 1961,
+        "to": 1970
       }
     ],
-    "careerStart": 1950,
-    "careerEnd": 1960,
+    "careerStart": 1953,
+    "careerEnd": 1970,
     "curatedLists": []
   },
   {
@@ -9584,6 +11862,16 @@
     "nationality": "CRO",
     "teams": [
       {
+        "name": "Dinamo Zagreb",
+        "from": 2003,
+        "to": 2008
+      },
+      {
+        "name": "Tottenham",
+        "from": 2008,
+        "to": 2012
+      },
+      {
         "name": "Real Madrid",
         "from": 2012,
         "to": 2026
@@ -9613,17 +11901,22 @@
   },
   {
     "name": "Maicon",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Defensor",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Lazio",
-        "from": 2000,
-        "to": 2010
+        "name": "Inter Milan",
+        "from": 2006,
+        "to": 2012
+      },
+      {
+        "name": "Roma",
+        "from": 2013,
+        "to": 2016
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2010,
+    "careerStart": 2001,
+    "careerEnd": 2018,
     "curatedLists": []
   },
   {
@@ -9703,16 +11996,21 @@
   },
   {
     "name": "Manga",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Goleiro",
     "nationality": "BRA",
     "teams": [
       {
         "name": "Botafogo",
-        "from": 1950,
+        "from": 1951,
+        "to": 1968
+      },
+      {
+        "name": "Santos",
+        "from": 1968,
         "to": 1970
       }
     ],
-    "careerStart": 1950,
+    "careerStart": 1951,
     "careerEnd": 1970,
     "curatedLists": []
   },
@@ -9736,6 +12034,11 @@
     "primaryPosition": "Goleiro",
     "nationality": "GER",
     "teams": [
+      {
+        "name": "Schalke 04",
+        "from": 2004,
+        "to": 2011
+      },
       {
         "name": "Bayern Munich",
         "from": 2011,
@@ -9781,17 +12084,37 @@
   },
   {
     "name": "Marc Overmars",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "NED",
     "teams": [
       {
-        "name": "Chelsea",
+        "name": "Go Ahead Eagles",
         "from": 1990,
-        "to": 1990
+        "to": 1991
+      },
+      {
+        "name": "Willem II",
+        "from": 1991,
+        "to": 1992
+      },
+      {
+        "name": "Ajax",
+        "from": 1992,
+        "to": 1997
+      },
+      {
+        "name": "Arsenal",
+        "from": 1997,
+        "to": 2000
+      },
+      {
+        "name": "Barcelona",
+        "from": 2000,
+        "to": 2004
       }
     ],
     "careerStart": 1990,
-    "careerEnd": 1990,
+    "careerEnd": 2009,
     "curatedLists": []
   },
   {
@@ -9826,17 +12149,32 @@
   },
   {
     "name": "Marcel Desailly",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Defensor",
     "nationality": "FRA",
     "teams": [
       {
-        "name": "Atalanta",
-        "from": 1990,
-        "to": 1990
+        "name": "Nantes",
+        "from": 1986,
+        "to": 1992
+      },
+      {
+        "name": "Marseille",
+        "from": 1992,
+        "to": 1993
+      },
+      {
+        "name": "AC Milan",
+        "from": 1993,
+        "to": 1998
+      },
+      {
+        "name": "Chelsea",
+        "from": 1998,
+        "to": 2004
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 1990,
+    "careerStart": 1986,
+    "careerEnd": 2006,
     "curatedLists": []
   },
   {
@@ -9890,9 +12228,19 @@
     "nationality": "BRA",
     "teams": [
       {
+        "name": "Fluminense",
+        "from": 2005,
+        "to": 2007
+      },
+      {
         "name": "Real Madrid",
         "from": 2007,
         "to": 2022
+      },
+      {
+        "name": "Olympiacos",
+        "from": 2022,
+        "to": 2023
       }
     ],
     "careerStart": 2005,
@@ -9998,27 +12346,47 @@
     "nationality": "ITA",
     "teams": [
       {
-        "name": "Roma",
-        "from": 1990,
-        "to": 2010
+        "name": "Perugia",
+        "from": 1993,
+        "to": 1998
+      },
+      {
+        "name": "Everton",
+        "from": 1998,
+        "to": 1999
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2001,
+        "to": 2011
       }
     ],
     "careerStart": 1990,
-    "careerEnd": 2010,
+    "careerEnd": 2011,
     "curatedLists": []
   },
   {
     "name": "Marco Reus",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "GER",
     "teams": [
       {
-        "name": "Bayern Munich",
+        "name": "Rot Weiss Ahlen",
+        "from": 2006,
+        "to": 2008
+      },
+      {
+        "name": "Borussia Mönchengladbach",
         "from": 2009,
+        "to": 2012
+      },
+      {
+        "name": "Borussia Dortmund",
+        "from": 2012,
         "to": 2024
       }
     ],
-    "careerStart": 2009,
+    "careerStart": 2006,
     "careerEnd": 2024,
     "curatedLists": []
   },
@@ -10039,16 +12407,21 @@
   },
   {
     "name": "Marco van Basten",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "NED",
     "teams": [
       {
-        "name": "Juventus",
+        "name": "Ajax",
+        "from": 1981,
+        "to": 1987
+      },
+      {
+        "name": "AC Milan",
         "from": 1987,
         "to": 1995
       }
     ],
-    "careerStart": 1987,
+    "careerStart": 1981,
     "careerEnd": 1995,
     "curatedLists": []
   },
@@ -10069,7 +12442,7 @@
   },
   {
     "name": "Marcos",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Goleiro",
     "nationality": "BRA",
     "teams": [
       {
@@ -10204,17 +12577,42 @@
   },
   {
     "name": "Mario Gómez",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "GER",
     "teams": [
       {
-        "name": "Borussia Dortmund",
-        "from": 2004,
+        "name": "Stuttgart",
+        "from": 2003,
+        "to": 2009
+      },
+      {
+        "name": "Bayern",
+        "from": 2009,
+        "to": 2013
+      },
+      {
+        "name": "Fiorentina",
+        "from": 2013,
+        "to": 2015
+      },
+      {
+        "name": "Beşiktaş",
+        "from": 2015,
+        "to": 2016
+      },
+      {
+        "name": "VfL Wolfsburg",
+        "from": 2016,
         "to": 2018
+      },
+      {
+        "name": "Stuttgart",
+        "from": 2018,
+        "to": 2020
       }
     ],
-    "careerStart": 2004,
-    "careerEnd": 2018,
+    "careerStart": 2003,
+    "careerEnd": 2020,
     "curatedLists": []
   },
   {
@@ -10249,17 +12647,27 @@
   },
   {
     "name": "Mario Kempes",
-    "primaryPosition": "Goleiro",
+    "primaryPosition": "Atacante",
     "nationality": "ARG",
     "teams": [
       {
-        "name": "Barcelona",
+        "name": "Instituto",
         "from": 1970,
-        "to": 1980
+        "to": 1974
+      },
+      {
+        "name": "Valencia",
+        "from": 1976,
+        "to": 1981
+      },
+      {
+        "name": "River Plate",
+        "from": 1981,
+        "to": 1982
       }
     ],
     "careerStart": 1970,
-    "careerEnd": 1980,
+    "careerEnd": 1996,
     "curatedLists": []
   },
   {
@@ -10699,17 +13107,42 @@
   },
   {
     "name": "Memphis Depay",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "NED",
     "teams": [
       {
-        "name": "PSG",
-        "from": 2010,
-        "to": 2020
+        "name": "PSV",
+        "from": 2011,
+        "to": 2015
+      },
+      {
+        "name": "Manchester United",
+        "from": 2015,
+        "to": 2017
+      },
+      {
+        "name": "Lyon",
+        "from": 2017,
+        "to": 2021
+      },
+      {
+        "name": "Barcelona",
+        "from": 2021,
+        "to": 2023
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 2023,
+        "to": 2024
+      },
+      {
+        "name": "Corinthians",
+        "from": 2024,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2011,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -10733,13 +13166,33 @@
     "nationality": "GER",
     "teams": [
       {
-        "name": "Chelsea",
-        "from": 2010,
+        "name": "Schalke 04",
+        "from": 2006,
+        "to": 2008
+      },
+      {
+        "name": "Werder Bremen",
+        "from": 2008,
         "to": 2010
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2010,
+        "to": 2013
+      },
+      {
+        "name": "Arsenal",
+        "from": 2013,
+        "to": 2021
+      },
+      {
+        "name": "Fenerbahçe",
+        "from": 2021,
+        "to": 2024
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2010,
+    "careerStart": 2006,
+    "careerEnd": 2024,
     "curatedLists": []
   },
   {
@@ -10748,12 +13201,32 @@
     "nationality": "GER",
     "teams": [
       {
-        "name": "Bayern Munich",
+        "name": "Chemnitzer FC",
+        "from": 1995,
+        "to": 1997
+      },
+      {
+        "name": "1. FC Kaiserslautern",
         "from": 1997,
-        "to": 2012
+        "to": 1999
+      },
+      {
+        "name": "Bayer Leverkusen",
+        "from": 1999,
+        "to": 2002
+      },
+      {
+        "name": "Bayern Munich",
+        "from": 2002,
+        "to": 2006
+      },
+      {
+        "name": "Chelsea",
+        "from": 2006,
+        "to": 2010
       }
     ],
-    "careerStart": 1997,
+    "careerStart": 1995,
     "careerEnd": 2012,
     "curatedLists": []
   },
@@ -10879,16 +13352,26 @@
   },
   {
     "name": "Michel Platini",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "FRA",
     "teams": [
       {
-        "name": "Napoli",
+        "name": "Nancy",
+        "from": 1972,
+        "to": 1979
+      },
+      {
+        "name": "Saint-Étienne",
+        "from": 1979,
+        "to": 1982
+      },
+      {
+        "name": "Juventus",
         "from": 1982,
         "to": 1987
       }
     ],
-    "careerStart": 1982,
+    "careerStart": 1972,
     "careerEnd": 1987,
     "curatedLists": []
   },
@@ -11014,16 +13497,26 @@
   },
   {
     "name": "Miranda",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Defensor",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Internacional",
-        "from": 2000,
-        "to": 2020
+        "name": "São Paulo",
+        "from": 2005,
+        "to": 2006
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 2011,
+        "to": 2014
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2015,
+        "to": 2019
       }
     ],
-    "careerStart": 2000,
+    "careerStart": 2005,
     "careerEnd": 2020,
     "curatedLists": []
   },
@@ -11033,13 +13526,28 @@
     "nationality": "GER",
     "teams": [
       {
-        "name": "Inter Milan",
-        "from": 2010,
-        "to": 2010
+        "name": "1. FC Kaiserslautern",
+        "from": 1998,
+        "to": 2004
+      },
+      {
+        "name": "Werder Bremen",
+        "from": 2004,
+        "to": 2007
+      },
+      {
+        "name": "Bayern Munich",
+        "from": 2007,
+        "to": 2011
+      },
+      {
+        "name": "Lazio",
+        "from": 2011,
+        "to": 2016
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2010,
+    "careerStart": 1998,
+    "careerEnd": 2016,
     "curatedLists": []
   },
   {
@@ -11059,16 +13567,31 @@
   },
   {
     "name": "Mohamed Salah",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "EGY",
     "teams": [
       {
-        "name": "West Ham",
+        "name": "Basel",
+        "from": 2012,
+        "to": 2014
+      },
+      {
+        "name": "Chelsea",
         "from": 2014,
+        "to": 2015
+      },
+      {
+        "name": "Roma",
+        "from": 2015,
+        "to": 2017
+      },
+      {
+        "name": "Liverpool",
+        "from": 2017,
         "to": 2026
       }
     ],
-    "careerStart": 2014,
+    "careerStart": 2010,
     "careerEnd": 2026,
     "curatedLists": []
   },
@@ -11179,17 +13702,37 @@
   },
   {
     "name": "N'Golo Kanté",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "FRA",
     "teams": [
       {
-        "name": "Everton",
+        "name": "Boulogne",
+        "from": 2010,
+        "to": 2012
+      },
+      {
+        "name": "Caen",
+        "from": 2013,
+        "to": 2015
+      },
+      {
+        "name": "Leicester City",
         "from": 2015,
+        "to": 2016
+      },
+      {
+        "name": "Chelsea",
+        "from": 2016,
         "to": 2023
+      },
+      {
+        "name": "Al-Ittihad",
+        "from": 2023,
+        "to": 2026
       }
     ],
-    "careerStart": 2015,
-    "careerEnd": 2023,
+    "careerStart": 2010,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -11243,13 +13786,28 @@
     "nationality": "SRB",
     "teams": [
       {
-        "name": "Leeds United",
+        "name": "Red Star Belgrade",
+        "from": 2000,
+        "to": 2004
+      },
+      {
+        "name": "Spartak Moscow",
+        "from": 2004,
+        "to": 2006
+      },
+      {
+        "name": "Manchester United",
         "from": 2006,
         "to": 2014
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2014,
+        "to": 2016
       }
     ],
-    "careerStart": 2006,
-    "careerEnd": 2014,
+    "careerStart": 2000,
+    "careerEnd": 2016,
     "curatedLists": []
   },
   {
@@ -11302,6 +13860,11 @@
     "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
+      {
+        "name": "Santos",
+        "from": 2009,
+        "to": 2013
+      },
       {
         "name": "Barcelona",
         "from": 2013,
@@ -11442,11 +14005,11 @@
   },
   {
     "name": "Nilton Santos",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Defensor",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Grêmio",
+        "name": "Botafogo",
         "from": 1948,
         "to": 1964
       }
@@ -11487,17 +14050,22 @@
   },
   {
     "name": "Nuno Mendes",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Defensor",
     "nationality": "POR",
     "teams": [
       {
-        "name": "Rennes",
+        "name": "Sporting CP",
         "from": 2020,
-        "to": 2020
+        "to": 2022
+      },
+      {
+        "name": "PSG",
+        "from": 2022,
+        "to": 2026
       }
     ],
     "careerStart": 2020,
-    "careerEnd": 2020,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -11551,13 +14119,18 @@
     "nationality": "NOR",
     "teams": [
       {
-        "name": "Manchester City",
-        "from": 1990,
-        "to": 2000
+        "name": "Manchester United",
+        "from": 1996,
+        "to": 2007
+      },
+      {
+        "name": "Molde",
+        "from": 2007,
+        "to": 2011
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerStart": 1995,
+    "careerEnd": 2011,
     "curatedLists": []
   },
   {
@@ -11581,8 +14154,13 @@
     "nationality": "GER",
     "teams": [
       {
-        "name": "RB Leipzig",
+        "name": "Karlsruher SC",
         "from": 1987,
+        "to": 1994
+      },
+      {
+        "name": "Bayern",
+        "from": 1994,
         "to": 2008
       }
     ],
@@ -11626,13 +14204,23 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Santos",
-        "from": 2000,
-        "to": 2010
+        "name": "Internacional",
+        "from": 2009,
+        "to": 2012
+      },
+      {
+        "name": "Chelsea",
+        "from": 2012,
+        "to": 2017
+      },
+      {
+        "name": "Shanghai SIPG",
+        "from": 2017,
+        "to": 2024
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2010,
+    "careerStart": 2008,
+    "careerEnd": 2024,
     "curatedLists": []
   },
   {
@@ -11697,17 +14285,22 @@
   },
   {
     "name": "Palhinha",
-    "primaryPosition": "Goleiro",
+    "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "São Paulo",
-        "from": 1980,
-        "to": 1990
+        "name": "Corinthians",
+        "from": 1977,
+        "to": 1980
+      },
+      {
+        "name": "Cruzeiro",
+        "from": 1976,
+        "to": 1977
       }
     ],
-    "careerStart": 1980,
-    "careerEnd": 1990,
+    "careerStart": 1974,
+    "careerEnd": 1985,
     "curatedLists": []
   },
   {
@@ -11775,32 +14368,77 @@
   },
   {
     "name": "Patrice Evra",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Defensor",
     "nationality": "FRA",
     "teams": [
       {
-        "name": "Leeds United",
+        "name": "Marsala",
+        "from": 1999,
+        "to": 2000
+      },
+      {
+        "name": "Monaco",
         "from": 2000,
-        "to": 2010
+        "to": 2006
+      },
+      {
+        "name": "Manchester United",
+        "from": 2006,
+        "to": 2014
+      },
+      {
+        "name": "Juventus",
+        "from": 2014,
+        "to": 2016
+      },
+      {
+        "name": "Marseille",
+        "from": 2016,
+        "to": 2017
+      },
+      {
+        "name": "West Ham",
+        "from": 2018,
+        "to": 2019
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2010,
+    "careerStart": 1999,
+    "careerEnd": 2019,
     "curatedLists": []
   },
   {
     "name": "Patrick Kluivert",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "NED",
     "teams": [
       {
-        "name": "Atlético Madrid",
-        "from": 1990,
-        "to": 2000
+        "name": "Ajax",
+        "from": 1994,
+        "to": 1997
+      },
+      {
+        "name": "AC Milan",
+        "from": 1997,
+        "to": 1998
+      },
+      {
+        "name": "Barcelona",
+        "from": 1998,
+        "to": 2004
+      },
+      {
+        "name": "Newcastle United",
+        "from": 2004,
+        "to": 2005
+      },
+      {
+        "name": "PSV",
+        "from": 2006,
+        "to": 2007
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerStart": 1994,
+    "careerEnd": 2008,
     "curatedLists": []
   },
   {
@@ -11824,9 +14462,24 @@
     "nationality": "FRA",
     "teams": [
       {
+        "name": "Cannes",
+        "from": 1993,
+        "to": 1994
+      },
+      {
+        "name": "AC Milan",
+        "from": 1995,
+        "to": 1996
+      },
+      {
         "name": "Arsenal",
         "from": 1996,
         "to": 2005
+      },
+      {
+        "name": "Juventus",
+        "from": 2005,
+        "to": 2006
       }
     ],
     "careerStart": 1993,
@@ -11918,12 +14571,32 @@
     "teams": [
       {
         "name": "Manchester United",
-        "from": 2010,
-        "to": 2010
+        "from": 2009,
+        "to": 2011
+      },
+      {
+        "name": "Juventus",
+        "from": 2012,
+        "to": 2016
+      },
+      {
+        "name": "Manchester United",
+        "from": 2016,
+        "to": 2022
+      },
+      {
+        "name": "Juventus",
+        "from": 2022,
+        "to": 2024
+      },
+      {
+        "name": "Monaco",
+        "from": 2024,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2010,
+    "careerStart": 2009,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -11943,16 +14616,36 @@
   },
   {
     "name": "Pauleta",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "POR",
     "teams": [
       {
-        "name": "Marseille",
+        "name": "Estrela Amadora",
+        "from": 1993,
+        "to": 1994
+      },
+      {
+        "name": "Salamanca",
+        "from": 1994,
+        "to": 1996
+      },
+      {
+        "name": "Deportivo La Coruña",
+        "from": 1996,
+        "to": 2000
+      },
+      {
+        "name": "Bordeaux",
         "from": 2000,
+        "to": 2003
+      },
+      {
+        "name": "Paris Saint-Germain",
+        "from": 2003,
         "to": 2008
       }
     ],
-    "careerStart": 2000,
+    "careerStart": 1993,
     "careerEnd": 2008,
     "curatedLists": []
   },
@@ -11962,13 +14655,23 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Botafogo",
+        "name": "Corinthians",
         "from": 2010,
-        "to": 2020
+        "to": 2013
+      },
+      {
+        "name": "Tottenham",
+        "from": 2013,
+        "to": 2015
+      },
+      {
+        "name": "Barcelona",
+        "from": 2017,
+        "to": 2019
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2008,
+    "careerEnd": 2022,
     "curatedLists": []
   },
   {
@@ -12003,17 +14706,37 @@
   },
   {
     "name": "Paulo Futre",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "POR",
     "teams": [
       {
-        "name": "Villarreal",
-        "from": 1980,
-        "to": 1990
+        "name": "Sporting CP",
+        "from": 1983,
+        "to": 1987
+      },
+      {
+        "name": "Porto",
+        "from": 1987,
+        "to": 1988
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 1988,
+        "to": 1993
+      },
+      {
+        "name": "AC Milan",
+        "from": 1993,
+        "to": 1994
+      },
+      {
+        "name": "West Ham United",
+        "from": 1995,
+        "to": 1996
       }
     ],
-    "careerStart": 1980,
-    "careerEnd": 1990,
+    "careerStart": 1983,
+    "careerEnd": 2000,
     "curatedLists": []
   },
   {
@@ -12052,13 +14775,33 @@
     "nationality": "POR",
     "teams": [
       {
-        "name": "Atalanta",
-        "from": 1990,
-        "to": 1990
+        "name": "Sporting CP",
+        "from": 1985,
+        "to": 1988
+      },
+      {
+        "name": "Porto",
+        "from": 1988,
+        "to": 1991
+      },
+      {
+        "name": "Juventus",
+        "from": 1991,
+        "to": 1994
+      },
+      {
+        "name": "Borussia Dortmund",
+        "from": 1994,
+        "to": 1996
+      },
+      {
+        "name": "Inter Milan",
+        "from": 1996,
+        "to": 1998
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 1990,
+    "careerStart": 1985,
+    "careerEnd": 2003,
     "curatedLists": []
   },
   {
@@ -12138,13 +14881,18 @@
   },
   {
     "name": "Pelé",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "BRA",
     "teams": [
       {
         "name": "Santos",
         "from": 1956,
         "to": 1974
+      },
+      {
+        "name": "New York Cosmos",
+        "from": 1975,
+        "to": 1977
       }
     ],
     "careerStart": 1956,
@@ -12175,13 +14923,33 @@
     "nationality": "POR",
     "teams": [
       {
-        "name": "Real Sociedad",
-        "from": 2000,
-        "to": 2010
+        "name": "Marítimo",
+        "from": 2001,
+        "to": 2004
+      },
+      {
+        "name": "Porto",
+        "from": 2004,
+        "to": 2007
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2007,
+        "to": 2017
+      },
+      {
+        "name": "Beşiktaş",
+        "from": 2017,
+        "to": 2019
+      },
+      {
+        "name": "Porto",
+        "from": 2019,
+        "to": 2026
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2010,
+    "careerStart": 2001,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -12265,12 +15033,32 @@
     "nationality": "DEN",
     "teams": [
       {
-        "name": "Arsenal",
+        "name": "Brøndby",
+        "from": 1987,
+        "to": 1991
+      },
+      {
+        "name": "Manchester United",
         "from": 1991,
+        "to": 1999
+      },
+      {
+        "name": "Sporting CP",
+        "from": 1999,
+        "to": 2001
+      },
+      {
+        "name": "Aston Villa",
+        "from": 2001,
+        "to": 2002
+      },
+      {
+        "name": "Manchester City",
+        "from": 2002,
         "to": 2003
       }
     ],
-    "careerStart": 1991,
+    "careerStart": 1981,
     "careerEnd": 2003,
     "curatedLists": []
   },
@@ -12310,12 +15098,27 @@
     "nationality": "CZE",
     "teams": [
       {
-        "name": "Leeds United",
+        "name": "Sparta Prague",
+        "from": 2001,
+        "to": 2002
+      },
+      {
+        "name": "Rennes",
+        "from": 2002,
+        "to": 2004
+      },
+      {
+        "name": "Chelsea",
         "from": 2004,
+        "to": 2015
+      },
+      {
+        "name": "Arsenal",
+        "from": 2015,
         "to": 2019
       }
     ],
-    "careerStart": 2004,
+    "careerStart": 2001,
     "careerEnd": 2019,
     "curatedLists": []
   },
@@ -12336,11 +15139,11 @@
   },
   {
     "name": "Philipp Lahm",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Defensor",
     "nationality": "GER",
     "teams": [
       {
-        "name": "Bayern Munich",
+        "name": "Bayern",
         "from": 2002,
         "to": 2017
       }
@@ -12651,17 +15454,22 @@
   },
   {
     "name": "Raí",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Monaco",
-        "from": 1990,
-        "to": 1990
+        "name": "São Paulo",
+        "from": 1987,
+        "to": 1993
+      },
+      {
+        "name": "PSG",
+        "from": 1993,
+        "to": 1998
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 1990,
+    "careerStart": 1987,
+    "careerEnd": 2000,
     "curatedLists": []
   },
   {
@@ -12730,28 +15538,48 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Barcelona",
+        "name": "Leeds United",
         "from": 2020,
-        "to": 2020
+        "to": 2022
+      },
+      {
+        "name": "Barcelona",
+        "from": 2022,
+        "to": 2026
       }
     ],
-    "careerStart": 2020,
-    "careerEnd": 2020,
+    "careerStart": 2014,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
     "name": "Raúl González",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Sevilla",
+        "name": "Real Madrid",
         "from": 1994,
         "to": 2010
+      },
+      {
+        "name": "Schalke 04",
+        "from": 2010,
+        "to": 2012
+      },
+      {
+        "name": "Al Sadd",
+        "from": 2012,
+        "to": 2013
+      },
+      {
+        "name": "New York Cosmos",
+        "from": 2014,
+        "to": 2015
       }
     ],
     "careerStart": 1994,
-    "careerEnd": 2010,
+    "careerEnd": 2015,
     "curatedLists": []
   },
   {
@@ -12876,13 +15704,23 @@
   },
   {
     "name": "Renato Gaúcho",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "São Paulo",
+        "name": "Grêmio",
         "from": 1982,
-        "to": 1998
+        "to": 1986
+      },
+      {
+        "name": "Flamengo",
+        "from": 1986,
+        "to": 1991
+      },
+      {
+        "name": "São Paulo",
+        "from": 1991,
+        "to": 1993
       }
     ],
     "careerStart": 1982,
@@ -12910,13 +15748,33 @@
     "nationality": "POR",
     "teams": [
       {
-        "name": "Marseille",
-        "from": 2010,
-        "to": 2020
+        "name": "Benfica",
+        "from": 2014,
+        "to": 2016
+      },
+      {
+        "name": "Bayern Munich",
+        "from": 2016,
+        "to": 2019
+      },
+      {
+        "name": "Swansea City",
+        "from": 2017,
+        "to": 2018
+      },
+      {
+        "name": "Lille",
+        "from": 2019,
+        "to": 2022
+      },
+      {
+        "name": "Nice",
+        "from": 2022,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2014,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -12955,13 +15813,28 @@
     "nationality": "POR",
     "teams": [
       {
-        "name": "Arsenal",
-        "from": 2000,
-        "to": 2000
+        "name": "Porto",
+        "from": 1998,
+        "to": 2004
+      },
+      {
+        "name": "Chelsea",
+        "from": 2004,
+        "to": 2010
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2010,
+        "to": 2013
+      },
+      {
+        "name": "Monaco",
+        "from": 2013,
+        "to": 2016
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2000,
+    "careerStart": 1998,
+    "careerEnd": 2020,
     "curatedLists": []
   },
   {
@@ -13060,13 +15933,28 @@
     "nationality": "ENG",
     "teams": [
       {
+        "name": "West Ham",
+        "from": 1995,
+        "to": 2000
+      },
+      {
         "name": "Leeds United",
-        "from": 1996,
+        "from": 2000,
+        "to": 2002
+      },
+      {
+        "name": "Manchester United",
+        "from": 2002,
         "to": 2014
+      },
+      {
+        "name": "Queens Park Rangers",
+        "from": 2014,
+        "to": 2015
       }
     ],
-    "careerStart": 1996,
-    "careerEnd": 2014,
+    "careerStart": 1995,
+    "careerEnd": 2015,
     "curatedLists": []
   },
   {
@@ -13105,9 +15993,24 @@
     "nationality": "BRA",
     "teams": [
       {
+        "name": "Palmeiras",
+        "from": 1993,
+        "to": 1996
+      },
+      {
+        "name": "Deportivo La Coruña",
+        "from": 1996,
+        "to": 1997
+      },
+      {
         "name": "Barcelona",
         "from": 1997,
         "to": 2002
+      },
+      {
+        "name": "AC Milan",
+        "from": 2002,
+        "to": 2003
       }
     ],
     "careerStart": 1991,
@@ -13119,17 +16022,17 @@
   },
   {
     "name": "Rivelino",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Botafogo",
+        "name": "Corinthians",
         "from": 1965,
-        "to": 1978
+        "to": 1974
       }
     ],
     "careerStart": 1965,
-    "careerEnd": 1978,
+    "careerEnd": 1981,
     "curatedLists": []
   },
   {
@@ -13209,17 +16112,32 @@
   },
   {
     "name": "Robert Lewandowski",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "POL",
     "teams": [
       {
-        "name": "Real Sociedad",
-        "from": 2020,
-        "to": 2020
+        "name": "Lech Poznań",
+        "from": 2006,
+        "to": 2008
+      },
+      {
+        "name": "Borussia Dortmund",
+        "from": 2010,
+        "to": 2014
+      },
+      {
+        "name": "Bayern",
+        "from": 2014,
+        "to": 2022
+      },
+      {
+        "name": "Barcelona",
+        "from": 2022,
+        "to": 2026
       }
     ],
-    "careerStart": 2020,
-    "careerEnd": 2020,
+    "careerStart": 2006,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -13269,16 +16187,46 @@
   },
   {
     "name": "Roberto Baggio",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "ITA",
     "teams": [
       {
-        "name": "AC Milan",
+        "name": "Vicenza",
+        "from": 1982,
+        "to": 1985
+      },
+      {
+        "name": "Fiorentina",
         "from": 1985,
+        "to": 1990
+      },
+      {
+        "name": "Juventus",
+        "from": 1990,
+        "to": 1995
+      },
+      {
+        "name": "AC Milan",
+        "from": 1995,
+        "to": 1997
+      },
+      {
+        "name": "Bologna",
+        "from": 1997,
+        "to": 1998
+      },
+      {
+        "name": "Inter Milan",
+        "from": 1998,
+        "to": 2000
+      },
+      {
+        "name": "Brescia",
+        "from": 2000,
         "to": 2004
       }
     ],
-    "careerStart": 1985,
+    "careerStart": 1982,
     "careerEnd": 2004,
     "curatedLists": []
   },
@@ -13303,9 +16251,24 @@
     "nationality": "BRA",
     "teams": [
       {
+        "name": "Palmeiras",
+        "from": 1991,
+        "to": 1993
+      },
+      {
+        "name": "Inter Milan",
+        "from": 1995,
+        "to": 1996
+      },
+      {
         "name": "Real Madrid",
         "from": 1996,
         "to": 2007
+      },
+      {
+        "name": "Corinthians",
+        "from": 2010,
+        "to": 2012
       }
     ],
     "careerStart": 1991,
@@ -13321,13 +16284,13 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Flamengo",
+        "name": "Vasco da Gama",
         "from": 1971,
         "to": 1992
       }
     ],
     "careerStart": 1971,
-    "careerEnd": 1992,
+    "careerEnd": 1993,
     "curatedLists": []
   },
   {
@@ -13396,28 +16359,58 @@
     "nationality": "NED",
     "teams": [
       {
-        "name": "West Ham",
+        "name": "Feyenoord",
+        "from": 2001,
+        "to": 2004
+      },
+      {
+        "name": "Arsenal",
         "from": 2004,
+        "to": 2012
+      },
+      {
+        "name": "Manchester United",
+        "from": 2012,
         "to": 2015
+      },
+      {
+        "name": "Fenerbahçe",
+        "from": 2015,
+        "to": 2018
+      },
+      {
+        "name": "Feyenoord",
+        "from": 2018,
+        "to": 2019
       }
     ],
-    "careerStart": 2004,
-    "careerEnd": 2015,
+    "careerStart": 2001,
+    "careerEnd": 2019,
     "curatedLists": []
   },
   {
     "name": "Robinho",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Fluminense",
-        "from": 2000,
+        "name": "Santos",
+        "from": 2002,
+        "to": 2005
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2005,
+        "to": 2008
+      },
+      {
+        "name": "Manchester City",
+        "from": 2008,
         "to": 2010
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2010,
+    "careerStart": 2002,
+    "careerEnd": 2020,
     "curatedLists": []
   },
   {
@@ -13456,13 +16449,18 @@
     "nationality": "BRA",
     "teams": [
       {
+        "name": "Santos",
+        "from": 2017,
+        "to": 2019
+      },
+      {
         "name": "Real Madrid",
-        "from": 2010,
-        "to": 2020
+        "from": 2019,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2017,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -13497,16 +16495,16 @@
   },
   {
     "name": "Rogério Ceni",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Goleiro",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Palmeiras",
-        "from": 1993,
+        "name": "São Paulo",
+        "from": 1990,
         "to": 2015
       }
     ],
-    "careerStart": 1993,
+    "careerStart": 1990,
     "careerEnd": 2015,
     "curatedLists": []
   },
@@ -13530,6 +16528,16 @@
     "primaryPosition": "Atacante",
     "nationality": "BRA",
     "teams": [
+      {
+        "name": "Vasco da Gama",
+        "from": 1985,
+        "to": 1988
+      },
+      {
+        "name": "PSV",
+        "from": 1988,
+        "to": 1993
+      },
       {
         "name": "Barcelona",
         "from": 1993,
@@ -13584,24 +16592,59 @@
     "nationality": "NED",
     "teams": [
       {
-        "name": "Valencia",
+        "name": "Groningen",
         "from": 1980,
-        "to": 1990
+        "to": 1983
+      },
+      {
+        "name": "Ajax",
+        "from": 1983,
+        "to": 1986
+      },
+      {
+        "name": "PSV",
+        "from": 1986,
+        "to": 1989
+      },
+      {
+        "name": "Barcelona",
+        "from": 1989,
+        "to": 1995
+      },
+      {
+        "name": "Feyenoord",
+        "from": 1995,
+        "to": 1997
       }
     ],
     "careerStart": 1980,
-    "careerEnd": 1990,
+    "careerEnd": 1997,
     "curatedLists": []
   },
   {
     "name": "Ronaldinho",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "BRA",
     "teams": [
+      {
+        "name": "Grêmio",
+        "from": 1998,
+        "to": 2001
+      },
+      {
+        "name": "Paris Saint-Germain",
+        "from": 2001,
+        "to": 2003
+      },
       {
         "name": "Barcelona",
         "from": 2003,
         "to": 2008
+      },
+      {
+        "name": "AC Milan",
+        "from": 2009,
+        "to": 2011
       }
     ],
     "careerStart": 1998,
@@ -13647,14 +16690,29 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Real Madrid",
-        "from": 2002,
-        "to": 2007
+        "name": "Cruzeiro",
+        "from": 1993,
+        "to": 1994
+      },
+      {
+        "name": "PSV",
+        "from": 1994,
+        "to": 1996
       },
       {
         "name": "Barcelona",
         "from": 1996,
         "to": 1997
+      },
+      {
+        "name": "Inter Milan",
+        "from": 1997,
+        "to": 2002
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2002,
+        "to": 2007
       }
     ],
     "careerStart": 1993,
@@ -13700,28 +16758,53 @@
     "nationality": "IRL",
     "teams": [
       {
-        "name": "Manchester City",
-        "from": 1990,
+        "name": "Nottingham Forest",
+        "from": 1989,
+        "to": 1993
+      },
+      {
+        "name": "Manchester United",
+        "from": 1993,
         "to": 2005
+      },
+      {
+        "name": "Celtic",
+        "from": 2005,
+        "to": 2006
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2005,
+    "careerStart": 1989,
+    "careerEnd": 2006,
     "curatedLists": []
   },
   {
     "name": "Roy Makaay",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "NED",
     "teams": [
       {
-        "name": "Atlético Madrid",
+        "name": "Vitesse",
         "from": 1990,
-        "to": 2000
+        "to": 1993
+      },
+      {
+        "name": "Tenerife",
+        "from": 1993,
+        "to": 1995
+      },
+      {
+        "name": "Deportivo La Coruña",
+        "from": 1997,
+        "to": 2003
+      },
+      {
+        "name": "Bayern Munich",
+        "from": 2003,
+        "to": 2007
       }
     ],
     "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerEnd": 2009,
     "curatedLists": []
   },
   {
@@ -13741,17 +16824,22 @@
   },
   {
     "name": "Rúben Dias",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Defensor",
     "nationality": "POR",
     "teams": [
       {
-        "name": "Liverpool",
-        "from": 2020,
+        "name": "Benfica",
+        "from": 2015,
         "to": 2020
+      },
+      {
+        "name": "Manchester City",
+        "from": 2020,
+        "to": 2026
       }
     ],
-    "careerStart": 2020,
-    "careerEnd": 2020,
+    "careerStart": 2015,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -13805,28 +16893,63 @@
     "nationality": "POR",
     "teams": [
       {
-        "name": "Fiorentina",
+        "name": "Benfica",
         "from": 1990,
-        "to": 2000
+        "to": 1994
+      },
+      {
+        "name": "Fiorentina",
+        "from": 1994,
+        "to": 2001
+      },
+      {
+        "name": "AC Milan",
+        "from": 2001,
+        "to": 2006
       }
     ],
     "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerEnd": 2008,
     "curatedLists": []
   },
   {
     "name": "Ruud Gullit",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "NED",
     "teams": [
       {
-        "name": "Inter Milan",
+        "name": "Haarlem",
+        "from": 1979,
+        "to": 1982
+      },
+      {
+        "name": "Feyenoord",
+        "from": 1982,
+        "to": 1985
+      },
+      {
+        "name": "PSV",
+        "from": 1985,
+        "to": 1987
+      },
+      {
+        "name": "AC Milan",
         "from": 1987,
-        "to": 1995
+        "to": 1993
+      },
+      {
+        "name": "Sampdoria",
+        "from": 1993,
+        "to": 1994
+      },
+      {
+        "name": "Chelsea",
+        "from": 1995,
+        "to": 1998
       }
     ],
-    "careerStart": 1987,
-    "careerEnd": 1995,
+    "careerStart": 1979,
+    "careerEnd": 1998,
     "curatedLists": []
   },
   {
@@ -13835,38 +16958,68 @@
     "nationality": "NED",
     "teams": [
       {
-        "name": "Atalanta",
-        "from": 1980,
+        "name": "Ajax",
+        "from": 1968,
         "to": 1980
+      },
+      {
+        "name": "Napoli",
+        "from": 1980,
+        "to": 1982
+      },
+      {
+        "name": "Cannes",
+        "from": 1982,
+        "to": 1985
       }
     ],
-    "careerStart": 1980,
-    "careerEnd": 1980,
+    "careerStart": 1968,
+    "careerEnd": 1988,
     "curatedLists": []
   },
   {
     "name": "Ruud van Nistelrooy",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "NED",
     "teams": [
       {
-        "name": "West Ham",
+        "name": "PSV",
+        "from": 1998,
+        "to": 2001
+      },
+      {
+        "name": "Manchester United",
         "from": 2001,
         "to": 2006
+      },
+      {
+        "name": "Real Madrid",
+        "from": 2006,
+        "to": 2010
+      },
+      {
+        "name": "Hamburg",
+        "from": 2010,
+        "to": 2012
+      },
+      {
+        "name": "Málaga",
+        "from": 2011,
+        "to": 2012
       }
     ],
-    "careerStart": 2001,
-    "careerEnd": 2006,
+    "careerStart": 1994,
+    "careerEnd": 2012,
     "curatedLists": []
   },
   {
     "name": "Ryan Giggs",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Meia",
     "nationality": "WAL",
     "teams": [
       {
-        "name": "West Ham",
-        "from": 1990,
+        "name": "Manchester United",
+        "from": 1991,
         "to": 2014
       }
     ],
@@ -13996,17 +17149,57 @@
   },
   {
     "name": "Samuel Eto'o",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "CMR",
     "teams": [
       {
-        "name": "Valencia",
-        "from": 1998,
+        "name": "Real Madrid",
+        "from": 1997,
+        "to": 2000
+      },
+      {
+        "name": "Mallorca",
+        "from": 2000,
+        "to": 2004
+      },
+      {
+        "name": "Barcelona",
+        "from": 2004,
         "to": 2009
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2009,
+        "to": 2011
+      },
+      {
+        "name": "Anzhi",
+        "from": 2011,
+        "to": 2013
+      },
+      {
+        "name": "Chelsea",
+        "from": 2013,
+        "to": 2014
+      },
+      {
+        "name": "Everton",
+        "from": 2014,
+        "to": 2015
+      },
+      {
+        "name": "Sampdoria",
+        "from": 2015,
+        "to": 2016
+      },
+      {
+        "name": "Antalyaspor",
+        "from": 2016,
+        "to": 2018
       }
     ],
-    "careerStart": 1998,
-    "careerEnd": 2009,
+    "careerStart": 1997,
+    "careerEnd": 2019,
     "curatedLists": []
   },
   {
@@ -14015,12 +17208,12 @@
     "nationality": "ITA",
     "teams": [
       {
-        "name": "Inter",
-        "from": 1961,
+        "name": "Inter Milan",
+        "from": 1960,
         "to": 1977
       }
     ],
-    "careerStart": 1961,
+    "careerStart": 1960,
     "careerEnd": 1977,
     "curatedLists": []
   },
@@ -14191,16 +17384,16 @@
   },
   {
     "name": "Sepp Maier",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Goleiro",
     "nationality": "GER",
     "teams": [
       {
-        "name": "RB Leipzig",
-        "from": 1966,
+        "name": "Bayern Munich",
+        "from": 1962,
         "to": 1979
       }
     ],
-    "careerStart": 1966,
+    "careerStart": 1962,
     "careerEnd": 1979,
     "curatedLists": []
   },
@@ -14236,17 +17429,27 @@
   },
   {
     "name": "Serginho",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Defensor",
     "nationality": "BRA",
     "teams": [
       {
+        "name": "São Paulo",
+        "from": 1984,
+        "to": 1993
+      },
+      {
         "name": "Juventus",
-        "from": 1990,
-        "to": 2000
+        "from": 1993,
+        "to": 1995
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 1995,
+        "to": 1996
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerStart": 1984,
+    "careerEnd": 2001,
     "curatedLists": []
   },
   {
@@ -14266,16 +17469,31 @@
   },
   {
     "name": "Sergio Agüero",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Atacante",
     "nationality": "ARG",
     "teams": [
       {
-        "name": "Chelsea",
+        "name": "Independiente",
+        "from": 2003,
+        "to": 2006
+      },
+      {
+        "name": "Atlético Madrid",
+        "from": 2006,
+        "to": 2011
+      },
+      {
+        "name": "Manchester City",
         "from": 2011,
+        "to": 2021
+      },
+      {
+        "name": "Barcelona",
+        "from": 2021,
         "to": 2021
       }
     ],
-    "careerStart": 2011,
+    "careerStart": 2003,
     "careerEnd": 2021,
     "curatedLists": []
   },
@@ -14288,6 +17506,11 @@
         "name": "Barcelona",
         "from": 2008,
         "to": 2023
+      },
+      {
+        "name": "Inter Miami",
+        "from": 2023,
+        "to": 2024
       }
     ],
     "careerStart": 2006,
@@ -14333,6 +17556,11 @@
     "nationality": "ESP",
     "teams": [
       {
+        "name": "Sevilla",
+        "from": 2003,
+        "to": 2005
+      },
+      {
         "name": "Real Madrid",
         "from": 2005,
         "to": 2021
@@ -14356,13 +17584,33 @@
     "nationality": "IRL",
     "teams": [
       {
-        "name": "Manchester United",
-        "from": 1990,
-        "to": 2010
+        "name": "Blackburn Rovers",
+        "from": 1994,
+        "to": 1997
+      },
+      {
+        "name": "Newcastle United",
+        "from": 1997,
+        "to": 2009
+      },
+      {
+        "name": "Manchester City",
+        "from": 2009,
+        "to": 2011
+      },
+      {
+        "name": "Aston Villa",
+        "from": 2011,
+        "to": 2015
+      },
+      {
+        "name": "Stoke City",
+        "from": 2015,
+        "to": 2017
       }
     ],
-    "careerStart": 1990,
-    "careerEnd": 2010,
+    "careerStart": 1994,
+    "careerEnd": 2017,
     "curatedLists": []
   },
   {
@@ -14461,9 +17709,19 @@
     "nationality": "BRA",
     "teams": [
       {
+        "name": "Botafogo-SP",
+        "from": 1974,
+        "to": 1978
+      },
+      {
         "name": "Corinthians",
         "from": 1978,
         "to": 1984
+      },
+      {
+        "name": "Fiorentina",
+        "from": 1984,
+        "to": 1985
       }
     ],
     "careerStart": 1974,
@@ -14751,6 +18009,11 @@
         "name": "Liverpool",
         "from": 1998,
         "to": 2015
+      },
+      {
+        "name": "LA Galaxy",
+        "from": 2015,
+        "to": 2016
       }
     ],
     "careerStart": 1998,
@@ -14822,17 +18085,32 @@
   },
   {
     "name": "Sylvain Wiltord",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Atacante",
     "nationality": "FRA",
     "teams": [
       {
         "name": "Rennes",
         "from": 1990,
+        "to": 1997
+      },
+      {
+        "name": "Bordeaux",
+        "from": 1997,
         "to": 2000
+      },
+      {
+        "name": "Arsenal",
+        "from": 2000,
+        "to": 2004
+      },
+      {
+        "name": "Lyon",
+        "from": 2004,
+        "to": 2007
       }
     ],
     "careerStart": 1990,
-    "careerEnd": 2000,
+    "careerEnd": 2012,
     "curatedLists": []
   },
   {
@@ -14841,14 +18119,19 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Grêmio",
+        "name": "Internacional",
         "from": 1985,
         "to": 1988
       },
       {
-        "name": "Atlético Mineiro",
-        "from": 1998,
-        "to": 2001
+        "name": "Grêmio",
+        "from": 1988,
+        "to": 1998
+      },
+      {
+        "name": "Galatasaray",
+        "from": 2001,
+        "to": 2002
       }
     ],
     "careerStart": 1985,
@@ -15009,17 +18292,27 @@
   },
   {
     "name": "Thiago Silva",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Defensor",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Lens",
-        "from": 2010,
+        "name": "AC Milan",
+        "from": 2009,
+        "to": 2012
+      },
+      {
+        "name": "PSG",
+        "from": 2012,
         "to": 2020
+      },
+      {
+        "name": "Chelsea",
+        "from": 2020,
+        "to": 2024
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2004,
+    "careerEnd": 2024,
     "curatedLists": []
   },
   {
@@ -15042,6 +18335,11 @@
     "primaryPosition": "Atacante",
     "nationality": "FRA",
     "teams": [
+      {
+        "name": "Monaco",
+        "from": 1994,
+        "to": 1999
+      },
       {
         "name": "Arsenal",
         "from": 1999,
@@ -15126,13 +18424,13 @@
     "nationality": "GER",
     "teams": [
       {
-        "name": "RB Leipzig",
-        "from": 2009,
-        "to": 2025
+        "name": "Bayern",
+        "from": 2008,
+        "to": 2026
       }
     ],
-    "careerStart": 2009,
-    "careerEnd": 2025,
+    "careerStart": 2008,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -15242,16 +18540,26 @@
   },
   {
     "name": "Toni Kroos",
-    "primaryPosition": "Goleiro",
+    "primaryPosition": "Meia",
     "nationality": "GER",
     "teams": [
       {
-        "name": "Villarreal",
+        "name": "Bayern",
+        "from": 2007,
+        "to": 2009
+      },
+      {
+        "name": "Bayer Leverkusen",
+        "from": 2009,
+        "to": 2014
+      },
+      {
+        "name": "Real Madrid",
         "from": 2014,
         "to": 2024
       }
     ],
-    "careerStart": 2014,
+    "careerStart": 2007,
     "careerEnd": 2024,
     "curatedLists": []
   },
@@ -15381,9 +18689,19 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Fluminense",
+        "name": "Botafogo",
         "from": 1988,
-        "to": 2005
+        "to": 1991
+      },
+      {
+        "name": "Fluminense",
+        "from": 1991,
+        "to": 1993
+      },
+      {
+        "name": "Atlético Mineiro",
+        "from": 1998,
+        "to": 2000
       }
     ],
     "careerStart": 1988,
@@ -15602,17 +18920,22 @@
   },
   {
     "name": "Victor",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Goleiro",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Internacional",
-        "from": 2000,
-        "to": 2020
+        "name": "Grêmio",
+        "from": 2008,
+        "to": 2012
+      },
+      {
+        "name": "Atlético Mineiro",
+        "from": 2012,
+        "to": 2021
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2020,
+    "careerStart": 2001,
+    "careerEnd": 2021,
     "curatedLists": []
   },
   {
@@ -15711,43 +19034,68 @@
     "nationality": "BRA",
     "teams": [
       {
+        "name": "Flamengo",
+        "from": 2017,
+        "to": 2018
+      },
+      {
         "name": "Real Madrid",
-        "from": 2010,
-        "to": 2020
+        "from": 2018,
+        "to": 2026
       }
     ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
+    "careerStart": 2017,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
     "name": "Virgil van Dijk",
-    "primaryPosition": "Atacante",
+    "primaryPosition": "Defensor",
     "nationality": "NED",
     "teams": [
       {
-        "name": "Newcastle",
+        "name": "Groningen",
+        "from": 2010,
+        "to": 2011
+      },
+      {
+        "name": "Celtic",
+        "from": 2013,
+        "to": 2015
+      },
+      {
+        "name": "Southampton",
         "from": 2015,
+        "to": 2018
+      },
+      {
+        "name": "Liverpool",
+        "from": 2018,
         "to": 2026
       }
     ],
-    "careerStart": 2015,
+    "careerStart": 2010,
     "careerEnd": 2026,
     "curatedLists": []
   },
   {
     "name": "Vitinha",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "POR",
     "teams": [
       {
-        "name": "Nice",
+        "name": "Porto",
         "from": 2020,
-        "to": 2020
+        "to": 2022
+      },
+      {
+        "name": "PSG",
+        "from": 2022,
+        "to": 2026
       }
     ],
     "careerStart": 2020,
-    "careerEnd": 2020,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -15797,17 +19145,37 @@
   },
   {
     "name": "Walter Zenga",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Goleiro",
     "nationality": "ITA",
     "teams": [
       {
-        "name": "Roma",
-        "from": 1981,
+        "name": "Inter Milan",
+        "from": 1983,
         "to": 1994
+      },
+      {
+        "name": "Internacional",
+        "from": 1994,
+        "to": 1995
+      },
+      {
+        "name": "Padova",
+        "from": 1995,
+        "to": 1997
+      },
+      {
+        "name": "Venezia",
+        "from": 1997,
+        "to": 1999
+      },
+      {
+        "name": "Arezzo",
+        "from": 1999,
+        "to": 2003
       }
     ],
-    "careerStart": 1981,
-    "careerEnd": 1994,
+    "careerStart": 1983,
+    "careerEnd": 2003,
     "curatedLists": []
   },
   {
@@ -15861,13 +19229,33 @@
     "nationality": "ENG",
     "teams": [
       {
-        "name": "Tottenham",
+        "name": "Everton",
         "from": 2002,
+        "to": 2004
+      },
+      {
+        "name": "Manchester United",
+        "from": 2004,
+        "to": 2017
+      },
+      {
+        "name": "Everton",
+        "from": 2017,
         "to": 2018
+      },
+      {
+        "name": "DC United",
+        "from": 2018,
+        "to": 2020
+      },
+      {
+        "name": "Derby County",
+        "from": 2020,
+        "to": 2021
       }
     ],
     "careerStart": 2002,
-    "careerEnd": 2018,
+    "careerEnd": 2021,
     "curatedLists": []
   },
   {
@@ -15902,17 +19290,22 @@
   },
   {
     "name": "Weverton",
-    "primaryPosition": "Meia",
+    "primaryPosition": "Goleiro",
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Flamengo",
-        "from": 2000,
-        "to": 2020
+        "name": "Palmeiras",
+        "from": 2018,
+        "to": 2026
+      },
+      {
+        "name": "Grêmio",
+        "from": 2026,
+        "to": 2026
       }
     ],
-    "careerStart": 2000,
-    "careerEnd": 2020,
+    "careerStart": 2007,
+    "careerEnd": 2026,
     "curatedLists": []
   },
   {
@@ -16044,6 +19437,11 @@
         "name": "Barcelona",
         "from": 1998,
         "to": 2015
+      },
+      {
+        "name": "Al Sadd",
+        "from": 2015,
+        "to": 2019
       }
     ],
     "careerStart": 1998,
@@ -16055,17 +19453,22 @@
   },
   {
     "name": "Xavi Hernández",
-    "primaryPosition": "Defensor",
+    "primaryPosition": "Meia",
     "nationality": "ESP",
     "teams": [
       {
-        "name": "Atlético Madrid",
+        "name": "Barcelona",
         "from": 1998,
         "to": 2015
+      },
+      {
+        "name": "Al Sadd",
+        "from": 2015,
+        "to": 2019
       }
     ],
     "careerStart": 1998,
-    "careerEnd": 2015,
+    "careerEnd": 2019,
     "curatedLists": []
   },
   {
@@ -16194,13 +19597,18 @@
     "nationality": "BRA",
     "teams": [
       {
-        "name": "Internacional",
-        "from": 1940,
-        "to": 1960
+        "name": "Flamengo",
+        "from": 1950,
+        "to": 1958
+      },
+      {
+        "name": "Botafogo",
+        "from": 1958,
+        "to": 1965
       }
     ],
-    "careerStart": 1940,
-    "careerEnd": 1960,
+    "careerStart": 1950,
+    "careerEnd": 1965,
     "curatedLists": []
   },
   {
@@ -16234,6 +19642,26 @@
     "curatedLists": []
   },
   {
+    "name": "Zetti",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      {
+        "name": "São Paulo",
+        "from": 1986,
+        "to": 1999
+      },
+      {
+        "name": "Santos",
+        "from": 2000,
+        "to": 2001
+      }
+    ],
+    "careerStart": 1986,
+    "careerEnd": 2003,
+    "curatedLists": []
+  },
+  {
     "name": "Zico",
     "primaryPosition": "Meia",
     "nationality": "BRA",
@@ -16242,6 +19670,16 @@
         "name": "Flamengo",
         "from": 1971,
         "to": 1983
+      },
+      {
+        "name": "Udinese",
+        "from": 1983,
+        "to": 1985
+      },
+      {
+        "name": "Flamengo",
+        "from": 1985,
+        "to": 1989
       }
     ],
     "careerStart": 1971,
@@ -16256,6 +19694,16 @@
     "primaryPosition": "Meia",
     "nationality": "FRA",
     "teams": [
+      {
+        "name": "Cannes",
+        "from": 1989,
+        "to": 1992
+      },
+      {
+        "name": "Bordeaux",
+        "from": 1992,
+        "to": 1996
+      },
       {
         "name": "Juventus",
         "from": 1996,
@@ -16325,12 +19773,57 @@
     "nationality": "SWE",
     "teams": [
       {
-        "name": "Inter Milan",
+        "name": "Malmö",
+        "from": 1999,
+        "to": 2001
+      },
+      {
+        "name": "Ajax",
+        "from": 2001,
+        "to": 2004
+      },
+      {
+        "name": "Juventus",
         "from": 2004,
+        "to": 2006
+      },
+      {
+        "name": "Inter Milan",
+        "from": 2006,
+        "to": 2009
+      },
+      {
+        "name": "Barcelona",
+        "from": 2009,
+        "to": 2011
+      },
+      {
+        "name": "AC Milan",
+        "from": 2010,
+        "to": 2012
+      },
+      {
+        "name": "PSG",
+        "from": 2012,
+        "to": 2016
+      },
+      {
+        "name": "Manchester United",
+        "from": 2016,
+        "to": 2018
+      },
+      {
+        "name": "LA Galaxy",
+        "from": 2018,
+        "to": 2019
+      },
+      {
+        "name": "AC Milan",
+        "from": 2020,
         "to": 2023
       }
     ],
-    "careerStart": 2004,
+    "careerStart": 1999,
     "careerEnd": 2023,
     "curatedLists": []
   }

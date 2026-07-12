@@ -1,0 +1,829 @@
+[
+  {
+    "name": "Adriano Imperador",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Flamengo", "from": 2000, "to": 2002 },
+      { "name": "Inter Milan", "from": 2002, "to": 2009 },
+      { "name": "Roma", "from": 2009, "to": 2010 }
+    ],
+    "careerStart": 2000,
+    "careerEnd": 2016
+  },
+  {
+    "name": "Aldair",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Benfica", "from": 1989, "to": 1990 },
+      { "name": "Roma", "from": 1990, "to": 2003 }
+    ],
+    "careerStart": 1985,
+    "careerEnd": 2003
+  },
+  {
+    "name": "Alex",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Grêmio", "from": 1997, "to": 2000 },
+      { "name": "PSG", "from": 2001, "to": 2004 },
+      { "name": "Chelsea", "from": 2004, "to": 2008 }
+    ],
+    "careerStart": 1997,
+    "careerEnd": 2013
+  },
+  {
+    "name": "Alexandre Pato",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Internacional", "from": 2006, "to": 2007 },
+      { "name": "AC Milan", "from": 2007, "to": 2013 },
+      { "name": "São Paulo", "from": 2013, "to": 2014 }
+    ],
+    "careerStart": 2006,
+    "careerEnd": 2020
+  },
+  {
+    "name": "Alisson Becker",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Internacional", "from": 2013, "to": 2016 },
+      { "name": "Roma", "from": 2016, "to": 2018 },
+      { "name": "Liverpool", "from": 2018, "to": 2026 }
+    ],
+    "careerStart": 2013,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Arrascaeta",
+    "primaryPosition": "Meia",
+    "nationality": "URU",
+    "teams": [
+      { "name": "Cruzeiro", "from": 2015, "to": 2018 },
+      { "name": "Flamengo", "from": 2019, "to": 2026 }
+    ],
+    "careerStart": 2012,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Basílio",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Corinthians", "from": 1975, "to": 1984 }
+    ],
+    "careerStart": 1970,
+    "careerEnd": 1984,
+    "note": "Autor do gol do título paulista de 1977; não é goleiro"
+  },
+  {
+    "name": "Bebeto",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Flamengo", "from": 1983, "to": 1986 },
+      { "name": "Deportivo La Coruña", "from": 1992, "to": 1996 }
+    ],
+    "careerStart": 1983,
+    "careerEnd": 1999
+  },
+  {
+    "name": "Bellini",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Santos", "from": 1956, "to": 1967 },
+      { "name": "São Paulo", "from": 1967, "to": 1969 }
+    ],
+    "careerStart": 1956,
+    "careerEnd": 1969
+  },
+  {
+    "name": "Branco",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Fluminense", "from": 1982, "to": 1987 },
+      { "name": "Brescia", "from": 1991, "to": 1993 },
+      { "name": "Porto", "from": 1993, "to": 1994 }
+    ],
+    "careerStart": 1982,
+    "careerEnd": 2002
+  },
+  {
+    "name": "Calleri",
+    "primaryPosition": "Atacante",
+    "nationality": "ARG",
+    "teams": [
+      { "name": "São Paulo", "from": 2016, "to": 2018 },
+      { "name": "Palmeiras", "from": 2022, "to": 2026 }
+    ],
+    "careerStart": 2014,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Careca",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "São Paulo", "from": 1983, "to": 1987 },
+      { "name": "Napoli", "from": 1987, "to": 1993 }
+    ],
+    "careerStart": 1978,
+    "careerEnd": 1997
+  },
+  {
+    "name": "Carlos Alberto Torres",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Santos", "from": 1963, "to": 1974 },
+      { "name": "Fluminense", "from": 1974, "to": 1977 }
+    ],
+    "careerStart": 1963,
+    "careerEnd": 1982
+  },
+  {
+    "name": "Cássio",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Corinthians", "from": 2012, "to": 2026 }
+    ],
+    "careerStart": 2006,
+    "careerEnd": 2026
+  },
+  {
+    "name": "César Maluco",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Flamengo", "from": 1965, "to": 1968 },
+      { "name": "Palmeiras", "from": 1968, "to": 1975 }
+    ],
+    "careerStart": 1965,
+    "careerEnd": 1981,
+    "note": "Centroavante do Palmeiras; não é goleiro"
+  },
+  {
+    "name": "Clodoaldo",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Santos", "from": 1966, "to": 1974 },
+      { "name": "PSG", "from": 1974, "to": 1977 }
+    ],
+    "careerStart": 1966,
+    "careerEnd": 1981
+  },
+  {
+    "name": "Coutinho",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Santos", "from": 1958, "to": 1970 }
+    ],
+    "careerStart": 1958,
+    "careerEnd": 1973,
+    "note": "Centroavante do Santos ao lado de Pelé; não é goleiro"
+  },
+  {
+    "name": "David Luiz",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Benfica", "from": 2007, "to": 2011 },
+      { "name": "Chelsea", "from": 2011, "to": 2014 },
+      { "name": "Arsenal", "from": 2019, "to": 2021 }
+    ],
+    "careerStart": 2005,
+    "careerEnd": 2024
+  },
+  {
+    "name": "Deyverson",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Palmeiras", "from": 2016, "to": 2021 },
+      { "name": "Atlético Mineiro", "from": 2021, "to": 2023 }
+    ],
+    "careerStart": 2011,
+    "careerEnd": 2024
+  },
+  {
+    "name": "Dida",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Cruzeiro", "from": 1991, "to": 2000 },
+      { "name": "Corinthians", "from": 2000, "to": 2001 },
+      { "name": "AC Milan", "from": 2000, "to": 2010 }
+    ],
+    "careerStart": 1991,
+    "careerEnd": 2015
+  },
+  {
+    "name": "Diego Ribas",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Santos", "from": 2002, "to": 2004 },
+      { "name": "Porto", "from": 2004, "to": 2006 },
+      { "name": "Atlético Madrid", "from": 2010, "to": 2014 }
+    ],
+    "careerStart": 2002,
+    "careerEnd": 2020
+  },
+  {
+    "name": "Djalma Santos",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Santos", "from": 1959, "to": 1965 },
+      { "name": "Botafogo", "from": 1965, "to": 1968 }
+    ],
+    "careerStart": 1948,
+    "careerEnd": 1970
+  },
+  {
+    "name": "Djalminha",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "São Paulo", "from": 1992, "to": 1994 },
+      { "name": "Deportivo La Coruña", "from": 1994, "to": 2004 }
+    ],
+    "careerStart": 1990,
+    "careerEnd": 2005
+  },
+  {
+    "name": "Éder Aleixo",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Botafogo", "from": 1976, "to": 1982 },
+      { "name": "Torino", "from": 1982, "to": 1985 }
+    ],
+    "careerStart": 1972,
+    "careerEnd": 1986
+  },
+  {
+    "name": "Ederson",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "São Paulo", "from": 2011, "to": 2012 },
+      { "name": "Benfica", "from": 2012, "to": 2017 },
+      { "name": "Manchester City", "from": 2017, "to": 2026 }
+    ],
+    "careerStart": 2011,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Edmundo",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Palmeiras", "from": 1992, "to": 1996 },
+      { "name": "Vasco da Gama", "from": 1996, "to": 2000 },
+      { "name": "Flamengo", "from": 2000, "to": 2002 }
+    ],
+    "careerStart": 1991,
+    "careerEnd": 2008
+  },
+  {
+    "name": "Endrick",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Palmeiras", "from": 2022, "to": 2024 },
+      { "name": "Real Madrid", "from": 2024, "to": 2026 }
+    ],
+    "careerStart": 2022,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Evair",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Atlético Mineiro", "from": 1988, "to": 1991 },
+      { "name": "Palmeiras", "from": 1993, "to": 1996 }
+    ],
+    "careerStart": 1985,
+    "careerEnd": 2002
+  },
+  {
+    "name": "Falcão",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Internacional", "from": 1972, "to": 1980 },
+      { "name": "Roma", "from": 1980, "to": 1984 }
+    ],
+    "careerStart": 1972,
+    "careerEnd": 1986
+  },
+  {
+    "name": "Felipe",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Corinthians", "from": 2007, "to": 2010 },
+      { "name": "Flamengo", "from": 2011, "to": 2015 }
+    ],
+    "careerStart": 2003,
+    "careerEnd": 2024
+  },
+  {
+    "name": "Filipe Luís",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Flamengo", "from": 2003, "to": 2004 },
+      { "name": "Atlético Madrid", "from": 2010, "to": 2014 },
+      { "name": "Flamengo", "from": 2019, "to": 2024 }
+    ],
+    "careerStart": 2003,
+    "careerEnd": 2024
+  },
+  {
+    "name": "Fred",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Lyon", "from": 2005, "to": 2009 },
+      { "name": "Fluminense", "from": 2009, "to": 2016 }
+    ],
+    "careerStart": 2003,
+    "careerEnd": 2022,
+    "note": "Centroavante do Fluminense; não é goleiro"
+  },
+  {
+    "name": "Gabigol",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Santos", "from": 2013, "to": 2016 },
+      { "name": "Flamengo", "from": 2019, "to": 2026 }
+    ],
+    "careerStart": 2013,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Gilberto Silva",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Atlético Mineiro", "from": 1997, "to": 2002 },
+      { "name": "Arsenal", "from": 2002, "to": 2008 }
+    ],
+    "careerStart": 1997,
+    "careerEnd": 2015
+  },
+  {
+    "name": "Hulk",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Porto", "from": 2008, "to": 2012 },
+      { "name": "Zenit", "from": 2012, "to": 2020 },
+      { "name": "Atlético Mineiro", "from": 2021, "to": 2026 }
+    ],
+    "careerStart": 2004,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Jefferson",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Botafogo", "from": 2004, "to": 2018 }
+    ],
+    "careerStart": 2000,
+    "careerEnd": 2018
+  },
+  {
+    "name": "Julio César",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Flamengo", "from": 1997, "to": 2004 },
+      { "name": "Inter Milan", "from": 2005, "to": 2012 },
+      { "name": "Toronto FC", "from": 2014, "to": 2016 }
+    ],
+    "careerStart": 1997,
+    "careerEnd": 2018
+  },
+  {
+    "name": "Juninho Paulista",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "São Paulo", "from": 1993, "to": 1995 },
+      { "name": "Middlesbrough", "from": 1995, "to": 2004 },
+      { "name": "Atlético Madrid", "from": 1997, "to": 1998 }
+    ],
+    "careerStart": 1993,
+    "careerEnd": 2010,
+    "note": "Meia-atacante; não é goleiro"
+  },
+  {
+    "name": "Júnior",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Flamengo", "from": 1974, "to": 1984 },
+      { "name": "Torino", "from": 1984, "to": 1987 }
+    ],
+    "careerStart": 1974,
+    "careerEnd": 1993
+  },
+  {
+    "name": "Leão",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Palmeiras", "from": 1969, "to": 1978 },
+      { "name": "Grêmio", "from": 1981, "to": 1983 },
+      { "name": "Palmeiras", "from": 1984, "to": 1986 }
+    ],
+    "careerStart": 1967,
+    "careerEnd": 1987
+  },
+  {
+    "name": "Leonardo",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "São Paulo", "from": 1987, "to": 1993 },
+      { "name": "AC Milan", "from": 1993, "to": 1998 },
+      { "name": "PSG", "from": 1998, "to": 2002 }
+    ],
+    "careerStart": 1987,
+    "careerEnd": 2005
+  },
+  {
+    "name": "Lucas Moura",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "São Paulo", "from": 2010, "to": 2012 },
+      { "name": "PSG", "from": 2012, "to": 2018 },
+      { "name": "Tottenham", "from": 2018, "to": 2023 }
+    ],
+    "careerStart": 2010,
+    "careerEnd": 2024
+  },
+  {
+    "name": "Lucio",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Bayer Leverkusen", "from": 2001, "to": 2004 },
+      { "name": "Inter Milan", "from": 2004, "to": 2009 },
+      { "name": "Internacional", "from": 2010, "to": 2011 }
+    ],
+    "careerStart": 1997,
+    "careerEnd": 2020
+  },
+  {
+    "name": "Luís Fabiano",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Lyon", "from": 2004, "to": 2005 },
+      { "name": "Sevilla", "from": 2005, "to": 2011 },
+      { "name": "São Paulo", "from": 2011, "to": 2015 }
+    ],
+    "careerStart": 1998,
+    "careerEnd": 2017
+  },
+  {
+    "name": "Maicon",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Inter Milan", "from": 2006, "to": 2012 },
+      { "name": "Roma", "from": 2013, "to": 2016 }
+    ],
+    "careerStart": 2001,
+    "careerEnd": 2018
+  },
+  {
+    "name": "Marcos",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Santos", "from": 1992, "to": 2012 }
+    ],
+    "careerStart": 1992,
+    "careerEnd": 2012
+  },
+  {
+    "name": "Miranda",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "São Paulo", "from": 2005, "to": 2006 },
+      { "name": "Atlético Madrid", "from": 2011, "to": 2014 },
+      { "name": "Inter Milan", "from": 2015, "to": 2019 }
+    ],
+    "careerStart": 2005,
+    "careerEnd": 2020
+  },
+  {
+    "name": "Nilton Santos",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Botafogo", "from": 1948, "to": 1964 }
+    ],
+    "careerStart": 1948,
+    "careerEnd": 1964
+  },
+  {
+    "name": "Oscar",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Internacional", "from": 2009, "to": 2012 },
+      { "name": "Chelsea", "from": 2012, "to": 2017 },
+      { "name": "Shanghai SIPG", "from": 2017, "to": 2024 }
+    ],
+    "careerStart": 2008,
+    "careerEnd": 2024
+  },
+  {
+    "name": "Palhinha",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Corinthians", "from": 1977, "to": 1980 },
+      { "name": "Cruzeiro", "from": 1976, "to": 1977 }
+    ],
+    "careerStart": 1974,
+    "careerEnd": 1985,
+    "note": "Atacante do Corinthians e Cruzeiro; não é goleiro"
+  },
+  {
+    "name": "Paulinho",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Corinthians", "from": 2010, "to": 2013 },
+      { "name": "Tottenham", "from": 2013, "to": 2015 },
+      { "name": "Barcelona", "from": 2017, "to": 2019 }
+    ],
+    "careerStart": 2008,
+    "careerEnd": 2022
+  },
+  {
+    "name": "Raí",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "São Paulo", "from": 1987, "to": 1993 },
+      { "name": "PSG", "from": 1993, "to": 1998 }
+    ],
+    "careerStart": 1987,
+    "careerEnd": 2000
+  },
+  {
+    "name": "Raphinha",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Leeds United", "from": 2020, "to": 2022 },
+      { "name": "Barcelona", "from": 2022, "to": 2026 }
+    ],
+    "careerStart": 2014,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Renato Gaúcho",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Grêmio", "from": 1982, "to": 1986 },
+      { "name": "Flamengo", "from": 1986, "to": 1991 },
+      { "name": "São Paulo", "from": 1991, "to": 1993 }
+    ],
+    "careerStart": 1982,
+    "careerEnd": 1998
+  },
+  {
+    "name": "Rivelino",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Corinthians", "from": 1965, "to": 1974 }
+    ],
+    "careerStart": 1965,
+    "careerEnd": 1981
+  },
+  {
+    "name": "Roberto Dinamite",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Vasco da Gama", "from": 1971, "to": 1992 }
+    ],
+    "careerStart": 1971,
+    "careerEnd": 1993
+  },
+  {
+    "name": "Robinho",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Santos", "from": 2002, "to": 2005 },
+      { "name": "Real Madrid", "from": 2005, "to": 2008 },
+      { "name": "Manchester City", "from": 2008, "to": 2010 }
+    ],
+    "careerStart": 2002,
+    "careerEnd": 2020
+  },
+  {
+    "name": "Rodrygo",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Santos", "from": 2017, "to": 2019 },
+      { "name": "Real Madrid", "from": 2019, "to": 2026 }
+    ],
+    "careerStart": 2017,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Rogério Ceni",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "São Paulo", "from": 1990, "to": 2015 }
+    ],
+    "careerStart": 1990,
+    "careerEnd": 2015
+  },
+  {
+    "name": "Serginho",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "São Paulo", "from": 1984, "to": 1993 },
+      { "name": "Juventus", "from": 1993, "to": 1995 },
+      { "name": "Atlético Madrid", "from": 1995, "to": 1996 }
+    ],
+    "careerStart": 1984,
+    "careerEnd": 2001
+  },
+  {
+    "name": "Thiago Silva",
+    "primaryPosition": "Defensor",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "AC Milan", "from": 2009, "to": 2012 },
+      { "name": "PSG", "from": 2012, "to": 2020 },
+      { "name": "Chelsea", "from": 2020, "to": 2024 }
+    ],
+    "careerStart": 2004,
+    "careerEnd": 2024
+  },
+  {
+    "name": "Túlio Maravilha",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Botafogo", "from": 1988, "to": 1991 },
+      { "name": "Fluminense", "from": 1991, "to": 1993 },
+      { "name": "Atlético Mineiro", "from": 1998, "to": 2000 }
+    ],
+    "careerStart": 1988,
+    "careerEnd": 2005
+  },
+  {
+    "name": "Victor",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Grêmio", "from": 2008, "to": 2012 },
+      { "name": "Atlético Mineiro", "from": 2012, "to": 2021 }
+    ],
+    "careerStart": 2001,
+    "careerEnd": 2021
+  },
+  {
+    "name": "Vinícius Júnior",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Flamengo", "from": 2017, "to": 2018 },
+      { "name": "Real Madrid", "from": 2018, "to": 2026 }
+    ],
+    "careerStart": 2017,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Weverton",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Palmeiras", "from": 2018, "to": 2026 },
+      { "name": "Grêmio", "from": 2026, "to": 2026 }
+    ],
+    "careerStart": 2007,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Zagallo",
+    "primaryPosition": "Meia",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Flamengo", "from": 1950, "to": 1958 },
+      { "name": "Botafogo", "from": 1958, "to": 1965 }
+    ],
+    "careerStart": 1950,
+    "careerEnd": 1965
+  },
+  {
+    "name": "Gilmar",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Jabaquara", "from": 1951, "to": 1953 },
+      { "name": "Santos", "from": 1953, "to": 1969 },
+      { "name": "Corinthians", "from": 1969, "to": 1970 }
+    ],
+    "careerStart": 1951,
+    "careerEnd": 1970
+  },
+  {
+    "name": "Manga",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Botafogo", "from": 1951, "to": 1968 },
+      { "name": "Santos", "from": 1968, "to": 1970 }
+    ],
+    "careerStart": 1951,
+    "careerEnd": 1970
+  },
+  {
+    "name": "Castilho",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Flamengo", "from": 1937, "to": 1954 }
+    ],
+    "careerStart": 1937,
+    "careerEnd": 1954
+  },
+  {
+    "name": "Zetti",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "São Paulo", "from": 1986, "to": 1999 },
+      { "name": "Santos", "from": 2000, "to": 2001 }
+    ],
+    "careerStart": 1986,
+    "careerEnd": 2003
+  },
+  {
+    "name": "Aranha",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Grêmio", "from": 1970, "to": 1983 },
+      { "name": "Internacional", "from": 1984, "to": 1985 }
+    ],
+    "careerStart": 1970,
+    "careerEnd": 1987
+  },
+  {
+    "name": "Gatti",
+    "primaryPosition": "Goleiro",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Grêmio", "from": 1970, "to": 1986 }
+    ],
+    "careerStart": 1970,
+    "careerEnd": 1988
+  },
+  {
+    "name": "Dedê",
+    "primaryPosition": "Atacante",
+    "nationality": "BRA",
+    "teams": [
+      { "name": "Vasco da Gama", "from": 1994, "to": 1997 },
+      { "name": "Atlético Mineiro", "from": 1997, "to": 2001 },
+      { "name": "Borussia Dortmund", "from": 2001, "to": 2006 }
+    ],
+    "careerStart": 1994,
+    "careerEnd": 2013
+  }
+]

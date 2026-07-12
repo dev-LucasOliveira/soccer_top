@@ -68,7 +68,7 @@ export function Dialog({
         if (e.target === ref.current) onClose();
       }}
       className={cn(
-        "fixed inset-0 z-50 m-0 h-full w-full max-h-none max-w-none overflow-y-auto overscroll-contain border-0 bg-transparent p-4 backdrop:bg-black/50 open:flex open:items-center open:justify-center",
+        "fixed inset-0 z-50 m-0 h-full w-full max-h-none max-w-none overflow-y-auto overscroll-contain border-0 bg-transparent p-4 backdrop:bg-black/50 open:flex open:items-start open:justify-center open:py-4 sm:open:items-center",
         className
       )}
     >

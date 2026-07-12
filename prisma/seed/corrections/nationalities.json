@@ -1,0 +1,1250 @@
+[
+  {
+    "name": "Alain Giresse",
+    "primaryPosition": "Meia",
+    "nationality": "FRA",
+    "teams": [
+      { "name": "Bordeaux", "from": 1970, "to": 1986 },
+      { "name": "Marseille", "from": 1986, "to": 1988 }
+    ],
+    "careerStart": 1970,
+    "careerEnd": 1988
+  },
+  {
+    "name": "Alan Shearer",
+    "primaryPosition": "Atacante",
+    "nationality": "ENG",
+    "teams": [
+      { "name": "Southampton", "from": 1988, "to": 1992 },
+      { "name": "Blackburn Rovers", "from": 1992, "to": 1996 },
+      { "name": "Newcastle United", "from": 1996, "to": 2006 }
+    ],
+    "careerStart": 1988,
+    "careerEnd": 2006
+  },
+  {
+    "name": "Alessandro Del Piero",
+    "primaryPosition": "Atacante",
+    "nationality": "ITA",
+    "teams": [
+      { "name": "Juventus", "from": 1993, "to": 2012 },
+      { "name": "Sydney FC", "from": 2012, "to": 2014 }
+    ],
+    "careerStart": 1991,
+    "careerEnd": 2014
+  },
+  {
+    "name": "Álvaro Morata",
+    "primaryPosition": "Atacante",
+    "nationality": "ESP",
+    "teams": [
+      { "name": "Real Madrid", "from": 2010, "to": 2014 },
+      { "name": "Juventus", "from": 2014, "to": 2016 },
+      { "name": "Chelsea", "from": 2017, "to": 2019 },
+      { "name": "Atlético Madrid", "from": 2019, "to": 2020 },
+      { "name": "AC Milan", "from": 2022, "to": 2026 }
+    ],
+    "careerStart": 2010,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Amancio Amaro",
+    "primaryPosition": "Atacante",
+    "nationality": "ESP",
+    "teams": [
+      { "name": "Deportivo La Coruña", "from": 1958, "to": 1962 },
+      { "name": "Real Madrid", "from": 1962, "to": 1976 }
+    ],
+    "careerStart": 1958,
+    "careerEnd": 1982
+  },
+  {
+    "name": "Andoni Zubizarreta",
+    "primaryPosition": "Goleiro",
+    "nationality": "ESP",
+    "teams": [
+      { "name": "Athletic Bilbao", "from": 1980, "to": 1988 },
+      { "name": "Barcelona", "from": 1988, "to": 1994 },
+      { "name": "Valencia", "from": 1994, "to": 1998 }
+    ],
+    "careerStart": 1980,
+    "careerEnd": 1998
+  },
+  {
+    "name": "Andreas Brehme",
+    "primaryPosition": "Defensor",
+    "nationality": "GER",
+    "teams": [
+      { "name": "1. FC Kaiserslautern", "from": 1980, "to": 1984 },
+      { "name": "Inter Milan", "from": 1984, "to": 1988 },
+      { "name": "Bayern Munich", "from": 1992, "to": 1993 }
+    ],
+    "careerStart": 1980,
+    "careerEnd": 1998
+  },
+  {
+    "name": "Ángel Di María",
+    "primaryPosition": "Atacante",
+    "nationality": "ARG",
+    "teams": [
+      { "name": "Rosario Central", "from": 2005, "to": 2007 },
+      { "name": "Benfica", "from": 2007, "to": 2010 },
+      { "name": "Real Madrid", "from": 2010, "to": 2014 },
+      { "name": "Manchester United", "from": 2014, "to": 2015 },
+      { "name": "PSG", "from": 2015, "to": 2022 },
+      { "name": "Juventus", "from": 2022, "to": 2023 },
+      { "name": "Benfica", "from": 2023, "to": 2026 }
+    ],
+    "careerStart": 2005,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Antoine Griezmann",
+    "primaryPosition": "Atacante",
+    "nationality": "FRA",
+    "teams": [
+      { "name": "Real Sociedad", "from": 2009, "to": 2014 },
+      { "name": "Atlético Madrid", "from": 2014, "to": 2019 },
+      { "name": "Barcelona", "from": 2019, "to": 2021 },
+      { "name": "Atlético Madrid", "from": 2021, "to": 2026 }
+    ],
+    "careerStart": 2009,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Antonio Cassano",
+    "primaryPosition": "Atacante",
+    "nationality": "ITA",
+    "teams": [
+      { "name": "Bari", "from": 1999, "to": 2001 },
+      { "name": "Roma", "from": 2001, "to": 2006 },
+      { "name": "Real Madrid", "from": 2006, "to": 2007 },
+      { "name": "Sampdoria", "from": 2007, "to": 2011 },
+      { "name": "AC Milan", "from": 2011, "to": 2012 },
+      { "name": "Inter Milan", "from": 2012, "to": 2013 }
+    ],
+    "careerStart": 1999,
+    "careerEnd": 2017
+  },
+  {
+    "name": "Ashley Cole",
+    "primaryPosition": "Defensor",
+    "nationality": "ENG",
+    "teams": [
+      { "name": "Arsenal", "from": 1999, "to": 2006 },
+      { "name": "Chelsea", "from": 2006, "to": 2014 },
+      { "name": "Roma", "from": 2014, "to": 2016 },
+      { "name": "LA Galaxy", "from": 2016, "to": 2019 }
+    ],
+    "careerStart": 1999,
+    "careerEnd": 2019
+  },
+  {
+    "name": "Bernard Lama",
+    "primaryPosition": "Goleiro",
+    "nationality": "FRA",
+    "teams": [
+      { "name": "Lille", "from": 1983, "to": 1986 },
+      { "name": "Paris Saint-Germain", "from": 1992, "to": 2000 }
+    ],
+    "careerStart": 1983,
+    "careerEnd": 2001
+  },
+  {
+    "name": "Bernardo Silva",
+    "primaryPosition": "Meia",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Benfica", "from": 2014, "to": 2015 },
+      { "name": "Monaco", "from": 2015, "to": 2017 },
+      { "name": "Manchester City", "from": 2017, "to": 2026 }
+    ],
+    "careerStart": 2014,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Bernd Schuster",
+    "primaryPosition": "Meia",
+    "nationality": "GER",
+    "teams": [
+      { "name": "1. FC Köln", "from": 1974, "to": 1980 },
+      { "name": "Barcelona", "from": 1980, "to": 1988 },
+      { "name": "Real Madrid", "from": 1988, "to": 1990 }
+    ],
+    "careerStart": 1974,
+    "careerEnd": 1992
+  },
+  {
+    "name": "Bixente Lizarazu",
+    "primaryPosition": "Defensor",
+    "nationality": "FRA",
+    "teams": [
+      { "name": "Bordeaux", "from": 1988, "to": 1996 },
+      { "name": "Bayern Munich", "from": 1997, "to": 2006 }
+    ],
+    "careerStart": 1988,
+    "careerEnd": 2006
+  },
+  {
+    "name": "Bruno Fernandes",
+    "primaryPosition": "Meia",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Sporting CP", "from": 2012, "to": 2013 },
+      { "name": "Udinese", "from": 2013, "to": 2016 },
+      { "name": "Sampdoria", "from": 2016, "to": 2017 },
+      { "name": "Manchester United", "from": 2020, "to": 2026 }
+    ],
+    "careerStart": 2012,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Bryan Robson",
+    "primaryPosition": "Meia",
+    "nationality": "ENG",
+    "teams": [
+      { "name": "West Bromwich Albion", "from": 1972, "to": 1981 },
+      { "name": "Manchester United", "from": 1981, "to": 1994 },
+      { "name": "Middlesbrough", "from": 1994, "to": 1997 }
+    ],
+    "careerStart": 1972,
+    "careerEnd": 1997
+  },
+  {
+    "name": "César Rodríguez",
+    "primaryPosition": "Atacante",
+    "nationality": "ESP",
+    "teams": [
+      { "name": "Granada", "from": 1939, "to": 1940 },
+      { "name": "Barcelona", "from": 1942, "to": 1955 },
+      { "name": "Cultural Leonesa", "from": 1955, "to": 1960 }
+    ],
+    "careerStart": 1939,
+    "careerEnd": 1960
+  },
+  {
+    "name": "Chris Sutton",
+    "primaryPosition": "Atacante",
+    "nationality": "ENG",
+    "teams": [
+      { "name": "Norwich City", "from": 1991, "to": 1994 },
+      { "name": "Blackburn Rovers", "from": 1994, "to": 1999 },
+      { "name": "Chelsea", "from": 1999, "to": 2000 },
+      { "name": "Celtic", "from": 2000, "to": 2006 }
+    ],
+    "careerStart": 1991,
+    "careerEnd": 2007
+  },
+  {
+    "name": "Christian Vieri",
+    "primaryPosition": "Atacante",
+    "nationality": "ITA",
+    "teams": [
+      { "name": "Torino", "from": 1991, "to": 1992 },
+      { "name": "Atalanta", "from": 1993, "to": 1994 },
+      { "name": "Juventus", "from": 1996, "to": 1997 },
+      { "name": "Lazio", "from": 1998, "to": 1999 },
+      { "name": "Inter Milan", "from": 1999, "to": 2005 },
+      { "name": "AC Milan", "from": 2005, "to": 2006 }
+    ],
+    "careerStart": 1991,
+    "careerEnd": 2009
+  },
+  {
+    "name": "Claudio Gentile",
+    "primaryPosition": "Defensor",
+    "nationality": "ITA",
+    "teams": [
+      { "name": "Inter Milan", "from": 1972, "to": 1984 },
+      { "name": "Juventus", "from": 1984, "to": 1988 },
+      { "name": "Fiorentina", "from": 1988, "to": 1989 }
+    ],
+    "careerStart": 1972,
+    "careerEnd": 1989
+  },
+  {
+    "name": "Cole Palmer",
+    "primaryPosition": "Meia",
+    "nationality": "ENG",
+    "teams": [
+      { "name": "Manchester City", "from": 2020, "to": 2023 },
+      { "name": "Chelsea", "from": 2023, "to": 2026 }
+    ],
+    "careerStart": 2020,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Dani Olmo",
+    "primaryPosition": "Meia",
+    "nationality": "ESP",
+    "teams": [
+      { "name": "Dinamo Zagreb", "from": 2015, "to": 2019 },
+      { "name": "RB Leipzig", "from": 2019, "to": 2024 },
+      { "name": "Barcelona", "from": 2024, "to": 2026 }
+    ],
+    "careerStart": 2015,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Dani Parejo",
+    "primaryPosition": "Meia",
+    "nationality": "ESP",
+    "teams": [
+      { "name": "Real Madrid", "from": 2008, "to": 2009 },
+      { "name": "Getafe", "from": 2009, "to": 2011 },
+      { "name": "Valencia", "from": 2011, "to": 2020 },
+      { "name": "Villarreal", "from": 2020, "to": 2026 }
+    ],
+    "careerStart": 2008,
+    "careerEnd": 2026
+  },
+  {
+    "name": "David Seaman",
+    "primaryPosition": "Goleiro",
+    "nationality": "ENG",
+    "teams": [
+      { "name": "Birmingham City", "from": 1981, "to": 1984 },
+      { "name": "Queens Park Rangers", "from": 1984, "to": 1988 },
+      { "name": "Arsenal", "from": 1988, "to": 2003 },
+      { "name": "Manchester City", "from": 2003, "to": 2004 }
+    ],
+    "careerStart": 1981,
+    "careerEnd": 2004
+  },
+  {
+    "name": "David Silva",
+    "primaryPosition": "Meia",
+    "nationality": "ESP",
+    "teams": [
+      { "name": "Valencia", "from": 2003, "to": 2010 },
+      { "name": "Manchester City", "from": 2010, "to": 2020 },
+      { "name": "Real Sociedad", "from": 2020, "to": 2023 }
+    ],
+    "careerStart": 2003,
+    "careerEnd": 2023
+  },
+  {
+    "name": "David Trezeguet",
+    "primaryPosition": "Atacante",
+    "nationality": "FRA",
+    "teams": [
+      { "name": "Monaco", "from": 1993, "to": 2000 },
+      { "name": "Juventus", "from": 2000, "to": 2010 },
+      { "name": "River Plate", "from": 2012, "to": 2013 }
+    ],
+    "careerStart": 1993,
+    "careerEnd": 2014
+  },
+  {
+    "name": "Dennis Bergkamp",
+    "primaryPosition": "Atacante",
+    "nationality": "NED",
+    "teams": [
+      { "name": "Ajax", "from": 1986, "to": 1993 },
+      { "name": "Inter Milan", "from": 1993, "to": 1995 },
+      { "name": "Arsenal", "from": 1995, "to": 2006 }
+    ],
+    "careerStart": 1986,
+    "careerEnd": 2006
+  },
+  {
+    "name": "Diego Milito",
+    "primaryPosition": "Atacante",
+    "nationality": "ARG",
+    "teams": [
+      { "name": "Racing Club", "from": 1999, "to": 2003 },
+      { "name": "Zaragoza", "from": 2005, "to": 2008 },
+      { "name": "Genoa", "from": 2008, "to": 2009 },
+      { "name": "Inter Milan", "from": 2009, "to": 2012 },
+      { "name": "Racing Club", "from": 2012, "to": 2016 }
+    ],
+    "careerStart": 1999,
+    "careerEnd": 2016
+  },
+  {
+    "name": "Diego Simeone",
+    "primaryPosition": "Meia",
+    "nationality": "ARG",
+    "teams": [
+      { "name": "Vélez Sarsfield", "from": 1987, "to": 1992 },
+      { "name": "Pisa", "from": 1992, "to": 1993 },
+      { "name": "Sevilla", "from": 1994, "to": 1995 },
+      { "name": "Atlético Madrid", "from": 1995, "to": 2000 },
+      { "name": "Inter Milan", "from": 1997, "to": 1998 },
+      { "name": "Lazio", "from": 1999, "to": 2003 }
+    ],
+    "careerStart": 1987,
+    "careerEnd": 2006
+  },
+  {
+    "name": "Dino Zoff",
+    "primaryPosition": "Goleiro",
+    "nationality": "ITA",
+    "teams": [
+      { "name": "Udinese", "from": 1961, "to": 1963 },
+      { "name": "Mantova", "from": 1963, "to": 1964 },
+      { "name": "Napoli", "from": 1964, "to": 1972 },
+      { "name": "Juventus", "from": 1972, "to": 1983 }
+    ],
+    "careerStart": 1961,
+    "careerEnd": 1983
+  },
+  {
+    "name": "Dixie Dean",
+    "primaryPosition": "Atacante",
+    "nationality": "ENG",
+    "teams": [
+      { "name": "Tranmere Rovers", "from": 1923, "to": 1925 },
+      { "name": "Everton", "from": 1925, "to": 1938 }
+    ],
+    "careerStart": 1923,
+    "careerEnd": 1938
+  },
+  {
+    "name": "Edgar Davids",
+    "primaryPosition": "Meia",
+    "nationality": "NED",
+    "teams": [
+      { "name": "Ajax", "from": 1991, "to": 1996 },
+      { "name": "AC Milan", "from": 1996, "to": 1998 },
+      { "name": "Juventus", "from": 1998, "to": 2004 },
+      { "name": "Barcelona", "from": 2004, "to": 2005 },
+      { "name": "Inter Milan", "from": 2005, "to": 2006 },
+      { "name": "Tottenham", "from": 2005, "to": 2007 }
+    ],
+    "careerStart": 1991,
+    "careerEnd": 2014
+  },
+  {
+    "name": "Emilio Butragueño",
+    "primaryPosition": "Atacante",
+    "nationality": "ESP",
+    "teams": [
+      { "name": "Real Madrid", "from": 1984, "to": 1995 }
+    ],
+    "careerStart": 1984,
+    "careerEnd": 1995
+  },
+  {
+    "name": "Emlyn Hughes",
+    "primaryPosition": "Defensor",
+    "nationality": "ENG",
+    "teams": [
+      { "name": "Blackpool", "from": 1964, "to": 1967 },
+      { "name": "Liverpool", "from": 1967, "to": 1979 },
+      { "name": "Wolverhampton Wanderers", "from": 1979, "to": 1981 }
+    ],
+    "careerStart": 1964,
+    "careerEnd": 1984
+  },
+  {
+    "name": "Esteban Cambiasso",
+    "primaryPosition": "Meia",
+    "nationality": "ARG",
+    "teams": [
+      { "name": "Independiente", "from": 1995, "to": 1998 },
+      { "name": "Real Madrid", "from": 2002, "to": 2004 },
+      { "name": "Inter Milan", "from": 2004, "to": 2014 },
+      { "name": "Olympiacos", "from": 2014, "to": 2015 }
+    ],
+    "careerStart": 1995,
+    "careerEnd": 2015
+  },
+  {
+    "name": "Ezequiel Lavezzi",
+    "primaryPosition": "Atacante",
+    "nationality": "ARG",
+    "teams": [
+      { "name": "San Lorenzo", "from": 2003, "to": 2007 },
+      { "name": "Napoli", "from": 2007, "to": 2012 },
+      { "name": "PSG", "from": 2012, "to": 2016 },
+      { "name": "Hebei China Fortune", "from": 2016, "to": 2019 }
+    ],
+    "careerStart": 2003,
+    "careerEnd": 2019
+  },
+  {
+    "name": "Fernando Cavenaghi",
+    "primaryPosition": "Atacante",
+    "nationality": "ARG",
+    "teams": [
+      { "name": "River Plate", "from": 2001, "to": 2004 },
+      { "name": "Spartak Moscow", "from": 2004, "to": 2006 },
+      { "name": "Santos", "from": 2006, "to": 2007 },
+      { "name": "Independiente", "from": 2011, "to": 2015 }
+    ],
+    "careerStart": 2001,
+    "careerEnd": 2022
+  },
+  {
+    "name": "Fernando Hierro",
+    "primaryPosition": "Defensor",
+    "nationality": "ESP",
+    "teams": [
+      { "name": "Valladolid", "from": 1987, "to": 1989 },
+      { "name": "Real Madrid", "from": 1989, "to": 2003 }
+    ],
+    "careerStart": 1987,
+    "careerEnd": 2005
+  },
+  {
+    "name": "Fernando Torres",
+    "primaryPosition": "Atacante",
+    "nationality": "ESP",
+    "teams": [
+      { "name": "Atlético Madrid", "from": 2001, "to": 2007 },
+      { "name": "Liverpool", "from": 2007, "to": 2011 },
+      { "name": "Chelsea", "from": 2011, "to": 2014 },
+      { "name": "AC Milan", "from": 2014, "to": 2015 },
+      { "name": "Atlético Madrid", "from": 2015, "to": 2018 }
+    ],
+    "careerStart": 2001,
+    "careerEnd": 2019
+  },
+  {
+    "name": "Florian Wirtz",
+    "primaryPosition": "Meia",
+    "nationality": "GER",
+    "teams": [
+      { "name": "Bayer Leverkusen", "from": 2020, "to": 2025 },
+      { "name": "Liverpool", "from": 2025, "to": 2026 }
+    ],
+    "careerStart": 2020,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Francesco Totti",
+    "primaryPosition": "Atacante",
+    "nationality": "ITA",
+    "teams": [
+      { "name": "Roma", "from": 1992, "to": 2017 }
+    ],
+    "careerStart": 1992,
+    "careerEnd": 2017
+  },
+  {
+    "name": "Frank Lampard",
+    "primaryPosition": "Meia",
+    "nationality": "ENG",
+    "teams": [
+      { "name": "West Ham United", "from": 1995, "to": 2001 },
+      { "name": "Chelsea", "from": 2001, "to": 2014 },
+      { "name": "Manchester City", "from": 2014, "to": 2015 },
+      { "name": "New York City FC", "from": 2015, "to": 2016 }
+    ],
+    "careerStart": 1995,
+    "careerEnd": 2017
+  },
+  {
+    "name": "Fritz Walter",
+    "primaryPosition": "Meia",
+    "nationality": "GER",
+    "teams": [
+      { "name": "1. FC Kaiserslautern", "from": 1938, "to": 1959 }
+    ],
+    "careerStart": 1938,
+    "careerEnd": 1959
+  },
+  {
+    "name": "Gary Lineker",
+    "primaryPosition": "Atacante",
+    "nationality": "ENG",
+    "teams": [
+      { "name": "Leicester City", "from": 1978, "to": 1985 },
+      { "name": "Everton", "from": 1985, "to": 1986 },
+      { "name": "Barcelona", "from": 1986, "to": 1989 },
+      { "name": "Tottenham", "from": 1989, "to": 1992 }
+    ],
+    "careerStart": 1978,
+    "careerEnd": 1994
+  },
+  {
+    "name": "Gennaro Gattuso",
+    "primaryPosition": "Meia",
+    "nationality": "ITA",
+    "teams": [
+      { "name": "Perugia", "from": 1995, "to": 1997 },
+      { "name": "Salernitana", "from": 1997, "to": 1998 },
+      { "name": "AC Milan", "from": 1999, "to": 2012 }
+    ],
+    "careerStart": 1995,
+    "careerEnd": 2013
+  },
+  {
+    "name": "Geoff Hurst",
+    "primaryPosition": "Atacante",
+    "nationality": "ENG",
+    "teams": [
+      { "name": "West Ham United", "from": 1959, "to": 1972 }
+    ],
+    "careerStart": 1959,
+    "careerEnd": 1977
+  },
+  {
+    "name": "Giuseppe Meazza",
+    "primaryPosition": "Atacante",
+    "nationality": "ITA",
+    "teams": [
+      { "name": "Inter Milan", "from": 1927, "to": 1940 },
+      { "name": "AC Milan", "from": 1940, "to": 1942 },
+      { "name": "Juventus", "from": 1942, "to": 1946 },
+      { "name": "Inter Milan", "from": 1946, "to": 1947 }
+    ],
+    "careerStart": 1927,
+    "careerEnd": 1947
+  },
+  {
+    "name": "Glenn Hoddle",
+    "primaryPosition": "Meia",
+    "nationality": "ENG",
+    "teams": [
+      { "name": "Tottenham", "from": 1974, "to": 1987 },
+      { "name": "Monaco", "from": 1987, "to": 1990 },
+      { "name": "Chelsea", "from": 1993, "to": 1995 },
+      { "name": "Swindon Town", "from": 1995, "to": 1996 }
+    ],
+    "careerStart": 1974,
+    "careerEnd": 1998
+  },
+  {
+    "name": "Gonzalo Higuaín",
+    "primaryPosition": "Atacante",
+    "nationality": "ARG",
+    "teams": [
+      { "name": "River Plate", "from": 2005, "to": 2007 },
+      { "name": "Real Madrid", "from": 2007, "to": 2013 },
+      { "name": "Napoli", "from": 2013, "to": 2016 },
+      { "name": "Juventus", "from": 2016, "to": 2019 },
+      { "name": "Chelsea", "from": 2019, "to": 2020 },
+      { "name": "AC Milan", "from": 2020, "to": 2021 }
+    ],
+    "careerStart": 2005,
+    "careerEnd": 2022
+  },
+  {
+    "name": "Hugo Lloris",
+    "primaryPosition": "Goleiro",
+    "nationality": "FRA",
+    "teams": [
+      { "name": "Nice", "from": 2005, "to": 2008 },
+      { "name": "Lyon", "from": 2008, "to": 2012 },
+      { "name": "Tottenham", "from": 2012, "to": 2023 },
+      { "name": "LAFC", "from": 2024, "to": 2026 }
+    ],
+    "careerStart": 2005,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Jaap Stam",
+    "primaryPosition": "Defensor",
+    "nationality": "NED",
+    "teams": [
+      { "name": "PEC Zwolle", "from": 1992, "to": 1993 },
+      { "name": "Willem II", "from": 1993, "to": 1995 },
+      { "name": "PSV", "from": 1995, "to": 1998 },
+      { "name": "Manchester United", "from": 1998, "to": 2001 },
+      { "name": "Lazio", "from": 2001, "to": 2004 },
+      { "name": "AC Milan", "from": 2004, "to": 2006 },
+      { "name": "Ajax", "from": 2006, "to": 2008 }
+    ],
+    "careerStart": 1992,
+    "careerEnd": 2008
+  },
+  {
+    "name": "Javier Mascherano",
+    "primaryPosition": "Meia",
+    "nationality": "ARG",
+    "teams": [
+      { "name": "River Plate", "from": 2003, "to": 2005 },
+      { "name": "Corinthians", "from": 2005, "to": 2006 },
+      { "name": "West Ham United", "from": 2006, "to": 2007 },
+      { "name": "Liverpool", "from": 2007, "to": 2010 },
+      { "name": "Barcelona", "from": 2010, "to": 2018 },
+      { "name": "Hebei China Fortune", "from": 2018, "to": 2020 }
+    ],
+    "careerStart": 2003,
+    "careerEnd": 2020
+  },
+  {
+    "name": "Javier Pastore",
+    "primaryPosition": "Meia",
+    "nationality": "ARG",
+    "teams": [
+      { "name": "Huracán", "from": 2007, "to": 2009 },
+      { "name": "Palermo", "from": 2009, "to": 2011 },
+      { "name": "PSG", "from": 2011, "to": 2018 },
+      { "name": "Roma", "from": 2018, "to": 2021 },
+      { "name": "Elche", "from": 2021, "to": 2022 }
+    ],
+    "careerStart": 2007,
+    "careerEnd": 2022
+  },
+  {
+    "name": "Jean-Pierre Papin",
+    "primaryPosition": "Atacante",
+    "nationality": "FRA",
+    "teams": [
+      { "name": "Valenciennes", "from": 1984, "to": 1985 },
+      { "name": "Marseille", "from": 1986, "to": 1992 },
+      { "name": "AC Milan", "from": 1992, "to": 1994 },
+      { "name": "Bayern Munich", "from": 1994, "to": 1996 }
+    ],
+    "careerStart": 1984,
+    "careerEnd": 1998
+  },
+  {
+    "name": "Jimmy Floyd Hasselbaink",
+    "primaryPosition": "Atacante",
+    "nationality": "NED",
+    "teams": [
+      { "name": "Telstar", "from": 1992, "to": 1994 },
+      { "name": "AZ", "from": 1994, "to": 1996 },
+      { "name": "Leeds United", "from": 1997, "to": 1999 },
+      { "name": "Atlético Madrid", "from": 1999, "to": 2000 },
+      { "name": "Chelsea", "from": 2000, "to": 2004 },
+      { "name": "Middlesbrough", "from": 2004, "to": 2007 }
+    ],
+    "careerStart": 1992,
+    "careerEnd": 2008
+  },
+  {
+    "name": "João Félix",
+    "primaryPosition": "Atacante",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Benfica", "from": 2018, "to": 2019 },
+      { "name": "Atlético Madrid", "from": 2019, "to": 2024 },
+      { "name": "Chelsea", "from": 2023, "to": 2024 },
+      { "name": "Barcelona", "from": 2024, "to": 2026 }
+    ],
+    "careerStart": 2018,
+    "careerEnd": 2026
+  },
+  {
+    "name": "João Moutinho",
+    "primaryPosition": "Meia",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Sporting CP", "from": 2004, "to": 2005 },
+      { "name": "Monaco", "from": 2013, "to": 2018 },
+      { "name": "Wolverhampton Wanderers", "from": 2018, "to": 2023 },
+      { "name": "Braga", "from": 2023, "to": 2026 }
+    ],
+    "careerStart": 2004,
+    "careerEnd": 2026
+  },
+  {
+    "name": "João Neves",
+    "primaryPosition": "Meia",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Benfica", "from": 2022, "to": 2024 },
+      { "name": "PSG", "from": 2024, "to": 2026 }
+    ],
+    "careerStart": 2022,
+    "careerEnd": 2026
+  },
+  {
+    "name": "John Terry",
+    "primaryPosition": "Defensor",
+    "nationality": "ENG",
+    "teams": [
+      { "name": "Chelsea", "from": 1998, "to": 2017 }
+    ],
+    "careerStart": 1998,
+    "careerEnd": 2018
+  },
+  {
+    "name": "José Fonte",
+    "primaryPosition": "Defensor",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Estrela Amadora", "from": 2002, "to": 2004 },
+      { "name": "Crystal Palace", "from": 2004, "to": 2006 },
+      { "name": "Southampton", "from": 2009, "to": 2017 },
+      { "name": "Lille", "from": 2021, "to": 2023 }
+    ],
+    "careerStart": 2002,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Juan Román Riquelme",
+    "primaryPosition": "Meia",
+    "nationality": "ARG",
+    "teams": [
+      { "name": "Argentinos Juniors", "from": 1995, "to": 1996 },
+      { "name": "Boca Juniors", "from": 1996, "to": 2002 },
+      { "name": "Barcelona", "from": 2002, "to": 2003 },
+      { "name": "Villarreal", "from": 2003, "to": 2007 },
+      { "name": "Boca Juniors", "from": 2007, "to": 2015 }
+    ],
+    "careerStart": 1995,
+    "careerEnd": 2015
+  },
+  {
+    "name": "Juan Sebastián Verón",
+    "primaryPosition": "Meia",
+    "nationality": "ARG",
+    "teams": [
+      { "name": "Estudiantes", "from": 1993, "to": 1995 },
+      { "name": "Sampdoria", "from": 1995, "to": 1996 },
+      { "name": "Parma", "from": 1996, "to": 1998 },
+      { "name": "Lazio", "from": 1998, "to": 2001 },
+      { "name": "Manchester United", "from": 2001, "to": 2003 },
+      { "name": "Chelsea", "from": 2003, "to": 2004 },
+      { "name": "Inter Milan", "from": 2004, "to": 2006 },
+      { "name": "Estudiantes", "from": 2006, "to": 2010 }
+    ],
+    "careerStart": 1993,
+    "careerEnd": 2010
+  },
+  {
+    "name": "Jürgen Klinsmann",
+    "primaryPosition": "Atacante",
+    "nationality": "GER",
+    "teams": [
+      { "name": "VfB Stuttgart", "from": 1984, "to": 1989 },
+      { "name": "Inter Milan", "from": 1989, "to": 1992 },
+      { "name": "Monaco", "from": 1992, "to": 1994 },
+      { "name": "Tottenham", "from": 1994, "to": 1995 },
+      { "name": "Bayern Munich", "from": 1995, "to": 1997 }
+    ],
+    "careerStart": 1984,
+    "careerEnd": 2003
+  },
+  {
+    "name": "Laurent Blanc",
+    "primaryPosition": "Defensor",
+    "nationality": "FRA",
+    "teams": [
+      { "name": "Montpellier", "from": 1983, "to": 1991 },
+      { "name": "Napoli", "from": 1991, "to": 1992 },
+      { "name": "Saint-Étienne", "from": 1993, "to": 1995 },
+      { "name": "Auxerre", "from": 1995, "to": 1996 },
+      { "name": "Barcelona", "from": 1996, "to": 1999 },
+      { "name": "Marseille", "from": 1999, "to": 2001 },
+      { "name": "Manchester United", "from": 2001, "to": 2003 }
+    ],
+    "careerStart": 1983,
+    "careerEnd": 2003
+  },
+  {
+    "name": "Lautaro Martínez",
+    "primaryPosition": "Atacante",
+    "nationality": "ARG",
+    "teams": [
+      { "name": "Racing Club", "from": 2015, "to": 2018 },
+      { "name": "Inter Milan", "from": 2018, "to": 2026 }
+    ],
+    "careerStart": 2015,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Lilian Thuram",
+    "primaryPosition": "Defensor",
+    "nationality": "FRA",
+    "teams": [
+      { "name": "Monaco", "from": 1991, "to": 1996 },
+      { "name": "Parma", "from": 1996, "to": 2001 },
+      { "name": "Juventus", "from": 2001, "to": 2006 },
+      { "name": "Barcelona", "from": 2006, "to": 2008 }
+    ],
+    "careerStart": 1991,
+    "careerEnd": 2008
+  },
+  {
+    "name": "Luis Enrique",
+    "primaryPosition": "Meia",
+    "nationality": "ESP",
+    "teams": [
+      { "name": "Sporting Gijón", "from": 1991, "to": 1996 },
+      { "name": "Real Madrid", "from": 1996, "to": 1999 },
+      { "name": "Barcelona", "from": 1999, "to": 2004 }
+    ],
+    "careerStart": 1991,
+    "careerEnd": 2004
+  },
+  {
+    "name": "Luis Figo",
+    "primaryPosition": "Atacante",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Sporting CP", "from": 1989, "to": 1995 },
+      { "name": "Barcelona", "from": 1995, "to": 2000 },
+      { "name": "Real Madrid", "from": 2000, "to": 2005 },
+      { "name": "Inter Milan", "from": 2005, "to": 2009 }
+    ],
+    "careerStart": 1989,
+    "careerEnd": 2009
+  },
+  {
+    "name": "Luis Suárez Miramontes",
+    "primaryPosition": "Meia",
+    "nationality": "ESP",
+    "teams": [
+      { "name": "Deportivo La Coruña", "from": 1953, "to": 1954 },
+      { "name": "Barcelona", "from": 1955, "to": 1961 },
+      { "name": "Inter Milan", "from": 1961, "to": 1970 }
+    ],
+    "careerStart": 1953,
+    "careerEnd": 1970
+  },
+  {
+    "name": "Marc Overmars",
+    "primaryPosition": "Atacante",
+    "nationality": "NED",
+    "teams": [
+      { "name": "Go Ahead Eagles", "from": 1990, "to": 1991 },
+      { "name": "Willem II", "from": 1991, "to": 1992 },
+      { "name": "Ajax", "from": 1992, "to": 1997 },
+      { "name": "Arsenal", "from": 1997, "to": 2000 },
+      { "name": "Barcelona", "from": 2000, "to": 2004 }
+    ],
+    "careerStart": 1990,
+    "careerEnd": 2009
+  },
+  {
+    "name": "Marcel Desailly",
+    "primaryPosition": "Defensor",
+    "nationality": "FRA",
+    "teams": [
+      { "name": "Nantes", "from": 1986, "to": 1992 },
+      { "name": "Marseille", "from": 1992, "to": 1993 },
+      { "name": "AC Milan", "from": 1993, "to": 1998 },
+      { "name": "Chelsea", "from": 1998, "to": 2004 }
+    ],
+    "careerStart": 1986,
+    "careerEnd": 2006
+  },
+  {
+    "name": "Marco Materazzi",
+    "primaryPosition": "Defensor",
+    "nationality": "ITA",
+    "teams": [
+      { "name": "Perugia", "from": 1993, "to": 1998 },
+      { "name": "Everton", "from": 1998, "to": 1999 },
+      { "name": "Inter Milan", "from": 2001, "to": 2011 }
+    ],
+    "careerStart": 1990,
+    "careerEnd": 2011
+  },
+  {
+    "name": "Marco Reus",
+    "primaryPosition": "Atacante",
+    "nationality": "GER",
+    "teams": [
+      { "name": "Rot Weiss Ahlen", "from": 2006, "to": 2008 },
+      { "name": "Borussia Mönchengladbach", "from": 2009, "to": 2012 },
+      { "name": "Borussia Dortmund", "from": 2012, "to": 2024 }
+    ],
+    "careerStart": 2006,
+    "careerEnd": 2024
+  },
+  {
+    "name": "Mario Kempes",
+    "primaryPosition": "Atacante",
+    "nationality": "ARG",
+    "teams": [
+      { "name": "Instituto", "from": 1970, "to": 1974 },
+      { "name": "Valencia", "from": 1976, "to": 1981 },
+      { "name": "River Plate", "from": 1981, "to": 1982 }
+    ],
+    "careerStart": 1970,
+    "careerEnd": 1996
+  },
+  {
+    "name": "Memphis Depay",
+    "primaryPosition": "Atacante",
+    "nationality": "NED",
+    "teams": [
+      { "name": "PSV", "from": 2011, "to": 2015 },
+      { "name": "Manchester United", "from": 2015, "to": 2017 },
+      { "name": "Lyon", "from": 2017, "to": 2021 },
+      { "name": "Barcelona", "from": 2021, "to": 2023 },
+      { "name": "Atlético Madrid", "from": 2023, "to": 2024 },
+      { "name": "Corinthians", "from": 2024, "to": 2026 }
+    ],
+    "careerStart": 2011,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Michael Ballack",
+    "primaryPosition": "Meia",
+    "nationality": "GER",
+    "teams": [
+      { "name": "Chemnitzer FC", "from": 1995, "to": 1997 },
+      { "name": "1. FC Kaiserslautern", "from": 1997, "to": 1999 },
+      { "name": "Bayer Leverkusen", "from": 1999, "to": 2002 },
+      { "name": "Bayern Munich", "from": 2002, "to": 2006 },
+      { "name": "Chelsea", "from": 2006, "to": 2010 }
+    ],
+    "careerStart": 1995,
+    "careerEnd": 2012
+  },
+  {
+    "name": "Michel Platini",
+    "primaryPosition": "Meia",
+    "nationality": "FRA",
+    "teams": [
+      { "name": "Nancy", "from": 1972, "to": 1979 },
+      { "name": "Saint-Étienne", "from": 1979, "to": 1982 },
+      { "name": "Juventus", "from": 1982, "to": 1987 }
+    ],
+    "careerStart": 1972,
+    "careerEnd": 1987
+  },
+  {
+    "name": "Miroslav Klose",
+    "primaryPosition": "Atacante",
+    "nationality": "GER",
+    "teams": [
+      { "name": "1. FC Kaiserslautern", "from": 1998, "to": 2004 },
+      { "name": "Werder Bremen", "from": 2004, "to": 2007 },
+      { "name": "Bayern Munich", "from": 2007, "to": 2011 },
+      { "name": "Lazio", "from": 2011, "to": 2016 }
+    ],
+    "careerStart": 1998,
+    "careerEnd": 2016
+  },
+  {
+    "name": "N'Golo Kanté",
+    "primaryPosition": "Meia",
+    "nationality": "FRA",
+    "teams": [
+      { "name": "Boulogne", "from": 2010, "to": 2012 },
+      { "name": "Caen", "from": 2013, "to": 2015 },
+      { "name": "Leicester City", "from": 2015, "to": 2016 },
+      { "name": "Chelsea", "from": 2016, "to": 2023 },
+      { "name": "Al-Ittihad", "from": 2023, "to": 2026 }
+    ],
+    "careerStart": 2010,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Nuno Mendes",
+    "primaryPosition": "Defensor",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Sporting CP", "from": 2020, "to": 2022 },
+      { "name": "PSG", "from": 2022, "to": 2026 }
+    ],
+    "careerStart": 2020,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Patrick Kluivert",
+    "primaryPosition": "Atacante",
+    "nationality": "NED",
+    "teams": [
+      { "name": "Ajax", "from": 1994, "to": 1997 },
+      { "name": "AC Milan", "from": 1997, "to": 1998 },
+      { "name": "Barcelona", "from": 1998, "to": 2004 },
+      { "name": "Newcastle United", "from": 2004, "to": 2005 },
+      { "name": "PSV", "from": 2006, "to": 2007 }
+    ],
+    "careerStart": 1994,
+    "careerEnd": 2008
+  },
+  {
+    "name": "Pauleta",
+    "primaryPosition": "Atacante",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Estrela Amadora", "from": 1993, "to": 1994 },
+      { "name": "Salamanca", "from": 1994, "to": 1996 },
+      { "name": "Deportivo La Coruña", "from": 1996, "to": 2000 },
+      { "name": "Bordeaux", "from": 2000, "to": 2003 },
+      { "name": "Paris Saint-Germain", "from": 2003, "to": 2008 }
+    ],
+    "careerStart": 1993,
+    "careerEnd": 2008
+  },
+  {
+    "name": "Paulo Futre",
+    "primaryPosition": "Atacante",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Sporting CP", "from": 1983, "to": 1987 },
+      { "name": "Porto", "from": 1987, "to": 1988 },
+      { "name": "Atlético Madrid", "from": 1988, "to": 1993 },
+      { "name": "AC Milan", "from": 1993, "to": 1994 },
+      { "name": "West Ham United", "from": 1995, "to": 1996 }
+    ],
+    "careerStart": 1983,
+    "careerEnd": 2000
+  },
+  {
+    "name": "Paulo Sousa",
+    "primaryPosition": "Meia",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Sporting CP", "from": 1985, "to": 1988 },
+      { "name": "Porto", "from": 1988, "to": 1991 },
+      { "name": "Juventus", "from": 1991, "to": 1994 },
+      { "name": "Borussia Dortmund", "from": 1994, "to": 1996 },
+      { "name": "Inter Milan", "from": 1996, "to": 1998 }
+    ],
+    "careerStart": 1985,
+    "careerEnd": 2003
+  },
+  {
+    "name": "Pepe",
+    "primaryPosition": "Defensor",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Marítimo", "from": 2001, "to": 2004 },
+      { "name": "Porto", "from": 2004, "to": 2007 },
+      { "name": "Real Madrid", "from": 2007, "to": 2017 },
+      { "name": "Beşiktaş", "from": 2017, "to": 2019 },
+      { "name": "Porto", "from": 2019, "to": 2026 }
+    ],
+    "careerStart": 2001,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Renato Sanches",
+    "primaryPosition": "Meia",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Benfica", "from": 2014, "to": 2016 },
+      { "name": "Bayern Munich", "from": 2016, "to": 2019 },
+      { "name": "Swansea City", "from": 2017, "to": 2018 },
+      { "name": "Lille", "from": 2019, "to": 2022 },
+      { "name": "Nice", "from": 2022, "to": 2026 }
+    ],
+    "careerStart": 2014,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Ricardo Carvalho",
+    "primaryPosition": "Defensor",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Porto", "from": 1998, "to": 2004 },
+      { "name": "Chelsea", "from": 2004, "to": 2010 },
+      { "name": "Real Madrid", "from": 2010, "to": 2013 },
+      { "name": "Monaco", "from": 2013, "to": 2016 }
+    ],
+    "careerStart": 1998,
+    "careerEnd": 2020
+  },
+  {
+    "name": "Ronald Koeman",
+    "primaryPosition": "Defensor",
+    "nationality": "NED",
+    "teams": [
+      { "name": "Groningen", "from": 1980, "to": 1983 },
+      { "name": "Ajax", "from": 1983, "to": 1986 },
+      { "name": "PSV", "from": 1986, "to": 1989 },
+      { "name": "Barcelona", "from": 1989, "to": 1995 },
+      { "name": "Feyenoord", "from": 1995, "to": 1997 }
+    ],
+    "careerStart": 1980,
+    "careerEnd": 1997
+  },
+  {
+    "name": "Roy Makaay",
+    "primaryPosition": "Atacante",
+    "nationality": "NED",
+    "teams": [
+      { "name": "Vitesse", "from": 1990, "to": 1993 },
+      { "name": "Tenerife", "from": 1993, "to": 1995 },
+      { "name": "Deportivo La Coruña", "from": 1997, "to": 2003 },
+      { "name": "Bayern Munich", "from": 2003, "to": 2007 }
+    ],
+    "careerStart": 1990,
+    "careerEnd": 2009
+  },
+  {
+    "name": "Rúben Dias",
+    "primaryPosition": "Defensor",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Benfica", "from": 2015, "to": 2020 },
+      { "name": "Manchester City", "from": 2020, "to": 2026 }
+    ],
+    "careerStart": 2015,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Rui Costa",
+    "primaryPosition": "Meia",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Benfica", "from": 1990, "to": 1994 },
+      { "name": "Fiorentina", "from": 1994, "to": 2001 },
+      { "name": "AC Milan", "from": 2001, "to": 2006 }
+    ],
+    "careerStart": 1990,
+    "careerEnd": 2008
+  },
+  {
+    "name": "Ruud Krol",
+    "primaryPosition": "Defensor",
+    "nationality": "NED",
+    "teams": [
+      { "name": "Ajax", "from": 1968, "to": 1980 },
+      { "name": "Napoli", "from": 1980, "to": 1982 },
+      { "name": "Cannes", "from": 1982, "to": 1985 }
+    ],
+    "careerStart": 1968,
+    "careerEnd": 1988
+  },
+  {
+    "name": "Sandro Mazzola",
+    "primaryPosition": "Atacante",
+    "nationality": "ITA",
+    "teams": [
+      { "name": "Inter Milan", "from": 1960, "to": 1977 }
+    ],
+    "careerStart": 1960,
+    "careerEnd": 1977
+  },
+  {
+    "name": "Sepp Maier",
+    "primaryPosition": "Goleiro",
+    "nationality": "GER",
+    "teams": [
+      { "name": "Bayern Munich", "from": 1962, "to": 1979 }
+    ],
+    "careerStart": 1962,
+    "careerEnd": 1979
+  },
+  {
+    "name": "Sergio Agüero",
+    "primaryPosition": "Atacante",
+    "nationality": "ARG",
+    "teams": [
+      { "name": "Independiente", "from": 2003, "to": 2006 },
+      { "name": "Atlético Madrid", "from": 2006, "to": 2011 },
+      { "name": "Manchester City", "from": 2011, "to": 2021 },
+      { "name": "Barcelona", "from": 2021, "to": 2021 }
+    ],
+    "careerStart": 2003,
+    "careerEnd": 2021
+  },
+  {
+    "name": "Sylvain Wiltord",
+    "primaryPosition": "Atacante",
+    "nationality": "FRA",
+    "teams": [
+      { "name": "Rennes", "from": 1990, "to": 1997 },
+      { "name": "Bordeaux", "from": 1997, "to": 2000 },
+      { "name": "Arsenal", "from": 2000, "to": 2004 },
+      { "name": "Lyon", "from": 2004, "to": 2007 }
+    ],
+    "careerStart": 1990,
+    "careerEnd": 2012
+  },
+  {
+    "name": "Vitinha",
+    "primaryPosition": "Meia",
+    "nationality": "POR",
+    "teams": [
+      { "name": "Porto", "from": 2020, "to": 2022 },
+      { "name": "PSG", "from": 2022, "to": 2026 }
+    ],
+    "careerStart": 2020,
+    "careerEnd": 2026
+  }
+]

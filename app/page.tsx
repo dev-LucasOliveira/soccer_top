@@ -24,7 +24,7 @@ export default async function HomePage({
           {APP_SLOGAN}
         </p>
         <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-on-pitch-muted">
-          Tradicional com a galera, Impostor pra blefar ou Solo no seu ritmo.
+          Tradicional, Impostor, Adivinhe o Top ou monte um ranking livre.
         </p>
       </div>
 

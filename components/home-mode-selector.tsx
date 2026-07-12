@@ -2,8 +2,9 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Eye, Trophy, User, type LucideIcon } from "lucide-react";
+import { Eye, List, Target, Trophy, type LucideIcon } from "lucide-react";
 import { CreateSessionForm } from "@/components/create-session-form";
+import { SoloGuessPanel } from "@/components/solo-guess-panel";
 import { SoloSetupForm } from "@/components/solo-setup-form";
 import {
   DEFAULT_HOME_MODE,
@@ -18,7 +19,8 @@ import { cn } from "@/lib/utils";
 const MODE_ICONS: Record<GameModeIconId, LucideIcon> = {
   trophy: Trophy,
   eye: Eye,
-  user: User,
+  target: Target,
+  list: List,
 };
 
 export function HomeModeSelector({ initialMode }: { initialMode?: HomeModeId }) {
@@ -51,7 +53,7 @@ export function HomeModeSelector({ initialMode }: { initialMode?: HomeModeId }) 
 
   return (
     <div className="space-y-6">
-      <div className="grid gap-3 sm:grid-cols-3">
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {GAME_MODES.map((mode) => {
           const Icon = MODE_ICONS[mode.icon];
           const isActive = mode.id === selectedMode;
@@ -115,6 +117,8 @@ export function HomeModeSelector({ initialMode }: { initialMode?: HomeModeId }) 
               gameMode={active.sessionGameMode}
               submitLabel={active.submitLabel}
             />
+          ) : active.id === "adivinhe" ? (
+            <SoloGuessPanel />
           ) : (
             <SoloSetupForm submitLabel={active.submitLabel} />
           )}

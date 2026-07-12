@@ -4,6 +4,10 @@ import type { SeedPlayer } from "../../lib/types";
 import { importSpreadsheet } from "./import-spreadsheet";
 import type { EnrichmentEntry } from "./enrich-players";
 import { playerKey } from "./player-utils";
+import {
+  applyCorrectionToPlayer,
+  loadAllCorrections,
+} from "./corrections/load-corrections";
 
 const LEGENDS_PATH = join(__dirname, "legends.json");
 const CACHE_PATH = join(__dirname, "player-enrichment-cache.json");
@@ -69,6 +73,45 @@ export function mergePlayers(): SeedPlayer[] {
     throw new Error(
       `${missing} spreadsheet players missing enrichment. Run: npm run db:enrich-players`
     );
+  }
+
+  const corrections = loadAllCorrections();
+  const correctionByName = new Map(
+    corrections.map((c) => [playerKey(c.name), c])
+  );
+
+  for (const [key, player] of merged) {
+    const correction = correctionByName.get(key);
+    if (correction) {
+      merged.set(key, applyCorrectionToPlayer(player, correction));
+    }
+  }
+
+  for (const correction of corrections) {
+    const key = playerKey(correction.name);
+    if (merged.has(key)) continue;
+
+    if (
+      !correction.primaryPosition ||
+      !correction.nationality ||
+      !correction.teams?.length ||
+      correction.careerStart === undefined ||
+      correction.careerEnd === undefined
+    ) {
+      throw new Error(
+        `Correção incompleta para jogador ausente do merge: ${correction.name}`
+      );
+    }
+
+    merged.set(key, {
+      name: correction.name,
+      primaryPosition: correction.primaryPosition,
+      nationality: correction.nationality,
+      teams: correction.teams,
+      careerStart: correction.careerStart,
+      careerEnd: correction.careerEnd,
+      curatedLists: [],
+    });
   }
 
   return [...merged.values()].sort((a, b) => a.name.localeCompare(b.name));

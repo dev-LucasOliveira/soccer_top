@@ -15,7 +15,7 @@ export default function SoloBuildPage() {
   useEffect(() => {
     const loaded = loadSoloDraft();
     if (!isSoloSetupComplete(loaded)) {
-      router.replace("/solo");
+      router.replace("/?mode=ranking");
       return;
     }
     setDraft(loaded);
@@ -33,7 +33,7 @@ export default function SoloBuildPage() {
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
       <Link
-        href="/solo"
+        href="/?mode=ranking"
         className="mb-6 inline-block text-sm text-on-pitch-muted transition-colors duration-200 hover:text-off-white"
       >
         ← Voltar ao setup

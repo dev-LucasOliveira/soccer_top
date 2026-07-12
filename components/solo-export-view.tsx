@@ -60,7 +60,7 @@ export function SoloExportView({ draft }: { draft: SoloDraft }) {
 
   function handleNewRanking() {
     clearSoloDraft();
-    router.push("/solo");
+    router.push("/?mode=ranking");
   }
 
   const sortedPicks = [...draft.picks].sort((a, b) => a.rank - b.rank);

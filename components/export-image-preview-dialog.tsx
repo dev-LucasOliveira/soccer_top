@@ -63,21 +63,23 @@ export function ExportImagePreviewDialog({
       title="Imagem pronta"
       panelClassName="max-w-lg"
     >
-      <div className="space-y-4">
-        <p className="text-sm text-text-muted">
+      <div className="flex min-h-0 flex-1 flex-col gap-4">
+        <p className="shrink-0 text-center text-sm text-text-muted">
           Segure na imagem para salvar na galeria ou use o botão de compartilhar.
         </p>
 
-        <div className="overflow-hidden rounded-xl border border-card-border">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={objectUrl}
-            alt="Ranking exportado"
-            className="block w-full"
-          />
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
+          <div className="mx-auto max-w-full overflow-hidden rounded-xl border border-card-border">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={objectUrl}
+              alt="Ranking exportado"
+              className="mx-auto block h-auto w-full max-w-full"
+            />
+          </div>
         </div>
 
-        <div className="flex flex-col gap-2 sm:flex-row">
+        <div className="shrink-0 flex flex-col gap-2 sm:flex-row">
           {canShare && (
             <Button
               variant="gold"
@@ -95,7 +97,7 @@ export function ExportImagePreviewDialog({
         </div>
 
         {shareError && (
-          <p className="text-center text-sm text-red-400">{shareError}</p>
+          <p className="shrink-0 text-center text-sm text-red-400">{shareError}</p>
         )}
       </div>
     </Dialog>

@@ -47,7 +47,13 @@ export function playerMatchesFilters(
     const teams = parseTeams(player.teams);
     const teamNames = teams.map((t) => t.name.toLowerCase());
     const filterTeams = filters.teams.map((t) => t.toLowerCase());
-    if (!filterTeams.some((t) => teamNames.includes(t))) {
+    if (
+      !filterTeams.some((filterTeam) =>
+        teamNames.some(
+          (name) => name === filterTeam || name.includes(filterTeam)
+        )
+      )
+    ) {
       return false;
     }
   }

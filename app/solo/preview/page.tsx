@@ -15,7 +15,7 @@ export default function SoloPreviewPage() {
   useEffect(() => {
     const loaded = loadSoloDraft();
     if (!isSoloDraftComplete(loaded)) {
-      router.replace(loaded ? "/solo/build" : "/solo");
+      router.replace(loaded ? "/solo/build" : "/?mode=ranking");
       return;
     }
     setDraft(loaded);

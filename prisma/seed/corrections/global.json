@@ -1,0 +1,138 @@
+[
+  {
+    "name": "David de Gea",
+    "primaryPosition": "Goleiro",
+    "nationality": "ESP",
+    "teams": [
+      { "name": "Atlético Madrid", "from": 2009, "to": 2011 },
+      { "name": "Manchester United", "from": 2011, "to": 2023 },
+      { "name": "Fiorentina", "from": 2024, "to": 2026 }
+    ],
+    "careerStart": 2009,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Didier Drogba",
+    "primaryPosition": "Atacante",
+    "nationality": "CIV",
+    "teams": [
+      { "name": "Le Mans", "from": 1998, "to": 2002 },
+      { "name": "Guingamp", "from": 2002, "to": 2003 },
+      { "name": "Marseille", "from": 2003, "to": 2004 },
+      { "name": "Chelsea", "from": 2004, "to": 2012 },
+      { "name": "Galatasaray", "from": 2014, "to": 2015 }
+    ],
+    "careerStart": 1998,
+    "careerEnd": 2018
+  },
+  {
+    "name": "Kasper Schmeichel",
+    "primaryPosition": "Goleiro",
+    "nationality": "DEN",
+    "teams": [
+      { "name": "Manchester City", "from": 2006, "to": 2009 },
+      { "name": "Leeds United", "from": 2010, "to": 2011 },
+      { "name": "Leicester City", "from": 2011, "to": 2022 },
+      { "name": "Nice", "from": 2022, "to": 2023 },
+      { "name": "Anderlecht", "from": 2023, "to": 2024 },
+      { "name": "Celtic", "from": 2024, "to": 2026 }
+    ],
+    "careerStart": 2006,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Kevin De Bruyne",
+    "primaryPosition": "Meia",
+    "nationality": "BEL",
+    "teams": [
+      { "name": "Genk", "from": 2008, "to": 2012 },
+      { "name": "Chelsea", "from": 2012, "to": 2014 },
+      { "name": "Wolfsburg", "from": 2014, "to": 2015 },
+      { "name": "Manchester City", "from": 2015, "to": 2025 },
+      { "name": "Napoli", "from": 2025, "to": 2026 }
+    ],
+    "careerStart": 2008,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Mesut Özil",
+    "primaryPosition": "Meia",
+    "nationality": "GER",
+    "teams": [
+      { "name": "Schalke 04", "from": 2006, "to": 2008 },
+      { "name": "Werder Bremen", "from": 2008, "to": 2010 },
+      { "name": "Real Madrid", "from": 2010, "to": 2013 },
+      { "name": "Arsenal", "from": 2013, "to": 2021 },
+      { "name": "Fenerbahçe", "from": 2021, "to": 2024 }
+    ],
+    "careerStart": 2006,
+    "careerEnd": 2024
+  },
+  {
+    "name": "Mohamed Salah",
+    "primaryPosition": "Atacante",
+    "nationality": "EGY",
+    "teams": [
+      { "name": "Basel", "from": 2012, "to": 2014 },
+      { "name": "Chelsea", "from": 2014, "to": 2015 },
+      { "name": "Roma", "from": 2015, "to": 2017 },
+      { "name": "Liverpool", "from": 2017, "to": 2026 }
+    ],
+    "careerStart": 2010,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Paul Pogba",
+    "primaryPosition": "Meia",
+    "nationality": "FRA",
+    "teams": [
+      { "name": "Manchester United", "from": 2009, "to": 2011 },
+      { "name": "Juventus", "from": 2012, "to": 2016 },
+      { "name": "Manchester United", "from": 2016, "to": 2022 },
+      { "name": "Juventus", "from": 2022, "to": 2024 },
+      { "name": "Monaco", "from": 2024, "to": 2026 }
+    ],
+    "careerStart": 2009,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Petr Čech",
+    "primaryPosition": "Goleiro",
+    "nationality": "CZE",
+    "teams": [
+      { "name": "Sparta Prague", "from": 2001, "to": 2002 },
+      { "name": "Rennes", "from": 2002, "to": 2004 },
+      { "name": "Chelsea", "from": 2004, "to": 2015 },
+      { "name": "Arsenal", "from": 2015, "to": 2019 }
+    ],
+    "careerStart": 2001,
+    "careerEnd": 2019
+  },
+  {
+    "name": "Virgil van Dijk",
+    "primaryPosition": "Defensor",
+    "nationality": "NED",
+    "teams": [
+      { "name": "Groningen", "from": 2010, "to": 2011 },
+      { "name": "Celtic", "from": 2013, "to": 2015 },
+      { "name": "Southampton", "from": 2015, "to": 2018 },
+      { "name": "Liverpool", "from": 2018, "to": 2026 }
+    ],
+    "careerStart": 2010,
+    "careerEnd": 2026
+  },
+  {
+    "name": "Walter Zenga",
+    "primaryPosition": "Goleiro",
+    "nationality": "ITA",
+    "teams": [
+      { "name": "Inter Milan", "from": 1983, "to": 1994 },
+      { "name": "Internacional", "from": 1994, "to": 1995 },
+      { "name": "Padova", "from": 1995, "to": 1997 },
+      { "name": "Venezia", "from": 1997, "to": 1999 },
+      { "name": "Arezzo", "from": 1999, "to": 2003 }
+    ],
+    "careerStart": 1983,
+    "careerEnd": 2003
+  }
+]

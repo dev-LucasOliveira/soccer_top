@@ -14,7 +14,13 @@
     "db:enrich-players": "tsx prisma/seed/enrich-players.ts",
     "db:merge-players": "tsx prisma/seed/merge-players.ts",
     "db:build-players": "npm run db:import-players && npm run db:merge-players",
-    "db:reset": "prisma migrate reset --force"
+    "db:reset": "prisma migrate reset --force",
+    "db:audit-players": "tsx prisma/seed/audit-game-critical.ts",
+    "db:apply-corrections": "tsx prisma/seed/apply-corrections.ts",
+    "db:validate-players": "tsx prisma/seed/validate-player-data.ts",
+    "db:validate-pool-filters": "tsx prisma/seed/validate-pool-filters.ts",
+    "db:validate-guess-top": "tsx prisma/seed/validate-guess-top-challenges.ts",
+    "db:sync-guess-top-players": "tsx prisma/seed/sync-guess-top-players.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

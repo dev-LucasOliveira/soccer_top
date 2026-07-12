@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function SoloSetupPage() {
-  redirect("/?mode=solo");
+  redirect("/?mode=adivinhe");
 }
