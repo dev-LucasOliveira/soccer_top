@@ -90,21 +90,6 @@
     "curatedLists": []
   },
   {
-    "name": "Ademir Menezes",
-    "primaryPosition": "Meia",
-    "nationality": "BRA",
-    "teams": [
-      {
-        "name": "Flamengo",
-        "from": 1930,
-        "to": 1950
-      }
-    ],
-    "careerStart": 1930,
-    "careerEnd": 1950,
-    "curatedLists": []
-  },
-  {
     "name": "Adil Rami",
     "primaryPosition": "Meia",
     "nationality": "FRA",
@@ -4601,21 +4586,6 @@
     "curatedLists": []
   },
   {
-    "name": "Diego Ribas da Cunha",
-    "primaryPosition": "Meia",
-    "nationality": "BRA",
-    "teams": [
-      {
-        "name": "Eintracht Frankfurt",
-        "from": 2000,
-        "to": 2000
-      }
-    ],
-    "careerStart": 2000,
-    "careerEnd": 2000,
-    "curatedLists": []
-  },
-  {
     "name": "Diego Simeone",
     "primaryPosition": "Meia",
     "nationality": "ARG",
@@ -6688,21 +6658,6 @@
     ],
     "careerStart": 2013,
     "careerEnd": 2026,
-    "curatedLists": []
-  },
-  {
-    "name": "Gabriel Barbosa",
-    "primaryPosition": "Meia",
-    "nationality": "BRA",
-    "teams": [
-      {
-        "name": "Flamengo",
-        "from": 2010,
-        "to": 2020
-      }
-    ],
-    "careerStart": 2010,
-    "careerEnd": 2020,
     "curatedLists": []
   },
   {
@@ -15728,21 +15683,6 @@
     "curatedLists": []
   },
   {
-    "name": "Renato Portaluppi",
-    "primaryPosition": "Atacante",
-    "nationality": "BRA",
-    "teams": [
-      {
-        "name": "Flamengo",
-        "from": 1980,
-        "to": 1990
-      }
-    ],
-    "careerStart": 1980,
-    "careerEnd": 1990,
-    "curatedLists": []
-  },
-  {
     "name": "Renato Sanches",
     "primaryPosition": "Meia",
     "nationality": "POR",
@@ -16622,7 +16562,7 @@
     "curatedLists": []
   },
   {
-    "name": "Ronaldinho",
+    "name": "Ronaldinho Gaúcho",
     "primaryPosition": "Meia",
     "nationality": "BRA",
     "teams": [
@@ -16653,21 +16593,6 @@
       "atacante_top20",
       "general_top100"
     ]
-  },
-  {
-    "name": "Ronaldinho Gaúcho",
-    "primaryPosition": "Defensor",
-    "nationality": "BRA",
-    "teams": [
-      {
-        "name": "Santos",
-        "from": 1990,
-        "to": 2010
-      }
-    ],
-    "careerStart": 1990,
-    "careerEnd": 2010,
-    "curatedLists": []
   },
   {
     "name": "Ronaldo Giovanelli",

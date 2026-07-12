@@ -8,6 +8,11 @@ import {
   applyCorrectionToPlayer,
   loadAllCorrections,
 } from "./corrections/load-corrections";
+import {
+  getCanonicalNameForAliasKey,
+  isPlayerAliasKey,
+  resolveCanonicalName,
+} from "./player-aliases";
 
 const LEGENDS_PATH = join(__dirname, "legends.json");
 const CACHE_PATH = join(__dirname, "player-enrichment-cache.json");
@@ -56,6 +61,12 @@ export function mergePlayers(): SeedPlayer[] {
   let missing = 0;
   for (const row of spreadsheet) {
     if (legendKeys.has(row.key)) continue;
+
+    const canonicalForAlias = getCanonicalNameForAliasKey(row.key);
+    if (canonicalForAlias) {
+      const canonicalKey = playerKey(canonicalForAlias);
+      if (merged.has(canonicalKey) || legendKeys.has(canonicalKey)) continue;
+    }
 
     const enrichment = cache[row.key];
     if (!enrichment) {
@@ -112,6 +123,14 @@ export function mergePlayers(): SeedPlayer[] {
       careerEnd: correction.careerEnd,
       curatedLists: [],
     });
+  }
+
+  for (const [key] of merged) {
+    if (!isPlayerAliasKey(key)) continue;
+    const player = merged.get(key);
+    if (!player) continue;
+    if (resolveCanonicalName(player.name) === player.name) continue;
+    merged.delete(key);
   }
 
   return [...merged.values()].sort((a, b) => a.name.localeCompare(b.name));

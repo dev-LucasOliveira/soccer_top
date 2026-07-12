@@ -3,6 +3,7 @@ import { join } from "path";
 import { createPrismaClient } from "../../lib/prisma";
 import type { SeedPlayer } from "../../lib/types";
 import { GUESS_TOP_CHALLENGES } from "../../lib/guess-top-challenges";
+import { getAliasNamesToPurge } from "./player-aliases";
 
 const { prisma, pool } = createPrismaClient();
 
@@ -17,6 +18,13 @@ async function main() {
 
   let created = 0;
   let updated = 0;
+
+  const purged = await prisma.player.deleteMany({
+    where: { name: { in: getAliasNamesToPurge() } },
+  });
+  if (purged.count > 0) {
+    console.log(`Removidos ${purged.count} alias duplicado(s) do banco`);
+  }
 
   for (const player of needed) {
     const existing = await prisma.player.findFirst({
