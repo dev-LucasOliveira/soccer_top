@@ -19,6 +19,9 @@ export function SoloGuessPanel() {
 
   return (
     <div className="space-y-4">
+      <p className="text-sm text-on-pitch-muted">
+        Descubra quem está na lista secreta — não é montar um ranking.
+      </p>
       <ul className="space-y-1 text-sm text-on-pitch-subtle">
         <li>· Cada tema sorteia 5 jogadores secretos de um pool curado</li>
         <li>· Dica em cada carta: clube e período (ex. AC Milan 2003–2008)</li>

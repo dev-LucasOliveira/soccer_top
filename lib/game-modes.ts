@@ -1,6 +1,10 @@
 import type { GameMode } from "@/lib/types";
 
-export type HomeModeId = "tradicional" | "impostor" | "adivinhe" | "ranking";
+export type HomeModeId =
+  | "tradicional"
+  | "impostor"
+  | "lista-secreta"
+  | "ranking";
 
 export type GameModeIconId = "trophy" | "eye" | "target" | "list";
 
@@ -46,12 +50,12 @@ export const GAME_MODES: GameModeConfig[] = [
     sessionGameMode: "impostor",
   },
   {
-    id: "adivinhe",
-    label: "Adivinhe o Top",
+    id: "lista-secreta",
+    label: "Lista Secreta",
     cardDescription:
-      "25 temas, 5 jogadores secretos por rodada, dicas de clube — 5 erros na sessão.",
+      "25 temas, 5 jogadores secretos por lista — descubra quem são pelas dicas de clube.",
     panelDescription:
-      "Cada rodada sorteia um tema e 5 jogadores secretos de um pool curado. Cada carta mostra uma dica de clube e período — pesquise e descubra quem está na lista antes de esgotar seus erros.",
+      "Cada tema esconde 5 jogadores. As cartas mostram clube e período; pesquise, acerte e revele a lista antes de esgotar seus 5 erros.",
     hint: "Cada partida sorteia temas e jogadores diferentes.",
     submitLabel: "Jogar agora",
     icon: "target",
@@ -79,11 +83,11 @@ export function getGameModeConfig(id: HomeModeId): GameModeConfig {
 }
 
 export function parseHomeModeParam(value: string | null): HomeModeId | null {
-  if (value === "solo") return "adivinhe";
+  if (value === "solo" || value === "adivinhe") return "lista-secreta";
   if (
     value === "tradicional" ||
     value === "impostor" ||
-    value === "adivinhe" ||
+    value === "lista-secreta" ||
     value === "ranking"
   ) {
     return value;

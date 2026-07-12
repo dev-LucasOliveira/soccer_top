@@ -57,12 +57,12 @@ export function SoloGuessHub() {
   return (
     <div className="space-y-4">
       <p className="text-sm leading-relaxed text-on-pitch-muted">
-        Cada tema sorteia{" "}
-        <strong className="text-off-white">5 jogadores secretos</strong> de um
-        pool curado. Cada carta mostra uma dica de clube e período — pesquise e
-        descubra quem está na rodada. Você tem{" "}
+        Não é montar um ranking — cada tema esconde{" "}
+        <strong className="text-off-white">5 jogadores secretos</strong> em uma
+        lista. Cada carta mostra dica de clube e período; pesquise e descubra
+        quem está na lista. Você tem{" "}
         <strong className="text-off-white">{GUESS_TOP_MAX_ERRORS} erros</strong>{" "}
-        para completar o máximo de rodadas em{" "}
+        para revelar o máximo de listas em{" "}
         <strong className="text-off-white">{GUESS_TOP_CHALLENGES.length} temas</strong>.
       </p>
 

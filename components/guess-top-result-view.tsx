@@ -64,7 +64,7 @@ function RecapContent({
         <p className={cn("font-display text-off-white", compact ? "text-lg" : "text-2xl")}>
           {title}
         </p>
-        <p className="mt-1 text-xs text-on-pitch-muted">Adivinhe o Top — Ranking da Resenha</p>
+        <p className="mt-1 text-xs text-on-pitch-muted">Lista Secreta — Ranking da Resenha</p>
       </div>
 
       <div className="grid grid-cols-2 gap-3">
@@ -242,7 +242,7 @@ export function GuessTopResultView({
             Jogar de novo
           </Link>
           <Link
-            href="/?mode=adivinhe"
+            href="/?mode=lista-secreta"
             className="text-center text-sm text-on-pitch-muted transition-colors hover:text-off-white"
           >
             ← Voltar ao início

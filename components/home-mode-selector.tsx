@@ -140,7 +140,7 @@ export function HomeModeSelector({ initialMode }: { initialMode?: HomeModeId }) 
               gameMode={active.sessionGameMode}
               submitLabel={active.submitLabel}
             />
-          ) : active.id === "adivinhe" ? (
+          ) : active.id === "lista-secreta" ? (
             <SoloGuessPanel />
           ) : (
             <SoloSetupForm submitLabel={active.submitLabel} />

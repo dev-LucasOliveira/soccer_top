@@ -24,7 +24,7 @@ export default async function HomePage({
           {APP_SLOGAN}
         </p>
         <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-on-pitch-muted">
-          Tradicional, Impostor, Adivinhe o Top ou monte um ranking livre.
+          Tradicional, Impostor, Lista Secreta ou monte um ranking livre.
         </p>
       </div>
 
