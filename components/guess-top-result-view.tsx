@@ -242,7 +242,7 @@ export function GuessTopResultView({
             Jogar de novo
           </Link>
           <Link
-            href="/?mode=lista-secreta"
+            href="/solo/guess"
             className="text-center text-sm text-on-pitch-muted transition-colors hover:text-off-white"
           >
             ← Voltar ao início

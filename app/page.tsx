@@ -1,8 +1,8 @@
-import { Suspense } from "react";
+import { redirect } from "next/navigation";
 import { JoinForm } from "@/components/join-form";
 import { HomeModeSelector } from "@/components/home-mode-selector";
 import { APP_SLOGAN } from "@/lib/branding";
-import { parseHomeModeParam } from "@/lib/game-modes";
+import { getLandingPathForModeParam } from "@/lib/game-modes";
 
 export default async function HomePage({
   searchParams,
@@ -10,7 +10,10 @@ export default async function HomePage({
   searchParams: Promise<{ mode?: string }>;
 }) {
   const { mode } = await searchParams;
-  const initialMode = parseHomeModeParam(mode ?? null) ?? undefined;
+  const landingPath = getLandingPathForModeParam(mode ?? null);
+  if (landingPath) {
+    redirect(landingPath);
+  }
 
   return (
     <main className="relative mx-auto flex min-h-full w-full max-w-4xl flex-1 flex-col px-4 py-8 sm:py-12">
@@ -24,14 +27,12 @@ export default async function HomePage({
           {APP_SLOGAN}
         </p>
         <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-on-pitch-muted">
-          Tradicional, Impostor, Lista Secreta ou monte um ranking livre.
+          Tradicional, Impostor, Duelo, Lista Secreta, Um Só ou ranking livre.
         </p>
       </div>
 
       <div className="relative mb-10">
-        <Suspense>
-          <HomeModeSelector initialMode={initialMode} />
-        </Suspense>
+        <HomeModeSelector />
       </div>
 
       <div className="relative">

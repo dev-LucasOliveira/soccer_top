@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
-import { isSpectator } from "@/lib/participants";
+import { getPlayers, isSpectator } from "@/lib/participants";
+import { MAX_DUELO_PLAYERS } from "@/lib/duelo-constants";
 
 type RouteContext = { params: Promise<{ code: string }> };
 
@@ -43,6 +44,17 @@ export async function POST(request: Request, context: RouteContext) {
 
     const joinAsSpectator =
       session.status === "active" || session.status === "completed";
+
+    if (
+      session.gameMode === "duelo" &&
+      !joinAsSpectator &&
+      getPlayers(session.participants).length >= MAX_DUELO_PLAYERS
+    ) {
+      return NextResponse.json(
+        { error: "Sala cheia — o duelo aceita apenas 2 jogadores" },
+        { status: 400 }
+      );
+    }
 
     const participant = await prisma.participant.create({
       data: {

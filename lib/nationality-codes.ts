@@ -125,3 +125,87 @@ export function isoToLabel(iso: string): string {
   const match = FILTER_NATIONALITIES.find((n) => n.value === iso);
   return match?.label ?? iso;
 }
+
+const ISO_TO_CONTINENT: Record<string, string> = {
+  ALG: "África",
+  CMR: "África",
+  CHA: "África",
+  CIV: "África",
+  COD: "África",
+  EGY: "África",
+  GAB: "África",
+  GHA: "África",
+  GUI: "África",
+  LBR: "África",
+  MLI: "África",
+  MAR: "África",
+  NGA: "África",
+  RSA: "África",
+  SEN: "África",
+  TOG: "África",
+  TUN: "África",
+  ZIM: "África",
+  ARM: "Ásia",
+  KOR: "Ásia",
+  JPN: "Ásia",
+  PHI: "Ásia",
+  TUR: "Ásia",
+  GEO: "Ásia",
+  AUS: "Oceania",
+  NZL: "Oceania",
+  CAN: "América do Norte",
+  CRC: "América do Norte",
+  MEX: "América do Norte",
+  USA: "América do Norte",
+  TRI: "América do Norte",
+  ARG: "América do Sul",
+  BRA: "América do Sul",
+  CHI: "América do Sul",
+  COL: "América do Sul",
+  PAR: "América do Sul",
+  PER: "América do Sul",
+  URU: "América do Sul",
+  VEN: "América do Sul",
+  AUT: "Europa",
+  BEL: "Europa",
+  BIH: "Europa",
+  BUL: "Europa",
+  CRO: "Europa",
+  CZE: "Europa",
+  DEN: "Europa",
+  ENG: "Europa",
+  ESP: "Europa",
+  FIN: "Europa",
+  FRA: "Europa",
+  GDR: "Europa",
+  GER: "Europa",
+  HUN: "Europa",
+  IRL: "Europa",
+  ITA: "Europa",
+  MKD: "Europa",
+  MNE: "Europa",
+  NED: "Europa",
+  NIR: "Europa",
+  NOR: "Europa",
+  POL: "Europa",
+  POR: "Europa",
+  RUS: "Europa",
+  SCO: "Europa",
+  SRB: "Europa",
+  SVK: "Europa",
+  SVN: "Europa",
+  SUI: "Europa",
+  SWE: "Europa",
+  UKR: "Europa",
+  WAL: "Europa",
+};
+
+export function isoToContinent(iso: string): string {
+  return ISO_TO_CONTINENT[iso] ?? "Desconhecido";
+}
+
+export function nationalitiesShareContinent(isos: string[]): boolean {
+  if (isos.length === 0) return false;
+  const continents = new Set(isos.map(isoToContinent));
+  return continents.size === 1 && !continents.has("Desconhecido");
+}

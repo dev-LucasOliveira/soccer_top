@@ -5,9 +5,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ResultsView } from "@/components/results-view";
 import { ImpostorResultsView } from "@/components/impostor-results-view";
+import { DueloResultsView } from "@/components/duelo-result-view";
 import { SessionHeader } from "@/components/session-header";
 import { getGuestToken } from "@/lib/guest";
-import type { ImpostorSessionResult, SessionFinalResult } from "@/lib/types";
+import type {
+  DueloSessionResult,
+  ImpostorSessionResult,
+  SessionFinalResult,
+} from "@/lib/types";
 
 export default function ResultsPage({
   params,
@@ -18,9 +23,10 @@ export default function ResultsPage({
   const [code, setCode] = useState("");
   const [participantId, setParticipantId] = useState<string | null>(null);
   const [title, setTitle] = useState("");
-  const [gameMode, setGameMode] = useState<"ranking" | "impostor">("ranking");
+  const [gameMode, setGameMode] = useState<"ranking" | "impostor" | "duelo">("ranking");
   const [result, setResult] = useState<SessionFinalResult | null>(null);
   const [impostorResult, setImpostorResult] = useState<ImpostorSessionResult | null>(null);
+  const [dueloResult, setDueloResult] = useState<DueloSessionResult | null>(null);
   const [isCreator, setIsCreator] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -54,18 +60,31 @@ export default function ResultsPage({
     }
 
     setTitle(data.title);
-    setGameMode(data.gameMode === "impostor" ? "impostor" : "ranking");
+    setGameMode(
+      data.gameMode === "impostor"
+        ? "impostor"
+        : data.gameMode === "duelo"
+          ? "duelo"
+          : "ranking"
+    );
     setIsCreator(data.isCreator ?? false);
 
     if (!data.result) {
       setError("Resultados indisponíveis");
     } else if (data.gameMode === "impostor") {
       setImpostorResult(data.result as ImpostorSessionResult);
+      setDueloResult(null);
+      setResult(null);
+      setError("");
+    } else if (data.gameMode === "duelo") {
+      setDueloResult(data.result as DueloSessionResult);
+      setImpostorResult(null);
       setResult(null);
       setError("");
     } else {
       setResult(data.result);
       setImpostorResult(null);
+      setDueloResult(null);
       setError("");
     }
 
@@ -119,7 +138,14 @@ export default function ResultsPage({
     );
   }
 
-  if (error || (gameMode === "impostor" ? !impostorResult : !result)) {
+  if (
+    error ||
+    (gameMode === "impostor"
+      ? !impostorResult
+      : gameMode === "duelo"
+        ? !dueloResult
+        : !result)
+  ) {
     return (
       <main className="mx-auto max-w-4xl px-4 py-12">
         <Link
@@ -145,6 +171,14 @@ export default function ResultsPage({
       {gameMode === "impostor" && impostorResult ? (
         <ImpostorResultsView
           result={impostorResult}
+          isCreator={isCreator}
+          onRestart={handleRestart}
+          restarting={restarting}
+          restartError={restartError}
+        />
+      ) : gameMode === "duelo" && dueloResult ? (
+        <DueloResultsView
+          result={dueloResult}
           isCreator={isCreator}
           onRestart={handleRestart}
           restarting={restarting}

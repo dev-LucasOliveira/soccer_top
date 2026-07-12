@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -90,13 +89,6 @@ export function SoloGuessHub() {
       >
         {starting ? "Iniciando..." : "Jogar agora"}
       </Button>
-
-      <Link
-        href="/"
-        className="block text-center text-sm text-on-pitch-muted transition-colors hover:text-off-white"
-      >
-        ← Voltar ao início
-      </Link>
     </div>
   );
 }

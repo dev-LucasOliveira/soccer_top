@@ -19,7 +19,12 @@ export async function POST(request: Request) {
       );
     }
 
-    const mode: GameMode = gameMode === "impostor" ? "impostor" : "ranking";
+    const mode: GameMode =
+      gameMode === "impostor"
+        ? "impostor"
+        : gameMode === "duelo"
+          ? "duelo"
+          : "ranking";
 
     let code = createSessionCode();
     let attempts = 0;
@@ -34,7 +39,7 @@ export async function POST(request: Request) {
       const created = await tx.session.create({
         data: {
           code,
-          title: mode === "impostor" ? `Impostor ${code}` : `Sala ${code}`,
+          title: mode === "impostor" ? `Impostor ${code}` : mode === "duelo" ? `Duelo ${code}` : `Sala ${code}`,
           status: "setup",
           gameMode: mode,
           currentRoundNumber: 1,

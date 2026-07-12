@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
-export default function SoloSetupPage() {
-  redirect("/?mode=lista-secreta");
+export default function SoloHomePage() {
+  redirect("/solo/guess");
 }

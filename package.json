@@ -23,6 +23,7 @@
     "db:validate-duplicates": "tsx prisma/seed/validate-player-duplicates.ts",
     "db:validate-pool-filters": "tsx prisma/seed/validate-pool-filters.ts",
     "db:validate-guess-top": "tsx prisma/seed/validate-guess-top-challenges.ts",
+    "db:validate-um-so-hints": "tsx prisma/seed/validate-um-so-hints.ts",
     "db:sync-guess-top-players": "tsx prisma/seed/sync-guess-top-players.ts"
   },
   "prisma": {

@@ -3,10 +3,12 @@ import type { GameMode } from "@/lib/types";
 export type HomeModeId =
   | "tradicional"
   | "impostor"
+  | "duelo"
   | "lista-secreta"
+  | "um-so"
   | "ranking";
 
-export type GameModeIconId = "trophy" | "eye" | "target" | "list";
+export type GameModeIconId = "trophy" | "eye" | "target" | "list" | "sparkles" | "swords";
 
 export type GameModePlayStyle = "multiplayer" | "solo";
 
@@ -19,6 +21,8 @@ export type GameModeConfig = {
   submitLabel: string;
   icon: GameModeIconId;
   playStyle: GameModePlayStyle;
+  landingPath: string;
+  rules?: string[];
   sessionGameMode?: GameMode;
 };
 
@@ -34,6 +38,13 @@ export const GAME_MODES: GameModeConfig[] = [
     submitLabel: "Criar sala",
     icon: "trophy",
     playStyle: "multiplayer",
+    landingPath: "/tradicional",
+    rules: [
+      "Mínimo de 2 jogadores por sala",
+      "Cada rodada tem tema, Top N e filtros definidos pelo criador",
+      "Todos montam sua lista, depois votam na melhor",
+      "Placar acumulado ao longo das rodadas",
+    ],
     sessionGameMode: "ranking",
   },
   {
@@ -47,7 +58,34 @@ export const GAME_MODES: GameModeConfig[] = [
     submitLabel: "Criar sala",
     icon: "eye",
     playStyle: "multiplayer",
+    landingPath: "/impostor",
+    rules: [
+      "Mínimo de 4 jogadores",
+      "Um jogador sorteado é o impostor — não vê o tema",
+      "Escolham cartas, debatam e votem para eliminar o suspeito",
+      "Tripulação vence se eliminar o impostor; impostor vence se sobreviver",
+    ],
     sessionGameMode: "impostor",
+  },
+  {
+    id: "duelo",
+    label: "Duelo",
+    cardDescription:
+      "Um Só 1v1 online — turnos alternados, dicas compartilhadas, quem acerta leva a rodada.",
+    panelDescription:
+      "Dois jogadores, um jogador secreto por rodada. Por nível de dica: A chuta, depois B; se ambos erram, +1 dica e volta para A. Quem acerta primeiro ganha pontos. Errou com todas as dicas visíveis → fim de jogo.",
+    hint: "Exatamente 2 jogadores — o criador define quantas rodadas valerão.",
+    submitLabel: "Criar duelo",
+    icon: "swords",
+    playStyle: "multiplayer",
+    landingPath: "/duelo",
+    rules: [
+      "Exatamente 2 jogadores por sala",
+      "Turnos alternados por nível de dica",
+      "Dicas compartilhadas — quem acerta primeiro leva a rodada",
+      "Errou com todas as dicas visíveis → fim de jogo",
+    ],
+    sessionGameMode: "duelo",
   },
   {
     id: "lista-secreta",
@@ -60,6 +98,32 @@ export const GAME_MODES: GameModeConfig[] = [
     submitLabel: "Jogar agora",
     icon: "target",
     playStyle: "solo",
+    landingPath: "/solo/guess",
+    rules: [
+      "Cada tema sorteia 5 jogadores secretos de um pool curado",
+      "Dica em cada carta: clube e período",
+      "Acertou → revela o jogador; errou → +1 erro",
+      "Complete os 5 de um tema para somar +1 no placar",
+    ],
+  },
+  {
+    id: "um-so",
+    label: "Um Só",
+    cardDescription:
+      "Um jogador misterioso — chute à vontade e desbloqueie pistas a cada erro até a última.",
+    panelDescription:
+      "Um jogador secreto por rodada. O primeiro chute é só com o tema; cada erro revela a próxima dica contextual. Errou com todas as dicas visíveis → fim de jogo. Pontuação cai quanto mais dicas você usar.",
+    hint: "Dicas adaptadas ao tema — sem repetir o que você já sabe.",
+    submitLabel: "Jogar agora",
+    icon: "sparkles",
+    playStyle: "solo",
+    landingPath: "/solo/um-so",
+    rules: [
+      "Chute à vontade sem dicas no início",
+      "Cada erro revela a próxima pista contextual",
+      "Errou com todas as dicas visíveis → fim de jogo",
+      "Pontuação cai conforme mais dicas você precisar",
+    ],
   },
   {
     id: "ranking",
@@ -72,6 +136,13 @@ export const GAME_MODES: GameModeConfig[] = [
     submitLabel: "Começar meu ranking",
     icon: "list",
     playStyle: "solo",
+    landingPath: "/ranking",
+    rules: [
+      "Defina tema, Top N e filtros do catálogo",
+      "Monte a lista na ordem que preferir",
+      "Exporte uma imagem pronta para compartilhar",
+      "Rascunho salvo neste navegador",
+    ],
   },
 ];
 
@@ -82,15 +153,27 @@ export function getGameModeConfig(id: HomeModeId): GameModeConfig {
   return config ?? GAME_MODES[0];
 }
 
+export function getGameModeByPath(path: string): GameModeConfig | null {
+  return GAME_MODES.find((mode) => mode.landingPath === path) ?? null;
+}
+
 export function parseHomeModeParam(value: string | null): HomeModeId | null {
   if (value === "solo" || value === "adivinhe") return "lista-secreta";
   if (
     value === "tradicional" ||
     value === "impostor" ||
+    value === "duelo" ||
     value === "lista-secreta" ||
+    value === "um-so" ||
     value === "ranking"
   ) {
     return value;
   }
   return null;
+}
+
+export function getLandingPathForModeParam(value: string | null): string | null {
+  const modeId = parseHomeModeParam(value);
+  if (!modeId) return null;
+  return getGameModeConfig(modeId).landingPath;
 }

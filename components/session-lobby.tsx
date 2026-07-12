@@ -11,7 +11,9 @@ import { SessionHeader } from "@/components/session-header";
 import { StandingsTable } from "@/components/standings-table";
 import { RoundSetupPanel } from "@/components/round-setup-panel";
 import { ImpostorThemePicker } from "@/components/impostor-theme-picker";
+import { DueloLobbyConfig } from "@/components/duelo-lobby-config";
 import { MIN_IMPOSTOR_PLAYERS } from "@/lib/impostor-constants";
+import { MIN_DUELO_PLAYERS } from "@/lib/duelo-constants";
 import { getGuestToken } from "@/lib/guest";
 import { Copy, Check, Users, Share2, ListOrdered } from "lucide-react";
 import { describeSessionFilters } from "@/lib/session-info";
@@ -23,6 +25,7 @@ import type {
   SessionFilters,
   StandingEntry,
   GameMode,
+  DueloViewState,
 } from "@/lib/types";
 
 type Participant = {
@@ -43,6 +46,8 @@ type SessionData = {
   totalRounds: number;
   impostorThemeId: string | null;
   impostorThemeSelected?: boolean;
+  umSoTotalRounds?: number | null;
+  dueloView?: DueloViewState | null;
   filters: SessionFilters;
   createdAt: string;
   creatorParticipantId: string | null;
@@ -75,6 +80,13 @@ const IMPOSTOR_STEPS = [
   { num: 3, label: "Debate" },
   { num: 4, label: "Votar" },
   { num: 5, label: "Resultado" },
+];
+
+const DUELO_STEPS = [
+  { num: 1, label: "Entrar" },
+  { num: 2, label: "Configurar" },
+  { num: 3, label: "Jogar" },
+  { num: 4, label: "Resultado" },
 ];
 
 export function SessionLobby({
@@ -212,8 +224,17 @@ export function SessionLobby({
   const roundStatus = session.currentRound?.status;
   const advanceAction = session.advanceAction;
   const isImpostor = session.gameMode === "impostor";
-  const stepItems = isImpostor ? IMPOSTOR_STEPS : STEPS;
-  const minPlayers = isImpostor ? MIN_IMPOSTOR_PLAYERS : 2;
+  const isDuelo = session.gameMode === "duelo";
+  const stepItems = isImpostor
+    ? IMPOSTOR_STEPS
+    : isDuelo
+      ? DUELO_STEPS
+      : STEPS;
+  const minPlayers = isImpostor
+    ? MIN_IMPOSTOR_PLAYERS
+    : isDuelo
+      ? MIN_DUELO_PLAYERS
+      : 2;
 
   function participantBadge(p: Participant) {
     if (p.status === "spectator") return isImpostor ? "Eliminado" : "Espectador";
@@ -254,7 +275,9 @@ export function SessionLobby({
         backLabel="← Voltar"
       />
 
-      {session.gameMode !== "impostor" && session.standings.length > 0 && (
+      {session.gameMode !== "impostor" &&
+        session.gameMode !== "duelo" &&
+        session.standings.length > 0 && (
         <StandingsTable standings={session.standings} />
       )}
 
@@ -264,7 +287,11 @@ export function SessionLobby({
           <h2 className="font-display text-lg text-foreground">Como funciona esta sala</h2>
         </div>
         <p className="mb-4 text-sm text-text-muted">{phase.description}</p>
-        <div className="-mx-5 flex gap-2 overflow-x-auto scroll-smooth px-5 pb-1 sm:mx-0 sm:grid sm:grid-cols-5 sm:gap-2 sm:overflow-visible sm:px-0 sm:pb-0">
+        <div
+          className={`-mx-5 flex gap-2 overflow-x-auto scroll-smooth px-5 pb-1 sm:mx-0 sm:grid ${
+            isDuelo ? "sm:grid-cols-4" : "sm:grid-cols-5"
+          } sm:gap-2 sm:overflow-visible sm:px-0 sm:pb-0`}
+        >
           {stepItems.map((s) => (
             <div
               key={s.num}
@@ -308,6 +335,26 @@ export function SessionLobby({
               Aguardando o criador escolher o tema da partida.
             </Card>
           )
+        ) : isDuelo ? (
+          session.isCreator ? (
+            <Card>
+              <h2 className="mb-4 font-display text-lg text-foreground">
+                Configurar duelo
+              </h2>
+              <DueloLobbyConfig
+                code={code}
+                participantId={participantId}
+                initialRounds={session.umSoTotalRounds ?? null}
+                onSaved={fetchSession}
+              />
+            </Card>
+          ) : (
+            <Card className="p-4 text-sm text-text-muted">
+              {session.umSoTotalRounds
+                ? `${session.umSoTotalRounds} rodada(s) configuradas. Aguardando o criador iniciar.`
+                : "Aguardando o criador configurar as rodadas do duelo."}
+            </Card>
+          )
         ) : (
           <RoundSetupPanel
             code={code}
@@ -336,7 +383,9 @@ export function SessionLobby({
                   <p className="text-sm font-medium text-foreground">
                     Rodada {round.number}: {round.title}
                   </p>
-                  <p className="text-xs text-text-muted">Top de {round.topN}</p>
+                  <p className="text-xs text-text-muted">
+                    {isDuelo ? "Duelo 1v1" : `Top de ${round.topN}`}
+                  </p>
                 </div>
                 <Badge
                   variant={
@@ -352,12 +401,16 @@ export function SessionLobby({
                     : round.status === "open"
                       ? isImpostor
                         ? "Cartas"
-                        : "Montando"
+                        : isDuelo
+                          ? "Em jogo"
+                          : "Montando"
                       : round.status === "reveal"
                         ? "Debate"
-                      : round.status === "voting"
-                        ? "Votando"
-                        : "Encerrado"}
+                        : round.status === "voting"
+                          ? "Votando"
+                          : round.status === "failed"
+                            ? "Sem acerto"
+                            : "Encerrado"}
                 </Badge>
               </div>
             ))}
@@ -365,7 +418,7 @@ export function SessionLobby({
         </Card>
       ) : null}
 
-      {session.currentRound && session.status === "active" && !isImpostor && (
+      {session.currentRound && session.status === "active" && !isImpostor && !isDuelo && (
         <Card>
           <h2 className="mb-2 font-bold text-foreground">
             Rodada atual — {session.currentRound.title}
@@ -380,6 +433,32 @@ export function SessionLobby({
             ) : (
               <p>· Sem filtros — todos os jogadores do catálogo</p>
             )}
+          </div>
+        </Card>
+      )}
+
+      {isDuelo && session.status === "active" && session.dueloView && (
+        <Card>
+          <h2 className="mb-2 font-bold text-foreground">
+            Placar do duelo
+          </h2>
+          <div className="grid grid-cols-2 gap-3">
+            {session.participants.map((p) => (
+              <div
+                key={p.id}
+                className="rounded-xl bg-off-white-muted px-3 py-3 text-center"
+              >
+                <p className="text-sm font-medium text-foreground">
+                  {p.displayName}
+                </p>
+                <p className="font-display text-xl text-gold-dark">
+                  {session.dueloView?.scores[p.id] ?? 0} pts
+                </p>
+                <p className="text-xs text-text-muted">
+                  {session.dueloView?.roundsWon[p.id] ?? 0} rodada(s)
+                </p>
+              </div>
+            ))}
           </div>
         </Card>
       )}
@@ -448,7 +527,14 @@ export function SessionLobby({
         </div>
         {session.participants.length < minPlayers && (
           <p className="mt-3 alert-banner px-3 py-2 text-xs">
-            Mínimo de {minPlayers} participantes para iniciar
+            {isDuelo
+              ? "O duelo precisa de exatamente 2 jogadores"
+              : `Mínimo de ${minPlayers} participantes para iniciar`}
+          </p>
+        )}
+        {isDuelo && session.participants.length >= MIN_DUELO_PLAYERS && (
+          <p className="mt-3 text-xs text-text-muted">
+            Sala cheia — máximo de 2 jogadores no duelo.
           </p>
         )}
       </Card>
@@ -507,6 +593,12 @@ export function SessionLobby({
               </Link>
             )}
           </>
+        ) : isDuelo && session.status === "active" ? (
+          <Link href={`/s/${code}/duelo`}>
+            <Button size="lg" className="w-full sm:w-auto">
+              {session.dueloView?.isMyTurn ? "Sua vez — ir jogar" : "Ir para o duelo"}
+            </Button>
+          </Link>
         ) : showRevealActions ? (
           <>
             <Link href={`/s/${code}/reveal`}>
@@ -619,16 +711,24 @@ export function SessionLobby({
               >
                 {advancing ? "Iniciando..." : advanceAction.label}
               </Button>
-              {!advanceAction.canAdvance && session.totalRounds === 0 && (
+              {!advanceAction.canAdvance && session.totalRounds === 0 && !isDuelo && (
                 <p className="text-center text-sm text-on-pitch-muted">
                   Adicione pelo menos 1 rodada
                 </p>
               )}
               {!advanceAction.canAdvance &&
-                session.totalRounds > 0 &&
+                isDuelo &&
+                !session.umSoTotalRounds && (
+                  <p className="text-center text-sm text-on-pitch-muted">
+                    Configure o número de rodadas para iniciar
+                  </p>
+                )}
+              {!advanceAction.canAdvance &&
                 session.participants.length < minPlayers && (
                   <p className="text-center text-sm text-on-pitch-muted">
-                    Aguardando mais participantes
+                    {isDuelo
+                      ? "Aguardando oponente (2 jogadores)"
+                      : "Aguardando mais participantes"}
                   </p>
                 )}
               {!advanceAction.canAdvance &&
@@ -643,7 +743,9 @@ export function SessionLobby({
             <p className="text-center text-sm text-on-pitch-muted">
               {isImpostor
                 ? "Aguardando criador escolher o tema e iniciar"
-                : "Aguardando criador configurar e iniciar a sala"}
+                : isDuelo
+                  ? "Aguardando criador configurar e iniciar o duelo"
+                  : "Aguardando criador configurar e iniciar a sala"}
             </p>
           )
         ) : (

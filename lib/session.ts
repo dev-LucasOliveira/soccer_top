@@ -87,6 +87,12 @@ export async function advanceSession(
     return advanceImpostorSession(sessionCode, participantId, guestToken);
   }
 
+  if (session.gameMode === "duelo") {
+    const { startDueloSession } = await import("@/lib/duelo-session");
+    await startDueloSession(sessionCode, participantId, guestToken);
+    return { ok: true };
+  }
+
   return advanceRankingSession(sessionCode, participantId, guestToken);
 }
 

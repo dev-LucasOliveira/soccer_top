@@ -2,7 +2,8 @@ import { POSITIONS, NATIONALITIES } from "@/lib/constants";
 import { areRoundsValid } from "@/lib/round-config";
 import { getPlayers, isSpectator } from "@/lib/participants";
 import { MIN_IMPOSTOR_PLAYERS } from "@/lib/impostor-constants";
-import type { CurrentRound, GameMode, SessionFilters, StandingEntry } from "@/lib/types";
+import { MIN_DUELO_PLAYERS } from "@/lib/duelo-constants";
+import type { CurrentRound, DueloViewState, GameMode, SessionFilters, StandingEntry } from "@/lib/types";
 
 const POSITION_LABELS = Object.fromEntries(
   POSITIONS.map((p) => [p.value, p.label])
@@ -46,7 +47,12 @@ export function getSessionPhase(session: {
   voteProgress?: { voted: number; total: number };
   rounds?: { title: string; topN: number }[];
   impostorThemeSelected?: boolean;
+  umSoTotalRounds?: number | null;
 }): { step: number; label: string; description: string } {
+  if (session.gameMode === "duelo") {
+    return getDueloSessionPhase(session);
+  }
+
   if (session.gameMode === "impostor") {
     return getImpostorSessionPhase(session);
   }
@@ -236,7 +242,12 @@ export function getAdvanceAction(session: {
   isCreator?: boolean;
   rounds?: { title: string; topN: number }[];
   impostorThemeSelected?: boolean;
+  umSoTotalRounds?: number | null;
 }): { canAdvance: boolean; label: string; redirect?: string } | null {
+  if (session.gameMode === "duelo") {
+    return getDueloAdvanceAction(session);
+  }
+
   if (session.gameMode === "impostor") {
     return getImpostorAdvanceAction(session);
   }
@@ -430,6 +441,8 @@ type SessionForRouting = {
   participants: ParticipantForRouting[];
   voteProgress?: { voted: number; total: number };
   isCreator?: boolean;
+  umSoTotalRounds?: number | null;
+  dueloView?: DueloViewState | null;
 };
 
 export type StatusViewMode = {
@@ -483,6 +496,43 @@ export function getWaitingMessage(
     ? session.participants.find((p) => p.id === participantId)
     : null;
   const roundStatus = session.currentRound?.status;
+
+  if (session.gameMode === "duelo") {
+    if (session.status === "completed") {
+      return "Duelo encerrado — veja o placar final.";
+    }
+
+    if (session.status === "setup") {
+      const dueloPlayers = getPlayers(session.participants);
+      if (dueloPlayers.length < MIN_DUELO_PLAYERS) {
+        return "Aguardando oponente — o duelo precisa de exatamente 2 jogadores.";
+      }
+      if (!session.umSoTotalRounds) {
+        return session.isCreator
+          ? "Defina quantas rodadas valerão no duelo."
+          : "Aguardando o criador configurar as rodadas.";
+      }
+      return session.isCreator
+        ? "Pronto para iniciar — clique em Iniciar duelo."
+        : "Aguardando o criador iniciar o duelo.";
+    }
+
+    const dueloView = session.dueloView;
+    if (dueloView?.isMyTurn) {
+      return "Sua vez — chute o jogador secreto!";
+    }
+    if (dueloView?.roundStatus === "open") {
+      return `Aguardando ${dueloView.activeParticipantName}…`;
+    }
+    if (dueloView?.roundStatus === "completed" && dueloView.lastWinner) {
+      return `${dueloView.lastWinner.displayName} acertou! Próxima rodada em instantes…`;
+    }
+    if (dueloView?.roundStatus === "failed") {
+      return "Ninguém acertou — duelo encerrado.";
+    }
+
+    return "Duelo em andamento.";
+  }
 
   if (session.gameMode === "impostor") {
     if (myParticipant && isSpectator(myParticipant)) {
@@ -581,6 +631,10 @@ export function getParticipantRoute(
   session: SessionForRouting,
   participantId: string | null
 ): string {
+  if (session.gameMode === "duelo") {
+    return getDueloParticipantRoute(session);
+  }
+
   if (session.gameMode === "impostor") {
     return getImpostorParticipantRoute(session, participantId);
   }
@@ -628,6 +682,97 @@ export function getParticipantRoute(
   }
 
   return "/status";
+}
+
+function getDueloSessionPhase(session: {
+  status: string;
+  currentRoundNumber: number;
+  totalRounds: number;
+  participants: { status: string }[];
+  umSoTotalRounds?: number | null;
+}): { step: number; label: string; description: string } {
+  const players = getPlayers(session.participants);
+  const configuredRounds = session.umSoTotalRounds ?? 0;
+
+  if (session.status === "completed") {
+    return {
+      step: 4,
+      label: "Finalizado",
+      description: "Duelo encerrado — veja o placar final.",
+    };
+  }
+
+  if (session.status === "setup") {
+    if (players.length < MIN_DUELO_PLAYERS) {
+      return {
+        step: 1,
+        label: "Aguardando oponente",
+        description: "Compartilhe o link — o duelo precisa de exatamente 2 jogadores.",
+      };
+    }
+
+    if (!configuredRounds) {
+      return {
+        step: 2,
+        label: "Configurar rodadas",
+        description: "O criador define quantas rodadas valerão no duelo.",
+      };
+    }
+
+    return {
+      step: 2,
+      label: "Pronto para iniciar",
+      description: `${configuredRounds} rodada(s) configuradas. O criador pode iniciar.`,
+    };
+  }
+
+  return {
+    step: 3,
+    label: `Rodada ${session.currentRoundNumber}/${session.totalRounds}`,
+    description: "Duelo em andamento — turnos alternados com dicas compartilhadas.",
+  };
+}
+
+function getDueloAdvanceAction(session: {
+  status: string;
+  participants: { status: string }[];
+  isCreator?: boolean;
+  umSoTotalRounds?: number | null;
+}): { canAdvance: boolean; label: string; redirect?: string } | null {
+  if (!session.isCreator) return null;
+
+  if (session.status === "setup") {
+    const players = getPlayers(session.participants);
+    return {
+      canAdvance:
+        players.length === MIN_DUELO_PLAYERS &&
+        Boolean(session.umSoTotalRounds && session.umSoTotalRounds > 0),
+      label: "Iniciar duelo",
+      redirect: "/duelo",
+    };
+  }
+
+  if (session.status === "completed") {
+    return {
+      canAdvance: true,
+      label: "Ver resultado",
+      redirect: "/results",
+    };
+  }
+
+  return null;
+}
+
+function getDueloParticipantRoute(session: SessionForRouting): string {
+  if (session.status === "completed") {
+    return "/results";
+  }
+
+  if (session.status === "setup") {
+    return "";
+  }
+
+  return "/duelo";
 }
 
 function getImpostorParticipantRoute(

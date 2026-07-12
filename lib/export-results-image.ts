@@ -216,3 +216,30 @@ export async function downloadGuessTopRecapImage(
   const filename = `ranking-da-resenha-lista-secreta-${tops}tops-${errors}erros.png`;
   return deliverImageBlob(blob, filename);
 }
+
+export async function downloadUmSoRecapImage(
+  element: HTMLElement,
+  {
+    score,
+    bestStreak,
+    theme,
+  }: { score: number; bestStreak: number; theme?: Theme }
+): Promise<ExportImageResult> {
+  const blob = await captureElementAsBlob(element, theme);
+  const filename = `ranking-da-resenha-um-so-${score}pts-streak${bestStreak}.png`;
+  return deliverImageBlob(blob, filename);
+}
+
+export async function downloadDueloRecapImage(
+  element: HTMLElement,
+  {
+    winnerName,
+    winnerPoints,
+    theme,
+  }: { winnerName: string; winnerPoints: number; theme?: Theme }
+): Promise<ExportImageResult> {
+  const blob = await captureElementAsBlob(element, theme);
+  const slug = slugifyTitle(winnerName);
+  const filename = `ranking-da-resenha-duelo-${slug}-${winnerPoints}pts.png`;
+  return deliverImageBlob(blob, filename);
+}

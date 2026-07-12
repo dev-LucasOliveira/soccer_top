@@ -7,7 +7,13 @@ import { getPlayers } from "@/lib/participants";
 import { getRoundWinningList } from "@/lib/round-result";
 import { getAdvanceAction, getSessionPhase } from "@/lib/session-info";
 import { getImpostorTheme } from "@/lib/impostor-themes";
-import type { GameMode, SessionFinalResult, SessionResultData } from "@/lib/types";
+import { buildDueloViewState } from "@/lib/duelo-session";
+import type {
+  DueloSessionResult,
+  GameMode,
+  SessionFinalResult,
+  SessionResultData,
+} from "@/lib/types";
 
 function normalizeSessionResult(
   raw: SessionResultData | SessionFinalResult | null,
@@ -108,10 +114,12 @@ export async function GET(request: Request, context: RouteContext) {
     const resultData =
       session.gameMode === "impostor" && session.result
         ? (JSON.parse(session.result.data) as import("@/lib/types").ImpostorSessionResult)
-        : normalizeSessionResult(
-            session.result ? JSON.parse(session.result.data) : null,
-            session.participants
-          );
+        : session.gameMode === "duelo" && session.result
+          ? (JSON.parse(session.result.data) as DueloSessionResult)
+          : normalizeSessionResult(
+              session.result ? JSON.parse(session.result.data) : null,
+              session.participants
+            );
 
     const showPicks =
       session.gameMode !== "impostor" &&
@@ -144,7 +152,7 @@ export async function GET(request: Request, context: RouteContext) {
       gameMode: session.gameMode as GameMode,
       status: session.status,
       currentRoundNumber: session.currentRoundNumber,
-      totalRounds: session.rounds.length,
+      totalRounds: session.umSoTotalRounds ?? session.rounds.length,
       createdAt: session.createdAt,
       creatorParticipantId: session.creatorParticipantId,
       impostorThemeId: session.impostorThemeId,
@@ -152,6 +160,7 @@ export async function GET(request: Request, context: RouteContext) {
         ? getImpostorTheme(session.impostorThemeId)
         : null,
       impostorThemeSelected: Boolean(session.impostorThemeId),
+      umSoTotalRounds: session.umSoTotalRounds,
       isCreator,
       rounds: session.rounds.map(toRoundSummary),
       currentRound,
@@ -183,16 +192,22 @@ export async function GET(request: Request, context: RouteContext) {
       result: resultData,
     };
 
+    const dueloView =
+      session.gameMode === "duelo"
+        ? buildDueloViewState(session, viewerParticipantId)
+        : null;
+
     const phase = getSessionPhase({
       gameMode: session.gameMode as GameMode,
       status: session.status,
       currentRoundNumber: session.currentRoundNumber,
-      totalRounds: session.rounds.length,
+      totalRounds: session.umSoTotalRounds ?? session.rounds.length,
       currentRound,
       participants: session.participants,
       voteProgress: sessionPayload.voteProgress,
       rounds: session.rounds,
       impostorThemeSelected: Boolean(session.impostorThemeId),
+      umSoTotalRounds: session.umSoTotalRounds,
     });
 
     const advanceAction = getAdvanceAction({
@@ -200,6 +215,7 @@ export async function GET(request: Request, context: RouteContext) {
       isCreator,
       rounds: session.rounds,
       impostorThemeSelected: Boolean(session.impostorThemeId),
+      umSoTotalRounds: session.umSoTotalRounds,
     });
 
     const lastCompletedRound =
@@ -221,6 +237,7 @@ export async function GET(request: Request, context: RouteContext) {
       ...sessionPayload,
       phase,
       advanceAction,
+      dueloView,
       filters: currentRound?.filters ?? {},
       topN: currentRound?.topN ?? 10,
       lastWinningList,

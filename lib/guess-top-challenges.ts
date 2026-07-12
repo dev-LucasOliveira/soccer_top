@@ -1,6 +1,7 @@
 import { randomInt } from "crypto";
 import type { SessionFilters } from "@/lib/types";
 import type { SlotHint } from "@/lib/guess-top-hints";
+import type { UmSoHintKind } from "@/lib/um-so-types";
 
 export const GUESS_TOP_MAX_ERRORS = 5;
 export const GUESS_TOP_SLOTS = 5;
@@ -11,6 +12,7 @@ export type GuessTopChallengeDefinition = {
   title: string;
   description: string;
   searchFilters?: SessionFilters;
+  umSoHintLadder?: UmSoHintKind[];
   pool: string[];
 };
 
@@ -27,6 +29,7 @@ export type GuessTopChallengeResolved = {
   title: string;
   description: string;
   searchFilters?: SessionFilters;
+  umSoHintLadder?: UmSoHintKind[];
   pool: PoolPlayerResolved[];
 };
 

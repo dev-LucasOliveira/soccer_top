@@ -1,5 +1,7 @@
 export type Position = "Goleiro" | "Defensor" | "Meia" | "Atacante";
 
+import type { UmSoHintStep } from "@/lib/um-so-types";
+
 export type SessionFilters = {
   positions?: Position[];
   nationalities?: string[];
@@ -138,14 +140,15 @@ export type VoteState = {
 
 export type ParticipantStatus = "building" | "confirmed" | "spectator";
 export type SessionStatus = "setup" | "active" | "completed";
-export type GameMode = "ranking" | "impostor";
+export type GameMode = "ranking" | "impostor" | "duelo";
 
 export type RoundStatus =
   | "pending"
   | "open"
   | "reveal"
   | "voting"
-  | "completed";
+  | "completed"
+  | "failed";
 
 export type ImpostorThemeSummary = {
   id: string;
@@ -231,4 +234,84 @@ export type RoundSummary = {
 
 export type CurrentRound = RoundSummary & {
   listAliases?: ListAliases;
+};
+
+export type DueloWrongGuess = {
+  participantId: string;
+  playerId: string;
+  playerName: string;
+};
+
+export type DueloRoundPayload = {
+  challengeId: string;
+  secretPlayerId: string;
+  hintsRevealed: number;
+  hintLadder: UmSoHintStep[];
+  playerOrder: [string, string];
+  activeParticipantId: string;
+  phase: "open" | "completed" | "failed";
+  winnerParticipantId?: string;
+  pointsAwarded?: number;
+  tierLabel?: string;
+  tier?: string;
+  hintsUsed?: number;
+  wrongGuesses: DueloWrongGuess[];
+  secretPlayerName?: string;
+};
+
+export type DueloRoundRecap = {
+  roundNumber: number;
+  title: string;
+  challengeId: string;
+  winnerParticipantId?: string;
+  winnerDisplayName?: string;
+  pointsAwarded?: number;
+  tierLabel?: string;
+  hintsUsed?: number;
+  secretPlayerName: string;
+  secretPlayerId: string;
+  hints: UmSoHintStep[];
+  failed: boolean;
+};
+
+export type DueloStandingEntry = {
+  participantId: string;
+  displayName: string;
+  totalPoints: number;
+  roundsWon: number;
+  rank: number;
+};
+
+export type DueloSessionResult = {
+  outcome: "completed" | "failed";
+  standings: DueloStandingEntry[];
+  rounds: DueloRoundRecap[];
+};
+
+export type DueloViewState = {
+  roundNumber: number;
+  totalRounds: number;
+  title: string;
+  description: string;
+  searchFilters?: SessionFilters;
+  hintsRevealed: UmSoHintStep[];
+  totalHints: number;
+  activeParticipantId: string;
+  activeParticipantName: string;
+  isMyTurn: boolean;
+  roundStatus: "open" | "completed" | "failed";
+  scores: Record<string, number>;
+  roundsWon: Record<string, number>;
+  secretReveal?: {
+    playerId: string;
+    playerName: string;
+    nationality: string;
+    position: string;
+  };
+  lastWinner?: {
+    participantId: string;
+    displayName: string;
+    points: number;
+    tierLabel: string;
+  };
 };

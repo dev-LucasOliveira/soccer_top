@@ -9,6 +9,7 @@ type RoundRecord = {
   filters: string;
   status: string;
   listAliases?: string | null;
+  cardOptions?: string | null;
 };
 
 type SessionWithRounds = {
