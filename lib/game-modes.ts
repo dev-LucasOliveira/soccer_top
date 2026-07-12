@@ -4,6 +4,8 @@ export type HomeModeId = "tradicional" | "impostor" | "adivinhe" | "ranking";
 
 export type GameModeIconId = "trophy" | "eye" | "target" | "list";
 
+export type GameModePlayStyle = "multiplayer" | "solo";
+
 export type GameModeConfig = {
   id: HomeModeId;
   label: string;
@@ -12,6 +14,7 @@ export type GameModeConfig = {
   hint: string;
   submitLabel: string;
   icon: GameModeIconId;
+  playStyle: GameModePlayStyle;
   sessionGameMode?: GameMode;
 };
 
@@ -26,6 +29,7 @@ export const GAME_MODES: GameModeConfig[] = [
     hint: "Você configura as rodadas no lobby antes de iniciar.",
     submitLabel: "Criar sala",
     icon: "trophy",
+    playStyle: "multiplayer",
     sessionGameMode: "ranking",
   },
   {
@@ -38,6 +42,7 @@ export const GAME_MODES: GameModeConfig[] = [
     hint: "Escolha um tema pronto no lobby e reúna pelo menos 4 jogadores.",
     submitLabel: "Criar sala",
     icon: "eye",
+    playStyle: "multiplayer",
     sessionGameMode: "impostor",
   },
   {
@@ -50,6 +55,7 @@ export const GAME_MODES: GameModeConfig[] = [
     hint: "Cada partida sorteia temas e jogadores diferentes.",
     submitLabel: "Jogar agora",
     icon: "target",
+    playStyle: "solo",
   },
   {
     id: "ranking",
@@ -61,6 +67,7 @@ export const GAME_MODES: GameModeConfig[] = [
     hint: "Rascunho salvo neste navegador.",
     submitLabel: "Começar meu ranking",
     icon: "list",
+    playStyle: "solo",
   },
 ];
 

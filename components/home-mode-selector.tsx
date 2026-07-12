@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Eye, List, Target, Trophy, type LucideIcon } from "lucide-react";
+import { Eye, List, Target, Trophy, User, Users, type LucideIcon } from "lucide-react";
 import { CreateSessionForm } from "@/components/create-session-form";
 import { SoloGuessPanel } from "@/components/solo-guess-panel";
 import { SoloSetupForm } from "@/components/solo-setup-form";
@@ -12,6 +12,7 @@ import {
   getGameModeConfig,
   parseHomeModeParam,
   type GameModeIconId,
+  type GameModePlayStyle,
   type HomeModeId,
 } from "@/lib/game-modes";
 import { cn } from "@/lib/utils";
@@ -21,6 +22,14 @@ const MODE_ICONS: Record<GameModeIconId, LucideIcon> = {
   eye: Eye,
   target: Target,
   list: List,
+};
+
+const PLAY_STYLE_META: Record<
+  GameModePlayStyle,
+  { icon: LucideIcon; label: string }
+> = {
+  multiplayer: { icon: Users, label: "Multiplayer" },
+  solo: { icon: User, label: "Solo" },
 };
 
 export function HomeModeSelector({ initialMode }: { initialMode?: HomeModeId }) {
@@ -57,6 +66,8 @@ export function HomeModeSelector({ initialMode }: { initialMode?: HomeModeId }) 
         {GAME_MODES.map((mode) => {
           const Icon = MODE_ICONS[mode.icon];
           const isActive = mode.id === selectedMode;
+          const playStyle = PLAY_STYLE_META[mode.playStyle];
+          const PlayStyleIcon = playStyle.icon;
 
           return (
             <button
@@ -65,28 +76,40 @@ export function HomeModeSelector({ initialMode }: { initialMode?: HomeModeId }) 
               aria-pressed={isActive}
               onClick={() => selectMode(mode.id)}
               className={cn(
-                "cursor-pointer rounded-2xl px-4 py-4 text-left transition-all duration-200",
+                "relative cursor-pointer rounded-2xl border px-4 py-4 text-left transition-colors duration-200",
                 isActive
-                  ? "border-2 border-gold bg-gold/20 shadow-[0_0_0_1px_rgba(197,162,93,0.35),0_8px_24px_rgba(197,162,93,0.18)]"
-                  : "border border-off-white/12 bg-off-white/[0.04] opacity-65 hover:border-off-white/22 hover:bg-off-white/[0.07] hover:opacity-90",
+                  ? "border-gold/45 bg-gold/[0.08] ring-1 ring-gold/15"
+                  : "border-off-white/10 bg-off-white/[0.04] hover:border-off-white/18 hover:bg-off-white/[0.06]",
               )}
             >
               <span
                 className={cn(
+                  "absolute right-3 top-3 inline-flex items-center gap-1 rounded-full px-1.5 py-0.5",
+                  isActive
+                    ? "bg-gold/15 text-gold/90"
+                    : "bg-off-white/[0.06] text-on-pitch-subtle",
+                )}
+                title={playStyle.label}
+                aria-label={playStyle.label}
+              >
+                <PlayStyleIcon size={12} strokeWidth={2} aria-hidden />
+              </span>
+              <span
+                className={cn(
                   "mb-3 inline-flex rounded-full p-2",
-                  isActive ? "bg-gold/25" : "bg-off-white/[0.06]",
+                  isActive ? "bg-gold/15" : "bg-off-white/[0.06]",
                 )}
               >
                 <Icon
                   size={20}
                   strokeWidth={1.5}
-                  className={cn(isActive ? "text-gold-light" : "text-gold/55")}
+                  className={cn(isActive ? "text-gold" : "text-gold/65")}
                 />
               </span>
               <p
                 className={cn(
                   "font-display text-base",
-                  isActive ? "text-gold-light" : "text-off-white/75",
+                  isActive ? "text-off-white" : "text-off-white/85",
                 )}
               >
                 {mode.label}
