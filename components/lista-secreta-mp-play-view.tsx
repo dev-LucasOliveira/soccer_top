@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AvailablePlayersCard } from "@/components/available-players-card";
 import { GuessTopSlot } from "@/components/guess-top-hud";
@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { getGuestToken } from "@/lib/guest";
 import { filtersToSearchParams } from "@/lib/filters";
 import { cn } from "@/lib/utils";
-import type { ListaSecretaMpViewState } from "@/lib/types";
+import type { ListaSecretaMpViewState, SessionFilters } from "@/lib/types";
 
 type Player = {
   id: string;
@@ -21,6 +21,22 @@ type Participant = {
   id: string;
   displayName: string;
 };
+
+function hasListaSecretaMpViewChanged(
+  prev: ListaSecretaMpViewState | null,
+  next: ListaSecretaMpViewState
+): boolean {
+  if (!prev) return true;
+  if (prev.roundNumber !== next.roundNumber) return true;
+  if (prev.roundStatus !== next.roundStatus) return true;
+  if (prev.activeParticipantId !== next.activeParticipantId) return true;
+  if (prev.isMyTurn !== next.isMyTurn) return true;
+  if (JSON.stringify(prev.slots) !== JSON.stringify(next.slots)) return true;
+  if (JSON.stringify(prev.slotWins) !== JSON.stringify(next.slotWins)) return true;
+  if (JSON.stringify(prev.roundsWon) !== JSON.stringify(next.roundsWon)) return true;
+  if (prev.lastWinner?.participantId !== next.lastWinner?.participantId) return true;
+  return false;
+}
 
 export function ListaSecretaMpPlayView({
   sessionCode,
@@ -43,11 +59,9 @@ export function ListaSecretaMpPlayView({
     type: "error" | "success" | "duplicate" | "round" | "wait";
     message: string;
   } | null>(null);
+  const lastQueryRef = useRef<string | null>(null);
 
-  const roundFilters = useMemo(
-    () => view?.searchFilters ?? {},
-    [view?.searchFilters]
-  );
+  const roundFiltersKey = JSON.stringify(view?.searchFilters ?? {});
 
   const fetchSession = useCallback(async () => {
     const res = await fetch(
@@ -62,7 +76,11 @@ export function ListaSecretaMpPlayView({
     }
 
     if (data.listaSecretaMpView) {
-      setView(data.listaSecretaMpView);
+      setView((prev) =>
+        hasListaSecretaMpViewChanged(prev, data.listaSecretaMpView)
+          ? data.listaSecretaMpView
+          : prev
+      );
     }
   }, [sessionCode, participantId, router]);
 
@@ -72,29 +90,43 @@ export function ListaSecretaMpPlayView({
   }, [fetchSession]);
 
   useEffect(() => {
-    if (!search || search.length < 2) {
-      setPlayers([]);
-      return;
-    }
+    if (!search || search.length < 2) return;
 
-    const controller = new AbortController();
-    setLoading(true);
-
+    const roundFilters = JSON.parse(roundFiltersKey) as SessionFilters;
     const params = filtersToSearchParams(roundFilters);
     params.set("search", search);
+    const queryUrl = `/api/players?${params.toString()}`;
+    const controller = new AbortController();
+    const isNewQuery = lastQueryRef.current !== queryUrl;
 
-    fetch(`/api/players?${params.toString()}`, {
-      signal: controller.signal,
-    })
+    if (isNewQuery) {
+      setLoading(true);
+      lastQueryRef.current = queryUrl;
+    }
+
+    fetch(queryUrl, { signal: controller.signal })
       .then((res) => res.json())
       .then((data) => {
         setPlayers(data.players ?? []);
       })
       .catch(() => {})
-      .finally(() => setLoading(false));
+      .finally(() => {
+        if (lastQueryRef.current === queryUrl) {
+          setLoading(false);
+        }
+      });
 
     return () => controller.abort();
-  }, [search, roundFilters]);
+  }, [search, roundFiltersKey]);
+
+  function handleSearchChange(value: string) {
+    setSearch(value);
+    if (value.length < 2) {
+      setPlayers([]);
+      setLoading(false);
+      lastQueryRef.current = null;
+    }
+  }
 
   async function handlePick(player: Player) {
     if (picking || !view?.isMyTurn) return;
@@ -136,6 +168,9 @@ export function ListaSecretaMpPlayView({
         } else if (data.roundCompleted) {
           setTimeout(() => {
             setSearch("");
+            setPlayers([]);
+            setLoading(false);
+            lastQueryRef.current = null;
             setFeedback({
               type: "round",
               message: "Rodada encerrada — próximo tema em instantes…",
@@ -246,7 +281,7 @@ export function ListaSecretaMpPlayView({
         <div className="mb-4">
           <AvailablePlayersCard
             search={search}
-            onSearchChange={setSearch}
+            onSearchChange={handleSearchChange}
             players={players}
             loading={loading}
             canSearch={view.isMyTurn && search.length >= 2}

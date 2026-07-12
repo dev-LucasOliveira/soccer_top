@@ -17,6 +17,7 @@ export function AvailablePlayersCard({
   canSearch,
   topCount,
   topN,
+  excludedPlayerIds = [],
   onAddPlayer,
 }: {
   search: string;
@@ -26,8 +27,11 @@ export function AvailablePlayersCard({
   canSearch: boolean;
   topCount: number;
   topN: number;
+  excludedPlayerIds?: string[];
   onAddPlayer: (player: Player) => void;
 }) {
+  const excludedSet = new Set(excludedPlayerIds);
+
   return (
     <Card className="space-y-3">
       <h3 className="font-bold text-foreground">Jogadores disponíveis</h3>
@@ -48,23 +52,29 @@ export function AvailablePlayersCard({
             Nenhum jogador encontrado
           </p>
         ) : (
-          players.map((player) => (
-            <button
-              key={player.id}
-              type="button"
-              onClick={() => onAddPlayer(player)}
-              disabled={topCount >= topN}
-              className="flex w-full items-center justify-between rounded-lg border-b border-card-border/40 px-3 py-2.5 text-left transition-colors duration-200 last:border-0 hover:bg-off-white-muted/80 disabled:opacity-50"
-            >
-              <div>
-                <p className="text-sm font-medium text-foreground">{player.name}</p>
-                <p className="text-xs text-text-muted">
-                  {player.primaryPosition} · {player.nationality}
-                </p>
-              </div>
-              <Plus size={16} className="text-pitch" />
-            </button>
-          ))
+          players.map((player) => {
+            const alreadyTried = excludedSet.has(player.id);
+
+            return (
+              <button
+                key={player.id}
+                type="button"
+                onClick={() => onAddPlayer(player)}
+                disabled={topCount >= topN || alreadyTried}
+                className="flex w-full items-center justify-between rounded-lg border-b border-card-border/40 px-3 py-2.5 text-left transition-colors duration-200 last:border-0 hover:bg-off-white-muted/80 disabled:opacity-50"
+              >
+                <div>
+                  <p className="text-sm font-medium text-foreground">{player.name}</p>
+                  <p className="text-xs text-text-muted">
+                    {alreadyTried
+                      ? "já tentado nesta rodada"
+                      : `${player.primaryPosition} · ${player.nationality}`}
+                  </p>
+                </div>
+                {!alreadyTried && <Plus size={16} className="text-pitch" />}
+              </button>
+            );
+          })
         )}
       </div>
     </Card>

@@ -23,6 +23,7 @@ import type {
   DueloSessionResult,
   DueloStandingEntry,
   DueloViewState,
+  DueloWrongGuessView,
 } from "@/lib/types";
 import { GUESS_TOP_CHALLENGES } from "@/lib/guess-top-challenges";
 
@@ -254,6 +255,19 @@ function aggregateRoundsWon(session: SessionFull): Record<string, number> {
   return wins;
 }
 
+function mapWrongGuessesForView(
+  wrongGuesses: DueloRoundPayload["wrongGuesses"],
+  participants: { id: string; displayName: string }[]
+): DueloWrongGuessView[] {
+  return wrongGuesses.map((guess) => ({
+    participantId: guess.participantId,
+    displayName:
+      participants.find((p) => p.id === guess.participantId)?.displayName ?? "?",
+    playerId: guess.playerId,
+    playerName: guess.playerName,
+  }));
+}
+
 function buildRoundRecap(
   roundNumber: number,
   roundTitle: string,
@@ -277,6 +291,7 @@ function buildRoundRecap(
     secretPlayerId: payload.secretPlayerId,
     hints: payload.hintLadder.slice(0, payload.hintsRevealed),
     failed: payload.phase === "failed",
+    wrongGuesses: mapWrongGuessesForView(payload.wrongGuesses, participants),
   };
 }
 
@@ -617,6 +632,10 @@ export function buildDueloViewState(
     roundsWon,
     secretReveal,
     lastWinner,
+    wrongGuesses: mapWrongGuessesForView(
+      payload?.wrongGuesses ?? [],
+      participants
+    ),
   };
 }
 

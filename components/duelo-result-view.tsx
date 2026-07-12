@@ -38,6 +38,14 @@ function RoundRecapRow({ round }: { round: DueloRoundRecap }) {
           Dicas: {round.hints.map((hint) => `${hint.label}: ${hint.text}`).join(" · ")}
         </p>
       )}
+      {round.wrongGuesses.length > 0 && (
+        <p className="mt-1 text-xs text-red-300">
+          Chutes:{" "}
+          {round.wrongGuesses
+            .map((guess) => `${guess.playerName} (${guess.displayName})`)
+            .join(", ")}
+        </p>
+      )}
     </div>
   );
 }

@@ -242,6 +242,13 @@ export type DueloWrongGuess = {
   playerName: string;
 };
 
+export type DueloWrongGuessView = {
+  participantId: string;
+  displayName: string;
+  playerId: string;
+  playerName: string;
+};
+
 export type DueloRoundPayload = {
   challengeId: string;
   secretPlayerId: string;
@@ -272,6 +279,7 @@ export type DueloRoundRecap = {
   secretPlayerId: string;
   hints: UmSoHintStep[];
   failed: boolean;
+  wrongGuesses: DueloWrongGuessView[];
 };
 
 export type DueloStandingEntry = {
@@ -314,6 +322,7 @@ export type DueloViewState = {
     points: number;
     tierLabel: string;
   };
+  wrongGuesses: DueloWrongGuessView[];
 };
 
 export type ListaSecretaMpSlotPayload = {
