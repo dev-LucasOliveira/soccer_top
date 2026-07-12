@@ -6,6 +6,7 @@ import { Download, Check, Trophy } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ListMessage } from "@/components/list-message";
+import { ExportImagePreviewDialog } from "@/components/export-image-preview-dialog";
 import { downloadSoloRankingImage } from "@/lib/export-results-image";
 import { clearSoloDraft } from "@/lib/solo-draft";
 import type { SoloDraft } from "@/lib/types";
@@ -16,8 +17,10 @@ export function SoloExportView({ draft }: { draft: SoloDraft }) {
   const [exporting, setExporting] = useState(false);
   const [exported, setExported] = useState(false);
   const [exportError, setExportError] = useState("");
-
-  const sortedPicks = [...draft.picks].sort((a, b) => a.rank - b.rank);
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState("");
+  const [previewFilename, setPreviewFilename] = useState("");
+  const [previewBlob, setPreviewBlob] = useState<Blob | null>(null);
 
   async function handleExport() {
     if (!exportRef.current) return;
@@ -27,12 +30,20 @@ export function SoloExportView({ draft }: { draft: SoloDraft }) {
     setExported(false);
 
     try {
-      await downloadSoloRankingImage(exportRef.current, {
+      const result = await downloadSoloRankingImage(exportRef.current, {
         title: draft.title,
         authorName: draft.authorName,
       });
-      setExported(true);
-      setTimeout(() => setExported(false), 2000);
+
+      if (result.status === "preview") {
+        setPreviewUrl(result.objectUrl);
+        setPreviewFilename(result.filename);
+        setPreviewBlob(result.blob);
+        setPreviewOpen(true);
+      } else {
+        setExported(true);
+        setTimeout(() => setExported(false), 2000);
+      }
     } catch {
       setExportError("Erro ao gerar imagem. Tente novamente.");
     } finally {
@@ -40,10 +51,19 @@ export function SoloExportView({ draft }: { draft: SoloDraft }) {
     }
   }
 
+  function handleClosePreview() {
+    setPreviewOpen(false);
+    setPreviewUrl("");
+    setPreviewFilename("");
+    setPreviewBlob(null);
+  }
+
   function handleNewRanking() {
     clearSoloDraft();
     router.push("/solo");
   }
+
+  const sortedPicks = [...draft.picks].sort((a, b) => a.rank - b.rank);
 
   return (
     <div className="space-y-6">
@@ -125,6 +145,14 @@ export function SoloExportView({ draft }: { draft: SoloDraft }) {
       {exportError && (
         <p className="text-center text-sm text-red-400">{exportError}</p>
       )}
+
+      <ExportImagePreviewDialog
+        open={previewOpen}
+        onClose={handleClosePreview}
+        objectUrl={previewUrl}
+        filename={previewFilename}
+        blob={previewBlob}
+      />
     </div>
   );
 }

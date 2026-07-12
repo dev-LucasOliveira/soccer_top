@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { StandingsTable } from "@/components/standings-table";
 import { WinningListCard } from "@/components/winning-list-card";
+import { ExportImagePreviewDialog } from "@/components/export-image-preview-dialog";
 import { downloadResultsImage } from "@/lib/export-results-image";
 import { getRoundWinningList } from "@/lib/round-result";
 import { formatListLabel } from "@/lib/voting";
@@ -86,6 +87,10 @@ export function ResultsView({
   const [exporting, setExporting] = useState(false);
   const [exported, setExported] = useState(false);
   const [exportError, setExportError] = useState("");
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState("");
+  const [previewFilename, setPreviewFilename] = useState("");
+  const [previewBlob, setPreviewBlob] = useState<Blob | null>(null);
   const [activeTab, setActiveTab] = useState<number | "final">("final");
 
   const roundNumbers = Object.keys(result.rounds)
@@ -100,17 +105,32 @@ export function ResultsView({
     setExported(false);
 
     try {
-      await downloadResultsImage(exportRef.current, {
+      const result = await downloadResultsImage(exportRef.current, {
         title,
         code: sessionCode,
       });
-      setExported(true);
-      setTimeout(() => setExported(false), 2000);
+
+      if (result.status === "preview") {
+        setPreviewUrl(result.objectUrl);
+        setPreviewFilename(result.filename);
+        setPreviewBlob(result.blob);
+        setPreviewOpen(true);
+      } else {
+        setExported(true);
+        setTimeout(() => setExported(false), 2000);
+      }
     } catch {
       setExportError("Erro ao gerar imagem. Tente novamente.");
     } finally {
       setExporting(false);
     }
+  }
+
+  function handleClosePreview() {
+    setPreviewOpen(false);
+    setPreviewUrl("");
+    setPreviewFilename("");
+    setPreviewBlob(null);
   }
 
   const leader = result.standings[0];
@@ -250,6 +270,14 @@ export function ResultsView({
           <p className="text-center text-sm text-red-300">{restartError}</p>
         )}
       </div>
+
+      <ExportImagePreviewDialog
+        open={previewOpen}
+        onClose={handleClosePreview}
+        objectUrl={previewUrl}
+        filename={previewFilename}
+        blob={previewBlob}
+      />
     </div>
   );
 }

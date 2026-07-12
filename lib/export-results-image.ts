@@ -1,4 +1,9 @@
-import { toPng } from "html-to-image";
+import { toBlob } from "html-to-image";
+import {
+  deliverImageBlob,
+  getExportPixelRatio,
+  type ExportImageResult,
+} from "@/lib/deliver-image-download";
 import {
   EXPORT_BACKGROUND,
   getStoredTheme,
@@ -131,6 +136,34 @@ function applyExportThemeStyles(
   };
 }
 
+async function captureElementAsBlob(
+  element: HTMLElement,
+  theme?: Theme
+): Promise<Blob> {
+  if (document.fonts?.ready) {
+    await document.fonts.ready;
+  }
+
+  const resolvedTheme = resolveExportTheme(theme);
+  const restoreStyles = applyExportThemeStyles(element, resolvedTheme);
+
+  try {
+    const blob = await toBlob(element, {
+      backgroundColor: EXPORT_BACKGROUND[resolvedTheme],
+      pixelRatio: getExportPixelRatio(),
+      cacheBust: true,
+    });
+
+    if (!blob) {
+      throw new Error("Falha ao gerar imagem");
+    }
+
+    return blob;
+  } finally {
+    restoreStyles();
+  }
+}
+
 export async function downloadResultsImage(
   element: HTMLElement,
   {
@@ -138,29 +171,15 @@ export async function downloadResultsImage(
     code,
     theme,
   }: { title: string; code: string; theme?: Theme }
-): Promise<void> {
-  const resolvedTheme = resolveExportTheme(theme);
-  const restoreStyles = applyExportThemeStyles(element, resolvedTheme);
+): Promise<ExportImageResult> {
+  const blob = await captureElementAsBlob(element, theme);
 
-  try {
-    const dataUrl = await toPng(element, {
-      backgroundColor: EXPORT_BACKGROUND[resolvedTheme],
-      pixelRatio: 2,
-      cacheBust: true,
-    });
+  const slug = slugifyTitle(title);
+  const filename = slug
+    ? `ranking-da-resenha-${code}-${slug}-resultado-completo.png`
+    : `ranking-da-resenha-${code}-resultado-completo.png`;
 
-    const slug = slugifyTitle(title);
-    const filename = slug
-      ? `ranking-da-resenha-${code}-${slug}-resultado-completo.png`
-      : `ranking-da-resenha-${code}-resultado-completo.png`;
-
-    const link = document.createElement("a");
-    link.download = filename;
-    link.href = dataUrl;
-    link.click();
-  } finally {
-    restoreStyles();
-  }
+  return deliverImageBlob(blob, filename);
 }
 
 export async function downloadSoloRankingImage(
@@ -170,31 +189,17 @@ export async function downloadSoloRankingImage(
     authorName,
     theme,
   }: { title: string; authorName: string; theme?: Theme }
-): Promise<void> {
-  const resolvedTheme = resolveExportTheme(theme);
-  const restoreStyles = applyExportThemeStyles(element, resolvedTheme);
+): Promise<ExportImageResult> {
+  const blob = await captureElementAsBlob(element, theme);
 
-  try {
-    const dataUrl = await toPng(element, {
-      backgroundColor: EXPORT_BACKGROUND[resolvedTheme],
-      pixelRatio: 2,
-      cacheBust: true,
-    });
+  const titleSlug = slugifyTitle(title);
+  const authorSlug = slugifyTitle(authorName);
+  const filename =
+    titleSlug && authorSlug
+      ? `ranking-da-resenha-${authorSlug}-${titleSlug}.png`
+      : titleSlug
+        ? `ranking-da-resenha-${titleSlug}.png`
+        : "ranking-da-resenha-solo.png";
 
-    const titleSlug = slugifyTitle(title);
-    const authorSlug = slugifyTitle(authorName);
-    const filename =
-      titleSlug && authorSlug
-        ? `ranking-da-resenha-${authorSlug}-${titleSlug}.png`
-        : titleSlug
-          ? `ranking-da-resenha-${titleSlug}.png`
-          : "ranking-da-resenha-solo.png";
-
-    const link = document.createElement("a");
-    link.download = filename;
-    link.href = dataUrl;
-    link.click();
-  } finally {
-    restoreStyles();
-  }
+  return deliverImageBlob(blob, filename);
 }
