@@ -9,19 +9,25 @@ import {
   MAX_DUELO_ROUNDS,
   MIN_DUELO_ROUNDS,
 } from "@/lib/duelo-constants";
+import { PickTimeLimitSelect } from "@/components/pick-time-limit-select";
 
 export function DueloLobbyConfig({
   code,
   participantId,
   initialRounds,
+  initialPickTimeLimitSeconds,
   onSaved,
 }: {
   code: string;
   participantId: string;
   initialRounds: number | null;
+  initialPickTimeLimitSeconds?: number | null;
   onSaved: () => void;
 }) {
   const [rounds, setRounds] = useState(initialRounds ?? DEFAULT_DUELO_ROUNDS);
+  const [pickTimeLimitSeconds, setPickTimeLimitSeconds] = useState<number | null>(
+    initialPickTimeLimitSeconds ?? null
+  );
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
   const [saved, setSaved] = useState(false);
@@ -39,6 +45,7 @@ export function DueloLobbyConfig({
           participantId,
           guestToken: getGuestToken(),
           totalRounds: rounds,
+          pickTimeLimitSeconds,
         }),
       });
       const data = await res.json();
@@ -89,6 +96,11 @@ export function DueloLobbyConfig({
           {MIN_DUELO_ROUNDS}–{MAX_DUELO_ROUNDS} rodadas (padrão {DEFAULT_DUELO_ROUNDS})
         </p>
       </div>
+
+      <PickTimeLimitSelect
+        value={pickTimeLimitSeconds}
+        onChange={setPickTimeLimitSeconds}
+      />
 
       {error && <p className="text-sm text-red-400">{error}</p>}
 

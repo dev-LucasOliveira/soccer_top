@@ -264,6 +264,7 @@ export type DueloRoundPayload = {
   hintsUsed?: number;
   wrongGuesses: DueloWrongGuess[];
   secretPlayerName?: string;
+  turnStartedAt?: string;
 };
 
 export type DueloRoundRecap = {
@@ -323,6 +324,9 @@ export type DueloViewState = {
     tierLabel: string;
   };
   wrongGuesses: DueloWrongGuessView[];
+  pickTimeLimitSeconds: number | null;
+  turnStartedAt: string | null;
+  turnDeadlineAt: string | null;
 };
 
 export type ListaSecretaMpSlotPayload = {
@@ -346,6 +350,8 @@ export type ListaSecretaMpRoundPayload = {
   slotWins: Record<string, number>;
   winnerParticipantId?: string;
   showMetaHint: boolean;
+  turnStartedAt?: string;
+  wrongGuesses?: DueloWrongGuess[];
 };
 
 export type ListaSecretaMpPublicSlot = {
@@ -374,6 +380,7 @@ export type ListaSecretaMpRoundRecap = {
   slotWins: Record<string, number>;
   slots: ListaSecretaMpPublicSlot[];
   tied: boolean;
+  wrongGuesses: DueloWrongGuessView[];
 };
 
 export type ListaSecretaMpStandingEntry = {
@@ -411,4 +418,8 @@ export type ListaSecretaMpViewState = {
     slotWins: number;
     tied: boolean;
   };
+  pickTimeLimitSeconds: number | null;
+  turnStartedAt: string | null;
+  turnDeadlineAt: string | null;
+  wrongGuesses: DueloWrongGuessView[];
 };

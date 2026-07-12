@@ -16,6 +16,7 @@ import { ListaSecretaMpLobbyConfig } from "@/components/lista-secreta-mp-lobby-c
 import { MIN_IMPOSTOR_PLAYERS } from "@/lib/impostor-constants";
 import { MIN_DUELO_PLAYERS } from "@/lib/duelo-constants";
 import { MIN_LSMP_PLAYERS } from "@/lib/lista-secreta-mp-constants";
+import { formatPickTimeLimit } from "@/lib/pick-time-limit";
 import { getGuestToken } from "@/lib/guest";
 import { Copy, Check, Users, Share2, ListOrdered } from "lucide-react";
 import { describeSessionFilters } from "@/lib/session-info";
@@ -52,6 +53,7 @@ type SessionData = {
   umSoTotalRounds?: number | null;
   listaSecretaTotalRounds?: number | null;
   listaSecretaSlotCount?: number | null;
+  pickTimeLimitSeconds?: number | null;
   dueloView?: DueloViewState | null;
   listaSecretaMpView?: ListaSecretaMpViewState | null;
   filters: SessionFilters;
@@ -358,13 +360,14 @@ export function SessionLobby({
                 code={code}
                 participantId={participantId}
                 initialRounds={session.umSoTotalRounds ?? null}
+                initialPickTimeLimitSeconds={session.pickTimeLimitSeconds ?? null}
                 onSaved={fetchSession}
               />
             </Card>
           ) : (
             <Card className="p-4 text-sm text-text-muted">
               {session.umSoTotalRounds
-                ? `${session.umSoTotalRounds} rodada(s) configuradas. Aguardando o criador iniciar.`
+                ? `${session.umSoTotalRounds} rodada(s), ${formatPickTimeLimit(session.pickTimeLimitSeconds)}. Aguardando o criador iniciar.`
                 : "Aguardando o criador configurar as rodadas do duelo."}
             </Card>
           )
@@ -379,13 +382,14 @@ export function SessionLobby({
                 participantId={participantId}
                 initialRounds={session.listaSecretaTotalRounds ?? null}
                 initialSlotCount={session.listaSecretaSlotCount ?? null}
+                initialPickTimeLimitSeconds={session.pickTimeLimitSeconds ?? null}
                 onSaved={fetchSession}
               />
             </Card>
           ) : (
             <Card className="p-4 text-sm text-text-muted">
               {session.listaSecretaTotalRounds && session.listaSecretaSlotCount
-                ? `${session.listaSecretaTotalRounds} rodada(s), ${session.listaSecretaSlotCount} jogadores secretos. Aguardando o criador iniciar.`
+                ? `${session.listaSecretaTotalRounds} rodada(s), ${session.listaSecretaSlotCount} jogadores secretos, ${formatPickTimeLimit(session.pickTimeLimitSeconds)}. Aguardando o criador iniciar.`
                 : "Aguardando o criador configurar rodadas e jogadores secretos."}
             </Card>
           )

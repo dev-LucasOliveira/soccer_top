@@ -7,11 +7,13 @@ export async function PUT(request: Request, context: RouteContext) {
   try {
     const { code } = await context.params;
     const body = await request.json();
-    const { participantId, guestToken, totalRounds, slotCount } = body as {
+    const { participantId, guestToken, totalRounds, slotCount, pickTimeLimitSeconds } =
+      body as {
       participantId?: string;
       guestToken?: string;
       totalRounds?: number;
       slotCount?: number;
+      pickTimeLimitSeconds?: number | null;
     };
 
     if (
@@ -30,7 +32,8 @@ export async function PUT(request: Request, context: RouteContext) {
       participantId,
       guestToken ?? null,
       totalRounds,
-      slotCount
+      slotCount,
+      pickTimeLimitSeconds ?? null
     );
 
     return NextResponse.json(result);

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Loader2, Target } from "lucide-react";
 import { AvailablePlayersCard } from "@/components/available-players-card";
 import { UmSoHintsPanel } from "@/components/um-so-hud";
+import { TurnTimer } from "@/components/turn-timer";
 import { Badge } from "@/components/ui/badge";
 import { getGuestToken } from "@/lib/guest";
 import { filtersToSearchParams } from "@/lib/filters";
@@ -40,6 +41,8 @@ function hasDueloViewChanged(
   }
   if (prev.lastWinner?.participantId !== next.lastWinner?.participantId) return true;
   if (prev.secretReveal?.playerId !== next.secretReveal?.playerId) return true;
+  if (prev.turnStartedAt !== next.turnStartedAt) return true;
+  if (prev.turnDeadlineAt !== next.turnDeadlineAt) return true;
   return false;
 }
 
@@ -98,6 +101,44 @@ export function DueloPlayView({
     const interval = setInterval(fetchSession, 3000);
     return () => clearInterval(interval);
   }, [fetchSession]);
+
+  const handleTurnTimeout = useCallback(async () => {
+    if (!view?.isMyTurn || picking) return;
+
+    try {
+      const res = await fetch(`/api/sessions/${sessionCode}/duelo/timeout`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          participantId,
+          guestToken: getGuestToken(),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error ?? "Erro ao processar tempo esgotado");
+
+      if (data.view) setView(data.view);
+      setSearch("");
+      setPlayers([]);
+      setLoading(false);
+      lastQueryRef.current = null;
+
+      if (data.sessionCompleted) {
+        router.replace(`/s/${sessionCode}/results`);
+        return;
+      }
+
+      setFeedback({
+        type: "wait",
+        message: "Tempo esgotado — a vez passou pro oponente.",
+      });
+    } catch (err) {
+      setFeedback({
+        type: "error",
+        message: err instanceof Error ? err.message : "Erro ao processar tempo esgotado",
+      });
+    }
+  }, [view?.isMyTurn, picking, sessionCode, participantId, router]);
 
   useEffect(() => {
     if (!search || search.length < 2) return;
@@ -294,6 +335,12 @@ export function DueloPlayView({
               )}
             </div>
           </div>
+          <TurnTimer
+            turnDeadlineAt={view.turnDeadlineAt}
+            pickTimeLimitSeconds={view.pickTimeLimitSeconds}
+            isMyTurn={view.isMyTurn}
+            onExpire={() => void handleTurnTimeout()}
+          />
         </div>
       )}
 

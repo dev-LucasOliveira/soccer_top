@@ -26,6 +26,12 @@ import type {
   DueloWrongGuessView,
 } from "@/lib/types";
 import { GUESS_TOP_CHALLENGES } from "@/lib/guess-top-challenges";
+import {
+  getTurnDeadline,
+  isTurnExpired,
+  nowIso,
+  validatePickTimeLimit,
+} from "@/lib/pick-time-limit";
 
 export {
   MIN_DUELO_PLAYERS,
@@ -64,6 +70,17 @@ export function parseDueloPayload(raw: string | null | undefined): DueloRoundPay
 
 function serializeDueloPayload(payload: DueloRoundPayload): string {
   return JSON.stringify(payload);
+}
+
+function setActiveTurn(
+  payload: DueloRoundPayload,
+  activeParticipantId: string
+): DueloRoundPayload {
+  return {
+    ...payload,
+    activeParticipantId,
+    turnStartedAt: nowIso(),
+  };
 }
 
 function getDueloPlayers(session: SessionFull) {
@@ -124,6 +141,7 @@ async function createDueloRoundPayload(
       phase: "open",
       wrongGuesses: [],
       secretPlayerName: secretPlayer.playerName,
+      turnStartedAt: nowIso(),
     },
   };
 }
@@ -132,7 +150,8 @@ export async function setDueloConfig(
   sessionCode: string,
   participantId: string,
   guestToken: string | undefined | null,
-  totalRounds: number
+  totalRounds: number,
+  pickTimeLimitSeconds?: number | null
 ) {
   const { session } = await assertCreator(sessionCode, participantId, guestToken);
 
@@ -150,12 +169,17 @@ export async function setDueloConfig(
     );
   }
 
+  const validatedLimit = validatePickTimeLimit(pickTimeLimitSeconds);
+
   await prisma.session.update({
     where: { id: session.id },
-    data: { umSoTotalRounds: totalRounds },
+    data: {
+      umSoTotalRounds: totalRounds,
+      pickTimeLimitSeconds: validatedLimit,
+    },
   });
 
-  return { totalRounds };
+  return { totalRounds, pickTimeLimitSeconds: validatedLimit };
 }
 
 export async function startDueloSession(
@@ -467,17 +491,16 @@ export async function applyDueloPick(
       nextRoundNumber = session.currentRoundNumber + 1;
     }
   } else if (participantId === playerA) {
-    nextPayload = {
-      ...nextPayload,
-      activeParticipantId: playerB,
-    };
+    nextPayload = setActiveTurn(nextPayload, playerB);
   } else {
     if (payload.hintsRevealed < totalHints) {
-      nextPayload = {
-        ...nextPayload,
-        hintsRevealed: payload.hintsRevealed + 1,
-        activeParticipantId: playerA,
-      };
+      nextPayload = setActiveTurn(
+        {
+          ...nextPayload,
+          hintsRevealed: payload.hintsRevealed + 1,
+        },
+        playerA
+      );
     } else {
       nextPayload = {
         ...nextPayload,
@@ -507,27 +530,7 @@ export async function applyDueloPick(
     });
 
     if (sessionCompleted) {
-      const updatedSession = await tx.session.findUnique({
-        where: { id: session.id },
-        include: {
-          participants: { orderBy: { joinedAt: "asc" } },
-          rounds: { orderBy: { number: "asc" } },
-          result: true,
-        },
-      });
-
-      if (updatedSession) {
-        const result = buildDueloSessionResult(updatedSession);
-        await tx.session.update({
-          where: { id: session.id },
-          data: { status: "completed" },
-        });
-        await tx.sessionResult.upsert({
-          where: { sessionId: session.id },
-          create: { sessionId: session.id, data: JSON.stringify(result) },
-          update: { data: JSON.stringify(result) },
-        });
-      }
+      await finalizeDueloSessionIfNeeded(tx, session.id, true);
     }
   });
 
@@ -551,6 +554,137 @@ export async function applyDueloPick(
       ? calculateRoundPoints(payload.hintsRevealed, 1)
       : undefined,
     guessedPlayerName: guessedPlayer.name,
+  };
+}
+
+async function finalizeDueloSessionIfNeeded(
+  tx: Parameters<Parameters<typeof prisma.$transaction>[0]>[0],
+  sessionId: string,
+  sessionCompleted: boolean
+) {
+  if (!sessionCompleted) return;
+
+  const updatedSession = await tx.session.findUnique({
+    where: { id: sessionId },
+    include: {
+      participants: { orderBy: { joinedAt: "asc" } },
+      rounds: { orderBy: { number: "asc" } },
+      result: true,
+    },
+  });
+
+  if (!updatedSession) return;
+
+  const result = buildDueloSessionResult(updatedSession);
+  await tx.session.update({
+    where: { id: sessionId },
+    data: { status: "completed" },
+  });
+  await tx.sessionResult.upsert({
+    where: { sessionId },
+    create: { sessionId, data: JSON.stringify(result) },
+    update: { data: JSON.stringify(result) },
+  });
+}
+
+export async function applyDueloTimeout(
+  sessionCode: string,
+  participantId: string,
+  guestToken?: string | null
+) {
+  const session = await getSessionOrThrow(sessionCode);
+
+  if (session.gameMode !== "duelo") {
+    throw new Error("Esta sala não é um duelo");
+  }
+
+  if (session.status !== "active") {
+    throw new Error("A partida não está ativa");
+  }
+
+  const participant = session.participants.find((p) => p.id === participantId);
+  if (!participant) {
+    throw new Error("Participante não encontrado");
+  }
+
+  if (guestToken !== undefined && participant.guestToken !== guestToken) {
+    throw new Error("Não autorizado");
+  }
+
+  const currentRoundRecord = getCurrentRound(session);
+  if (!currentRoundRecord || currentRoundRecord.status !== "open") {
+    throw new Error("Rodada não está aberta");
+  }
+
+  const payload = parseDueloPayload(currentRoundRecord.cardOptions);
+  if (!payload || payload.phase !== "open") {
+    throw new Error("Rodada inválida");
+  }
+
+  if (payload.activeParticipantId !== participantId) {
+    throw new Error("Não é a sua vez");
+  }
+
+  if (
+    !isTurnExpired(payload.turnStartedAt, session.pickTimeLimitSeconds ?? null)
+  ) {
+    throw new Error("O tempo deste palpite ainda não expirou");
+  }
+
+  const [playerA, playerB] = payload.playerOrder;
+  const totalHints = payload.hintLadder.length;
+
+  let nextPayload: DueloRoundPayload = { ...payload };
+  let sessionCompleted = false;
+  const roundCompleted = false;
+  let roundFailed = false;
+  const nextRoundNumber: number | null = null;
+
+  if (participantId === playerA) {
+    nextPayload = setActiveTurn(nextPayload, playerB);
+  } else if (payload.hintsRevealed < totalHints) {
+    nextPayload = setActiveTurn(
+      {
+        ...nextPayload,
+        hintsRevealed: payload.hintsRevealed + 1,
+      },
+      playerA
+    );
+  } else {
+    nextPayload = {
+      ...nextPayload,
+      phase: "failed",
+    };
+    roundFailed = true;
+    sessionCompleted = true;
+  }
+
+  await prisma.$transaction(async (tx) => {
+    await tx.round.update({
+      where: { id: currentRoundRecord.id },
+      data: {
+        status: roundFailed ? "failed" : roundCompleted ? "completed" : "open",
+        cardOptions: serializeDueloPayload(nextPayload),
+      },
+    });
+
+    await finalizeDueloSessionIfNeeded(tx, session.id, sessionCompleted);
+  });
+
+  if (nextRoundNumber && !sessionCompleted) {
+    const refreshed = await getSessionOrThrow(sessionCode);
+    await openNextDueloRound(refreshed, nextRoundNumber);
+  }
+
+  const refreshedSession = await getSessionOrThrow(sessionCode);
+  const view = buildDueloViewState(refreshedSession, participantId);
+
+  return {
+    timedOut: true,
+    roundCompleted,
+    roundFailed,
+    sessionCompleted,
+    view,
   };
 }
 
@@ -635,6 +769,12 @@ export function buildDueloViewState(
     wrongGuesses: mapWrongGuessesForView(
       payload?.wrongGuesses ?? [],
       participants
+    ),
+    pickTimeLimitSeconds: session.pickTimeLimitSeconds ?? null,
+    turnStartedAt: payload?.turnStartedAt ?? null,
+    turnDeadlineAt: getTurnDeadline(
+      payload?.turnStartedAt,
+      session.pickTimeLimitSeconds
     ),
   };
 }

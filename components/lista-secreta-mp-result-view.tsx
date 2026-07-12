@@ -46,6 +46,14 @@ function RoundRecapRow({ round }: { round: ListaSecretaMpRoundRecap }) {
           </p>
         ))}
       </div>
+      {round.wrongGuesses.length > 0 && (
+        <p className="mt-2 text-xs text-on-pitch-muted">
+          Errou:{" "}
+          {round.wrongGuesses
+            .map((guess) => `${guess.playerName} (${guess.displayName})`)
+            .join(", ")}
+        </p>
+      )}
     </div>
   );
 }

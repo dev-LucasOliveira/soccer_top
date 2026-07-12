@@ -7,10 +7,11 @@ export async function PUT(request: Request, context: RouteContext) {
   try {
     const { code } = await context.params;
     const body = await request.json();
-    const { participantId, guestToken, totalRounds } = body as {
+    const { participantId, guestToken, totalRounds, pickTimeLimitSeconds } = body as {
       participantId?: string;
       guestToken?: string;
       totalRounds?: number;
+      pickTimeLimitSeconds?: number | null;
     };
 
     if (!participantId || typeof totalRounds !== "number") {
@@ -24,7 +25,8 @@ export async function PUT(request: Request, context: RouteContext) {
       code,
       participantId,
       guestToken ?? null,
-      totalRounds
+      totalRounds,
+      pickTimeLimitSeconds ?? null
     );
 
     return NextResponse.json(result);

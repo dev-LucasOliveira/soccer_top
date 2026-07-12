@@ -12,23 +12,29 @@ import {
   MIN_LSMP_ROUNDS,
   MIN_LSMP_SLOT_COUNT,
 } from "@/lib/lista-secreta-mp-constants";
+import { PickTimeLimitSelect } from "@/components/pick-time-limit-select";
 
 export function ListaSecretaMpLobbyConfig({
   code,
   participantId,
   initialRounds,
   initialSlotCount,
+  initialPickTimeLimitSeconds,
   onSaved,
 }: {
   code: string;
   participantId: string;
   initialRounds: number | null;
   initialSlotCount: number | null;
+  initialPickTimeLimitSeconds?: number | null;
   onSaved: () => void;
 }) {
   const [rounds, setRounds] = useState(initialRounds ?? DEFAULT_LSMP_ROUNDS);
   const [slotCount, setSlotCount] = useState(
     initialSlotCount ?? DEFAULT_LSMP_SLOT_COUNT
+  );
+  const [pickTimeLimitSeconds, setPickTimeLimitSeconds] = useState<number | null>(
+    initialPickTimeLimitSeconds ?? null
   );
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
@@ -48,6 +54,7 @@ export function ListaSecretaMpLobbyConfig({
           guestToken: getGuestToken(),
           totalRounds: rounds,
           slotCount,
+          pickTimeLimitSeconds,
         }),
       });
       const data = await res.json();
@@ -124,6 +131,11 @@ export function ListaSecretaMpLobbyConfig({
           {MIN_LSMP_SLOT_COUNT}–{MAX_LSMP_SLOT_COUNT} jogadores por rodada
         </p>
       </div>
+
+      <PickTimeLimitSelect
+        value={pickTimeLimitSeconds}
+        onChange={setPickTimeLimitSeconds}
+      />
 
       {error && <p className="text-sm text-red-400">{error}</p>}
 

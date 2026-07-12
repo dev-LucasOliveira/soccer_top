@@ -43,6 +43,7 @@ model Session {
   umSoTotalRounds        Int?
   listaSecretaTotalRounds Int?
   listaSecretaSlotCount   Int?
+  pickTimeLimitSeconds   Int?
   createdAt              DateTime       @default(now())
   participants           Participant[]
   rounds                 Round[]

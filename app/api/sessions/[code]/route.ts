@@ -9,6 +9,7 @@ import { getAdvanceAction, getSessionPhase } from "@/lib/session-info";
 import { getImpostorTheme } from "@/lib/impostor-themes";
 import { buildDueloViewState } from "@/lib/duelo-session";
 import { buildListaSecretaMpViewState } from "@/lib/lista-secreta-mp-session";
+import { processExpiredTurnIfNeeded } from "@/lib/pick-timeout";
 import type {
   DueloSessionResult,
   GameMode,
@@ -66,7 +67,7 @@ export async function GET(request: Request, context: RouteContext) {
     const { searchParams } = new URL(request.url);
     const viewerParticipantId = searchParams.get("participantId");
 
-    const session = await prisma.session.findUnique({
+    let session = await prisma.session.findUnique({
       where: { code },
       include: {
         participants: {
@@ -81,6 +82,28 @@ export async function GET(request: Request, context: RouteContext) {
 
     if (!session) {
       return NextResponse.json({ error: "Sala não encontrada" }, { status: 404 });
+    }
+
+    if (
+      session.status === "active" &&
+      (session.gameMode === "duelo" || session.gameMode === "lista-secreta-mp")
+    ) {
+      await processExpiredTurnIfNeeded(code);
+      const refreshedSession = await prisma.session.findUnique({
+        where: { code },
+        include: {
+          participants: {
+            orderBy: { joinedAt: "asc" },
+          },
+          rounds: {
+            orderBy: { number: "asc" },
+          },
+          result: true,
+        },
+      });
+      if (refreshedSession) {
+        session = refreshedSession;
+      }
     }
 
     const currentRoundRecord = getCurrentRound(session);
@@ -174,6 +197,7 @@ export async function GET(request: Request, context: RouteContext) {
       umSoTotalRounds: session.umSoTotalRounds,
       listaSecretaTotalRounds: session.listaSecretaTotalRounds,
       listaSecretaSlotCount: session.listaSecretaSlotCount,
+      pickTimeLimitSeconds: session.pickTimeLimitSeconds,
       isCreator,
       rounds: session.rounds.map(toRoundSummary),
       currentRound,

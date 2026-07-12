@@ -67,6 +67,7 @@ export function GuessTopSlot({
   showMetaHint,
   revealed,
   ownerColor,
+  revealedByDisplayName,
 }: {
   hintLabel: string;
   nationality: string;
@@ -74,35 +75,42 @@ export function GuessTopSlot({
   showMetaHint: boolean;
   revealed?: RevealedSlot;
   ownerColor?: "host" | "guest";
+  revealedByDisplayName?: string;
 }) {
   const isRevealed = Boolean(revealed);
+  const isHostReveal = ownerColor === "host";
+  const isGuestReveal = ownerColor === "guest";
 
   return (
     <div
       className={cn(
         "surface-row flex items-center gap-3 rounded-lg p-3 transition-all duration-300",
         isRevealed &&
-          (ownerColor === "guest"
-            ? "ring-1 ring-pitch-bright/50 bg-pitch-bright/15"
-            : "ring-1 ring-gold/50 bg-gold/15"),
-        isRevealed && !ownerColor && "ring-1 ring-pitch-bright/40 bg-pitch-bright/10",
+          isHostReveal &&
+          "bg-gold/20 shadow-[0_0_20px_rgba(197,162,93,0.22)] ring-2 ring-gold/60",
+        isRevealed &&
+          isGuestReveal &&
+          "bg-pitch-bright/20 shadow-[0_0_20px_rgba(74,222,128,0.18)] ring-2 ring-pitch-bright/60",
+        isRevealed &&
+          !ownerColor &&
+          "bg-pitch-bright/15 ring-2 ring-pitch-bright/40",
       )}
     >
       <span
         className={cn(
-          "flex h-7 w-7 shrink-0 items-center justify-center rounded-full",
+          "flex h-8 w-8 shrink-0 items-center justify-center rounded-full",
           isRevealed
-            ? ownerColor === "guest"
-              ? "bg-pitch-bright/25 text-pitch-bright"
-              : ownerColor === "host"
-                ? "bg-gold/25 text-gold-light"
-                : "bg-pitch-bright/20 text-pitch-bright"
+            ? isGuestReveal
+              ? "bg-pitch-bright/30 text-pitch-bright"
+              : isHostReveal
+                ? "bg-gold/35 text-gold-light"
+                : "bg-pitch-bright/25 text-pitch-bright"
             : "bg-off-white/10 text-on-pitch-muted",
         )}
         aria-hidden
       >
         {isRevealed ? (
-          <span className="text-xs font-bold">✓</span>
+          <span className="text-sm font-bold">✓</span>
         ) : (
           <Lock className="h-3.5 w-3.5" strokeWidth={2.5} />
         )}
@@ -110,7 +118,16 @@ export function GuessTopSlot({
       <div className="min-w-0 flex-1">
         {isRevealed ? (
           <>
-            <p className="truncate font-medium text-off-white">
+            <p
+              className={cn(
+                "truncate font-semibold",
+                isHostReveal
+                  ? "text-gold-light"
+                  : isGuestReveal
+                    ? "text-pitch-bright"
+                    : "text-off-white"
+              )}
+            >
               {revealed!.playerName}
             </p>
             <p className="text-xs text-on-pitch-muted">{revealed!.hintLabel}</p>
@@ -139,6 +156,20 @@ export function GuessTopSlot({
           </>
         )}
       </div>
+      {isRevealed && revealedByDisplayName && (
+        <span
+          className={cn(
+            "shrink-0 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide",
+            isHostReveal
+              ? "bg-gold/25 text-gold-light ring-1 ring-gold/40"
+              : isGuestReveal
+                ? "bg-pitch-bright/25 text-pitch-bright ring-1 ring-pitch-bright/40"
+                : "bg-off-white/10 text-on-pitch-subtle ring-1 ring-off-white/15"
+          )}
+        >
+          {revealedByDisplayName}
+        </span>
+      )}
     </div>
   );
 }

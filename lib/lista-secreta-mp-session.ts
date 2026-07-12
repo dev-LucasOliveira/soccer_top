@@ -19,6 +19,7 @@ import {
   getResolvedChallengeById,
 } from "@/lib/guess-top-score";
 import type {
+  DueloWrongGuessView,
   ListaSecretaMpPublicSlot,
   ListaSecretaMpRoundPayload,
   ListaSecretaMpRoundRecap,
@@ -27,6 +28,12 @@ import type {
   ListaSecretaMpStandingEntry,
   ListaSecretaMpViewState,
 } from "@/lib/types";
+import {
+  getTurnDeadline,
+  isTurnExpired,
+  nowIso,
+  validatePickTimeLimit,
+} from "@/lib/pick-time-limit";
 
 export {
   MIN_LSMP_PLAYERS,
@@ -73,8 +80,32 @@ export function parseListaSecretaMpPayload(
   }
 }
 
+function mapWrongGuessesForView(
+  wrongGuesses: ListaSecretaMpRoundPayload["wrongGuesses"],
+  participants: { id: string; displayName: string }[]
+): DueloWrongGuessView[] {
+  return (wrongGuesses ?? []).map((guess) => ({
+    participantId: guess.participantId,
+    displayName:
+      participants.find((p) => p.id === guess.participantId)?.displayName ?? "?",
+    playerId: guess.playerId,
+    playerName: guess.playerName,
+  }));
+}
+
 function serializePayload(payload: ListaSecretaMpRoundPayload): string {
   return JSON.stringify(payload);
+}
+
+function setActiveTurn(
+  payload: ListaSecretaMpRoundPayload,
+  activeParticipantId: string
+): ListaSecretaMpRoundPayload {
+  return {
+    ...payload,
+    activeParticipantId,
+    turnStartedAt: nowIso(),
+  };
 }
 
 function getLsmpPlayers(session: SessionFull) {
@@ -231,6 +262,8 @@ async function createRoundPayload(
       phase: "open",
       slotWins: initialSlotWins(playerOrder),
       showMetaHint: shouldShowMetaHint(challenge.searchFilters),
+      turnStartedAt: nowIso(),
+      wrongGuesses: [],
     },
   };
 }
@@ -240,7 +273,8 @@ export async function setListaSecretaMpConfig(
   participantId: string,
   guestToken: string | undefined | null,
   totalRounds: number,
-  slotCount: number
+  slotCount: number,
+  pickTimeLimitSeconds?: number | null
 ) {
   const { session } = await assertCreator(sessionCode, participantId, guestToken);
 
@@ -264,15 +298,18 @@ export async function setListaSecretaMpConfig(
     );
   }
 
+  const validatedLimit = validatePickTimeLimit(pickTimeLimitSeconds);
+
   await prisma.session.update({
     where: { id: session.id },
     data: {
       listaSecretaTotalRounds: totalRounds,
       listaSecretaSlotCount: slotCount,
+      pickTimeLimitSeconds: validatedLimit,
     },
   });
 
-  return { totalRounds, slotCount };
+  return { totalRounds, slotCount, pickTimeLimitSeconds: validatedLimit };
 }
 
 export async function startListaSecretaMpSession(
@@ -391,6 +428,7 @@ function buildRoundRecap(
     slotWins: { ...payload.slotWins },
     slots: toPublicSlots(payload, participants),
     tied: tied && !payload.winnerParticipantId,
+    wrongGuesses: mapWrongGuessesForView(payload.wrongGuesses, participants),
   };
 }
 
@@ -527,7 +565,21 @@ export async function applyListaSecretaMpPick(
   );
   const isCorrect = Boolean(targetSlot);
 
-  let nextPayload: ListaSecretaMpRoundPayload = { ...payload };
+  let nextPayload: ListaSecretaMpRoundPayload = {
+    ...payload,
+    wrongGuesses: [
+      ...(payload.wrongGuesses ?? []),
+      ...(isCorrect
+        ? []
+        : [
+            {
+              participantId,
+              playerId: guessedPlayerId,
+              playerName: guessedPlayer.name,
+            },
+          ]),
+    ],
+  };
   let roundCompleted = false;
   let sessionCompleted = false;
   let nextRoundNumber: number | null = null;
@@ -573,22 +625,16 @@ export async function applyListaSecretaMpPick(
         nextRoundNumber = session.currentRoundNumber + 1;
       }
     } else {
-      nextPayload = {
-        ...nextPayload,
-        activeParticipantId: otherParticipant(
-          nextPayload.playerOrder,
-          participantId
-        ),
-      };
+      nextPayload = setActiveTurn(
+        nextPayload,
+        otherParticipant(nextPayload.playerOrder, participantId)
+      );
     }
   } else {
-    nextPayload = {
-      ...nextPayload,
-      activeParticipantId: otherParticipant(
-        nextPayload.playerOrder,
-        participantId
-      ),
-    };
+    nextPayload = setActiveTurn(
+      nextPayload,
+      otherParticipant(nextPayload.playerOrder, participantId)
+    );
   }
 
   await prisma.$transaction(async (tx) => {
@@ -650,6 +696,73 @@ export async function applyListaSecretaMpPick(
     view,
     guessedPlayerName: guessedPlayer.name,
     revealedSlotIndex: targetSlot?.slotIndex,
+  };
+}
+
+export async function applyListaSecretaMpTimeout(
+  sessionCode: string,
+  participantId: string,
+  guestToken?: string | null
+) {
+  const session = await getSessionOrThrow(sessionCode);
+
+  if (session.gameMode !== "lista-secreta-mp") {
+    throw new Error("Esta sala não é Lista Secreta 1v1");
+  }
+
+  if (session.status !== "active") {
+    throw new Error("A partida não está ativa");
+  }
+
+  const participant = session.participants.find((p) => p.id === participantId);
+  if (!participant) {
+    throw new Error("Participante não encontrado");
+  }
+
+  if (guestToken !== undefined && participant.guestToken !== guestToken) {
+    throw new Error("Não autorizado");
+  }
+
+  const currentRoundRecord = getCurrentRound(session);
+  if (!currentRoundRecord || currentRoundRecord.status !== "open") {
+    throw new Error("Rodada não está aberta");
+  }
+
+  const payload = parseListaSecretaMpPayload(currentRoundRecord.cardOptions);
+  if (!payload || payload.phase !== "open") {
+    throw new Error("Rodada inválida");
+  }
+
+  if (payload.activeParticipantId !== participantId) {
+    throw new Error("Não é a sua vez");
+  }
+
+  if (
+    !isTurnExpired(payload.turnStartedAt, session.pickTimeLimitSeconds ?? null)
+  ) {
+    throw new Error("O tempo deste palpite ainda não expirou");
+  }
+
+  const nextPayload = setActiveTurn(
+    payload,
+    otherParticipant(payload.playerOrder, participantId)
+  );
+
+  await prisma.$transaction(async (tx) => {
+    await tx.round.update({
+      where: { id: currentRoundRecord.id },
+      data: {
+        cardOptions: serializePayload(nextPayload),
+      },
+    });
+  });
+
+  const refreshedSession = await getSessionOrThrow(sessionCode);
+  const view = buildListaSecretaMpViewState(refreshedSession, participantId);
+
+  return {
+    timedOut: true,
+    view,
   };
 }
 
@@ -721,5 +834,12 @@ export function buildListaSecretaMpViewState(
     roundsWon,
     playerColors,
     lastWinner,
+    pickTimeLimitSeconds: session.pickTimeLimitSeconds ?? null,
+    turnStartedAt: payload.turnStartedAt ?? null,
+    turnDeadlineAt: getTurnDeadline(
+      payload.turnStartedAt,
+      session.pickTimeLimitSeconds
+    ),
+    wrongGuesses: mapWrongGuessesForView(payload.wrongGuesses, participants),
   };
 }
