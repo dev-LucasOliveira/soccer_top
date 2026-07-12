@@ -9,6 +9,7 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const sessionCode = searchParams.get("session");
     const search = searchParams.get("search") ?? "";
+    const idsParam = searchParams.get("ids");
 
     let filters = {};
     if (sessionCode) {
@@ -43,7 +44,10 @@ export async function GET(request: Request) {
 
     let players = filterPlayers(allPlayers, filters as Parameters<typeof filterPlayers>[1]);
 
-    if (search) {
+    if (idsParam) {
+      const idSet = new Set(idsParam.split(",").filter(Boolean));
+      players = players.filter((p) => idSet.has(p.id));
+    } else if (search) {
       players = players.filter((p) => matchesSearch(p.name, search));
     }
 

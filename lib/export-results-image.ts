@@ -162,3 +162,39 @@ export async function downloadResultsImage(
     restoreStyles();
   }
 }
+
+export async function downloadSoloRankingImage(
+  element: HTMLElement,
+  {
+    title,
+    authorName,
+    theme,
+  }: { title: string; authorName: string; theme?: Theme }
+): Promise<void> {
+  const resolvedTheme = resolveExportTheme(theme);
+  const restoreStyles = applyExportThemeStyles(element, resolvedTheme);
+
+  try {
+    const dataUrl = await toPng(element, {
+      backgroundColor: EXPORT_BACKGROUND[resolvedTheme],
+      pixelRatio: 2,
+      cacheBust: true,
+    });
+
+    const titleSlug = slugifyTitle(title);
+    const authorSlug = slugifyTitle(authorName);
+    const filename =
+      titleSlug && authorSlug
+        ? `ranking-da-resenha-${authorSlug}-${titleSlug}.png`
+        : titleSlug
+          ? `ranking-da-resenha-${titleSlug}.png`
+          : "ranking-da-resenha-solo.png";
+
+    const link = document.createElement("a");
+    link.download = filename;
+    link.href = dataUrl;
+    link.click();
+  } finally {
+    restoreStyles();
+  }
+}

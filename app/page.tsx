@@ -1,4 +1,5 @@
-import { Target, Link2, Trophy } from "lucide-react";
+import { Target, Link2, Trophy, User } from "lucide-react";
+import Link from "next/link";
 import { SessionForm } from "@/components/session-form";
 import { JoinForm } from "@/components/join-form";
 import { APP_SLOGAN } from "@/lib/branding";
@@ -41,6 +42,32 @@ export default function HomePage() {
             <p className="mt-2 text-sm leading-snug text-on-pitch-muted">{text}</p>
           </div>
         ))}
+      </div>
+
+      <div className="relative mb-8">
+        <div className="glass-dark rounded-2xl px-5 py-5 transition-colors duration-200 hover:bg-off-white/[0.08]">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-start gap-3">
+              <User
+                size={22}
+                strokeWidth={1.5}
+                className="mt-0.5 shrink-0 text-gold/80"
+              />
+              <div>
+                <h2 className="font-display text-lg text-off-white">Modo solo</h2>
+                <p className="mt-1 text-sm leading-snug text-on-pitch-muted">
+                  Monte seu Top N, personalize o tema e exporte uma imagem.
+                </p>
+              </div>
+            </div>
+            <Link
+              href="/solo"
+              className="inline-flex shrink-0 items-center justify-center rounded-xl border border-gold/35 bg-gradient-to-b from-gold-light to-gold px-4 py-2.5 text-sm font-semibold text-gold-foreground shadow-sm transition-opacity duration-200 hover:opacity-90"
+            >
+              Criar meu ranking →
+            </Link>
+          </div>
+        </div>
       </div>
 
       <div className="relative grid gap-8 md:grid-cols-2">

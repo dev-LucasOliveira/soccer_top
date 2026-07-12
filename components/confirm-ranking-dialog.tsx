@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Dialog } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { TopList } from "@/components/top-list";
+import type { TopItem } from "@/lib/types";
 
 export const CONFIRM_RANKING_COPY = {
   title: "Confirmou a lista fora de ordem, né?",
@@ -14,11 +15,22 @@ export const CONFIRM_RANKING_COPY = {
   confirming: "Confirmando...",
 } as const;
 
-type TopItem = {
-  playerId: string;
-  playerName: string;
-  position: string;
-  nationality: string;
+export const SOLO_CONFIRM_RANKING_COPY = {
+  title: "Confirma essa ordem?",
+  body: "Dá uma última conferida antes de pré-visualizar.",
+  previewLabel: "Ordem atual:",
+  cancel: "Voltar",
+  confirm: "Pré-visualizar",
+  confirming: "Salvando...",
+} as const;
+
+export type ConfirmRankingCopy = {
+  title: string;
+  body: string;
+  previewLabel: string;
+  cancel: string;
+  confirm: string;
+  confirming: string;
 };
 
 export function ConfirmRankingDialog({
@@ -27,12 +39,14 @@ export function ConfirmRankingDialog({
   onConfirm,
   items,
   confirming,
+  copy = CONFIRM_RANKING_COPY,
 }: {
   open: boolean;
   onClose: () => void;
   onConfirm: (items: TopItem[]) => void;
   items: TopItem[];
   confirming: boolean;
+  copy?: ConfirmRankingCopy;
 }) {
   const [draftItems, setDraftItems] = useState<TopItem[]>(items);
 
@@ -46,17 +60,17 @@ export function ConfirmRankingDialog({
     <Dialog
       open={open}
       onClose={onClose}
-      title={CONFIRM_RANKING_COPY.title}
+      title={copy.title}
       panelClassName="max-w-lg"
     >
       <div className="flex min-h-0 flex-1 flex-col">
         <p className="shrink-0 text-sm text-text-muted">
-          {CONFIRM_RANKING_COPY.body}
+          {copy.body}
         </p>
 
         <div className="mt-4 flex min-h-0 flex-1 flex-col">
           <p className="mb-2 shrink-0 text-xs font-medium text-text-muted">
-            {CONFIRM_RANKING_COPY.previewLabel}
+            {copy.previewLabel}
           </p>
           <TopList
             items={draftItems}
@@ -69,16 +83,14 @@ export function ConfirmRankingDialog({
 
         <div className="mt-5 flex shrink-0 flex-col-reverse gap-2 sm:flex-row sm:justify-end">
           <Button variant="secondary" onClick={onClose} disabled={confirming}>
-            {CONFIRM_RANKING_COPY.cancel}
+            {copy.cancel}
           </Button>
           <Button
             variant="gold"
             onClick={() => onConfirm(draftItems)}
             disabled={confirming}
           >
-            {confirming
-              ? CONFIRM_RANKING_COPY.confirming
-              : CONFIRM_RANKING_COPY.confirm}
+            {confirming ? copy.confirming : copy.confirm}
           </Button>
         </div>
       </div>

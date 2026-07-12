@@ -14,6 +14,30 @@ export type RoundConfig = {
   filters?: SessionFilters;
 };
 
+export type TopItem = {
+  playerId: string;
+  playerName: string;
+  position: string;
+  nationality: string;
+};
+
+export type TopPick = {
+  rank: number;
+  playerId: string;
+  playerName: string;
+  position?: string;
+  nationality?: string;
+};
+
+export type SoloDraft = {
+  authorName: string;
+  title: string;
+  topN: number;
+  picks: TopPick[];
+  message?: string;
+  filters?: SessionFilters;
+};
+
 export type TeamEntry = {
   name: string;
   from: number;

@@ -23,13 +23,7 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import { GripVertical, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-type TopItem = {
-  playerId: string;
-  playerName: string;
-  position: string;
-  nationality: string;
-};
+import type { TopItem } from "@/lib/types";
 
 function TopItemPreview({
   item,

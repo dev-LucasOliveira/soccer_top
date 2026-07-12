@@ -1,13 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { POSITIONS, NATIONALITIES } from "@/lib/constants";
-import type { Position, RoundConfig } from "@/lib/types";
-import { ChevronDown, ChevronUp, Trash2 } from "lucide-react";
+import { RoundFiltersSection } from "@/components/round-filters-section";
+import type { RoundConfig } from "@/lib/types";
+import { Trash2 } from "lucide-react";
 
 export function RoundConfigCard({
   round,
@@ -26,32 +25,7 @@ export function RoundConfigCard({
   canRemove: boolean;
   readOnly?: boolean;
 }) {
-  const [showFilters, setShowFilters] = useState(false);
   const filters = round.filters ?? {};
-
-  function togglePosition(pos: Position) {
-    if (readOnly) return;
-    const current = filters.positions ?? [];
-    const next = current.includes(pos)
-      ? current.filter((p) => p !== pos)
-      : [...current, pos];
-    onChange({
-      ...round,
-      filters: { ...filters, positions: next.length ? next : undefined },
-    });
-  }
-
-  function toggleNationality(nat: string) {
-    if (readOnly) return;
-    const current = filters.nationalities ?? [];
-    const next = current.includes(nat)
-      ? current.filter((n) => n !== nat)
-      : [...current, nat];
-    onChange({
-      ...round,
-      filters: { ...filters, nationalities: next.length ? next : undefined },
-    });
-  }
 
   return (
     <Card className="space-y-4">
@@ -101,114 +75,11 @@ export function RoundConfigCard({
         />
       </div>
 
-      {(readOnly
-        ? filters.positions?.length ||
-          filters.nationalities?.length ||
-          filters.eraStart ||
-          filters.eraEnd
-        : true) && (
-        <>
-          {!readOnly && (
-            <button
-              type="button"
-              onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-1 text-sm font-medium text-gold hover:underline"
-            >
-              {showFilters ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-              {showFilters ? "Ocultar filtros" : "Configurar filtros (opcional)"}
-            </button>
-          )}
-
-          {(showFilters || readOnly) && (
-            <div className="space-y-4 rounded-xl border-2 border-card-border bg-off-white-muted p-4">
-              <div>
-                <p className="mb-2 text-sm font-medium">Posições</p>
-                <div className="flex flex-wrap gap-2">
-                  {POSITIONS.map((pos) => (
-                    <button
-                      key={pos.value}
-                      type="button"
-                      onClick={() => togglePosition(pos.value)}
-                      disabled={readOnly}
-                      className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
-                        filters.positions?.includes(pos.value)
-                          ? "bg-pitch text-off-white"
-                          : "bg-off-white-muted text-foreground hover:bg-off-white-surface"
-                      } ${readOnly ? "cursor-default opacity-100" : ""}`}
-                    >
-                      {pos.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <p className="mb-2 text-sm font-medium">Nacionalidades</p>
-                <div className="flex flex-wrap gap-2">
-                  {NATIONALITIES.map((nat) => (
-                    <button
-                      key={nat.value}
-                      type="button"
-                      onClick={() => toggleNationality(nat.value)}
-                      disabled={readOnly}
-                      className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
-                        filters.nationalities?.includes(nat.value)
-                          ? "bg-pitch text-off-white"
-                          : "bg-off-white-muted text-foreground hover:bg-off-white-surface"
-                      } ${readOnly ? "cursor-default opacity-100" : ""}`}
-                    >
-                      {nat.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="mb-1 block text-sm font-medium">Época início</label>
-                  <Input
-                    type="number"
-                    placeholder="Ex: 1990"
-                    value={filters.eraStart ?? ""}
-                    onChange={(e) =>
-                      onChange({
-                        ...round,
-                        filters: {
-                          ...filters,
-                          eraStart: e.target.value
-                            ? parseInt(e.target.value)
-                            : undefined,
-                        },
-                      })
-                    }
-                    disabled={readOnly}
-                  />
-                </div>
-                <div>
-                  <label className="mb-1 block text-sm font-medium">Época fim</label>
-                  <Input
-                    type="number"
-                    placeholder="Ex: 2010"
-                    value={filters.eraEnd ?? ""}
-                    onChange={(e) =>
-                      onChange({
-                        ...round,
-                        filters: {
-                          ...filters,
-                          eraEnd: e.target.value
-                            ? parseInt(e.target.value)
-                            : undefined,
-                        },
-                      })
-                    }
-                    disabled={readOnly}
-                  />
-                </div>
-              </div>
-            </div>
-          )}
-        </>
-      )}
+      <RoundFiltersSection
+        filters={filters}
+        onChange={(next) => onChange({ ...round, filters: next })}
+        readOnly={readOnly}
+      />
     </Card>
   );
 }

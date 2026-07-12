@@ -8,6 +8,7 @@ import { TopList } from "@/components/top-list";
 import { AvailablePlayersCard } from "@/components/available-players-card";
 import { ConfirmRankingDialog } from "@/components/confirm-ranking-dialog";
 import { LIST_MESSAGE_MAX_LENGTH } from "@/lib/constants";
+import type { TopItem } from "@/lib/types";
 
 type ListAction = "add" | "remove" | "reorder";
 
@@ -15,13 +16,6 @@ type Player = {
   id: string;
   name: string;
   primaryPosition: string;
-  nationality: string;
-};
-
-type TopItem = {
-  playerId: string;
-  playerName: string;
-  position: string;
   nationality: string;
 };
 
