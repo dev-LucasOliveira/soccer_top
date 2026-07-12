@@ -55,9 +55,21 @@ npm run db:seed
 
 - **Vercel** hospeda o Next.js inteiro (páginas + `/api/*`)
 - **Supabase** hospeda o Postgres
-- O build roda `prisma migrate deploy` automaticamente (precisa das env vars na Vercel)
+- O build na Vercel roda só `prisma generate && next build` (sem conectar ao banco)
+- Migrações de schema: rode localmente após mudar `prisma/schema.prisma`:
 
-### Limitações do free tier
+```bash
+npm run db:deploy
+```
+
+(com `.env` apontando para o Supabase de produção)
+
+**Env vars na Vercel** (Settings → Environment Variables):
+
+- `DATABASE_URL` — pooler, porta **6543** (runtime)
+- `DIRECT_URL` — session pooler, porta **5432** (migrações locais). Evite `db.[ref].supabase.co` na Vercel se não tiver IPv4 add-on no Supabase.
+
+Se o build antigo falhou com `P1001: Can't reach database server`, era o `migrate deploy` tentando abrir Postgres durante o build — isso não acontece mais no script padrão.
 
 - Supabase free pausa após ~7 dias sem uso (primeiro acesso depois disso demora alguns segundos)
 - Sessions locais antigas (`dev.db`) não migram — produção começa zerada
