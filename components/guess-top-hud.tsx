@@ -66,12 +66,14 @@ export function GuessTopSlot({
   position,
   showMetaHint,
   revealed,
+  ownerColor,
 }: {
   hintLabel: string;
   nationality: string;
   position: string;
   showMetaHint: boolean;
   revealed?: RevealedSlot;
+  ownerColor?: "host" | "guest";
 }) {
   const isRevealed = Boolean(revealed);
 
@@ -79,14 +81,22 @@ export function GuessTopSlot({
     <div
       className={cn(
         "surface-row flex items-center gap-3 rounded-lg p-3 transition-all duration-300",
-        isRevealed && "ring-1 ring-pitch-bright/40 bg-pitch-bright/10",
+        isRevealed &&
+          (ownerColor === "guest"
+            ? "ring-1 ring-pitch-bright/50 bg-pitch-bright/15"
+            : "ring-1 ring-gold/50 bg-gold/15"),
+        isRevealed && !ownerColor && "ring-1 ring-pitch-bright/40 bg-pitch-bright/10",
       )}
     >
       <span
         className={cn(
           "flex h-7 w-7 shrink-0 items-center justify-center rounded-full",
           isRevealed
-            ? "bg-pitch-bright/20 text-pitch-bright"
+            ? ownerColor === "guest"
+              ? "bg-pitch-bright/25 text-pitch-bright"
+              : ownerColor === "host"
+                ? "bg-gold/25 text-gold-light"
+                : "bg-pitch-bright/20 text-pitch-bright"
             : "bg-off-white/10 text-on-pitch-muted",
         )}
         aria-hidden

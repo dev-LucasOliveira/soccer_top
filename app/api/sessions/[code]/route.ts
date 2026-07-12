@@ -8,9 +8,11 @@ import { getRoundWinningList } from "@/lib/round-result";
 import { getAdvanceAction, getSessionPhase } from "@/lib/session-info";
 import { getImpostorTheme } from "@/lib/impostor-themes";
 import { buildDueloViewState } from "@/lib/duelo-session";
+import { buildListaSecretaMpViewState } from "@/lib/lista-secreta-mp-session";
 import type {
   DueloSessionResult,
   GameMode,
+  ListaSecretaMpSessionResult,
   SessionFinalResult,
   SessionResultData,
 } from "@/lib/types";
@@ -116,10 +118,19 @@ export async function GET(request: Request, context: RouteContext) {
         ? (JSON.parse(session.result.data) as import("@/lib/types").ImpostorSessionResult)
         : session.gameMode === "duelo" && session.result
           ? (JSON.parse(session.result.data) as DueloSessionResult)
-          : normalizeSessionResult(
-              session.result ? JSON.parse(session.result.data) : null,
-              session.participants
-            );
+          : session.gameMode === "lista-secreta-mp" && session.result
+            ? (JSON.parse(session.result.data) as ListaSecretaMpSessionResult)
+            : normalizeSessionResult(
+                session.result ? JSON.parse(session.result.data) : null,
+                session.participants
+              );
+
+    const configuredTotalRounds =
+      session.gameMode === "lista-secreta-mp"
+        ? session.listaSecretaTotalRounds
+        : session.gameMode === "duelo"
+          ? session.umSoTotalRounds
+          : null;
 
     const showPicks =
       session.gameMode !== "impostor" &&
@@ -152,7 +163,7 @@ export async function GET(request: Request, context: RouteContext) {
       gameMode: session.gameMode as GameMode,
       status: session.status,
       currentRoundNumber: session.currentRoundNumber,
-      totalRounds: session.umSoTotalRounds ?? session.rounds.length,
+      totalRounds: configuredTotalRounds ?? session.rounds.length,
       createdAt: session.createdAt,
       creatorParticipantId: session.creatorParticipantId,
       impostorThemeId: session.impostorThemeId,
@@ -161,6 +172,8 @@ export async function GET(request: Request, context: RouteContext) {
         : null,
       impostorThemeSelected: Boolean(session.impostorThemeId),
       umSoTotalRounds: session.umSoTotalRounds,
+      listaSecretaTotalRounds: session.listaSecretaTotalRounds,
+      listaSecretaSlotCount: session.listaSecretaSlotCount,
       isCreator,
       rounds: session.rounds.map(toRoundSummary),
       currentRound,
@@ -197,17 +210,24 @@ export async function GET(request: Request, context: RouteContext) {
         ? buildDueloViewState(session, viewerParticipantId)
         : null;
 
+    const listaSecretaMpView =
+      session.gameMode === "lista-secreta-mp"
+        ? buildListaSecretaMpViewState(session, viewerParticipantId)
+        : null;
+
     const phase = getSessionPhase({
       gameMode: session.gameMode as GameMode,
       status: session.status,
       currentRoundNumber: session.currentRoundNumber,
-      totalRounds: session.umSoTotalRounds ?? session.rounds.length,
+      totalRounds: configuredTotalRounds ?? session.rounds.length,
       currentRound,
       participants: session.participants,
       voteProgress: sessionPayload.voteProgress,
       rounds: session.rounds,
       impostorThemeSelected: Boolean(session.impostorThemeId),
       umSoTotalRounds: session.umSoTotalRounds,
+      listaSecretaTotalRounds: session.listaSecretaTotalRounds,
+      listaSecretaSlotCount: session.listaSecretaSlotCount,
     });
 
     const advanceAction = getAdvanceAction({
@@ -216,6 +236,8 @@ export async function GET(request: Request, context: RouteContext) {
       rounds: session.rounds,
       impostorThemeSelected: Boolean(session.impostorThemeId),
       umSoTotalRounds: session.umSoTotalRounds,
+      listaSecretaTotalRounds: session.listaSecretaTotalRounds,
+      listaSecretaSlotCount: session.listaSecretaSlotCount,
     });
 
     const lastCompletedRound =
@@ -238,6 +260,7 @@ export async function GET(request: Request, context: RouteContext) {
       phase,
       advanceAction,
       dueloView,
+      listaSecretaMpView,
       filters: currentRound?.filters ?? {},
       topN: currentRound?.topN ?? 10,
       lastWinningList,

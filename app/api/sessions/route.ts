@@ -24,7 +24,9 @@ export async function POST(request: Request) {
         ? "impostor"
         : gameMode === "duelo"
           ? "duelo"
-          : "ranking";
+          : gameMode === "lista-secreta-mp"
+            ? "lista-secreta-mp"
+            : "ranking";
 
     let code = createSessionCode();
     let attempts = 0;
@@ -39,7 +41,14 @@ export async function POST(request: Request) {
       const created = await tx.session.create({
         data: {
           code,
-          title: mode === "impostor" ? `Impostor ${code}` : mode === "duelo" ? `Duelo ${code}` : `Sala ${code}`,
+          title:
+            mode === "impostor"
+              ? `Impostor ${code}`
+              : mode === "duelo"
+                ? `Duelo ${code}`
+                : mode === "lista-secreta-mp"
+                  ? `Lista Secreta ${code}`
+                  : `Sala ${code}`,
           status: "setup",
           gameMode: mode,
           currentRoundNumber: 1,

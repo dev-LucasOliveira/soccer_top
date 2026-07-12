@@ -243,3 +243,17 @@ export async function downloadDueloRecapImage(
   const filename = `ranking-da-resenha-duelo-${slug}-${winnerPoints}pts.png`;
   return deliverImageBlob(blob, filename);
 }
+
+export async function downloadListaSecretaMpRecapImage(
+  element: HTMLElement,
+  {
+    winnerName,
+    totalSlots,
+    theme,
+  }: { winnerName: string; totalSlots: number; theme?: Theme }
+): Promise<ExportImageResult> {
+  const blob = await captureElementAsBlob(element, theme);
+  const slug = slugifyTitle(winnerName);
+  const filename = `ranking-da-resenha-lista-secreta-1v1-${slug}-${totalSlots}slots.png`;
+  return deliverImageBlob(blob, filename);
+}

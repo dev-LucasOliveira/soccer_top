@@ -93,9 +93,16 @@ export async function getResolvedChallengeById(
 export function drawRoundFromChallenge(
   challenge: GuessTopChallengeResolved
 ): string[] {
+  return drawRoundFromChallengeWithCount(challenge, GUESS_TOP_DRAW_COUNT);
+}
+
+export function drawRoundFromChallengeWithCount(
+  challenge: GuessTopChallengeResolved,
+  count: number
+): string[] {
   return drawRoundPlayers(
     challenge.pool.map((player) => player.playerId),
-    GUESS_TOP_DRAW_COUNT
+    count
   );
 }
 

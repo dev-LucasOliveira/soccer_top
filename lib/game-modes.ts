@@ -4,6 +4,7 @@ export type HomeModeId =
   | "tradicional"
   | "impostor"
   | "duelo"
+  | "lista-secreta-1v1"
   | "lista-secreta"
   | "um-so"
   | "ranking";
@@ -88,6 +89,26 @@ export const GAME_MODES: GameModeConfig[] = [
     sessionGameMode: "duelo",
   },
   {
+    id: "lista-secreta-1v1",
+    label: "Lista Secreta 1v1",
+    cardDescription:
+      "Mesma lista secreta para os dois — quem acertar pinta o slot com sua cor.",
+    panelDescription:
+      "Dois jogadores, mesma lista de jogadores secretos por rodada. Turnos alternados: chute, revele com sua cor se acertar. Quem descobrir mais itens vence a rodada.",
+    hint: "Exatamente 2 jogadores — configure rodadas e quantos jogadores secretos por lista (3–10).",
+    submitLabel: "Criar partida",
+    icon: "target",
+    playStyle: "multiplayer",
+    landingPath: "/lista-secreta-mp",
+    rules: [
+      "Exatamente 2 jogadores por sala",
+      "Mesma lista secreta com dicas de clube + período",
+      "Turnos alternados — sem limite de erros",
+      "Quem acertar pinta o slot; quem revelar mais ganha a rodada",
+    ],
+    sessionGameMode: "lista-secreta-mp",
+  },
+  {
     id: "lista-secreta",
     label: "Lista Secreta",
     cardDescription:
@@ -163,6 +184,7 @@ export function parseHomeModeParam(value: string | null): HomeModeId | null {
     value === "tradicional" ||
     value === "impostor" ||
     value === "duelo" ||
+    value === "lista-secreta-1v1" ||
     value === "lista-secreta" ||
     value === "um-so" ||
     value === "ranking"

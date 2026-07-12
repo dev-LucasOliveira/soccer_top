@@ -140,7 +140,7 @@ export type VoteState = {
 
 export type ParticipantStatus = "building" | "confirmed" | "spectator";
 export type SessionStatus = "setup" | "active" | "completed";
-export type GameMode = "ranking" | "impostor" | "duelo";
+export type GameMode = "ranking" | "impostor" | "duelo" | "lista-secreta-mp";
 
 export type RoundStatus =
   | "pending"
@@ -313,5 +313,93 @@ export type DueloViewState = {
     displayName: string;
     points: number;
     tierLabel: string;
+  };
+};
+
+export type ListaSecretaMpSlotPayload = {
+  slotIndex: number;
+  secretPlayerId: string;
+  hintLabel: string;
+  nationality: string;
+  position: string;
+  showMetaHint: boolean;
+  playerName?: string;
+  revealedByParticipantId?: string;
+};
+
+export type ListaSecretaMpRoundPayload = {
+  challengeId: string;
+  drawnPlayerIds: string[];
+  slots: ListaSecretaMpSlotPayload[];
+  playerOrder: [string, string];
+  activeParticipantId: string;
+  phase: "open" | "completed";
+  slotWins: Record<string, number>;
+  winnerParticipantId?: string;
+  showMetaHint: boolean;
+};
+
+export type ListaSecretaMpPublicSlot = {
+  slotIndex: number;
+  hintLabel: string;
+  nationality: string;
+  position: string;
+  showMetaHint: boolean;
+  revealed?: {
+    playerName: string;
+    hintLabel: string;
+    nationality: string;
+    position: string;
+    revealedByParticipantId: string;
+    revealedByDisplayName: string;
+    ownerColor: "host" | "guest";
+  };
+};
+
+export type ListaSecretaMpRoundRecap = {
+  roundNumber: number;
+  title: string;
+  challengeId: string;
+  winnerParticipantId?: string;
+  winnerDisplayName?: string;
+  slotWins: Record<string, number>;
+  slots: ListaSecretaMpPublicSlot[];
+  tied: boolean;
+};
+
+export type ListaSecretaMpStandingEntry = {
+  participantId: string;
+  displayName: string;
+  totalSlots: number;
+  roundsWon: number;
+  rank: number;
+};
+
+export type ListaSecretaMpSessionResult = {
+  outcome: "completed";
+  standings: ListaSecretaMpStandingEntry[];
+  rounds: ListaSecretaMpRoundRecap[];
+};
+
+export type ListaSecretaMpViewState = {
+  roundNumber: number;
+  totalRounds: number;
+  title: string;
+  description: string;
+  searchFilters?: SessionFilters;
+  showMetaHint: boolean;
+  slots: ListaSecretaMpPublicSlot[];
+  activeParticipantId: string;
+  activeParticipantName: string;
+  isMyTurn: boolean;
+  roundStatus: "open" | "completed";
+  slotWins: Record<string, number>;
+  roundsWon: Record<string, number>;
+  playerColors: Record<string, "host" | "guest">;
+  lastWinner?: {
+    participantId: string;
+    displayName: string;
+    slotWins: number;
+    tied: boolean;
   };
 };

@@ -41,6 +41,8 @@ model Session {
   currentRoundNumber     Int            @default(1)
   creatorParticipantId   String?
   umSoTotalRounds        Int?
+  listaSecretaTotalRounds Int?
+  listaSecretaSlotCount   Int?
   createdAt              DateTime       @default(now())
   participants           Participant[]
   rounds                 Round[]

@@ -12,8 +12,10 @@ import { StandingsTable } from "@/components/standings-table";
 import { RoundSetupPanel } from "@/components/round-setup-panel";
 import { ImpostorThemePicker } from "@/components/impostor-theme-picker";
 import { DueloLobbyConfig } from "@/components/duelo-lobby-config";
+import { ListaSecretaMpLobbyConfig } from "@/components/lista-secreta-mp-lobby-config";
 import { MIN_IMPOSTOR_PLAYERS } from "@/lib/impostor-constants";
 import { MIN_DUELO_PLAYERS } from "@/lib/duelo-constants";
+import { MIN_LSMP_PLAYERS } from "@/lib/lista-secreta-mp-constants";
 import { getGuestToken } from "@/lib/guest";
 import { Copy, Check, Users, Share2, ListOrdered } from "lucide-react";
 import { describeSessionFilters } from "@/lib/session-info";
@@ -26,6 +28,7 @@ import type {
   StandingEntry,
   GameMode,
   DueloViewState,
+  ListaSecretaMpViewState,
 } from "@/lib/types";
 
 type Participant = {
@@ -47,7 +50,10 @@ type SessionData = {
   impostorThemeId: string | null;
   impostorThemeSelected?: boolean;
   umSoTotalRounds?: number | null;
+  listaSecretaTotalRounds?: number | null;
+  listaSecretaSlotCount?: number | null;
   dueloView?: DueloViewState | null;
+  listaSecretaMpView?: ListaSecretaMpViewState | null;
   filters: SessionFilters;
   createdAt: string;
   creatorParticipantId: string | null;
@@ -225,16 +231,19 @@ export function SessionLobby({
   const advanceAction = session.advanceAction;
   const isImpostor = session.gameMode === "impostor";
   const isDuelo = session.gameMode === "duelo";
+  const isLsmp = session.gameMode === "lista-secreta-mp";
   const stepItems = isImpostor
     ? IMPOSTOR_STEPS
-    : isDuelo
+    : isDuelo || isLsmp
       ? DUELO_STEPS
       : STEPS;
   const minPlayers = isImpostor
     ? MIN_IMPOSTOR_PLAYERS
     : isDuelo
       ? MIN_DUELO_PLAYERS
-      : 2;
+      : isLsmp
+        ? MIN_LSMP_PLAYERS
+        : 2;
 
   function participantBadge(p: Participant) {
     if (p.status === "spectator") return isImpostor ? "Eliminado" : "Espectador";
@@ -277,6 +286,7 @@ export function SessionLobby({
 
       {session.gameMode !== "impostor" &&
         session.gameMode !== "duelo" &&
+        session.gameMode !== "lista-secreta-mp" &&
         session.standings.length > 0 && (
         <StandingsTable standings={session.standings} />
       )}
@@ -289,7 +299,7 @@ export function SessionLobby({
         <p className="mb-4 text-sm text-text-muted">{phase.description}</p>
         <div
           className={`-mx-5 flex gap-2 overflow-x-auto scroll-smooth px-5 pb-1 sm:mx-0 sm:grid ${
-            isDuelo ? "sm:grid-cols-4" : "sm:grid-cols-5"
+            isDuelo || isLsmp ? "sm:grid-cols-4" : "sm:grid-cols-5"
           } sm:gap-2 sm:overflow-visible sm:px-0 sm:pb-0`}
         >
           {stepItems.map((s) => (
@@ -355,6 +365,27 @@ export function SessionLobby({
                 : "Aguardando o criador configurar as rodadas do duelo."}
             </Card>
           )
+        ) : isLsmp ? (
+          session.isCreator ? (
+            <Card>
+              <h2 className="mb-4 font-display text-lg text-foreground">
+                Configurar Lista Secreta 1v1
+              </h2>
+              <ListaSecretaMpLobbyConfig
+                code={code}
+                participantId={participantId}
+                initialRounds={session.listaSecretaTotalRounds ?? null}
+                initialSlotCount={session.listaSecretaSlotCount ?? null}
+                onSaved={fetchSession}
+              />
+            </Card>
+          ) : (
+            <Card className="p-4 text-sm text-text-muted">
+              {session.listaSecretaTotalRounds && session.listaSecretaSlotCount
+                ? `${session.listaSecretaTotalRounds} rodada(s), ${session.listaSecretaSlotCount} jogadores secretos. Aguardando o criador iniciar.`
+                : "Aguardando o criador configurar rodadas e jogadores secretos."}
+            </Card>
+          )
         ) : (
           <RoundSetupPanel
             code={code}
@@ -384,7 +415,11 @@ export function SessionLobby({
                     Rodada {round.number}: {round.title}
                   </p>
                   <p className="text-xs text-text-muted">
-                    {isDuelo ? "Duelo 1v1" : `Top de ${round.topN}`}
+                    {isDuelo
+                      ? "Duelo 1v1"
+                      : isLsmp
+                        ? "Lista Secreta 1v1"
+                        : `Top de ${round.topN}`}
                   </p>
                 </div>
                 <Badge
@@ -401,7 +436,7 @@ export function SessionLobby({
                     : round.status === "open"
                       ? isImpostor
                         ? "Cartas"
-                        : isDuelo
+                        : isDuelo || isLsmp
                           ? "Em jogo"
                           : "Montando"
                       : round.status === "reveal"
@@ -418,7 +453,7 @@ export function SessionLobby({
         </Card>
       ) : null}
 
-      {session.currentRound && session.status === "active" && !isImpostor && !isDuelo && (
+      {session.currentRound && session.status === "active" && !isImpostor && !isDuelo && !isLsmp && (
         <Card>
           <h2 className="mb-2 font-bold text-foreground">
             Rodada atual — {session.currentRound.title}
@@ -456,6 +491,32 @@ export function SessionLobby({
                 </p>
                 <p className="text-xs text-text-muted">
                   {session.dueloView?.roundsWon[p.id] ?? 0} rodada(s)
+                </p>
+              </div>
+            ))}
+          </div>
+        </Card>
+      )}
+
+      {isLsmp && session.status === "active" && session.listaSecretaMpView && (
+        <Card>
+          <h2 className="mb-2 font-bold text-foreground">
+            Placar da partida
+          </h2>
+          <div className="grid grid-cols-2 gap-3">
+            {session.participants.map((p) => (
+              <div
+                key={p.id}
+                className="rounded-xl bg-off-white-muted px-3 py-3 text-center"
+              >
+                <p className="text-sm font-medium text-foreground">
+                  {p.displayName}
+                </p>
+                <p className="font-display text-xl text-gold-dark">
+                  {session.listaSecretaMpView?.roundsWon[p.id] ?? 0} rodada(s)
+                </p>
+                <p className="text-xs text-text-muted">
+                  {session.listaSecretaMpView?.slotWins[p.id] ?? 0} slot(s) na rodada
                 </p>
               </div>
             ))}
@@ -529,12 +590,14 @@ export function SessionLobby({
           <p className="mt-3 alert-banner px-3 py-2 text-xs">
             {isDuelo
               ? "O duelo precisa de exatamente 2 jogadores"
-              : `Mínimo de ${minPlayers} participantes para iniciar`}
+              : isLsmp
+                ? "A Lista Secreta 1v1 precisa de exatamente 2 jogadores"
+                : `Mínimo de ${minPlayers} participantes para iniciar`}
           </p>
         )}
-        {isDuelo && session.participants.length >= MIN_DUELO_PLAYERS && (
+        {(isDuelo || isLsmp) && session.participants.length >= minPlayers && (
           <p className="mt-3 text-xs text-text-muted">
-            Sala cheia — máximo de 2 jogadores no duelo.
+            Sala cheia — máximo de 2 jogadores.
           </p>
         )}
       </Card>
@@ -597,6 +660,14 @@ export function SessionLobby({
           <Link href={`/s/${code}/duelo`}>
             <Button size="lg" className="w-full sm:w-auto">
               {session.dueloView?.isMyTurn ? "Sua vez — ir jogar" : "Ir para o duelo"}
+            </Button>
+          </Link>
+        ) : isLsmp && session.status === "active" ? (
+          <Link href={`/s/${code}/lista-secreta`}>
+            <Button size="lg" className="w-full sm:w-auto">
+              {session.listaSecretaMpView?.isMyTurn
+                ? "Sua vez — ir jogar"
+                : "Ir para a partida"}
             </Button>
           </Link>
         ) : showRevealActions ? (
@@ -711,7 +782,7 @@ export function SessionLobby({
               >
                 {advancing ? "Iniciando..." : advanceAction.label}
               </Button>
-              {!advanceAction.canAdvance && session.totalRounds === 0 && !isDuelo && (
+              {!advanceAction.canAdvance && session.totalRounds === 0 && !isDuelo && !isLsmp && (
                 <p className="text-center text-sm text-on-pitch-muted">
                   Adicione pelo menos 1 rodada
                 </p>
@@ -724,9 +795,16 @@ export function SessionLobby({
                   </p>
                 )}
               {!advanceAction.canAdvance &&
+                isLsmp &&
+                (!session.listaSecretaTotalRounds || !session.listaSecretaSlotCount) && (
+                  <p className="text-center text-sm text-on-pitch-muted">
+                    Configure rodadas e jogadores secretos para iniciar
+                  </p>
+                )}
+              {!advanceAction.canAdvance &&
                 session.participants.length < minPlayers && (
                   <p className="text-center text-sm text-on-pitch-muted">
-                    {isDuelo
+                    {isDuelo || isLsmp
                       ? "Aguardando oponente (2 jogadores)"
                       : "Aguardando mais participantes"}
                   </p>
@@ -745,7 +823,9 @@ export function SessionLobby({
                 ? "Aguardando criador escolher o tema e iniciar"
                 : isDuelo
                   ? "Aguardando criador configurar e iniciar o duelo"
-                  : "Aguardando criador configurar e iniciar a sala"}
+                  : isLsmp
+                    ? "Aguardando criador configurar e iniciar a partida"
+                    : "Aguardando criador configurar e iniciar a sala"}
             </p>
           )
         ) : (

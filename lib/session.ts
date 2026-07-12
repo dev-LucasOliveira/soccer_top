@@ -93,6 +93,14 @@ export async function advanceSession(
     return { ok: true };
   }
 
+  if (session.gameMode === "lista-secreta-mp") {
+    const { startListaSecretaMpSession } = await import(
+      "@/lib/lista-secreta-mp-session"
+    );
+    await startListaSecretaMpSession(sessionCode, participantId, guestToken);
+    return { ok: true };
+  }
+
   return advanceRankingSession(sessionCode, participantId, guestToken);
 }
 

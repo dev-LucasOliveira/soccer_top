@@ -6,11 +6,13 @@ import { useRouter } from "next/navigation";
 import { ResultsView } from "@/components/results-view";
 import { ImpostorResultsView } from "@/components/impostor-results-view";
 import { DueloResultsView } from "@/components/duelo-result-view";
+import { ListaSecretaMpResultsView } from "@/components/lista-secreta-mp-result-view";
 import { SessionHeader } from "@/components/session-header";
 import { getGuestToken } from "@/lib/guest";
 import type {
   DueloSessionResult,
   ImpostorSessionResult,
+  ListaSecretaMpSessionResult,
   SessionFinalResult,
 } from "@/lib/types";
 
@@ -23,10 +25,14 @@ export default function ResultsPage({
   const [code, setCode] = useState("");
   const [participantId, setParticipantId] = useState<string | null>(null);
   const [title, setTitle] = useState("");
-  const [gameMode, setGameMode] = useState<"ranking" | "impostor" | "duelo">("ranking");
+  const [gameMode, setGameMode] = useState<
+    "ranking" | "impostor" | "duelo" | "lista-secreta-mp"
+  >("ranking");
   const [result, setResult] = useState<SessionFinalResult | null>(null);
   const [impostorResult, setImpostorResult] = useState<ImpostorSessionResult | null>(null);
   const [dueloResult, setDueloResult] = useState<DueloSessionResult | null>(null);
+  const [listaSecretaMpResult, setListaSecretaMpResult] =
+    useState<ListaSecretaMpSessionResult | null>(null);
   const [isCreator, setIsCreator] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -65,7 +71,9 @@ export default function ResultsPage({
         ? "impostor"
         : data.gameMode === "duelo"
           ? "duelo"
-          : "ranking"
+          : data.gameMode === "lista-secreta-mp"
+            ? "lista-secreta-mp"
+            : "ranking"
     );
     setIsCreator(data.isCreator ?? false);
 
@@ -74,17 +82,26 @@ export default function ResultsPage({
     } else if (data.gameMode === "impostor") {
       setImpostorResult(data.result as ImpostorSessionResult);
       setDueloResult(null);
+      setListaSecretaMpResult(null);
       setResult(null);
       setError("");
     } else if (data.gameMode === "duelo") {
       setDueloResult(data.result as DueloSessionResult);
       setImpostorResult(null);
+      setListaSecretaMpResult(null);
+      setResult(null);
+      setError("");
+    } else if (data.gameMode === "lista-secreta-mp") {
+      setListaSecretaMpResult(data.result as ListaSecretaMpSessionResult);
+      setImpostorResult(null);
+      setDueloResult(null);
       setResult(null);
       setError("");
     } else {
       setResult(data.result);
       setImpostorResult(null);
       setDueloResult(null);
+      setListaSecretaMpResult(null);
       setError("");
     }
 
@@ -144,7 +161,9 @@ export default function ResultsPage({
       ? !impostorResult
       : gameMode === "duelo"
         ? !dueloResult
-        : !result)
+        : gameMode === "lista-secreta-mp"
+          ? !listaSecretaMpResult
+          : !result)
   ) {
     return (
       <main className="mx-auto max-w-4xl px-4 py-12">
@@ -179,6 +198,14 @@ export default function ResultsPage({
       ) : gameMode === "duelo" && dueloResult ? (
         <DueloResultsView
           result={dueloResult}
+          isCreator={isCreator}
+          onRestart={handleRestart}
+          restarting={restarting}
+          restartError={restartError}
+        />
+      ) : gameMode === "lista-secreta-mp" && listaSecretaMpResult ? (
+        <ListaSecretaMpResultsView
+          result={listaSecretaMpResult}
           isCreator={isCreator}
           onRestart={handleRestart}
           restarting={restarting}
