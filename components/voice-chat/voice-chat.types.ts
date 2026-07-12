@@ -50,6 +50,7 @@ export type VoiceTokenResponse = {
 };
 
 export const VOICE_AUTO_JOIN_KEY = "voice-chat-auto-join";
+export const VOICE_DOCK_COLLAPSED_KEY = "voice-chat-dock-collapsed";
 export const VOICE_VOLUME_PREFIX = "voice-volume:";
 
 export function getStoredParticipantVolume(participantId: string): number {
@@ -76,4 +77,25 @@ export function shouldAutoJoinVoice(): boolean {
 export function rememberVoiceAutoJoin() {
   if (typeof window === "undefined") return;
   localStorage.setItem(VOICE_AUTO_JOIN_KEY, "true");
+}
+
+export function isMobileViewport(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(max-width: 767px)").matches;
+}
+
+export function getVoiceDockCollapsed(): boolean | null {
+  if (typeof window === "undefined") return null;
+  const raw = localStorage.getItem(VOICE_DOCK_COLLAPSED_KEY);
+  if (raw === null) return null;
+  return raw === "true";
+}
+
+export function setVoiceDockCollapsed(collapsed: boolean) {
+  if (typeof window === "undefined") return;
+  localStorage.setItem(VOICE_DOCK_COLLAPSED_KEY, String(collapsed));
+}
+
+export function getDefaultVoiceDockCollapsed(): boolean {
+  return isMobileViewport();
 }
