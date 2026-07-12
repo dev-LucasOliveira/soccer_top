@@ -135,13 +135,16 @@ export function SessionLobby({
     return () => clearInterval(interval);
   }, [code, participantId]);
 
-  const shareUrl =
-    typeof window !== "undefined"
-      ? `${window.location.origin}/s/${code}`
-      : `/s/${code}`;
+  const [shareUrl, setShareUrl] = useState(`/s/${code}`);
+
+  useEffect(() => {
+    setShareUrl(`${window.location.origin}/s/${code}`);
+  }, [code]);
 
   async function copyLink() {
-    const ok = await copyToClipboard(shareUrl);
+    const urlToCopy =
+      shareUrl.startsWith("http") ? shareUrl : `${window.location.origin}${shareUrl}`;
+    const ok = await copyToClipboard(urlToCopy);
     if (!ok) return;
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -536,7 +539,7 @@ export function SessionLobby({
           </Button>
         </div>
         <p className="mt-2 break-all rounded-lg border border-card-border bg-off-white-muted px-3 py-2 font-mono text-xs tracking-wide text-foreground sm:truncate">
-          {shareUrl}
+          /s/{code}
         </p>
       </Card>
 

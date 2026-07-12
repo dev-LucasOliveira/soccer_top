@@ -38,6 +38,8 @@
     "clsx": "^2.1.1",
     "dotenv": "^17.4.2",
     "html-to-image": "^1.11.13",
+    "livekit-client": "^2.20.1",
+    "livekit-server-sdk": "^2.17.0",
     "lucide-react": "^1.24.0",
     "nanoid": "^5.1.16",
     "next": "16.2.10",

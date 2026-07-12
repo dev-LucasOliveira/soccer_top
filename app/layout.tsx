@@ -51,7 +51,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="flex min-h-full flex-col">
+      <body className="flex min-h-full flex-col" suppressHydrationWarning>
         <ThemeProvider>
           <header className="site-header sticky top-0 z-50">
             <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">

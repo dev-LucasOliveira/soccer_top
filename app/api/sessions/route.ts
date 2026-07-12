@@ -82,6 +82,19 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     console.error(error);
+    const prismaCode =
+      error && typeof error === "object" && "code" in error
+        ? String((error as { code?: string }).code)
+        : null;
+    if (prismaCode === "P2022") {
+      return NextResponse.json(
+        {
+          error:
+            "Banco desatualizado — rode npm run db:deploy e tente novamente.",
+        },
+        { status: 503 }
+      );
+    }
     return NextResponse.json({ error: "Erro ao criar sala" }, { status: 500 });
   }
 }
