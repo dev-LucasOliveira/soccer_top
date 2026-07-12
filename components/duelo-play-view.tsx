@@ -6,6 +6,7 @@ import { Loader2, Target } from "lucide-react";
 import { AvailablePlayersCard } from "@/components/available-players-card";
 import { UmSoHintsPanel } from "@/components/um-so-hud";
 import { TurnTimer } from "@/components/turn-timer";
+import { WrongGuessesPanel } from "@/components/wrong-guesses-panel";
 import { Badge } from "@/components/ui/badge";
 import { getGuestToken } from "@/lib/guest";
 import { filtersToSearchParams } from "@/lib/filters";
@@ -462,26 +463,7 @@ export function DueloPlayView({
 
       {view.roundStatus === "open" && (
         <div className="mb-4 space-y-3">
-          <div className="rounded-xl border border-off-white/10 bg-off-white/[0.04] px-3 py-3">
-            <p className="text-xs font-medium uppercase tracking-wide text-on-pitch-subtle">
-              Chutes desta rodada
-            </p>
-            {view.wrongGuesses.length === 0 ? (
-              <p className="mt-2 text-sm text-on-pitch-muted">Nenhum chute ainda</p>
-            ) : (
-              <ul className="mt-2 flex flex-wrap gap-2">
-                {view.wrongGuesses.map((guess, index) => (
-                  <li
-                    key={`${guess.playerId}-${guess.participantId}-${index}`}
-                    className="rounded-full bg-red-500/10 px-2.5 py-1 text-xs text-red-200 ring-1 ring-red-400/20"
-                  >
-                    <span className="font-medium text-off-white">{guess.playerName}</span>
-                    <span className="text-red-300/80"> · {guess.displayName}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+          <WrongGuessesPanel guesses={view.wrongGuesses} />
 
           <div
             className={cn(

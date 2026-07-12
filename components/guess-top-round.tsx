@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AvailablePlayersCard } from "@/components/available-players-card";
 import { GuessTopHud, GuessTopSlot } from "@/components/guess-top-hud";
+import { WrongGuessesPanel } from "@/components/wrong-guesses-panel";
 import {
   clearGuessTopClientSession,
   saveGuessTopBest,
@@ -69,6 +70,7 @@ export function GuessTopRound({
     type: "error" | "success" | "duplicate" | "round";
     message: string;
   } | null>(null);
+  const [wrongPicks, setWrongPicks] = useState<GuessTopWrongPick[]>([]);
 
   const roundHistoryRef = useRef<GuessTopRoundRecap[]>([]);
   const guessedIdsRef = useRef<Set<string>>(new Set());
@@ -108,6 +110,7 @@ export function GuessTopRound({
   const resetRoundTrackers = useCallback(() => {
     guessedIdsRef.current = new Set();
     wrongPicksRef.current = [];
+    setWrongPicks([]);
   }, []);
 
   const roundFilters = useMemo(
@@ -135,13 +138,7 @@ export function GuessTopRound({
     })
       .then((res) => res.json())
       .then((data) => {
-        const revealedIds = new Set(
-          Object.values(revealedBySlot).map((slot) => slot.playerId)
-        );
-        const filtered = (data.players ?? []).filter(
-          (player: Player) => !revealedIds.has(player.id)
-        );
-        setPlayers(filtered);
+        setPlayers(data.players ?? []);
       })
       .catch(() => {})
       .finally(() => setLoading(false));
@@ -175,10 +172,9 @@ export function GuessTopRound({
       }
 
       if (!data.correct) {
-        wrongPicksRef.current.push({
-          playerId: player.id,
-          playerName: player.name,
-        });
+        const wrongPick = { playerId: player.id, playerName: player.name };
+        wrongPicksRef.current.push(wrongPick);
+        setWrongPicks((prev) => [...prev, wrongPick]);
         setErrorsUsed(data.errorsUsed);
         setFeedback({
           type: "error",
@@ -275,6 +271,10 @@ export function GuessTopRound({
   }
 
   const revealedCount = Object.keys(revealedBySlot).length;
+  const revealedPlayerIds = Object.values(revealedBySlot).map(
+    (slot) => slot.playerId
+  );
+  const excludedPlayerIds = wrongPicks.map((pick) => pick.playerId);
 
   return (
     <div>
@@ -287,7 +287,11 @@ export function GuessTopRound({
       />
 
       {revealedCount < 5 && errorsUsed < GUESS_TOP_MAX_ERRORS && (
-        <div className="mb-4">
+        <div className="mb-4 space-y-3">
+          <WrongGuessesPanel
+            guesses={wrongPicks}
+            emptyLabel="Nenhum chute errado ainda"
+          />
           <AvailablePlayersCard
             search={search}
             onSearchChange={setSearch}
@@ -296,6 +300,9 @@ export function GuessTopRound({
             canSearch={search.length >= 2}
             topCount={revealedCount}
             topN={5}
+            excludedPlayerIds={excludedPlayerIds}
+            revealedPlayerIds={revealedPlayerIds}
+            excludedLabel="Chutado nesta rodada"
             onAddPlayer={handlePick}
           />
         </div>

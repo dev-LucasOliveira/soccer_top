@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AvailablePlayersCard } from "@/components/available-players-card";
 import { UmSoHintsPanel, UmSoHud } from "@/components/um-so-hud";
+import { WrongGuessesPanel } from "@/components/wrong-guesses-panel";
 import {
   clearUmSoClientSession,
   saveUmSoBest,
@@ -54,6 +55,9 @@ export function UmSoRound({
     type: "error" | "success" | "duplicate" | "hint" | "round" | "final";
     message: string;
   } | null>(null);
+  const [wrongPicks, setWrongPicks] = useState<
+    { playerId: string; playerName: string }[]
+  >([]);
 
   const roundHistoryRef = useRef<UmSoRoundRecap[]>([]);
   const wrongPicksRef = useRef<{ playerId: string; playerName: string }[]>([]);
@@ -103,6 +107,7 @@ export function UmSoRound({
 
   const resetRoundTrackers = useCallback(() => {
     wrongPicksRef.current = [];
+    setWrongPicks([]);
     currentHintsRef.current = [];
   }, []);
 
@@ -165,10 +170,9 @@ export function UmSoRound({
       }
 
       if (!data.correct) {
-        wrongPicksRef.current.push({
-          playerId: player.id,
-          playerName: player.name,
-        });
+        const wrongPick = { playerId: player.id, playerName: player.name };
+        wrongPicksRef.current.push(wrongPick);
+        setWrongPicks((prev) => [...prev, wrongPick]);
 
         if (data.hints) {
           currentHintsRef.current = data.hints;
@@ -257,6 +261,9 @@ export function UmSoRound({
         setTimeout(() => {
           setRound(data.nextRound);
           setSearch("");
+          setWrongPicks([]);
+          wrongPicksRef.current = [];
+          currentHintsRef.current = [];
           setFeedback({
             type: "round",
             message: "Próximo jogador misterioso!",
@@ -273,6 +280,8 @@ export function UmSoRound({
     }
   }
 
+  const excludedPlayerIds = wrongPicks.map((pick) => pick.playerId);
+
   return (
     <div>
       <UmSoHud
@@ -280,6 +289,7 @@ export function UmSoRound({
         score={score}
         streak={streak}
         roundsCompleted={roundsCompleted}
+        wrongShotsThisRound={wrongPicks.length}
       />
 
       <UmSoHintsPanel
@@ -287,7 +297,11 @@ export function UmSoRound({
         totalHints={round.totalHints}
       />
 
-      <div className="mb-4">
+      <div className="mb-4 space-y-3">
+        <WrongGuessesPanel
+          guesses={wrongPicks}
+          emptyLabel="Nenhum chute errado ainda"
+        />
         <AvailablePlayersCard
           search={search}
           onSearchChange={setSearch}
@@ -296,6 +310,8 @@ export function UmSoRound({
           canSearch={search.length >= 2}
           topCount={0}
           topN={1}
+          excludedPlayerIds={excludedPlayerIds}
+          excludedLabel="Chutado nesta rodada"
           onAddPlayer={handlePick}
         />
       </div>
@@ -305,6 +321,8 @@ export function UmSoRound({
           className={`mb-4 text-sm ${
             feedback.type === "error" || feedback.type === "final"
               ? "text-red-300"
+              : feedback.type === "hint"
+                ? "text-amber-200"
               : feedback.type === "duplicate"
                 ? "text-on-pitch-muted"
                 : "text-pitch-bright"

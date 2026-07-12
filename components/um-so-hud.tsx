@@ -6,11 +6,13 @@ export function UmSoHud({
   score,
   streak,
   roundsCompleted,
+  wrongShotsThisRound = 0,
 }: {
   round: UmSoPublicRound;
   score: number;
   streak: number;
   roundsCompleted: number;
+  wrongShotsThisRound?: number;
 }) {
   const hintsShown = round.hintsRevealed.length;
   const totalHints = round.totalHints;
@@ -37,6 +39,14 @@ export function UmSoHud({
               {streak > 0 ? `🔥 ${streak}` : "—"}
             </p>
           </div>
+          {wrongShotsThisRound > 0 && (
+            <div className="text-center">
+              <p className="text-xs text-on-pitch-subtle">Chutes</p>
+              <p className="font-display text-lg text-red-200">
+                {wrongShotsThisRound}
+              </p>
+            </div>
+          )}
         </div>
       </div>
 

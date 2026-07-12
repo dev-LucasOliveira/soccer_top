@@ -114,8 +114,7 @@ export function SoloPlayerPicker({ draft }: { draft: SoloDraft }) {
     void hydratePicks();
   }, [draft.picks]);
 
-  const selectedIds = new Set(top.map((t) => t.playerId));
-  const availablePlayers = players.filter((p) => !selectedIds.has(p.id));
+  const pickedPlayerIds = top.map((t) => t.playerId);
   const isComplete = top.length === topN;
 
   function addPlayer(player: Player) {
@@ -212,11 +211,13 @@ export function SoloPlayerPicker({ draft }: { draft: SoloDraft }) {
         <AvailablePlayersCard
           search={search}
           onSearchChange={setSearch}
-          players={availablePlayers}
+          players={players}
           loading={loading}
           canSearch={canSearch}
           topCount={top.length}
           topN={topN}
+          pickedPlayerIds={pickedPlayerIds}
+          excludedVariant="picked"
           onAddPlayer={addPlayer}
         />
         <Card className="space-y-3">
