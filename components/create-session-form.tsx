@@ -6,8 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { getOrCreateGuestToken } from "@/lib/guest";
+import type { GameMode } from "@/lib/types";
 
-export function SessionForm() {
+export function CreateSessionForm({
+  gameMode,
+  submitLabel,
+}: {
+  gameMode: GameMode;
+  submitLabel: string;
+}) {
   const router = useRouter();
   const [displayName, setDisplayName] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,6 +33,7 @@ export function SessionForm() {
         body: JSON.stringify({
           displayName,
           guestToken,
+          gameMode,
         }),
       });
 
@@ -54,15 +62,10 @@ export function SessionForm() {
           />
         </div>
 
-        <p className="text-xs text-text-muted">
-          A sala recebe um código para compartilhar. Você configura as
-          rodadas na sala antes de iniciar.
-        </p>
-
         {error && <p className="text-sm text-red-600">{error}</p>}
 
         <Button type="submit" disabled={loading} className="w-full">
-          {loading ? "Criando..." : "Criar sala"}
+          {loading ? "Criando..." : submitLabel}
         </Button>
       </form>
     </Card>

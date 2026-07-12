@@ -1,7 +1,8 @@
 import { POSITIONS, NATIONALITIES } from "@/lib/constants";
 import { areRoundsValid } from "@/lib/round-config";
 import { getPlayers, isSpectator } from "@/lib/participants";
-import type { CurrentRound, SessionFilters, StandingEntry } from "@/lib/types";
+import { MIN_IMPOSTOR_PLAYERS } from "@/lib/impostor-constants";
+import type { CurrentRound, GameMode, SessionFilters, StandingEntry } from "@/lib/types";
 
 const POSITION_LABELS = Object.fromEntries(
   POSITIONS.map((p) => [p.value, p.label])
@@ -36,6 +37,7 @@ export function describeSessionFilters(filters: SessionFilters): string[] {
 }
 
 export function getSessionPhase(session: {
+  gameMode?: GameMode;
   status: string;
   currentRoundNumber: number;
   totalRounds: number;
@@ -43,7 +45,12 @@ export function getSessionPhase(session: {
   participants: { status: string }[];
   voteProgress?: { voted: number; total: number };
   rounds?: { title: string; topN: number }[];
+  impostorThemeSelected?: boolean;
 }): { step: number; label: string; description: string } {
+  if (session.gameMode === "impostor") {
+    return getImpostorSessionPhase(session);
+  }
+
   const players = getPlayers(session.participants);
   const count = players.length;
   const confirmed = players.filter((p) => p.status === "confirmed").length;
@@ -130,16 +137,110 @@ export function getSessionPhase(session: {
   };
 }
 
-export function getAdvanceAction(session: {
+function getImpostorSessionPhase(session: {
   status: string;
   currentRoundNumber: number;
   totalRounds: number;
   currentRound?: CurrentRound | null;
   participants: { status: string }[];
   voteProgress?: { voted: number; total: number };
-  isCreator: boolean;
+  impostorThemeSelected?: boolean;
+}): { step: number; label: string; description: string } {
+  const players = getPlayers(session.participants);
+  const count = players.length;
+  const confirmed = players.filter((p) => p.status === "confirmed").length;
+  const voted = session.voteProgress?.voted ?? 0;
+  const roundLabel = `Rodada ${session.currentRoundNumber}/${session.totalRounds || 3}`;
+
+  if (session.status === "completed") {
+    return {
+      step: 5,
+      label: "Finalizada",
+      description: "O jogo terminou — veja quem era o impostor.",
+    };
+  }
+
+  if (session.status === "setup") {
+    if (count < MIN_IMPOSTOR_PLAYERS) {
+      return {
+        step: 1,
+        label: "Aguardando jogadores",
+        description: `Compartilhe o link — precisa de pelo menos ${MIN_IMPOSTOR_PLAYERS} participantes.`,
+      };
+    }
+
+    if (!session.impostorThemeSelected) {
+      return {
+        step: 1,
+        label: "Escolhendo tema",
+        description: "O criador deve escolher um tema antes de iniciar.",
+      };
+    }
+
+    return {
+      step: 1,
+      label: "Pronta para iniciar",
+      description: `${count} participantes no jogo. Criador pode iniciar a partida.`,
+    };
+  }
+
+  const roundStatus = session.currentRound?.status;
+
+  if (roundStatus === "open") {
+    return {
+      step: 2,
+      label: `${roundLabel} · Escolhendo carta`,
+      description: `${confirmed} de ${count} já escolheram a carta.`,
+    };
+  }
+
+  if (roundStatus === "reveal") {
+    return {
+      step: 3,
+      label: `${roundLabel} · Debate`,
+      description: "Discutam as listas. O criador abre a votação quando quiser.",
+    };
+  }
+
+  if (roundStatus === "voting") {
+    return {
+      step: 4,
+      label: `${roundLabel} · Votação`,
+      description: `${voted} de ${count} já votaram para eliminar alguém.`,
+    };
+  }
+
+  if (roundStatus === "completed") {
+    return {
+      step: 4,
+      label: `${roundLabel} · Encerrada`,
+      description: "Rodada encerrada. Aguardando próxima etapa.",
+    };
+  }
+
+  return {
+    step: 2,
+    label: "Em andamento",
+    description: "Aguardando a próxima etapa.",
+  };
+}
+
+export function getAdvanceAction(session: {
+  gameMode?: GameMode;
+  status: string;
+  currentRoundNumber: number;
+  totalRounds: number;
+  currentRound?: CurrentRound | null;
+  participants: { status: string }[];
+  voteProgress?: { voted: number; total: number };
+  isCreator?: boolean;
   rounds?: { title: string; topN: number }[];
+  impostorThemeSelected?: boolean;
 }): { canAdvance: boolean; label: string; redirect?: string } | null {
+  if (session.gameMode === "impostor") {
+    return getImpostorAdvanceAction(session);
+  }
+
   if (!session.isCreator) return null;
 
   if (session.status === "setup") {
@@ -190,6 +291,66 @@ export function getAdvanceAction(session: {
       canAdvance: true,
       label: "Ver resultado final",
       redirect: "/results",
+    };
+  }
+
+  return null;
+}
+
+function getImpostorAdvanceAction(session: {
+  status: string;
+  currentRoundNumber: number;
+  totalRounds: number;
+  currentRound?: CurrentRound | null;
+  participants: { status: string }[];
+  voteProgress?: { voted: number; total: number };
+  isCreator?: boolean;
+  impostorThemeSelected?: boolean;
+}): { canAdvance: boolean; label: string; redirect?: string } | null {
+  if (!session.isCreator) return null;
+
+  if (session.status === "setup") {
+    const players = getPlayers(session.participants);
+    return {
+      canAdvance:
+        players.length >= MIN_IMPOSTOR_PLAYERS &&
+        Boolean(session.impostorThemeSelected),
+      label: "Iniciar jogo",
+    };
+  }
+
+  if (session.status !== "active" || !session.currentRound) return null;
+
+  const round = session.currentRound;
+  const players = getPlayers(session.participants);
+
+  if (round.status === "open") {
+    return {
+      canAdvance:
+        players.length >= MIN_IMPOSTOR_PLAYERS &&
+        players.every((p) => p.status === "confirmed"),
+      label: "Iniciar debate",
+      redirect: "/reveal",
+    };
+  }
+
+  if (round.status === "reveal") {
+    return {
+      canAdvance: true,
+      label: "Abrir votação",
+      redirect: "/vote",
+    };
+  }
+
+  if (round.status === "voting") {
+    const allVoted =
+      session.voteProgress != null &&
+      session.voteProgress.voted >= session.voteProgress.total;
+    const isLastRound = session.currentRoundNumber >= session.totalRounds;
+    return {
+      canAdvance: allVoted,
+      label: isLastRound ? "Ver resultado final" : "Encerrar rodada",
+      redirect: isLastRound ? "/results" : "/status",
     };
   }
 
@@ -261,6 +422,7 @@ type ParticipantForRouting = {
 };
 
 type SessionForRouting = {
+  gameMode?: GameMode;
   status: string;
   currentRoundNumber: number;
   totalRounds: number;
@@ -322,6 +484,46 @@ export function getWaitingMessage(
     : null;
   const roundStatus = session.currentRound?.status;
 
+  if (session.gameMode === "impostor") {
+    if (myParticipant && isSpectator(myParticipant)) {
+      if (session.status === "completed") return "Modo espectador — veja o resultado final.";
+      if (roundStatus === "voting") return "Modo espectador — acompanhe a votação.";
+      if (roundStatus === "reveal") return "Modo espectador — acompanhe o debate.";
+      return "Modo espectador — você foi eliminado.";
+    }
+
+    if (session.status === "completed") {
+      return "Jogo encerrado — veja quem era o impostor.";
+    }
+
+    if (roundStatus === "open") {
+      if (myParticipant?.status !== "confirmed") {
+        return "Escolha uma carta para completar sua lista.";
+      }
+      if (confirmed < count) {
+        return `Aguardando os outros escolherem (${confirmed}/${count}).`;
+      }
+      return "Todos escolheram! Aguardando o criador iniciar o debate.";
+    }
+
+    if (roundStatus === "reveal") {
+      return session.isCreator
+        ? "Debatam as listas e abram a votação quando estiverem prontos."
+        : "Debatam as listas. Aguardando o criador abrir a votação.";
+    }
+
+    if (roundStatus === "voting") {
+      if (myParticipant?.hasVoted) {
+        return voted < count
+          ? `Você votou! Aguardando os outros (${voted}/${count}).`
+          : "Todos votaram! Aguardando o criador encerrar a rodada.";
+      }
+      return "Vote em quem você acha que é o impostor.";
+    }
+
+    return "Aguardando a próxima etapa.";
+  }
+
   if (myParticipant && isSpectator(myParticipant)) {
     if (session.status === "completed") {
       return "Modo espectador — veja o resultado final.";
@@ -379,6 +581,10 @@ export function getParticipantRoute(
   session: SessionForRouting,
   participantId: string | null
 ): string {
+  if (session.gameMode === "impostor") {
+    return getImpostorParticipantRoute(session, participantId);
+  }
+
   const myParticipant = participantId
     ? session.participants.find((p) => p.id === participantId)
     : null;
@@ -418,6 +624,51 @@ export function getParticipantRoute(
   }
 
   if (roundStatus === "completed") {
+    return "/status";
+  }
+
+  return "/status";
+}
+
+function getImpostorParticipantRoute(
+  session: SessionForRouting,
+  participantId: string | null
+): string {
+  const myParticipant = participantId
+    ? session.participants.find((p) => p.id === participantId)
+    : null;
+
+  if (session.status === "completed") {
+    return "/results";
+  }
+
+  if (session.status === "setup") {
+    return "";
+  }
+
+  const roundStatus = session.currentRound?.status;
+
+  if (roundStatus === "open") {
+    if (myParticipant && isSpectator(myParticipant)) {
+      return "/status";
+    }
+    if (!myParticipant || myParticipant.status !== "confirmed") {
+      return "/pick";
+    }
+    return "/status";
+  }
+
+  if (roundStatus === "reveal") {
+    return "/reveal";
+  }
+
+  if (roundStatus === "voting") {
+    if (myParticipant && isSpectator(myParticipant)) {
+      return "/vote";
+    }
+    if (!myParticipant?.hasVoted) {
+      return "/vote";
+    }
     return "/status";
   }
 

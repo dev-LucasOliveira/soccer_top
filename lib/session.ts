@@ -2,6 +2,10 @@ import { prisma } from "@/lib/db";
 import { assertCreator } from "@/lib/creator-auth";
 import { areRoundsValid } from "@/lib/round-config";
 import {
+  advanceImpostorSession,
+  restartImpostorSession,
+} from "@/lib/impostor-session";
+import {
   computeRoundResult,
   computeSessionFinalResult,
 } from "@/lib/consensus";
@@ -66,6 +70,27 @@ export async function getActiveRound(sessionCode: string) {
 }
 
 export async function advanceSession(
+  sessionCode: string,
+  participantId: string,
+  guestToken?: string | null
+) {
+  const session = await prisma.session.findUnique({
+    where: { code: sessionCode },
+    select: { gameMode: true },
+  });
+
+  if (!session) {
+    throw new Error("Sala não encontrada");
+  }
+
+  if (session.gameMode === "impostor") {
+    return advanceImpostorSession(sessionCode, participantId, guestToken);
+  }
+
+  return advanceRankingSession(sessionCode, participantId, guestToken);
+}
+
+async function advanceRankingSession(
   sessionCode: string,
   participantId: string,
   guestToken?: string | null
@@ -499,21 +524,38 @@ export async function restartSession(
   participantId: string,
   guestToken: string | undefined | null
 ) {
-  const { session } = await assertCreator(sessionCode, participantId, guestToken);
+  const session = await prisma.session.findUnique({
+    where: { code: sessionCode },
+    select: { gameMode: true, status: true },
+  });
 
-  if (session.status !== "completed") {
+  if (!session) {
+    throw new Error("Sala não encontrada");
+  }
+
+  if (session.gameMode === "impostor") {
+    return restartImpostorSession(sessionCode, participantId, guestToken);
+  }
+
+  const { session: creatorSession } = await assertCreator(
+    sessionCode,
+    participantId,
+    guestToken
+  );
+
+  if (creatorSession.status !== "completed") {
     throw new Error("Só é possível reiniciar após o jogo terminar");
   }
 
   await prisma.$transaction([
-    prisma.round.deleteMany({ where: { sessionId: session.id } }),
-    prisma.sessionResult.deleteMany({ where: { sessionId: session.id } }),
+    prisma.round.deleteMany({ where: { sessionId: creatorSession.id } }),
+    prisma.sessionResult.deleteMany({ where: { sessionId: creatorSession.id } }),
     prisma.participant.updateMany({
-      where: { sessionId: session.id },
+      where: { sessionId: creatorSession.id },
       data: { status: "building", confirmedAt: null },
     }),
     prisma.session.update({
-      where: { id: session.id },
+      where: { id: creatorSession.id },
       data: { status: "setup", currentRoundNumber: 1 },
     }),
   ]);

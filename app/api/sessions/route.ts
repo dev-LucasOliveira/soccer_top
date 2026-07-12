@@ -1,13 +1,15 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/db";
 import { createSessionCode } from "@/lib/guest";
+import { prisma } from "@/lib/db";
+import type { GameMode } from "@/lib/types";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { displayName, guestToken } = body as {
+    const { displayName, guestToken, gameMode } = body as {
       displayName: string;
       guestToken?: string;
+      gameMode?: GameMode;
     };
 
     if (!displayName?.trim()) {
@@ -16,6 +18,8 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
+
+    const mode: GameMode = gameMode === "impostor" ? "impostor" : "ranking";
 
     let code = createSessionCode();
     let attempts = 0;
@@ -30,8 +34,9 @@ export async function POST(request: Request) {
       const created = await tx.session.create({
         data: {
           code,
-          title: `Sala ${code}`,
+          title: mode === "impostor" ? `Impostor ${code}` : `Sala ${code}`,
           status: "setup",
+          gameMode: mode,
           currentRoundNumber: 1,
           participants: {
             create: {
@@ -58,14 +63,11 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       code: session.code,
-      sessionId: session.id,
       participantId: session.participants[0].id,
+      gameMode: session.gameMode,
     });
   } catch (error) {
     console.error(error);
-    return NextResponse.json(
-      { error: "Erro ao criar sala" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Erro ao criar sala" }, { status: 500 });
   }
 }

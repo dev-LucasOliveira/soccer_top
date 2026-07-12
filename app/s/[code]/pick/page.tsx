@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { PlayerPicker } from "@/components/player-picker";
+import { ImpostorPickView } from "@/components/impostor-pick-view";
 import { SessionHeader } from "@/components/session-header";
 import { buildParticipantPath } from "@/lib/session-info";
 
@@ -29,6 +30,7 @@ export default function PickPage({
   const [initialMessage, setInitialMessage] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [gameMode, setGameMode] = useState<"ranking" | "impostor">("ranking");
 
   useEffect(() => {
     async function init() {
@@ -45,6 +47,24 @@ export default function PickPage({
       const sessionRes = await fetch(`/api/sessions/${p.code}`);
       const sessionData = await sessionRes.json();
       if (sessionRes.ok) {
+        setGameMode(sessionData.gameMode === "impostor" ? "impostor" : "ranking");
+
+        if (sessionData.gameMode === "impostor") {
+          if (sessionData.status === "completed") {
+            router.push(`/s/${p.code}/results`);
+            return;
+          }
+          if (
+            sessionData.status !== "active" ||
+            sessionData.currentRound?.status !== "open"
+          ) {
+            router.push(buildParticipantPath(p.code, sessionData, stored));
+            return;
+          }
+          setLoading(false);
+          return;
+        }
+
         setTopN(sessionData.topN);
         if (sessionData.currentRound) {
           setRoundTitle(sessionData.currentRound.title);
@@ -92,6 +112,21 @@ export default function PickPage({
     return (
       <main className="mx-auto max-w-4xl px-4 py-12">
         <p className="loading-pulse text-center text-on-pitch-muted">Carregando...</p>
+      </main>
+    );
+  }
+
+  if (gameMode === "impostor") {
+    return (
+      <main className="mx-auto max-w-4xl px-4 py-8">
+        <SessionHeader
+          title="Escolha sua carta"
+          code={code}
+          stepLabel="Modo impostor"
+          backHref={`/s/${code}/status`}
+          showCode={false}
+        />
+        <ImpostorPickView sessionCode={code} participantId={participantId} />
       </main>
     );
   }

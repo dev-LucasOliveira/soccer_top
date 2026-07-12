@@ -65,9 +65,6 @@ export default function RootLayout({
                 {APP_NAME}
               </Link>
               <div className="flex items-center gap-3">
-                <span className="hidden text-xs tracking-wide text-on-pitch-muted sm:block">
-                  {APP_SLOGAN}
-                </span>
                 <ThemeToggle />
               </div>
             </div>

@@ -34,6 +34,7 @@ function parseCuratedList(listId: string): {
 }
 
 async function main() {
+  await import("./seed/validate-impostor-themes");
   const playersPath = join(__dirname, "seed", "players.json");
   const players = JSON.parse(
     readFileSync(playersPath, "utf-8")

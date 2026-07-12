@@ -15,7 +15,7 @@ import {
 } from "@/lib/solo-draft";
 import type { SessionFilters } from "@/lib/types";
 
-export function SoloSetupForm() {
+export function SoloSetupForm({ submitLabel = "Montar ranking" }: { submitLabel?: string }) {
   const router = useRouter();
   const existing = loadSoloDraft();
 
@@ -103,7 +103,7 @@ export function SoloSetupForm() {
         {error && <p className="text-sm text-red-600">{error}</p>}
 
         <Button type="submit" className="w-full">
-          Montar ranking
+          {submitLabel}
         </Button>
       </form>
     </Card>

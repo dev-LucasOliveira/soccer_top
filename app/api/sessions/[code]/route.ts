@@ -5,11 +5,9 @@ import { getCurrentRound, toCurrentRound, toRoundSummary } from "@/lib/round";
 import { getStandings, getLastCompletedRoundResult } from "@/lib/session";
 import { getPlayers } from "@/lib/participants";
 import { getRoundWinningList } from "@/lib/round-result";
-import {
-  getAdvanceAction,
-  getSessionPhase,
-} from "@/lib/session-info";
-import type { SessionFinalResult, SessionResultData } from "@/lib/types";
+import { getAdvanceAction, getSessionPhase } from "@/lib/session-info";
+import { getImpostorTheme } from "@/lib/impostor-themes";
+import type { GameMode, SessionFinalResult, SessionResultData } from "@/lib/types";
 
 function normalizeSessionResult(
   raw: SessionResultData | SessionFinalResult | null,
@@ -107,14 +105,18 @@ export async function GET(request: Request, context: RouteContext) {
       }
     }
 
-    const resultData = normalizeSessionResult(
-      session.result ? JSON.parse(session.result.data) : null,
-      session.participants
-    );
+    const resultData =
+      session.gameMode === "impostor" && session.result
+        ? (JSON.parse(session.result.data) as import("@/lib/types").ImpostorSessionResult)
+        : normalizeSessionResult(
+            session.result ? JSON.parse(session.result.data) : null,
+            session.participants
+          );
 
     const showPicks =
-      session.status === "completed" ||
-      (session.status === "active" && currentRound?.status === "open");
+      session.gameMode !== "impostor" &&
+      (session.status === "completed" ||
+        (session.status === "active" && currentRound?.status === "open"));
 
     const votedParticipantIds = new Set(
       roundVotes.map((v) => v.voterParticipantId)
@@ -139,11 +141,17 @@ export async function GET(request: Request, context: RouteContext) {
       id: session.id,
       code: session.code,
       title: session.title,
+      gameMode: session.gameMode as GameMode,
       status: session.status,
       currentRoundNumber: session.currentRoundNumber,
       totalRounds: session.rounds.length,
       createdAt: session.createdAt,
       creatorParticipantId: session.creatorParticipantId,
+      impostorThemeId: session.impostorThemeId,
+      impostorTheme: session.impostorThemeId
+        ? getImpostorTheme(session.impostorThemeId)
+        : null,
+      impostorThemeSelected: Boolean(session.impostorThemeId),
       isCreator,
       rounds: session.rounds.map(toRoundSummary),
       currentRound,
@@ -176,6 +184,7 @@ export async function GET(request: Request, context: RouteContext) {
     };
 
     const phase = getSessionPhase({
+      gameMode: session.gameMode as GameMode,
       status: session.status,
       currentRoundNumber: session.currentRoundNumber,
       totalRounds: session.rounds.length,
@@ -183,12 +192,14 @@ export async function GET(request: Request, context: RouteContext) {
       participants: session.participants,
       voteProgress: sessionPayload.voteProgress,
       rounds: session.rounds,
+      impostorThemeSelected: Boolean(session.impostorThemeId),
     });
 
     const advanceAction = getAdvanceAction({
       ...sessionPayload,
       isCreator,
       rounds: session.rounds,
+      impostorThemeSelected: Boolean(session.impostorThemeId),
     });
 
     const lastCompletedRound =

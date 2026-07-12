@@ -10,6 +10,8 @@ import { Badge } from "@/components/ui/badge";
 import { SessionHeader } from "@/components/session-header";
 import { StandingsTable } from "@/components/standings-table";
 import { RoundSetupPanel } from "@/components/round-setup-panel";
+import { ImpostorThemePicker } from "@/components/impostor-theme-picker";
+import { MIN_IMPOSTOR_PLAYERS } from "@/lib/impostor-constants";
 import { getGuestToken } from "@/lib/guest";
 import { Copy, Check, Users, Share2, ListOrdered } from "lucide-react";
 import { describeSessionFilters } from "@/lib/session-info";
@@ -20,6 +22,7 @@ import type {
   SessionFinalResult,
   SessionFilters,
   StandingEntry,
+  GameMode,
 } from "@/lib/types";
 
 type Participant = {
@@ -33,10 +36,13 @@ type Participant = {
 type SessionData = {
   code: string;
   title: string;
+  gameMode: GameMode;
   topN: number;
   status: string;
   currentRoundNumber: number;
   totalRounds: number;
+  impostorThemeId: string | null;
+  impostorThemeSelected?: boolean;
   filters: SessionFilters;
   createdAt: string;
   creatorParticipantId: string | null;
@@ -59,6 +65,14 @@ const STEPS = [
   { num: 1, label: "Entrar" },
   { num: 2, label: "Montar" },
   { num: 3, label: "Confirmar" },
+  { num: 4, label: "Votar" },
+  { num: 5, label: "Resultado" },
+];
+
+const IMPOSTOR_STEPS = [
+  { num: 1, label: "Entrar" },
+  { num: 2, label: "Cartas" },
+  { num: 3, label: "Debate" },
   { num: 4, label: "Votar" },
   { num: 5, label: "Resultado" },
 ];
@@ -197,14 +211,20 @@ export function SessionLobby({
   const confirmedCount = players.filter((p) => p.status === "confirmed").length;
   const roundStatus = session.currentRound?.status;
   const advanceAction = session.advanceAction;
+  const isImpostor = session.gameMode === "impostor";
+  const stepItems = isImpostor ? IMPOSTOR_STEPS : STEPS;
+  const minPlayers = isImpostor ? MIN_IMPOSTOR_PLAYERS : 2;
 
   function participantBadge(p: Participant) {
-    if (p.status === "spectator") return "Espectador";
+    if (p.status === "spectator") return isImpostor ? "Eliminado" : "Espectador";
     if (roundStatus === "voting") {
       return p.hasVoted ? "Votou" : "Aguardando voto";
     }
-    if (p.status === "confirmed") return "Confirmado";
-    return `Montando ${p.pickCount}/${session!.topN}`;
+    if (roundStatus === "reveal") return "No debate";
+    if (p.status === "confirmed") return isImpostor ? "Escolheu" : "Confirmado";
+    return isImpostor
+      ? "Escolhendo carta"
+      : `Montando ${p.pickCount}/${session!.topN}`;
   }
 
   function participantBadgeVariant(p: Participant) {
@@ -219,6 +239,8 @@ export function SessionLobby({
 
   const showPickActions =
     session.status === "active" && roundStatus === "open" && !isSpectator;
+  const showRevealActions =
+    session.status === "active" && roundStatus === "reveal";
   const showVoteActions =
     session.status === "active" && roundStatus === "voting" && !isSpectator;
 
@@ -232,7 +254,7 @@ export function SessionLobby({
         backLabel="← Voltar"
       />
 
-      {session.standings.length > 0 && (
+      {session.gameMode !== "impostor" && session.standings.length > 0 && (
         <StandingsTable standings={session.standings} />
       )}
 
@@ -243,7 +265,7 @@ export function SessionLobby({
         </div>
         <p className="mb-4 text-sm text-text-muted">{phase.description}</p>
         <div className="-mx-5 flex gap-2 overflow-x-auto scroll-smooth px-5 pb-1 sm:mx-0 sm:grid sm:grid-cols-5 sm:gap-2 sm:overflow-visible sm:px-0 sm:pb-0">
-          {STEPS.map((s) => (
+          {stepItems.map((s) => (
             <div
               key={s.num}
               className={`min-w-[4.75rem] shrink-0 rounded-lg border p-2 text-center text-xs leading-tight transition-colors duration-200 sm:min-w-0 sm:shrink ${
@@ -268,14 +290,34 @@ export function SessionLobby({
       </Card>
 
       {session.status === "setup" && participantId ? (
-        <RoundSetupPanel
-          code={code}
-          participantId={participantId}
-          rounds={session.rounds}
-          isCreator={session.isCreator}
-          onRefresh={fetchSession}
-        />
-      ) : (
+        isImpostor ? (
+          session.isCreator ? (
+            <Card>
+              <h2 className="mb-4 font-display text-lg text-foreground">
+                Tema da partida
+              </h2>
+              <ImpostorThemePicker
+                code={code}
+                participantId={participantId}
+                selectedThemeId={session.impostorThemeId}
+                onThemeSelected={fetchSession}
+              />
+            </Card>
+          ) : (
+            <Card className="p-4 text-sm text-text-muted">
+              Aguardando o criador escolher o tema da partida.
+            </Card>
+          )
+        ) : (
+          <RoundSetupPanel
+            code={code}
+            participantId={participantId}
+            rounds={session.rounds}
+            isCreator={session.isCreator}
+            onRefresh={fetchSession}
+          />
+        )
+      ) : session.totalRounds > 0 ? (
         <Card>
           <h2 className="mb-2 font-bold text-foreground">
             Rodadas ({session.totalRounds})
@@ -308,7 +350,11 @@ export function SessionLobby({
                   {round.status === "pending"
                     ? "Pendente"
                     : round.status === "open"
-                      ? "Montando"
+                      ? isImpostor
+                        ? "Cartas"
+                        : "Montando"
+                      : round.status === "reveal"
+                        ? "Debate"
                       : round.status === "voting"
                         ? "Votando"
                         : "Encerrado"}
@@ -317,9 +363,9 @@ export function SessionLobby({
             ))}
           </div>
         </Card>
-      )}
+      ) : null}
 
-      {session.currentRound && session.status === "active" && (
+      {session.currentRound && session.status === "active" && !isImpostor && (
         <Card>
           <h2 className="mb-2 font-bold text-foreground">
             Rodada atual — {session.currentRound.title}
@@ -400,9 +446,9 @@ export function SessionLobby({
             </div>
           ))}
         </div>
-        {session.participants.length < 2 && (
+        {session.participants.length < minPlayers && (
           <p className="mt-3 alert-banner px-3 py-2 text-xs">
-            Mínimo de 2 participantes para iniciar
+            Mínimo de {minPlayers} participantes para iniciar
           </p>
         )}
       </Card>
@@ -446,12 +492,38 @@ export function SessionLobby({
                 </Button>
               </Link>
             )}
+            {roundStatus === "reveal" && (
+              <Link href={`/s/${code}/reveal`}>
+                <Button size="lg" className="w-full sm:w-auto">
+                  Acompanhar debate
+                </Button>
+              </Link>
+            )}
             {session.status === "active" && (
               <Link href={`/s/${code}/status`}>
                 <Button variant="secondary" size="lg" className="w-full sm:w-auto">
                   Acompanhar partida
                 </Button>
               </Link>
+            )}
+          </>
+        ) : showRevealActions ? (
+          <>
+            <Link href={`/s/${code}/reveal`}>
+              <Button size="lg" className="w-full sm:w-auto">
+                Ver listas e debater
+              </Button>
+            </Link>
+            {session.isCreator && advanceAction && (
+              <Button
+                variant="gold"
+                size="lg"
+                disabled={!advanceAction.canAdvance || advancing}
+                onClick={handleAdvance}
+                className="w-full sm:w-auto"
+              >
+                {advancing ? "Abrindo..." : advanceAction.label}
+              </Button>
             )}
           </>
         ) : showVoteActions ? (
@@ -531,7 +603,7 @@ export function SessionLobby({
           ) : (
             <Link href={`/s/${code}/pick`}>
               <Button size="lg" className="w-full sm:w-auto">
-                Montar meu ranking
+                {isImpostor ? "Escolher carta" : "Montar meu ranking"}
               </Button>
             </Link>
           )
@@ -554,15 +626,24 @@ export function SessionLobby({
               )}
               {!advanceAction.canAdvance &&
                 session.totalRounds > 0 &&
-                session.participants.length < 2 && (
+                session.participants.length < minPlayers && (
                   <p className="text-center text-sm text-on-pitch-muted">
                     Aguardando mais participantes
+                  </p>
+                )}
+              {!advanceAction.canAdvance &&
+                isImpostor &&
+                !session.impostorThemeId && (
+                  <p className="text-center text-sm text-on-pitch-muted">
+                    Escolha um tema para iniciar
                   </p>
                 )}
             </>
           ) : (
             <p className="text-center text-sm text-on-pitch-muted">
-              Aguardando criador configurar e iniciar a sala
+              {isImpostor
+                ? "Aguardando criador escolher o tema e iniciar"
+                : "Aguardando criador configurar e iniciar a sala"}
             </p>
           )
         ) : (

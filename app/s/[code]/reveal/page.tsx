@@ -2,22 +2,20 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { VoteView } from "@/components/vote-view";
-import { ImpostorVoteView } from "@/components/impostor-vote-view";
+import { ImpostorRevealView } from "@/components/impostor-reveal-view";
 import { SessionHeader } from "@/components/session-header";
 import { buildParticipantPath } from "@/lib/session-info";
 
-export default function VotePage({
+export default function RevealPage({
   params,
 }: {
   params: Promise<{ code: string }>;
 }) {
   const router = useRouter();
   const [code, setCode] = useState("");
+  const [participantId, setParticipantId] = useState<string | null>(null);
   const [roundTitle, setRoundTitle] = useState("");
   const [stepLabel, setStepLabel] = useState("");
-  const [participantId, setParticipantId] = useState<string | null>(null);
-  const [gameMode, setGameMode] = useState<"ranking" | "impostor">("ranking");
 
   useEffect(() => {
     async function init() {
@@ -36,30 +34,28 @@ export default function VotePage({
       );
       const sessionData = await sessionRes.json();
       if (sessionRes.ok) {
-        setGameMode(sessionData.gameMode === "impostor" ? "impostor" : "ranking");
+        if (sessionData.gameMode !== "impostor") {
+          router.push(buildParticipantPath(p.code, sessionData, stored));
+          return;
+        }
+
         if (sessionData.currentRound) {
           setRoundTitle(sessionData.currentRound.title);
           setStepLabel(
             `Rodada ${sessionData.currentRoundNumber}/${sessionData.totalRounds}`
           );
         }
+
         if (sessionData.status === "completed") {
           router.push(`/s/${p.code}/results`);
-        } else if (
+          return;
+        }
+
+        if (
           sessionData.status !== "active" ||
-          sessionData.currentRound?.status !== "voting"
+          sessionData.currentRound?.status !== "reveal"
         ) {
           router.push(buildParticipantPath(p.code, sessionData, stored));
-        } else {
-          const myParticipant = sessionData.participants.find(
-            (participant: { id: string }) => participant.id === stored
-          );
-          if (
-            myParticipant?.hasVoted &&
-            myParticipant?.status !== "spectator"
-          ) {
-            router.push(`/s/${p.code}/status`);
-          }
         }
       }
     }
@@ -77,17 +73,13 @@ export default function VotePage({
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
       <SessionHeader
-        title={roundTitle}
+        title={roundTitle || "Debate"}
         code={code}
-        stepLabel={stepLabel || (gameMode === "impostor" ? "Eliminação" : "Votação")}
+        stepLabel={stepLabel || "Debate"}
         backHref={`/s/${code}/status`}
         showCode={false}
       />
-      {gameMode === "impostor" ? (
-        <ImpostorVoteView sessionCode={code} participantId={participantId} />
-      ) : (
-        <VoteView sessionCode={code} participantId={participantId} />
-      )}
+      <ImpostorRevealView sessionCode={code} participantId={participantId} />
     </main>
   );
 }

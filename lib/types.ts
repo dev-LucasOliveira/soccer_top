@@ -138,7 +138,87 @@ export type VoteState = {
 
 export type ParticipantStatus = "building" | "confirmed" | "spectator";
 export type SessionStatus = "setup" | "active" | "completed";
-export type RoundStatus = "pending" | "open" | "voting" | "completed";
+export type GameMode = "ranking" | "impostor";
+
+export type RoundStatus =
+  | "pending"
+  | "open"
+  | "reveal"
+  | "voting"
+  | "completed";
+
+export type ImpostorThemeSummary = {
+  id: string;
+  title: string;
+  description: string;
+};
+
+export type ImpostorCard = {
+  playerId: string;
+  playerName: string;
+  position: string;
+  nationality: string;
+};
+
+export type ImpostorListPick = {
+  rank: number;
+  playerId: string;
+  playerName: string;
+};
+
+export type ImpostorParticipantList = {
+  participantId: string;
+  displayName: string;
+  status: ParticipantStatus;
+  picks: ImpostorListPick[];
+  hasConfirmed: boolean;
+};
+
+export type ImpostorViewState = {
+  themeTitle: string | null;
+  isImpostor: boolean;
+  roundNumber: number;
+  totalRounds: number;
+  targetRank: number;
+  roundStatus: RoundStatus;
+  myPicks: ImpostorListPick[];
+  cardOptions: ImpostorCard[];
+  hasConfirmed: boolean;
+  participantLists: ImpostorParticipantList[];
+};
+
+export type ImpostorElimination = {
+  roundNumber: number;
+  eliminatedParticipantId: string | null;
+  eliminatedDisplayName: string | null;
+  wasTie: boolean;
+};
+
+export type ImpostorSessionResult = {
+  outcome: "crew_win" | "impostor_win";
+  impostorParticipantId: string;
+  impostorDisplayName: string;
+  themeTitle: string;
+  eliminations: ImpostorElimination[];
+  participantLists: Record<
+    string,
+    { displayName: string; picks: { rank: number; playerName: string }[] }
+  >;
+};
+
+export type ImpostorVoteState = {
+  participants: {
+    id: string;
+    displayName: string;
+    status: ParticipantStatus;
+  }[];
+  hasVoted: boolean;
+  votedTargetId: string | null;
+  totalVoters: number;
+  votedCount: number;
+  roundNumber: number;
+  isSpectator: boolean;
+};
 
 export type RoundSummary = {
   id: string;

@@ -51,12 +51,23 @@ export async function GET(request: Request, context: RouteContext) {
       });
     }
 
+    const pickWhere =
+      session.gameMode === "impostor"
+        ? {
+            participantId,
+            round: {
+              sessionId: session.id,
+              number: { lte: currentRound.number },
+            },
+          }
+        : {
+            roundId: currentRound.id,
+            participantId,
+          };
+
     const [picks, rankingMeta] = await Promise.all([
       prisma.pick.findMany({
-        where: {
-          roundId: currentRound.id,
-          participantId,
-        },
+        where: pickWhere,
         include: { player: true },
         orderBy: { rank: "asc" },
       }),
@@ -128,6 +139,13 @@ export async function PUT(request: Request, context: RouteContext) {
     if (session.status !== "active" || currentRound.status !== "open") {
       return NextResponse.json(
         { error: "Rodada não aceita mais alterações de ranking" },
+        { status: 400 }
+      );
+    }
+
+    if (session.gameMode === "impostor") {
+      return NextResponse.json(
+        { error: "Use a escolha de cartas do modo impostor" },
         { status: 400 }
       );
     }

@@ -4,9 +4,10 @@ import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ResultsView } from "@/components/results-view";
+import { ImpostorResultsView } from "@/components/impostor-results-view";
 import { SessionHeader } from "@/components/session-header";
 import { getGuestToken } from "@/lib/guest";
-import type { SessionFinalResult } from "@/lib/types";
+import type { ImpostorSessionResult, SessionFinalResult } from "@/lib/types";
 
 export default function ResultsPage({
   params,
@@ -17,7 +18,9 @@ export default function ResultsPage({
   const [code, setCode] = useState("");
   const [participantId, setParticipantId] = useState<string | null>(null);
   const [title, setTitle] = useState("");
+  const [gameMode, setGameMode] = useState<"ranking" | "impostor">("ranking");
   const [result, setResult] = useState<SessionFinalResult | null>(null);
+  const [impostorResult, setImpostorResult] = useState<ImpostorSessionResult | null>(null);
   const [isCreator, setIsCreator] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -51,12 +54,18 @@ export default function ResultsPage({
     }
 
     setTitle(data.title);
+    setGameMode(data.gameMode === "impostor" ? "impostor" : "ranking");
     setIsCreator(data.isCreator ?? false);
 
     if (!data.result) {
       setError("Resultados indisponíveis");
+    } else if (data.gameMode === "impostor") {
+      setImpostorResult(data.result as ImpostorSessionResult);
+      setResult(null);
+      setError("");
     } else {
       setResult(data.result);
+      setImpostorResult(null);
       setError("");
     }
 
@@ -110,7 +119,7 @@ export default function ResultsPage({
     );
   }
 
-  if (error || !result) {
+  if (error || (gameMode === "impostor" ? !impostorResult : !result)) {
     return (
       <main className="mx-auto max-w-4xl px-4 py-12">
         <Link
@@ -133,15 +142,25 @@ export default function ResultsPage({
         showCode={false}
       />
 
-      <ResultsView
-        title={title}
-        sessionCode={code}
-        result={result}
-        isCreator={isCreator}
-        onRestart={handleRestart}
-        restarting={restarting}
-        restartError={restartError}
-      />
+      {gameMode === "impostor" && impostorResult ? (
+        <ImpostorResultsView
+          result={impostorResult}
+          isCreator={isCreator}
+          onRestart={handleRestart}
+          restarting={restarting}
+          restartError={restartError}
+        />
+      ) : result ? (
+        <ResultsView
+          title={title}
+          sessionCode={code}
+          result={result}
+          isCreator={isCreator}
+          onRestart={handleRestart}
+          restarting={restarting}
+          restartError={restartError}
+        />
+      ) : null}
     </main>
   );
 }

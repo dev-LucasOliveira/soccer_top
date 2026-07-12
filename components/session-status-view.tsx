@@ -26,6 +26,7 @@ type MyPicksData = {
 
 type SessionStatusData = {
   status: string;
+  gameMode?: "ranking" | "impostor";
   title: string;
   topN: number;
   currentRoundNumber: number;
@@ -182,7 +183,9 @@ export function SessionStatusView({
         {waitingMessage}
       </div>
 
-      {viewMode.showStandings && session.standings.length > 0 ? (
+      {viewMode.showStandings &&
+      session.gameMode !== "impostor" &&
+      session.standings.length > 0 ? (
         <StandingsTable
           standings={session.standings}
           title="Classificação parcial"
@@ -192,13 +195,25 @@ export function SessionStatusView({
               : undefined
           }
         />
-      ) : (
-        session.currentRound?.status === "voting" && (
-          <Card className="px-4 py-6 text-center text-sm text-text-muted">
-            Classificação revelada quando o criador encerrar a rodada.
-          </Card>
-        )
-      )}
+      ) : session.gameMode === "impostor" &&
+        session.currentRound?.status === "reveal" ? (
+        <Card className="px-4 py-6 text-center">
+          <p className="mb-4 text-sm text-text-muted">
+            Veja as listas de todos e debata antes da votação.
+          </p>
+          <Link href={`/s/${code}/reveal`}>
+            <Button variant="secondary" size="lg">
+              Ir para o debate
+            </Button>
+          </Link>
+        </Card>
+      ) : session.currentRound?.status === "voting" ? (
+        <Card className="px-4 py-6 text-center text-sm text-text-muted">
+          {session.gameMode === "impostor"
+            ? "Resultado revelado quando o criador encerrar a rodada."
+            : "Classificação revelada quando o criador encerrar a rodada."}
+        </Card>
+      ) : null}
 
       {viewMode.list === "winning" && session.lastWinningList ? (
         <WinningListCard list={session.lastWinningList} />
@@ -215,7 +230,9 @@ export function SessionStatusView({
         />
       ) : !isSpectator && session.currentRound?.status !== "voting" ? (
         <Card className="px-4 py-6 text-center text-sm text-text-muted">
-          Seu ranking aparece aqui após confirmar.
+          {session.gameMode === "impostor"
+            ? "Sua lista aparece aqui após escolher a carta."
+            : "Seu ranking aparece aqui após confirmar."}
         </Card>
       ) : null}
 
@@ -223,7 +240,19 @@ export function SessionStatusView({
         <div className="flex justify-center">
           <Link href={`/s/${code}/vote`}>
             <Button variant="secondary" size="lg" className="w-full sm:w-auto">
-              Acompanhar votação
+              {session.gameMode === "impostor"
+                ? "Acompanhar eliminação"
+                : "Acompanhar votação"}
+            </Button>
+          </Link>
+        </div>
+      )}
+
+      {isSpectator && session.gameMode === "impostor" && session.currentRound?.status === "reveal" && (
+        <div className="flex justify-center">
+          <Link href={`/s/${code}/reveal`}>
+            <Button variant="secondary" size="lg" className="w-full sm:w-auto">
+              Acompanhar debate
             </Button>
           </Link>
         </div>
