@@ -69,13 +69,23 @@ export function setStoredParticipantVolume(participantId: string, volume: number
   );
 }
 
+export function isTouchPrimaryDevice(): boolean {
+  if (typeof window === "undefined") return false;
+  return (
+    window.matchMedia("(pointer: coarse)").matches ||
+    "ontouchstart" in window
+  );
+}
+
 export function shouldAutoJoinVoice(): boolean {
   if (typeof window === "undefined") return false;
+  if (isTouchPrimaryDevice()) return false;
   return localStorage.getItem(VOICE_AUTO_JOIN_KEY) === "true";
 }
 
 export function rememberVoiceAutoJoin() {
   if (typeof window === "undefined") return;
+  if (isTouchPrimaryDevice()) return;
   localStorage.setItem(VOICE_AUTO_JOIN_KEY, "true");
 }
 

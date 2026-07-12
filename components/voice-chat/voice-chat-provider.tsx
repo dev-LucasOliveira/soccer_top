@@ -21,11 +21,11 @@ import {
 } from "livekit-client";
 import { getGuestToken } from "@/lib/guest";
 import {
-  canAccessMicrophone,
   fetchVoiceAvailability,
   fetchVoiceToken,
-  getInsecureContextError,
   mapMediaError,
+  releaseMicrophoneStream,
+  requestMicrophonePermission,
 } from "./voice-chat.service";
 import {
   getStoredParticipantVolume,
@@ -50,6 +50,7 @@ type VoiceChatContextValue = {
   inputDevices: MediaDeviceInfo[];
   error?: VoiceChatError;
   canJoin: boolean;
+  joinDisabledReason?: string;
   joinVoice: () => Promise<void>;
   leaveVoice: () => Promise<void>;
   toggleMicrophone: () => Promise<void>;
@@ -150,6 +151,14 @@ export function VoiceChatProvider({
       status !== "requesting-permission" &&
       status !== "reconnecting"
   );
+
+  const joinDisabledReason = !participantId
+    ? "Entre na sala com seu nome para habilitar o áudio."
+    : !availability.enabled
+      ? "Voice chat temporariamente indisponível."
+      : sessionCompleted
+        ? "Partida encerrada."
+        : undefined;
 
   const refreshParticipants = useCallback(() => {
     const room = roomRef.current;
@@ -423,20 +432,22 @@ export function VoiceChatProvider({
       return;
     }
 
-    try {
-      setStatus("requesting-permission");
-      if (!canAccessMicrophone()) {
-        throw Object.assign(new Error(getInsecureContextError().message), {
-          voiceError: getInsecureContextError(),
-        });
-      }
-      await navigator.mediaDevices.getUserMedia({
-        audio: {
-          echoCancellation: true,
-          noiseSuppression: true,
-          autoGainControl: true,
-        },
+    if (!participantId) {
+      setError({
+        code: "connection_failed",
+        message: "Entre na sala com seu nome para usar o voice chat.",
       });
+      setStatus("idle");
+      return;
+    }
+
+    setError(undefined);
+    setStatus("requesting-permission");
+
+    let permissionStream: MediaStream | null = null;
+
+    try {
+      permissionStream = await requestMicrophonePermission();
       rememberVoiceAutoJoin();
       await connectToRoom(true);
     } catch (err) {
@@ -444,10 +455,17 @@ export function VoiceChatProvider({
         (err as { voiceError?: VoiceChatError }).voiceError ??
         mapMediaError(err);
       setError(voiceError);
-      setStatus("error");
+      setStatus("idle");
       await leaveVoice();
+    } finally {
+      releaseMicrophoneStream(permissionStream);
     }
-  }, [availability.enabled, connectToRoom, leaveVoice]);
+  }, [
+    availability.enabled,
+    connectToRoom,
+    leaveVoice,
+    participantId,
+  ]);
 
   const toggleMicrophone = useCallback(async () => {
     const room = roomRef.current;
@@ -574,6 +592,7 @@ export function VoiceChatProvider({
       inputDevices,
       error,
       canJoin,
+      joinDisabledReason,
       joinVoice,
       leaveVoice,
       toggleMicrophone,
@@ -591,6 +610,7 @@ export function VoiceChatProvider({
       inputDeviceId,
       inputDevices,
       isMicrophoneEnabled,
+      joinDisabledReason,
       joinVoice,
       leaveVoice,
       participants,

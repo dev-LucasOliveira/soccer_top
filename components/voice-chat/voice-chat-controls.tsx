@@ -22,6 +22,7 @@ import { VoiceUnavailableBanner } from "./voice-unavailable-banner";
 import {
   getDefaultVoiceDockCollapsed,
   getVoiceDockCollapsed,
+  isTouchPrimaryDevice,
   setVoiceDockCollapsed,
 } from "./voice-chat.types";
 
@@ -60,6 +61,7 @@ export function VoiceChatControls() {
     status,
     availability,
     canJoin,
+    joinDisabledReason,
     joinVoice,
     leaveVoice,
     toggleMicrophone,
@@ -239,17 +241,27 @@ export function VoiceChatControls() {
               O voice chat está temporariamente indisponível.
             </p>
           ) : !isConnected ? (
-            <Button
-              type="button"
-              variant="gold"
-              size="sm"
-              className="w-full"
-              disabled={!canJoin || isBusy || micUnavailable}
-              onClick={() => void joinVoice()}
-            >
-              <Mic size={14} className="mr-2" aria-hidden />
-              Entrar no áudio
-            </Button>
+            <div className="space-y-2">
+              {isTouchPrimaryDevice() && canJoin && !error && (
+                <p className="text-xs text-on-pitch-subtle">
+                  Toque no botão abaixo — o Safari pedirá permissão do microfone.
+                </p>
+              )}
+              {joinDisabledReason && !canJoin && (
+                <p className="text-xs text-on-pitch-subtle">{joinDisabledReason}</p>
+              )}
+              <Button
+                type="button"
+                variant="gold"
+                size="sm"
+                className="w-full"
+                disabled={!canJoin || isBusy}
+                onClick={() => void joinVoice()}
+              >
+                <Mic size={14} className="mr-2" aria-hidden />
+                Entrar no áudio
+              </Button>
+            </div>
           ) : (
             <div className="space-y-3">
               <div className="flex gap-2">

@@ -5,13 +5,33 @@ import { useParams } from "next/navigation";
 import { VoiceChatControls } from "@/components/voice-chat/voice-chat-controls";
 import { VoiceChatProvider } from "@/components/voice-chat/voice-chat-provider";
 
+function readStoredParticipantId(code: string): string | null {
+  if (typeof window === "undefined" || !code) return null;
+  return localStorage.getItem(`participant_${code}`);
+}
+
 function useSessionParticipant(code: string) {
-  const [participantId, setParticipantId] = useState<string | null>(null);
+  const [participantId, setParticipantId] = useState<string | null>(() =>
+    readStoredParticipantId(code)
+  );
   const [sessionCompleted, setSessionCompleted] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem(`participant_${code}`);
-    setParticipantId(stored);
+    function syncParticipantId() {
+      setParticipantId(readStoredParticipantId(code));
+    }
+
+    window.addEventListener("storage", syncParticipantId);
+    window.addEventListener("focus", syncParticipantId);
+    const interval = setInterval(syncParticipantId, 1000);
+    const stopPolling = setTimeout(() => clearInterval(interval), 5000);
+
+    return () => {
+      window.removeEventListener("storage", syncParticipantId);
+      window.removeEventListener("focus", syncParticipantId);
+      clearInterval(interval);
+      clearTimeout(stopPolling);
+    };
   }, [code]);
 
   useEffect(() => {
