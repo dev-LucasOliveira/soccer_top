@@ -6,7 +6,11 @@ export default function RankingPage() {
   const mode = getGameModeConfig("ranking");
 
   return (
-    <ModeLandingPage modeId="ranking">
+    <ModeLandingPage
+      modeId="ranking"
+      backHref="/solo/lobby"
+      backLabel="← Voltar ao lobby solo"
+    >
       <SoloSetupForm submitLabel={mode.submitLabel} />
     </ModeLandingPage>
   );

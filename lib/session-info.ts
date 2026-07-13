@@ -52,6 +52,25 @@ export function getSessionPhase(session: {
   listaSecretaTotalRounds?: number | null;
   listaSecretaSlotCount?: number | null;
 }): { step: number; label: string; description: string } {
+  if (session.gameMode === "lobby") {
+    const count = getPlayers(session.participants).length;
+    if (session.status === "completed") {
+      return {
+        step: 1,
+        label: "Lobby",
+        description: "Partida encerrada — o criador pode escolher outro modo.",
+      };
+    }
+    return {
+      step: 1,
+      label: "Escolha o modo",
+      description:
+        count < 2
+          ? "Compartilhe o link. Quando entrarem, o criador escolhe o modo de jogo."
+          : `${count} jogadores na sala. O criador escolhe o modo de jogo.`,
+    };
+  }
+
   if (session.gameMode === "lista-secreta-mp") {
     return getListaSecretaMpSessionPhase(session);
   }
@@ -253,6 +272,10 @@ export function getAdvanceAction(session: {
   listaSecretaTotalRounds?: number | null;
   listaSecretaSlotCount?: number | null;
 }): { canAdvance: boolean; label: string; redirect?: string } | null {
+  if (session.gameMode === "lobby") {
+    return null;
+  }
+
   if (session.gameMode === "lista-secreta-mp") {
     return getListaSecretaMpAdvanceAction(session);
   }

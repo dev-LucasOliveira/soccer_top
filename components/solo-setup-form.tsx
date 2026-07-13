@@ -13,13 +13,16 @@ import {
   soloSetupMatches,
   validateSoloSetup,
 } from "@/lib/solo-draft";
+import { getSoloDisplayName } from "@/lib/solo-profile";
 import type { SessionFilters } from "@/lib/types";
 
 export function SoloSetupForm({ submitLabel = "Montar ranking" }: { submitLabel?: string }) {
   const router = useRouter();
   const existing = loadSoloDraft();
 
-  const [authorName, setAuthorName] = useState(existing?.authorName ?? "");
+  const [authorName, setAuthorName] = useState(
+    existing?.authorName ?? getSoloDisplayName() ?? ""
+  );
   const [title, setTitle] = useState(existing?.title ?? "");
   const [topN, setTopN] = useState(existing?.topN ?? 10);
   const [filters, setFilters] = useState<SessionFilters>(existing?.filters ?? {});

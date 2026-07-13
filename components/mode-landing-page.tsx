@@ -36,23 +36,40 @@ export function ModeLandingPage({
   modeId,
   children,
   showRules = true,
+  backHref = "/",
+  backLabel = "← Voltar ao início",
 }: {
   modeId: HomeModeId;
   children: React.ReactNode;
   showRules?: boolean;
+  backHref?: string;
+  backLabel?: string;
 }) {
   const mode = getGameModeConfig(modeId);
-  return <ModeLandingContent mode={mode} showRules={showRules}>{children}</ModeLandingContent>;
+  return (
+    <ModeLandingContent
+      mode={mode}
+      showRules={showRules}
+      backHref={backHref}
+      backLabel={backLabel}
+    >
+      {children}
+    </ModeLandingContent>
+  );
 }
 
 function ModeLandingContent({
   mode,
   children,
   showRules,
+  backHref,
+  backLabel,
 }: {
   mode: GameModeConfig;
   children: React.ReactNode;
   showRules: boolean;
+  backHref: string;
+  backLabel: string;
 }) {
   const Icon = MODE_ICONS[mode.icon];
   const playStyle = PLAY_STYLE_META[mode.playStyle];
@@ -61,10 +78,10 @@ function ModeLandingContent({
   return (
     <main className="mx-auto max-w-lg px-4 py-8">
       <Link
-        href="/"
+        href={backHref}
         className="mb-6 inline-block text-sm text-on-pitch-muted transition-colors duration-200 hover:text-off-white"
       >
-        ← Voltar ao início
+        {backLabel}
       </Link>
 
       <div className="mb-6 flex items-start gap-4">

@@ -11,12 +11,18 @@ export function ImpostorResultsView({
   onRestart,
   restarting,
   restartError,
+  onReturnToLobby,
+  returningToLobby,
+  returnToLobbyError,
 }: {
   result: ImpostorSessionResult;
   isCreator?: boolean;
   onRestart?: () => void;
   restarting?: boolean;
   restartError?: string;
+  onReturnToLobby?: () => void;
+  returningToLobby?: boolean;
+  returnToLobbyError?: string;
 }) {
   const crewWon = result.outcome === "crew_win";
 
@@ -83,19 +89,35 @@ export function ImpostorResultsView({
         ))}
       </div>
 
-      {isCreator && onRestart && (
+      {isCreator && (onRestart || onReturnToLobby) && (
         <div className="flex flex-col items-center gap-2">
-          <Button
-            variant="gold"
-            size="lg"
-            onClick={onRestart}
-            disabled={restarting}
-            className="w-full sm:w-auto"
-          >
-            {restarting ? "Reiniciando..." : "Jogar novamente"}
-          </Button>
+          {onRestart && (
+            <Button
+              variant="gold"
+              size="lg"
+              onClick={onRestart}
+              disabled={restarting}
+              className="w-full sm:w-auto"
+            >
+              {restarting ? "Reiniciando..." : "Jogar de novo"}
+            </Button>
+          )}
+          {onReturnToLobby && (
+            <Button
+              variant="secondary"
+              size="lg"
+              onClick={onReturnToLobby}
+              disabled={returningToLobby}
+              className="w-full sm:w-auto"
+            >
+              {returningToLobby ? "Voltando..." : "Escolher outro modo"}
+            </Button>
+          )}
           {restartError && (
             <p className="text-center text-sm text-red-400">{restartError}</p>
+          )}
+          {returnToLobbyError && (
+            <p className="text-center text-sm text-red-400">{returnToLobbyError}</p>
           )}
         </div>
       )}

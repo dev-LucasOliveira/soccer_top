@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function SoloHomePage() {
-  redirect("/solo/guess");
+  redirect("/solo/lobby");
 }

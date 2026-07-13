@@ -13,6 +13,7 @@ import { RoundSetupPanel } from "@/components/round-setup-panel";
 import { ImpostorThemePicker } from "@/components/impostor-theme-picker";
 import { DueloLobbyConfig } from "@/components/duelo-lobby-config";
 import { ListaSecretaMpLobbyConfig } from "@/components/lista-secreta-mp-lobby-config";
+import { LobbyModeSelector } from "@/components/lobby-mode-selector";
 import { MIN_IMPOSTOR_PLAYERS } from "@/lib/impostor-constants";
 import { MIN_DUELO_PLAYERS } from "@/lib/duelo-constants";
 import { MIN_LSMP_PLAYERS } from "@/lib/lista-secreta-mp-constants";
@@ -97,6 +98,13 @@ const DUELO_STEPS = [
   { num: 4, label: "Resultado" },
 ];
 
+const LOBBY_STEPS = [
+  { num: 1, label: "Entrar" },
+  { num: 2, label: "Modo" },
+  { num: 3, label: "Configurar" },
+  { num: 4, label: "Jogar" },
+];
+
 export function SessionLobby({
   code,
   participantId,
@@ -112,6 +120,8 @@ export function SessionLobby({
   const [advanceError, setAdvanceError] = useState("");
   const [restarting, setRestarting] = useState(false);
   const [restartError, setRestartError] = useState("");
+  const [returningToLobby, setReturningToLobby] = useState(false);
+  const [returnToLobbyError, setReturnToLobbyError] = useState("");
 
   const fetchSession = async () => {
     try {
@@ -189,6 +199,34 @@ export function SessionLobby({
     }
   }
 
+  async function handleReturnToLobby() {
+    if (!participantId) return;
+    setReturningToLobby(true);
+    setReturnToLobbyError("");
+
+    try {
+      const res = await fetch(`/api/sessions/${code}/return-to-lobby`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          participantId,
+          guestToken: getGuestToken(),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+
+      await fetchSession();
+      router.refresh();
+    } catch (err) {
+      setReturnToLobbyError(
+        err instanceof Error ? err.message : "Erro ao voltar ao lobby"
+      );
+    } finally {
+      setReturningToLobby(false);
+    }
+  }
+
   async function handleRestart() {
     if (!participantId) return;
     setRestarting(true);
@@ -237,18 +275,23 @@ export function SessionLobby({
   const isImpostor = session.gameMode === "impostor";
   const isDuelo = session.gameMode === "duelo";
   const isLsmp = session.gameMode === "lista-secreta-mp";
-  const stepItems = isImpostor
-    ? IMPOSTOR_STEPS
-    : isDuelo || isLsmp
-      ? DUELO_STEPS
-      : STEPS;
-  const minPlayers = isImpostor
-    ? MIN_IMPOSTOR_PLAYERS
-    : isDuelo
-      ? MIN_DUELO_PLAYERS
-      : isLsmp
-        ? MIN_LSMP_PLAYERS
-        : 2;
+  const isLobby = session.gameMode === "lobby";
+  const stepItems = isLobby
+    ? LOBBY_STEPS
+    : isImpostor
+      ? IMPOSTOR_STEPS
+      : isDuelo || isLsmp
+        ? DUELO_STEPS
+        : STEPS;
+  const minPlayers = isLobby
+    ? 2
+    : isImpostor
+      ? MIN_IMPOSTOR_PLAYERS
+      : isDuelo
+        ? MIN_DUELO_PLAYERS
+        : isLsmp
+          ? MIN_LSMP_PLAYERS
+          : 2;
 
   function participantBadge(p: Participant) {
     if (p.status === "spectator") return isImpostor ? "Eliminado" : "Espectador";
@@ -289,7 +332,8 @@ export function SessionLobby({
         backLabel="← Voltar"
       />
 
-      {session.gameMode !== "impostor" &&
+      {session.gameMode !== "lobby" &&
+        session.gameMode !== "impostor" &&
         session.gameMode !== "duelo" &&
         session.gameMode !== "lista-secreta-mp" &&
         session.standings.length > 0 && (
@@ -304,7 +348,7 @@ export function SessionLobby({
         <p className="mb-4 text-sm text-text-muted">{phase.description}</p>
         <div
           className={`-mx-5 flex gap-2 overflow-x-auto scroll-smooth px-5 pb-1 sm:mx-0 sm:grid ${
-            isDuelo || isLsmp ? "sm:grid-cols-4" : "sm:grid-cols-5"
+            isLobby || isDuelo || isLsmp ? "sm:grid-cols-4" : "sm:grid-cols-5"
           } sm:gap-2 sm:overflow-visible sm:px-0 sm:pb-0`}
         >
           {stepItems.map((s) => (
@@ -332,7 +376,20 @@ export function SessionLobby({
       </Card>
 
       {session.status === "setup" && participantId ? (
-        isImpostor ? (
+        isLobby ? (
+          session.isCreator ? (
+            <LobbyModeSelector
+              code={code}
+              participantId={participantId}
+              playerCount={players.length}
+              onModeSelected={fetchSession}
+            />
+          ) : (
+            <Card className="p-4 text-sm text-text-muted">
+              Aguardando o criador escolher o modo de jogo.
+            </Card>
+          )
+        ) : isImpostor ? (
           session.isCreator ? (
             <Card>
               <h2 className="mb-4 font-display text-lg text-foreground">
@@ -593,7 +650,7 @@ export function SessionLobby({
             </div>
           ))}
         </div>
-        {session.participants.length < minPlayers && (
+        {session.participants.length < minPlayers && !isLobby && (
           <p className="mt-3 alert-banner px-3 py-2 text-xs">
             {isDuelo
               ? "O duelo precisa de exatamente 2 jogadores"
@@ -615,6 +672,9 @@ export function SessionLobby({
       {restartError && (
         <p className="text-center text-sm text-red-400">{restartError}</p>
       )}
+      {returnToLobbyError && (
+        <p className="text-center text-sm text-red-400">{returnToLobbyError}</p>
+      )}
 
       <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
         {session.status === "completed" ? (
@@ -625,15 +685,26 @@ export function SessionLobby({
               </Button>
             </Link>
             {session.isCreator && (
-              <Button
-                variant="secondary"
-                size="lg"
-                disabled={restarting}
-                onClick={handleRestart}
-                className="w-full sm:w-auto"
-              >
-                {restarting ? "Reiniciando..." : "Começar novo jogo"}
-              </Button>
+              <>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  disabled={restarting}
+                  onClick={handleRestart}
+                  className="w-full sm:w-auto"
+                >
+                  {restarting ? "Reiniciando..." : "Jogar de novo"}
+                </Button>
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  disabled={returningToLobby}
+                  onClick={handleReturnToLobby}
+                  className="w-full sm:w-auto"
+                >
+                  {returningToLobby ? "Voltando..." : "Escolher outro modo"}
+                </Button>
+              </>
             )}
           </>
         ) : isSpectator ? (
@@ -778,7 +849,13 @@ export function SessionLobby({
             </Link>
           )
         ) : session.status === "setup" ? (
-          session.isCreator && advanceAction ? (
+          isLobby ? (
+            <p className="text-center text-sm text-on-pitch-muted">
+              {session.isCreator
+                ? "Escolha um modo acima para configurar a partida."
+                : "Aguardando o criador escolher o modo de jogo."}
+            </p>
+          ) : session.isCreator && advanceAction ? (
             <>
               <Button
                 variant="gold"
@@ -788,6 +865,15 @@ export function SessionLobby({
                 className="w-full sm:w-auto"
               >
                 {advancing ? "Iniciando..." : advanceAction.label}
+              </Button>
+              <Button
+                variant="secondary"
+                size="lg"
+                disabled={returningToLobby}
+                onClick={handleReturnToLobby}
+                className="w-full sm:w-auto"
+              >
+                {returningToLobby ? "Voltando..." : "Trocar modo"}
               </Button>
               {!advanceAction.canAdvance && session.totalRounds === 0 && !isDuelo && !isLsmp && (
                 <p className="text-center text-sm text-on-pitch-muted">

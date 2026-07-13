@@ -3,6 +3,7 @@ import { isSpectator } from "@/lib/participants";
 import type { GameMode } from "@/lib/types";
 
 const MULTIPLAYER_MODES: GameMode[] = [
+  "lobby",
   "ranking",
   "impostor",
   "duelo",

@@ -140,7 +140,14 @@ export type VoteState = {
 
 export type ParticipantStatus = "building" | "confirmed" | "spectator";
 export type SessionStatus = "setup" | "active" | "completed";
-export type GameMode = "ranking" | "impostor" | "duelo" | "lista-secreta-mp";
+export type GameMode =
+  | "lobby"
+  | "ranking"
+  | "impostor"
+  | "duelo"
+  | "lista-secreta-mp";
+
+export type PlayableGameMode = Exclude<GameMode, "lobby">;
 
 export type RoundStatus =
   | "pending"

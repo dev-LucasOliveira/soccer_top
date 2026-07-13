@@ -1,4 +1,4 @@
-import type { GameMode } from "@/lib/types";
+import type { GameMode, PlayableGameMode } from "@/lib/types";
 
 export type HomeModeId =
   | "tradicional"
@@ -24,7 +24,7 @@ export type GameModeConfig = {
   playStyle: GameModePlayStyle;
   landingPath: string;
   rules?: string[];
-  sessionGameMode?: GameMode;
+  sessionGameMode?: PlayableGameMode;
 };
 
 export const GAME_MODES: GameModeConfig[] = [
@@ -198,4 +198,14 @@ export function getLandingPathForModeParam(value: string | null): string | null 
   const modeId = parseHomeModeParam(value);
   if (!modeId) return null;
   return getGameModeConfig(modeId).landingPath;
+}
+
+export function getMultiplayerGameModes(): GameModeConfig[] {
+  return GAME_MODES.filter(
+    (mode) => mode.playStyle === "multiplayer" && mode.sessionGameMode
+  );
+}
+
+export function getSoloGameModes(): GameModeConfig[] {
+  return GAME_MODES.filter((mode) => mode.playStyle === "solo");
 }

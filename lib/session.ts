@@ -2,6 +2,12 @@ import { prisma } from "@/lib/db";
 import { assertCreator } from "@/lib/creator-auth";
 import { areRoundsValid } from "@/lib/round-config";
 import {
+  getModeDisabledReason,
+  getSessionTitleForMode,
+  isModeAvailableForPlayerCount,
+  isPlayableGameMode,
+} from "@/lib/mode-constraints";
+import {
   advanceImpostorSession,
   restartImpostorSession,
 } from "@/lib/impostor-session";
@@ -18,6 +24,7 @@ import {
 import { getPlayers, isSpectator } from "@/lib/participants";
 import type {
   AnonymousList,
+  PlayableGameMode,
   RoundResultData,
   VoteState,
   WinningList,
@@ -81,6 +88,10 @@ export async function advanceSession(
 
   if (!session) {
     throw new Error("Sala não encontrada");
+  }
+
+  if (session.gameMode === "lobby") {
+    throw new Error("Escolha um modo de jogo antes de iniciar");
   }
 
   if (session.gameMode === "impostor") {
@@ -571,6 +582,100 @@ export async function restartSession(
     prisma.session.update({
       where: { id: creatorSession.id },
       data: { status: "setup", currentRoundNumber: 1 },
+    }),
+  ]);
+}
+
+async function resetSessionToLobbyState(sessionId: string, sessionCode: string) {
+  await prisma.$transaction([
+    prisma.round.deleteMany({ where: { sessionId } }),
+    prisma.sessionResult.deleteMany({ where: { sessionId } }),
+    prisma.participant.updateMany({
+      where: { sessionId },
+      data: { status: "building", confirmedAt: null },
+    }),
+    prisma.session.update({
+      where: { id: sessionId },
+      data: {
+        gameMode: "lobby",
+        status: "setup",
+        currentRoundNumber: 1,
+        title: `Sala ${sessionCode}`,
+        impostorThemeId: null,
+        impostorParticipantId: null,
+        umSoTotalRounds: null,
+        listaSecretaTotalRounds: null,
+        listaSecretaSlotCount: null,
+        pickTimeLimitSeconds: null,
+      },
+    }),
+  ]);
+}
+
+export async function returnSessionToLobby(
+  sessionCode: string,
+  participantId: string,
+  guestToken: string | undefined | null
+) {
+  const { session } = await assertCreator(sessionCode, participantId, guestToken);
+
+  if (session.gameMode === "lobby") {
+    throw new Error("A sala já está no lobby");
+  }
+
+  if (session.status !== "completed" && session.status !== "setup") {
+    throw new Error(
+      "Só é possível voltar ao lobby antes ou depois de uma partida"
+    );
+  }
+
+  await resetSessionToLobbyState(session.id, session.code);
+}
+
+export async function setSessionGameMode(
+  sessionCode: string,
+  participantId: string,
+  guestToken: string | undefined | null,
+  gameMode: PlayableGameMode
+) {
+  if (!isPlayableGameMode(gameMode)) {
+    throw new Error("Modo de jogo inválido");
+  }
+
+  const { session } = await assertCreator(sessionCode, participantId, guestToken);
+
+  if (session.status !== "setup") {
+    throw new Error("Só é possível escolher o modo durante a configuração");
+  }
+
+  const players = getPlayers(session.participants);
+  if (!isModeAvailableForPlayerCount(gameMode, players.length)) {
+    throw new Error(
+      getModeDisabledReason(gameMode, players.length) ?? "Modo indisponível"
+    );
+  }
+
+  await prisma.$transaction([
+    prisma.round.deleteMany({ where: { sessionId: session.id } }),
+    prisma.sessionResult.deleteMany({ where: { sessionId: session.id } }),
+    prisma.participant.updateMany({
+      where: { sessionId: session.id },
+      data: { status: "building", confirmedAt: null },
+    }),
+    prisma.session.update({
+      where: { id: session.id },
+      data: {
+        gameMode,
+        status: "setup",
+        currentRoundNumber: 1,
+        title: getSessionTitleForMode(session.code, gameMode),
+        impostorThemeId: null,
+        impostorParticipantId: null,
+        umSoTotalRounds: null,
+        listaSecretaTotalRounds: null,
+        listaSecretaSlotCount: null,
+        pickTimeLimitSeconds: null,
+      },
     }),
   ]);
 }

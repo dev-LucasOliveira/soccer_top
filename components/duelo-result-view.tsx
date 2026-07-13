@@ -141,12 +141,18 @@ export function DueloResultsView({
   onRestart,
   restarting,
   restartError,
+  onReturnToLobby,
+  returningToLobby,
+  returnToLobbyError,
 }: {
   result: DueloSessionResult;
   isCreator?: boolean;
   onRestart?: () => void;
   restarting?: boolean;
   restartError?: string;
+  onReturnToLobby?: () => void;
+  returningToLobby?: boolean;
+  returnToLobbyError?: string;
 }) {
   const exportRef = useRef<HTMLDivElement>(null);
   const [exporting, setExporting] = useState(false);
@@ -218,19 +224,37 @@ export function DueloResultsView({
                 : "Exportar imagem"}
           </Button>
 
-          {isCreator && onRestart && (
-            <Button
-              variant="gold"
-              size="lg"
-              onClick={onRestart}
-              disabled={restarting}
-              className="w-full sm:w-auto"
-            >
-              {restarting ? "Reiniciando..." : "Jogar novamente"}
-            </Button>
+          {isCreator && (onRestart || onReturnToLobby) && (
+            <>
+              {onRestart && (
+                <Button
+                  variant="gold"
+                  size="lg"
+                  onClick={onRestart}
+                  disabled={restarting}
+                  className="w-full sm:w-auto"
+                >
+                  {restarting ? "Reiniciando..." : "Jogar de novo"}
+                </Button>
+              )}
+              {onReturnToLobby && (
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  onClick={onReturnToLobby}
+                  disabled={returningToLobby}
+                  className="w-full sm:w-auto"
+                >
+                  {returningToLobby ? "Voltando..." : "Escolher outro modo"}
+                </Button>
+              )}
+            </>
           )}
           {restartError && (
             <p className="text-center text-sm text-red-400">{restartError}</p>
+          )}
+          {returnToLobbyError && (
+            <p className="text-center text-sm text-red-400">{returnToLobbyError}</p>
           )}
         </div>
       </Card>

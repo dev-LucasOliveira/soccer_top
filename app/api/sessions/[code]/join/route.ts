@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { getPlayers, isSpectator } from "@/lib/participants";
-import { MAX_DUELO_PLAYERS } from "@/lib/duelo-constants";
-import { MAX_LSMP_PLAYERS } from "@/lib/lista-secreta-mp-constants";
+import { canJoinAsPlayer } from "@/lib/mode-constraints";
 
 type RouteContext = { params: Promise<{ code: string }> };
 
@@ -46,26 +45,14 @@ export async function POST(request: Request, context: RouteContext) {
     const joinAsSpectator =
       session.status === "active" || session.status === "completed";
 
-    if (
-      session.gameMode === "duelo" &&
-      !joinAsSpectator &&
-      getPlayers(session.participants).length >= MAX_DUELO_PLAYERS
-    ) {
-      return NextResponse.json(
-        { error: "Sala cheia — o duelo aceita apenas 2 jogadores" },
-        { status: 400 }
+    if (!joinAsSpectator) {
+      const joinCheck = canJoinAsPlayer(
+        session.gameMode,
+        getPlayers(session.participants).length
       );
-    }
-
-    if (
-      session.gameMode === "lista-secreta-mp" &&
-      !joinAsSpectator &&
-      getPlayers(session.participants).length >= MAX_LSMP_PLAYERS
-    ) {
-      return NextResponse.json(
-        { error: "Sala cheia — Lista Secreta 1v1 aceita apenas 2 jogadores" },
-        { status: 400 }
-      );
+      if (!joinCheck.ok) {
+        return NextResponse.json({ error: joinCheck.error }, { status: 400 });
+      }
     }
 
     const participant = await prisma.participant.create({

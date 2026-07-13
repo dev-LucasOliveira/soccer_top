@@ -38,6 +38,8 @@ export default function ResultsPage({
   const [error, setError] = useState("");
   const [restarting, setRestarting] = useState(false);
   const [restartError, setRestartError] = useState("");
+  const [returningToLobby, setReturningToLobby] = useState(false);
+  const [returnToLobbyError, setReturnToLobbyError] = useState("");
 
   useEffect(() => {
     params.then((p) => {
@@ -118,6 +120,35 @@ export default function ResultsPage({
     return () => clearInterval(interval);
   }, [code, fetchSession]);
 
+  async function handleReturnToLobby() {
+    if (!participantId) return;
+
+    setReturningToLobby(true);
+    setReturnToLobbyError("");
+
+    try {
+      const res = await fetch(`/api/sessions/${code}/return-to-lobby`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          participantId,
+          guestToken: getGuestToken(),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+
+      router.replace(`/s/${code}`);
+      router.refresh();
+    } catch (err) {
+      setReturnToLobbyError(
+        err instanceof Error ? err.message : "Erro ao voltar ao lobby"
+      );
+    } finally {
+      setReturningToLobby(false);
+    }
+  }
+
   async function handleRestart() {
     if (!participantId) return;
 
@@ -194,6 +225,9 @@ export default function ResultsPage({
           onRestart={handleRestart}
           restarting={restarting}
           restartError={restartError}
+          onReturnToLobby={isCreator ? handleReturnToLobby : undefined}
+          returningToLobby={returningToLobby}
+          returnToLobbyError={returnToLobbyError}
         />
       ) : gameMode === "duelo" && dueloResult ? (
         <DueloResultsView
@@ -202,6 +236,9 @@ export default function ResultsPage({
           onRestart={handleRestart}
           restarting={restarting}
           restartError={restartError}
+          onReturnToLobby={isCreator ? handleReturnToLobby : undefined}
+          returningToLobby={returningToLobby}
+          returnToLobbyError={returnToLobbyError}
         />
       ) : gameMode === "lista-secreta-mp" && listaSecretaMpResult ? (
         <ListaSecretaMpResultsView
@@ -210,6 +247,9 @@ export default function ResultsPage({
           onRestart={handleRestart}
           restarting={restarting}
           restartError={restartError}
+          onReturnToLobby={isCreator ? handleReturnToLobby : undefined}
+          returningToLobby={returningToLobby}
+          returnToLobbyError={returnToLobbyError}
         />
       ) : result ? (
         <ResultsView
@@ -220,6 +260,9 @@ export default function ResultsPage({
           onRestart={handleRestart}
           restarting={restarting}
           restartError={restartError}
+          onReturnToLobby={isCreator ? handleReturnToLobby : undefined}
+          returningToLobby={returningToLobby}
+          returnToLobbyError={returnToLobbyError}
         />
       ) : null}
     </main>

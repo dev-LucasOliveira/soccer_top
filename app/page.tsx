@@ -1,20 +1,7 @@
-import { redirect } from "next/navigation";
-import { JoinForm } from "@/components/join-form";
-import { HomeModeSelector } from "@/components/home-mode-selector";
+import { HomePlayStyleForm } from "@/components/home-play-style-form";
 import { APP_SLOGAN } from "@/lib/branding";
-import { getLandingPathForModeParam } from "@/lib/game-modes";
 
-export default async function HomePage({
-  searchParams,
-}: {
-  searchParams: Promise<{ mode?: string }>;
-}) {
-  const { mode } = await searchParams;
-  const landingPath = getLandingPathForModeParam(mode ?? null);
-  if (landingPath) {
-    redirect(landingPath);
-  }
-
+export default function HomePage() {
   return (
     <main className="relative mx-auto flex min-h-full w-full max-w-4xl flex-1 flex-col px-4 py-8 sm:py-12">
       <div
@@ -27,19 +14,12 @@ export default async function HomePage({
           {APP_SLOGAN}
         </p>
         <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-on-pitch-muted">
-          Tradicional, Impostor, Duelo, Lista Secreta, Um Só ou ranking livre.
+          Escolha como jogar — o modo fica para o lobby.
         </p>
       </div>
 
-      <div className="relative mb-10">
-        <HomeModeSelector />
-      </div>
-
       <div className="relative">
-        <h2 className="mb-4 font-display text-lg text-off-white">
-          Entrar em uma sala
-        </h2>
-        <JoinForm />
+        <HomePlayStyleForm />
       </div>
     </main>
   );

@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import { createSessionCode } from "@/lib/guest";
 import { prisma } from "@/lib/db";
+import {
+  getSessionTitleForMode,
+  isPlayableGameMode,
+} from "@/lib/mode-constraints";
 import type { GameMode } from "@/lib/types";
 
 export async function POST(request: Request) {
@@ -20,13 +24,17 @@ export async function POST(request: Request) {
     }
 
     const mode: GameMode =
-      gameMode === "impostor"
-        ? "impostor"
-        : gameMode === "duelo"
-          ? "duelo"
-          : gameMode === "lista-secreta-mp"
-            ? "lista-secreta-mp"
-            : "ranking";
+      gameMode === "lobby"
+        ? "lobby"
+        : gameMode === "impostor"
+          ? "impostor"
+          : gameMode === "duelo"
+            ? "duelo"
+            : gameMode === "lista-secreta-mp"
+              ? "lista-secreta-mp"
+              : gameMode === "ranking"
+                ? "ranking"
+                : "lobby";
 
     let code = createSessionCode();
     let attempts = 0;
@@ -37,18 +45,18 @@ export async function POST(request: Request) {
       attempts++;
     }
 
+    const title =
+      mode === "lobby"
+        ? `Sala ${code}`
+        : isPlayableGameMode(mode)
+          ? getSessionTitleForMode(code, mode)
+          : `Sala ${code}`;
+
     const session = await prisma.$transaction(async (tx) => {
       const created = await tx.session.create({
         data: {
           code,
-          title:
-            mode === "impostor"
-              ? `Impostor ${code}`
-              : mode === "duelo"
-                ? `Duelo ${code}`
-                : mode === "lista-secreta-mp"
-                  ? `Lista Secreta ${code}`
-                  : `Sala ${code}`,
+          title,
           status: "setup",
           gameMode: mode,
           currentRoundNumber: 1,
