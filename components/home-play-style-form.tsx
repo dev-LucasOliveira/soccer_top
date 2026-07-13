@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { User, Users } from "lucide-react";
+import { KeyRound, User, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
@@ -142,16 +142,25 @@ export function HomePlayStyleForm() {
           </form>
 
           {playStyle === "multiplayer" && (
-            <div className="mt-4 border-t border-card-border pt-4">
-              <button
+            <div className="mt-4 space-y-3">
+              <div className="flex items-center gap-3 pt-4">
+                <div className="h-px flex-1 bg-card-border" aria-hidden />
+                <p className="shrink-0 text-xs font-medium tracking-wide text-text-muted">
+                  Ou entre em uma sala existente
+                </p>
+                <div className="h-px flex-1 bg-card-border" aria-hidden />
+              </div>
+              <Button
                 type="button"
+                variant="secondary"
+                className="w-full"
                 onClick={() => setShowJoin((value) => !value)}
-                className="text-sm text-on-pitch-muted transition-colors hover:text-off-white"
               >
-                {showJoin ? "Ocultar" : "Já tenho um código"}
-              </button>
+                <KeyRound size={16} strokeWidth={2} aria-hidden />
+                {showJoin ? "Ocultar formulário" : "Já tenho um código"}
+              </Button>
               {showJoin && (
-                <div className="mt-4">
+                <div className="rounded-xl border border-card-border bg-surface-inset p-4">
                   <JoinForm />
                 </div>
               )}
