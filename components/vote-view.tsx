@@ -110,7 +110,13 @@ export function VoteView({
   const highlightAlias = state.hasVoted ? state.votedAlias : selectedAlias;
 
   return (
-    <div className={`space-y-5 ${!isSpectator && !state.hasVoted ? "pb-24" : ""}`}>
+    <div
+      className={`space-y-5 ${
+        !isSpectator && !state.hasVoted
+          ? "pb-[calc(var(--voice-chat-inset,0px)+5.5rem)]"
+          : ""
+      }`}
+    >
       <div className="text-center">
         <p className="text-sm text-on-pitch-muted">
           {isSpectator
@@ -201,7 +207,10 @@ export function VoteView({
       </div>
 
       {!isSpectator && !state.hasVoted && (
-        <div className="fixed bottom-0 left-0 right-0 border-t border-off-white/8 bg-pitch-dark/90 px-4 py-4 backdrop-blur-md">
+        <div
+          className="fixed left-0 right-0 z-30 border-t border-off-white/8 bg-pitch-dark/90 px-4 py-4 backdrop-blur-md"
+          style={{ bottom: "var(--voice-chat-inset, 0px)" }}
+        >
           <div className="mx-auto max-w-4xl">
             <Button
               className="w-full"

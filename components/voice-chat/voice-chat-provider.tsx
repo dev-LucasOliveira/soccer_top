@@ -108,12 +108,10 @@ function buildParticipantList(
 export function VoiceChatProvider({
   sessionCode,
   participantId,
-  sessionCompleted = false,
   children,
 }: {
   sessionCode: string;
   participantId: string | null;
-  sessionCompleted?: boolean;
   children: ReactNode;
 }) {
   const roomRef = useRef<Room | null>(null);
@@ -145,7 +143,6 @@ export function VoiceChatProvider({
   const canJoin = Boolean(
     participantId &&
       availability.enabled &&
-      !sessionCompleted &&
       status !== "connected" &&
       status !== "connecting" &&
       status !== "requesting-permission" &&
@@ -156,9 +153,7 @@ export function VoiceChatProvider({
     ? "Entre na sala com seu nome para habilitar o áudio."
     : !availability.enabled
       ? "Voice chat temporariamente indisponível."
-      : sessionCompleted
-        ? "Partida encerrada."
-        : undefined;
+      : undefined;
 
   const refreshParticipants = useCallback(() => {
     const room = roomRef.current;
@@ -539,17 +534,10 @@ export function VoiceChatProvider({
   }, [refreshAvailability]);
 
   useEffect(() => {
-    if (sessionCompleted && roomRef.current) {
-      void leaveVoice();
-    }
-  }, [leaveVoice, sessionCompleted]);
-
-  useEffect(() => {
     if (
       autoJoinAttemptedRef.current ||
       !participantId ||
       !availability.enabled ||
-      sessionCompleted ||
       roomRef.current ||
       status === "connected" ||
       status === "connecting"
@@ -561,7 +549,7 @@ export function VoiceChatProvider({
       autoJoinAttemptedRef.current = true;
       void joinVoice();
     }
-  }, [availability.enabled, joinVoice, participantId, sessionCompleted, status]);
+  }, [availability.enabled, joinVoice, participantId, status]);
 
   useEffect(() => {
     refreshParticipants();

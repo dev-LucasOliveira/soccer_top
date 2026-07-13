@@ -84,6 +84,18 @@ export async function GET(request: Request, context: RouteContext) {
       return NextResponse.json({ error: "Sala não encontrada" }, { status: 404 });
     }
 
+    if (viewerParticipantId) {
+      const stillMember = session.participants.some(
+        (participant) => participant.id === viewerParticipantId
+      );
+      if (!stillMember) {
+        return NextResponse.json(
+          { error: "Você foi removido desta sala", code: "removed" },
+          { status: 403 }
+        );
+      }
+    }
+
     if (
       session.status === "active" &&
       (session.gameMode === "duelo" || session.gameMode === "lista-secreta-mp")

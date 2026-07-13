@@ -1,3 +1,5 @@
+import { APP_NAME } from "@/lib/branding";
+
 export type ExportImageResult =
   | { status: "downloaded" }
   | { status: "shared" }
@@ -53,7 +55,7 @@ export async function shareImageBlob(blob: Blob, filename: string): Promise<bool
   try {
     await navigator.share({
       files: [file],
-      title: "Ranking da Resenha",
+      title: APP_NAME,
     });
     return true;
   } catch (error) {

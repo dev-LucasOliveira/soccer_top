@@ -24,7 +24,12 @@
     "db:validate-pool-filters": "tsx prisma/seed/validate-pool-filters.ts",
     "db:validate-guess-top": "tsx prisma/seed/validate-guess-top-challenges.ts",
     "db:validate-um-so-hints": "tsx prisma/seed/validate-um-so-hints.ts",
-    "db:sync-guess-top-players": "tsx prisma/seed/sync-guess-top-players.ts"
+    "test:um-so-hints": "tsx --test lib/um-so-hints.test.ts",
+    "test:voice-auth": "tsx --test lib/voice-auth.test.ts",
+    "test:session-moderation": "tsx --test lib/session-moderation.test.ts",
+    "db:sync-guess-top-players": "tsx prisma/seed/sync-guess-top-players.ts",
+    "db:cleanup-stale": "tsx prisma/seed/cleanup-stale-data.ts",
+    "test:session-activity": "tsx --test lib/session-activity.test.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

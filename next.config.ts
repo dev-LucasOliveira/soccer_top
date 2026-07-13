@@ -20,7 +20,7 @@ function getLocalNetworkHosts(): string[] {
 const nextConfig: NextConfig = {
   allowedDevOrigins: [
     "localhost",
-    "rankingdaresenha.vercel.app",
+    "semcriterio.vercel.app",
     ...getLocalNetworkHosts(),
     ...(process.env.DEV_ALLOWED_ORIGINS?.split(",")
       .map((value) => value.trim())

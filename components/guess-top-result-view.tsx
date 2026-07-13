@@ -6,6 +6,7 @@ import { Check, Download, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ExportImagePreviewDialog } from "@/components/export-image-preview-dialog";
 import { GUESS_TOP_MAX_ERRORS } from "@/lib/guess-top-challenges";
+import { APP_NAME } from "@/lib/branding";
 import { downloadGuessTopRecapImage } from "@/lib/export-results-image";
 import { loadGuessTopRecap } from "@/lib/guess-top-session";
 import { isoToLabel } from "@/lib/nationality-codes";
@@ -64,7 +65,7 @@ function RecapContent({
         <p className={cn("font-display text-off-white", compact ? "text-lg" : "text-2xl")}>
           {title}
         </p>
-        <p className="mt-1 text-xs text-on-pitch-muted">Lista Secreta — Ranking da Resenha</p>
+        <p className="mt-1 text-xs text-on-pitch-muted">Lista Secreta — {APP_NAME}</p>
       </div>
 
       <div className="grid grid-cols-2 gap-3">

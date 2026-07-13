@@ -1,3 +1,4 @@
+import { APP_NAME } from "@/lib/branding";
 import type { GameMode, PlayableGameMode } from "@/lib/types";
 
 export type HomeModeId =
@@ -34,7 +35,7 @@ export const GAME_MODES: GameModeConfig[] = [
     cardDescription:
       "Salas online com amigos — monte rankings, vote e compare no final.",
     panelDescription:
-      "O clássico Ranking da Resenha: crie uma sala, configure rodadas com temas e filtros, cada um monta seu Top N e vocês votam na melhor lista. Ideal para grupos que querem debater critério.",
+      `O clássico ${APP_NAME}: crie uma sala, configure rodadas com temas e filtros, cada um monta seu Top N e vocês votam na melhor lista. Ideal para grupos que querem debater critério.`,
     hint: "Você configura as rodadas no lobby antes de iniciar.",
     submitLabel: "Criar sala",
     icon: "trophy",

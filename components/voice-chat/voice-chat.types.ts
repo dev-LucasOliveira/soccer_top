@@ -52,6 +52,40 @@ export type VoiceTokenResponse = {
 export const VOICE_AUTO_JOIN_KEY = "voice-chat-auto-join";
 export const VOICE_DOCK_COLLAPSED_KEY = "voice-chat-dock-collapsed";
 export const VOICE_VOLUME_PREFIX = "voice-volume:";
+export const VOICE_CHAT_INSET_CSS_VAR = "--voice-chat-inset";
+export const VOICE_CHAT_INSET_MARGIN_PX = 12;
+
+export const GAMEPLAY_VOICE_ROUTE_SUFFIXES = [
+  "/vote",
+  "/pick",
+  "/reveal",
+  "/duelo",
+  "/lista-secreta",
+] as const;
+
+export function isGameplayVoiceRoute(pathname: string): boolean {
+  return GAMEPLAY_VOICE_ROUTE_SUFFIXES.some((suffix) =>
+    pathname.endsWith(suffix)
+  );
+}
+
+export function setVoiceChatInset(px: number) {
+  if (typeof document === "undefined") return;
+  document.documentElement.style.setProperty(VOICE_CHAT_INSET_CSS_VAR, `${px}px`);
+}
+
+export function clearVoiceChatInset() {
+  setVoiceChatInset(0);
+}
+
+export function readVoiceChatInset(): number {
+  if (typeof document === "undefined") return 0;
+  const raw = getComputedStyle(document.documentElement).getPropertyValue(
+    VOICE_CHAT_INSET_CSS_VAR
+  );
+  const value = Number.parseFloat(raw);
+  return Number.isFinite(value) ? value : 0;
+}
 
 export function getStoredParticipantVolume(participantId: string): number {
   if (typeof window === "undefined") return 1;

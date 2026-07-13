@@ -8,7 +8,7 @@ import type { TopItem } from "@/lib/types";
 
 export const CONFIRM_RANKING_COPY = {
   title: "Confirmou a lista fora de ordem, né?",
-  body: "A galera da resenha não vai perdoar, fica ligado!",
+  body: "Sem Critério não perdoa lista fora de ordem — confere de novo!",
   previewLabel: "Ordem atual:",
   cancel: "Cancelar",
   confirm: "Pode mandar",

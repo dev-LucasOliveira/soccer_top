@@ -6,6 +6,7 @@ import { Check, Download, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ExportImagePreviewDialog } from "@/components/export-image-preview-dialog";
 import { downloadUmSoRecapImage } from "@/lib/export-results-image";
+import { APP_NAME } from "@/lib/branding";
 import { loadUmSoRecap } from "@/lib/um-so-session";
 import type { UmSoGameRecap, UmSoRoundRecap } from "@/lib/um-so-types";
 import { cn } from "@/lib/utils";
@@ -58,7 +59,7 @@ function RecapContent({
         <p className={cn("font-display text-off-white", compact ? "text-lg" : "text-2xl")}>
           Não foi dessa vez
         </p>
-        <p className="mt-1 text-xs text-on-pitch-muted">Um Só — Ranking da Resenha</p>
+        <p className="mt-1 text-xs text-on-pitch-muted">Um Só — {APP_NAME}</p>
       </div>
 
       <div className="grid grid-cols-3 gap-3">

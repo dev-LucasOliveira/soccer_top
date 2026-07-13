@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { ExportImagePreviewDialog } from "@/components/export-image-preview-dialog";
 import { downloadDueloRecapImage } from "@/lib/export-results-image";
+import { APP_NAME } from "@/lib/branding";
 import type { DueloRoundRecap, DueloSessionResult } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -84,7 +85,7 @@ function RecapContent({
               ? `${winner.displayName} venceu`
               : "Resultado final"}
         </p>
-        <p className="mt-1 text-xs text-on-pitch-muted">Duelo — Ranking da Resenha</p>
+        <p className="mt-1 text-xs text-on-pitch-muted">Duelo — {APP_NAME}</p>
       </div>
 
       <div className="grid grid-cols-2 gap-3">

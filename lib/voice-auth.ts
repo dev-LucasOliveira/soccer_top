@@ -10,6 +10,42 @@ const MULTIPLAYER_MODES: GameMode[] = [
   "lista-secreta-mp",
 ];
 
+export type VoiceAuthParticipant = {
+  id: string;
+  guestToken: string | null;
+  status: string;
+};
+
+export type VoiceAuthSession = {
+  gameMode: string;
+  status: string;
+  participants: VoiceAuthParticipant[];
+};
+
+export function resolveVoiceParticipantAccess(
+  session: VoiceAuthSession,
+  participantId: string,
+  guestToken: string
+) {
+  if (!MULTIPLAYER_MODES.includes(session.gameMode as GameMode)) {
+    throw new Error("Voice chat disponível apenas em salas multiplayer");
+  }
+
+  const participant = session.participants.find((p) => p.id === participantId);
+  if (!participant) {
+    throw new Error("Participante não pertence a esta sala");
+  }
+
+  if (participant.guestToken !== guestToken) {
+    throw new Error("Não autorizado");
+  }
+
+  return {
+    participant,
+    canPublish: !isSpectator(participant),
+  };
+}
+
 export async function assertVoiceParticipant(
   sessionCode: string,
   participantId: string,
@@ -31,26 +67,20 @@ export async function assertVoiceParticipant(
     throw new Error("Sala não encontrada");
   }
 
-  if (!MULTIPLAYER_MODES.includes(session.gameMode as GameMode)) {
-    throw new Error("Voice chat disponível apenas em salas multiplayer");
-  }
-
-  if (session.status === "completed") {
-    throw new Error("Sala encerrada");
-  }
+  const { canPublish } = resolveVoiceParticipantAccess(
+    session,
+    participantId,
+    guestToken
+  );
 
   const participant = session.participants.find((p) => p.id === participantId);
   if (!participant) {
     throw new Error("Participante não pertence a esta sala");
   }
 
-  if (participant.guestToken !== guestToken) {
-    throw new Error("Não autorizado");
-  }
-
   return {
     session,
     participant,
-    canPublish: !isSpectator(participant),
+    canPublish,
   };
 }

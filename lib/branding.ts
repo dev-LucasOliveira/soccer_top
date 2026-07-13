@@ -1,2 +1,2 @@
-export const APP_NAME = "Ranking da Resenha";
-export const APP_SLOGAN = "O critério é não ter critério";
+export const APP_NAME = "Sem Critério";
+export const APP_SLOGAN = "O jogo de quem acha que entende";

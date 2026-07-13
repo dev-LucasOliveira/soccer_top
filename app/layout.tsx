@@ -1,10 +1,16 @@
-import type { Metadata, Viewport } from "next";
-import { DM_Serif_Display, Geist, Geist_Mono } from "next/font/google";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { APP_NAME, APP_SLOGAN } from "@/lib/branding";
+import { DM_Serif_Display, Geist, Geist_Mono } from "next/font/google";
+import { APP_NAME } from "@/lib/branding";
 import { AppIcon } from "@/components/app-icon";
+import { JsonLd } from "@/components/seo/json-ld";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
+import {
+  buildRootMetadata,
+  buildWebApplicationJsonLd,
+  buildWebSiteJsonLd,
+} from "@/lib/seo";
 import { THEME_STORAGE_KEY } from "@/lib/theme";
 import "./globals.css";
 
@@ -24,12 +30,9 @@ const dmSerif = DM_Serif_Display({
   weight: "400",
 });
 
-export const metadata: Metadata = {
-  title: APP_NAME,
-  description: APP_SLOGAN,
-};
+export const metadata: Metadata = buildRootMetadata();
 
-export const viewport: Viewport = {
+export const viewport = {
   width: "device-width",
   initialScale: 1,
 };
@@ -50,6 +53,7 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <JsonLd data={[buildWebSiteJsonLd(), buildWebApplicationJsonLd()]} />
       </head>
       <body className="flex min-h-full flex-col" suppressHydrationWarning>
         <ThemeProvider>

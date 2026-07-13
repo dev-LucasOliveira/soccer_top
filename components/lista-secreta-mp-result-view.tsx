@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { ExportImagePreviewDialog } from "@/components/export-image-preview-dialog";
 import { downloadListaSecretaMpRecapImage } from "@/lib/export-results-image";
+import { APP_NAME } from "@/lib/branding";
 import type {
   ListaSecretaMpRoundRecap,
   ListaSecretaMpSessionResult,
@@ -85,7 +86,7 @@ function RecapContent({
               : "Resultado final"}
         </p>
         <p className="mt-1 text-xs text-on-pitch-muted">
-          Lista Secreta 1v1 — Ranking da Resenha
+          Lista Secreta 1v1 — {APP_NAME}
         </p>
       </div>
 

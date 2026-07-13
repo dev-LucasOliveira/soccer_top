@@ -76,7 +76,7 @@ export function getInsecureContextError(): VoiceChatError {
   return {
     code: "insecure_context",
     message:
-      "Microfone indisponível em HTTP pelo IP da rede. Use https://rankingdaresenha.vercel.app ou localhost no Mac.",
+      "Microfone indisponível em HTTP pelo IP da rede. Use https://semcriterio.vercel.app ou localhost no Mac.",
   };
 }
 

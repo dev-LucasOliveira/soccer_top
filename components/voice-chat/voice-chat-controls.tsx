@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import {
   ChevronDown,
   ChevronUp,
@@ -20,10 +21,14 @@ import { useVoiceChat } from "./voice-chat-provider";
 import { VoiceParticipants } from "./voice-participants";
 import { VoiceUnavailableBanner } from "./voice-unavailable-banner";
 import {
+  clearVoiceChatInset,
   getDefaultVoiceDockCollapsed,
   getVoiceDockCollapsed,
+  isGameplayVoiceRoute,
   isTouchPrimaryDevice,
+  setVoiceChatInset,
   setVoiceDockCollapsed,
+  VOICE_CHAT_INSET_MARGIN_PX,
 } from "./voice-chat.types";
 
 function statusLabel(status: string, isMicrophoneEnabled: boolean) {
@@ -57,6 +62,8 @@ function shortStatusLabel(status: string, isMicrophoneEnabled: boolean) {
 }
 
 export function VoiceChatControls() {
+  const pathname = usePathname();
+  const dockRef = useRef<HTMLDivElement>(null);
   const {
     status,
     availability,
@@ -86,6 +93,32 @@ export function VoiceChatControls() {
   const forceExpanded = Boolean(error) || !availability.enabled || status === "error";
   const showCollapsed = isConnected && isCollapsed && !forceExpanded;
 
+  useEffect(() => {
+    if (!isGameplayVoiceRoute(pathname)) return;
+    setIsCollapsed(true);
+    setVoiceDockCollapsed(true);
+  }, [pathname]);
+
+  useEffect(() => {
+    const element = dockRef.current;
+    if (!element) return;
+
+    function syncInset() {
+      const height = element?.getBoundingClientRect().height ?? 0;
+      setVoiceChatInset(height > 0 ? height + VOICE_CHAT_INSET_MARGIN_PX : 0);
+    }
+
+    syncInset();
+
+    const observer = new ResizeObserver(syncInset);
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+      clearVoiceChatInset();
+    };
+  }, [showCollapsed, forceExpanded, availability.enabled, status, error]);
+
   function expandDock() {
     setIsCollapsed(false);
     setVoiceDockCollapsed(false);
@@ -97,18 +130,18 @@ export function VoiceChatControls() {
   }
 
   const dockPositionClass = showCollapsed
-    ? "fixed bottom-3 inset-x-3 z-40 md:inset-x-auto md:right-4 md:w-auto"
-    : "fixed bottom-4 inset-x-3 z-40 flex w-auto flex-col gap-2 md:inset-x-auto md:right-4 md:w-[min(100vw-2rem,22rem)]";
+    ? "fixed bottom-3 right-3 left-auto z-40 w-auto md:right-4"
+    : "fixed bottom-4 right-3 left-auto z-40 flex w-[min(100vw-1.5rem,22rem)] flex-col gap-2 md:right-4";
 
   return (
-    <div className={cn("pointer-events-none", dockPositionClass)}>
+    <div ref={dockRef} className={cn("pointer-events-none", dockPositionClass)}>
       <div className="pointer-events-auto mb-2 md:mb-0">
         <VoiceUnavailableBanner />
       </div>
 
       {showCollapsed ? (
         <div
-          className="pointer-events-auto flex items-center gap-2 rounded-2xl border border-off-white/10 bg-pitch/90 px-3 py-2.5 shadow-2xl backdrop-blur-md"
+          className="pointer-events-auto flex max-w-[calc(100vw-1.5rem)] items-center gap-2 rounded-2xl border border-off-white/10 bg-pitch/90 px-3 py-2.5 shadow-2xl backdrop-blur-md"
           role="region"
           aria-label="Voice chat minimizado"
         >
@@ -180,7 +213,8 @@ export function VoiceChatControls() {
         <div
           className={cn(
             "pointer-events-auto rounded-2xl border border-off-white/10 bg-pitch/90 p-3 shadow-2xl backdrop-blur-md",
-            isConnected && "max-h-[45vh] overflow-y-auto md:max-h-none md:overflow-visible"
+            isConnected &&
+              "max-h-[min(45vh,16rem)] overflow-y-auto md:max-h-none md:overflow-visible"
           )}
           role="region"
           aria-label="Voice chat"

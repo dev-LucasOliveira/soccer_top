@@ -47,7 +47,6 @@ const UM_SO_CLUB_LADDER: UmSoHintKind[] = [
 ];
 
 const UM_SO_NATIONALITY_POSITION_LADDER: UmSoHintKind[] = [
-  "career",
   "career_start",
   "career_end",
   "primary_club",
@@ -265,6 +264,44 @@ export function isHintRedundant(
   return false;
 }
 
+export function isHintSemanticallyRedundant(
+  kind: UmSoHintKind,
+  acceptedSteps: UmSoHintStep[],
+  player: UmSoPlayerForHints,
+  challenge: GuessTopChallengeResolved
+): boolean {
+  const acceptedKinds = new Set(acceptedSteps.map((step) => step.kind));
+
+  if (
+    (kind === "career_start" || kind === "career_end") &&
+    acceptedKinds.has("career")
+  ) {
+    return true;
+  }
+
+  if (
+    kind === "career" &&
+    acceptedKinds.has("career_start") &&
+    acceptedKinds.has("career_end")
+  ) {
+    return true;
+  }
+
+  if (kind === "primary_club_era" && acceptedKinds.has("career")) {
+    const text = resolveHintText(kind, player, challenge.searchFilters);
+    const careerText = resolveHintText("career", player, challenge.searchFilters);
+    if (
+      text &&
+      careerText &&
+      text === formatClubEra("Carreira", player.careerStart, player.careerEnd)
+    ) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 export function getHintOrder(
   challenge: GuessTopChallengeResolved
 ): UmSoHintKind[] {
@@ -299,6 +336,7 @@ export function buildHintLadder(
 
   for (const kind of order) {
     if (isHintRedundant(kind, player, challenge)) continue;
+    if (isHintSemanticallyRedundant(kind, steps, player, challenge)) continue;
 
     const text = resolveHintText(kind, player, challenge.searchFilters);
     if (!text) continue;

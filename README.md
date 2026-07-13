@@ -1,6 +1,6 @@
-# Soccer Top
+# Soccer Top (Sem Critério)
 
-MVP multiplayer assíncrono para montar e comparar tops de jogadores de futebol.
+MVP multiplayer assíncrono para montar e comparar tops de jogadores de futebol — [Sem Critério](https://semcriterio.vercel.app): *O jogo de quem acha que entende*.
 
 ## Como funciona
 
@@ -68,8 +68,17 @@ npm run db:deploy
 
 - `DATABASE_URL` — pooler, porta **6543** (runtime)
 - `DIRECT_URL` — session pooler, porta **5432** (migrações locais). Evite `db.[ref].supabase.co` na Vercel se não tiver IPv4 add-on no Supabase.
+- `NEXT_PUBLIC_SITE_URL` — URL canônica do site (ex.: `https://semcriterio.vercel.app`). Usada em metadata, sitemap, Open Graph e links canônicos.
 
 Se o build antigo falhou com `P1001: Can't reach database server`, era o `migrate deploy` tentando abrir Postgres durante o build — isso não acontece mais no script padrão.
+
+## SEO e discoverability
+
+- **Google Search Console**: adicione a propriedade com a URL de produção (`NEXT_PUBLIC_SITE_URL`). Verifique via meta tag `google-site-verification` em `app/layout.tsx` ou registro DNS quando tiver domínio próprio.
+- **Sitemap**: gerado em `/sitemap.xml` (rotas públicas estáticas).
+- **Robots**: `/robots.txt` bloqueia salas privadas (`/s/*`), API e gameplay solo em andamento.
+- **llms.txt**: `/llms.txt` descreve o produto para IAs (ChatGPT, Gemini, Perplexity).
+- **Domínio próprio**: atualize `NEXT_PUBLIC_SITE_URL`, configure redirect 301 da URL Vercel e reenvie o sitemap no GSC.
 
 - Supabase free pausa após ~7 dias sem uso (primeiro acesso depois disso demora alguns segundos)
 - Sessions locais antigas (`dev.db`) não migram — produção começa zerada

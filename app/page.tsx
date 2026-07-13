@@ -1,5 +1,13 @@
 import { HomePlayStyleForm } from "@/components/home-play-style-form";
-import { APP_SLOGAN } from "@/lib/branding";
+import { HomeSeoSection } from "@/components/seo/home-seo-section";
+import { APP_NAME, APP_SLOGAN } from "@/lib/branding";
+import { buildPageMetadata } from "@/lib/seo";
+
+export const metadata = buildPageMetadata({
+  title: "Jogo de futebol online multiplayer — quiz e rankings com amigos",
+  description: `${APP_SLOGAN}. Crie salas grátis, monte Top N de jogadores, vote com amigos e jogue modos solo no ${APP_NAME}.`,
+  path: "/",
+});
 
 export default function HomePage() {
   return (
@@ -10,6 +18,9 @@ export default function HomePage() {
       />
 
       <div className="relative mb-10 text-center">
+        <h1 className="sr-only">
+          {APP_NAME} — {APP_SLOGAN}
+        </h1>
         <p className="font-display text-2xl text-off-white/95 sm:text-3xl">
           {APP_SLOGAN}
         </p>
@@ -21,6 +32,8 @@ export default function HomePage() {
       <div className="relative">
         <HomePlayStyleForm />
       </div>
+
+      <HomeSeoSection />
     </main>
   );
 }

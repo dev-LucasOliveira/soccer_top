@@ -19,9 +19,13 @@ import { MIN_DUELO_PLAYERS } from "@/lib/duelo-constants";
 import { MIN_LSMP_PLAYERS } from "@/lib/lista-secreta-mp-constants";
 import { formatPickTimeLimit } from "@/lib/pick-time-limit";
 import { getGuestToken } from "@/lib/guest";
-import { Copy, Check, Users, Share2, ListOrdered } from "lucide-react";
+import { Copy, Check, Users, Share2, ListOrdered, UserMinus } from "lucide-react";
 import { describeSessionFilters } from "@/lib/session-info";
 import { getPlayers } from "@/lib/participants";
+import {
+  handleRemovedFromSession,
+  isRemovedFromSessionResponse,
+} from "@/lib/session-membership";
 import type {
   CurrentRound,
   RoundSummary,
@@ -122,6 +126,10 @@ export function SessionLobby({
   const [restartError, setRestartError] = useState("");
   const [returningToLobby, setReturningToLobby] = useState(false);
   const [returnToLobbyError, setReturnToLobbyError] = useState("");
+  const [removingParticipantId, setRemovingParticipantId] = useState<string | null>(
+    null
+  );
+  const [removeParticipantError, setRemoveParticipantError] = useState("");
 
   const fetchSession = async () => {
     try {
@@ -130,6 +138,10 @@ export function SessionLobby({
         : "";
       const res = await fetch(`/api/sessions/${code}${params}`);
       const data = await res.json();
+      if (isRemovedFromSessionResponse(res, data)) {
+        handleRemovedFromSession(code, router);
+        return;
+      }
       if (res.ok) {
         setSession(data);
         if (data.status === "completed") {
@@ -224,6 +236,43 @@ export function SessionLobby({
       );
     } finally {
       setReturningToLobby(false);
+    }
+  }
+
+  async function handleRemoveParticipant(
+    targetParticipantId: string,
+    displayName: string
+  ) {
+    if (!participantId || !session?.isCreator) return;
+    if (
+      !window.confirm(`Remover ${displayName} da sala? Essa pessoa precisará entrar de novo.`)
+    ) {
+      return;
+    }
+
+    setRemovingParticipantId(targetParticipantId);
+    setRemoveParticipantError("");
+
+    try {
+      const res = await fetch(`/api/sessions/${code}/remove-participant`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          participantId,
+          guestToken: getGuestToken(),
+          targetParticipantId,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+
+      await fetchSession();
+    } catch (err) {
+      setRemoveParticipantError(
+        err instanceof Error ? err.message : "Erro ao remover participante"
+      );
+    } finally {
+      setRemovingParticipantId(null);
     }
   }
 
@@ -644,12 +693,32 @@ export function SessionLobby({
                   <span className="ml-2 text-xs text-gold-dark">criador</span>
                 )}
               </span>
-              <Badge variant={participantBadgeVariant(p)} className="self-start sm:self-auto">
-                {participantBadge(p)}
-              </Badge>
+              <div className="flex items-center gap-2 self-start sm:self-auto">
+                <Badge variant={participantBadgeVariant(p)}>
+                  {participantBadge(p)}
+                </Badge>
+                {session.isCreator && p.id !== participantId && (
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    disabled={removingParticipantId === p.id}
+                    onClick={() => handleRemoveParticipant(p.id, p.displayName)}
+                    className="text-red-400 hover:bg-red-500/10 hover:text-red-300"
+                  >
+                    <UserMinus size={14} aria-hidden />
+                    {removingParticipantId === p.id ? "Removendo..." : "Remover"}
+                  </Button>
+                )}
+              </div>
             </div>
           ))}
         </div>
+        {removeParticipantError && (
+          <p className="mt-3 text-center text-sm text-red-400">
+            {removeParticipantError}
+          </p>
+        )}
         {session.participants.length < minPlayers && !isLobby && (
           <p className="mt-3 alert-banner px-3 py-2 text-xs">
             {isDuelo

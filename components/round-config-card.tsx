@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
@@ -7,6 +8,10 @@ import { Badge } from "@/components/ui/badge";
 import { RoundFiltersSection } from "@/components/round-filters-section";
 import type { RoundConfig } from "@/lib/types";
 import { Trash2 } from "lucide-react";
+
+function clampTopN(value: number) {
+  return Math.min(50, Math.max(1, value));
+}
 
 export function RoundConfigCard({
   round,
@@ -26,6 +31,28 @@ export function RoundConfigCard({
   readOnly?: boolean;
 }) {
   const filters = round.filters ?? {};
+  const [topNDraft, setTopNDraft] = useState(String(round.topN));
+
+  useEffect(() => {
+    setTopNDraft(String(round.topN));
+  }, [round.topN]);
+
+  function commitTopN(raw: string) {
+    if (raw === "") {
+      setTopNDraft(String(round.topN));
+      return;
+    }
+
+    const parsed = Number.parseInt(raw, 10);
+    if (Number.isNaN(parsed)) {
+      setTopNDraft(String(round.topN));
+      return;
+    }
+
+    const nextTopN = clampTopN(parsed);
+    setTopNDraft(String(nextTopN));
+    onChange({ ...round, topN: nextTopN });
+  }
 
   return (
     <Card className="space-y-4">
@@ -66,10 +93,18 @@ export function RoundConfigCard({
           type="number"
           min={1}
           max={50}
-          value={round.topN}
-          onChange={(e) =>
-            onChange({ ...round, topN: parseInt(e.target.value) || 10 })
-          }
+          value={topNDraft}
+          onChange={(e) => {
+            const raw = e.target.value;
+            setTopNDraft(raw);
+            if (raw === "") return;
+
+            const parsed = Number.parseInt(raw, 10);
+            if (!Number.isNaN(parsed)) {
+              onChange({ ...round, topN: clampTopN(parsed) });
+            }
+          }}
+          onBlur={() => commitTopN(topNDraft)}
           required
           disabled={readOnly}
         />
