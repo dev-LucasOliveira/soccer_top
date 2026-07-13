@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { useSession } from "next-auth/react";
 import { Check, Download, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ExportImagePreviewDialog } from "@/components/export-image-preview-dialog";
@@ -146,6 +147,8 @@ export function GuessTopResultView({
   const [previewUrl, setPreviewUrl] = useState("");
   const [previewFilename, setPreviewFilename] = useState("");
   const [previewBlob, setPreviewBlob] = useState<Blob | null>(null);
+  const recordedRef = useRef(false);
+  const { status: authStatus } = useSession();
 
   useEffect(() => {
     setRecap(loadGuessTopRecap());
@@ -158,6 +161,29 @@ export function GuessTopResultView({
     reason: fallbackReason,
     rounds: [],
   };
+
+  useEffect(() => {
+    if (authStatus !== "authenticated" || recordedRef.current || !ready) return;
+
+    recordedRef.current = true;
+    fetch("/api/solo/guess/complete", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        topsCompleted: displayRecap.topsCompleted,
+        errorsUsed: displayRecap.errorsUsed,
+        reason: displayRecap.reason,
+      }),
+    }).catch(() => {
+      recordedRef.current = false;
+    });
+  }, [
+    authStatus,
+    ready,
+    displayRecap.topsCompleted,
+    displayRecap.errorsUsed,
+    displayRecap.reason,
+  ]);
 
   async function handleExport() {
     if (!exportRef.current) return;

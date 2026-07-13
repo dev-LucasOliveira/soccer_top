@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { DM_Serif_Display, Geist, Geist_Mono } from "next/font/google";
-import { APP_NAME } from "@/lib/branding";
-import { AppIcon } from "@/components/app-icon";
+import { AuthSessionProvider } from "@/components/session-provider";
 import { JsonLd } from "@/components/seo/json-ld";
+import { SiteHeader } from "@/components/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeToggle } from "@/components/theme-toggle";
 import {
   buildRootMetadata,
   buildWebApplicationJsonLd,
@@ -57,23 +55,10 @@ export default function RootLayout({
       </head>
       <body className="flex min-h-full flex-col" suppressHydrationWarning>
         <ThemeProvider>
-          <header className="site-header sticky top-0 z-50">
-            <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
-              <Link
-                href="/"
-                className="flex items-center gap-2.5 font-display text-lg tracking-tight"
-              >
-                <span className="flex h-8 w-8 items-center justify-center rounded-full">
-                  <AppIcon size={18} />
-                </span>
-                {APP_NAME}
-              </Link>
-              <div className="flex items-center gap-3">
-                <ThemeToggle />
-              </div>
-            </div>
-          </header>
-          <div className="pitch-bg flex-1">{children}</div>
+          <AuthSessionProvider>
+            <SiteHeader />
+            <div className="pitch-bg flex-1">{children}</div>
+          </AuthSessionProvider>
         </ThemeProvider>
       </body>
     </html>

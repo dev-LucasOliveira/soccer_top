@@ -22,6 +22,10 @@ import {
   parseListAliases,
 } from "@/lib/voting";
 import { getPlayers, isSpectator } from "@/lib/participants";
+import {
+  recordRankingSessionMatch,
+  safeRecordMatch,
+} from "@/lib/match-recording";
 import type {
   AnonymousList,
   PlayableGameMode,
@@ -286,6 +290,10 @@ async function advanceRankingSession(
             update: { data: JSON.stringify(finalResult) },
           }),
         ]);
+
+        await safeRecordMatch(() =>
+          recordRankingSessionMatch(sessionFull.id, finalResult)
+        );
       } else {
         await prisma.$transaction([
           prisma.round.update({

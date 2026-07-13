@@ -511,6 +511,8 @@ export async function applyDueloPick(
     }
   }
 
+  let dueloMatchResult: DueloSessionResult | null = null;
+
   await prisma.$transaction(async (tx) => {
     await tx.pick.create({
       data: {
@@ -530,9 +532,18 @@ export async function applyDueloPick(
     });
 
     if (sessionCompleted) {
-      await finalizeDueloSessionIfNeeded(tx, session.id, true);
+      dueloMatchResult = await finalizeDueloSessionIfNeeded(tx, session.id, true);
     }
   });
+
+  if (dueloMatchResult) {
+    const { recordDueloSessionMatch, safeRecordMatch } = await import(
+      "@/lib/match-recording"
+    );
+    await safeRecordMatch(() =>
+      recordDueloSessionMatch(session.id, dueloMatchResult!)
+    );
+  }
 
   if (nextRoundNumber && !sessionCompleted) {
     const refreshed = await getSessionOrThrow(sessionCode);
@@ -561,8 +572,8 @@ async function finalizeDueloSessionIfNeeded(
   tx: Parameters<Parameters<typeof prisma.$transaction>[0]>[0],
   sessionId: string,
   sessionCompleted: boolean
-) {
-  if (!sessionCompleted) return;
+): Promise<DueloSessionResult | null> {
+  if (!sessionCompleted) return null;
 
   const updatedSession = await tx.session.findUnique({
     where: { id: sessionId },
@@ -573,7 +584,7 @@ async function finalizeDueloSessionIfNeeded(
     },
   });
 
-  if (!updatedSession) return;
+  if (!updatedSession) return null;
 
   const result = buildDueloSessionResult(updatedSession);
   await tx.session.update({
@@ -585,6 +596,8 @@ async function finalizeDueloSessionIfNeeded(
     create: { sessionId, data: JSON.stringify(result) },
     update: { data: JSON.stringify(result) },
   });
+
+  return result;
 }
 
 export async function applyDueloTimeout(
@@ -659,6 +672,8 @@ export async function applyDueloTimeout(
     sessionCompleted = true;
   }
 
+  let dueloTimeoutMatchResult: DueloSessionResult | null = null;
+
   await prisma.$transaction(async (tx) => {
     await tx.round.update({
       where: { id: currentRoundRecord.id },
@@ -668,8 +683,21 @@ export async function applyDueloTimeout(
       },
     });
 
-    await finalizeDueloSessionIfNeeded(tx, session.id, sessionCompleted);
+    dueloTimeoutMatchResult = await finalizeDueloSessionIfNeeded(
+      tx,
+      session.id,
+      sessionCompleted
+    );
   });
+
+  if (dueloTimeoutMatchResult) {
+    const { recordDueloSessionMatch, safeRecordMatch } = await import(
+      "@/lib/match-recording"
+    );
+    await safeRecordMatch(() =>
+      recordDueloSessionMatch(session.id, dueloTimeoutMatchResult!)
+    );
+  }
 
   if (nextRoundNumber && !sessionCompleted) {
     const refreshed = await getSessionOrThrow(sessionCode);

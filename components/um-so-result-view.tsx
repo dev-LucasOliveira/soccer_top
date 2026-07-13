@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { useSession } from "next-auth/react";
 import { Check, Download, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ExportImagePreviewDialog } from "@/components/export-image-preview-dialog";
@@ -126,6 +127,8 @@ export function UmSoResultView({
   const [previewUrl, setPreviewUrl] = useState("");
   const [previewFilename, setPreviewFilename] = useState("");
   const [previewBlob, setPreviewBlob] = useState<Blob | null>(null);
+  const recordedRef = useRef(false);
+  const { status: authStatus } = useSession();
 
   useEffect(() => {
     setRecap(loadUmSoRecap());
@@ -140,6 +143,31 @@ export function UmSoResultView({
     reason: "failed",
     rounds: [],
   };
+
+  useEffect(() => {
+    if (authStatus !== "authenticated" || recordedRef.current || !ready) return;
+
+    recordedRef.current = true;
+    fetch("/api/solo/um-so/complete", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        score: displayRecap.score,
+        bestStreak: displayRecap.bestStreak,
+        roundsCompleted: displayRecap.roundsCompleted,
+        reason: displayRecap.reason,
+      }),
+    }).catch(() => {
+      recordedRef.current = false;
+    });
+  }, [
+    authStatus,
+    ready,
+    displayRecap.score,
+    displayRecap.bestStreak,
+    displayRecap.roundsCompleted,
+    displayRecap.reason,
+  ]);
 
   async function handleExport() {
     if (!exportRef.current) return;

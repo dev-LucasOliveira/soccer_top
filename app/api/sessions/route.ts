@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createSessionCode } from "@/lib/guest";
 import { prisma } from "@/lib/db";
+import { getParticipantAuthContext } from "@/lib/participant-auth";
 import {
   getSessionTitleForMode,
   isPlayableGameMode,
@@ -22,6 +23,9 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
+
+    const authContext = await getParticipantAuthContext(displayName);
+    const resolvedDisplayName = authContext.displayName ?? displayName.trim();
 
     const mode: GameMode =
       gameMode === "lobby"
@@ -62,8 +66,9 @@ export async function POST(request: Request) {
           currentRoundNumber: 1,
           participants: {
             create: {
-              displayName: displayName.trim(),
+              displayName: resolvedDisplayName,
               guestToken: guestToken ?? null,
+              userId: authContext.userId,
               status: "building",
             },
           },

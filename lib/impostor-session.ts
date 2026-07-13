@@ -25,6 +25,10 @@ import type {
   ImpostorViewState,
   ImpostorVoteState,
 } from "@/lib/types";
+import {
+  recordImpostorSessionMatch,
+  safeRecordMatch,
+} from "@/lib/match-recording";
 
 export { getImpostorTargetRank, IMPOSTOR_TOTAL_ROUNDS, MIN_IMPOSTOR_PLAYERS };
 
@@ -663,6 +667,10 @@ export async function advanceImpostorSession(
             ]
           : []),
       ]);
+
+      await safeRecordMatch(() =>
+        recordImpostorSessionMatch(sessionFull.id, finalResult)
+      );
     } else {
       const nextRound = sessionFull.rounds.find(
         (round) => round.number === sessionFull.currentRoundNumber + 1

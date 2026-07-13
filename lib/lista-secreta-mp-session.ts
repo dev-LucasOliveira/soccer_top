@@ -583,6 +583,7 @@ export async function applyListaSecretaMpPick(
   let roundCompleted = false;
   let sessionCompleted = false;
   let nextRoundNumber: number | null = null;
+  let matchResultToRecord: ListaSecretaMpSessionResult | null = null;
 
   if (isCorrect && targetSlot) {
     nextPayload = {
@@ -667,6 +668,7 @@ export async function applyListaSecretaMpPick(
 
       if (updatedSession) {
         const result = buildListaSecretaMpSessionResult(updatedSession);
+        matchResultToRecord = result;
         await tx.session.update({
           where: { id: session.id },
           data: { status: "completed" },
@@ -679,6 +681,15 @@ export async function applyListaSecretaMpPick(
       }
     }
   });
+
+  if (matchResultToRecord) {
+    const { recordListaSecretaMpSessionMatch, safeRecordMatch } = await import(
+      "@/lib/match-recording"
+    );
+    await safeRecordMatch(() =>
+      recordListaSecretaMpSessionMatch(session.id, matchResultToRecord!)
+    );
+  }
 
   if (nextRoundNumber && !sessionCompleted) {
     const refreshed = await getSessionOrThrow(sessionCode);

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
+import { getParticipantAuthContext } from "@/lib/participant-auth";
 import { getPlayers, isSpectator } from "@/lib/participants";
 import { canJoinAsPlayer } from "@/lib/mode-constraints";
 
@@ -18,6 +19,9 @@ export async function POST(request: Request, context: RouteContext) {
       return NextResponse.json({ error: "Nome é obrigatório" }, { status: 400 });
     }
 
+    const authContext = await getParticipantAuthContext(displayName);
+    const resolvedDisplayName = authContext.displayName ?? displayName.trim();
+
     const session = await prisma.session.findUnique({
       where: { code },
       include: { participants: true },
@@ -32,6 +36,12 @@ export async function POST(request: Request, context: RouteContext) {
         (p) => p.guestToken === guestToken
       );
       if (existing) {
+        if (authContext.userId && !existing.userId) {
+          await prisma.participant.update({
+            where: { id: existing.id },
+            data: { userId: authContext.userId },
+          });
+        }
         return NextResponse.json({
           participantId: existing.id,
           displayName: existing.displayName,
@@ -58,8 +68,9 @@ export async function POST(request: Request, context: RouteContext) {
     const participant = await prisma.participant.create({
       data: {
         sessionId: session.id,
-        displayName: displayName.trim(),
+        displayName: resolvedDisplayName,
         guestToken: guestToken ?? null,
+        userId: authContext.userId,
         status: joinAsSpectator ? "spectator" : "building",
       },
     });

@@ -19,10 +19,11 @@
   --off-white: #ede6d6;
   --off-white-muted: #e0d5c2;
   --off-white-surface: #ede6d6;
-  --card-bg: #f5efe4;
+  --card-bg: #efe6d4;
   --card-border: #c4b49a;
-  --surface-elevated: #ffffff;
-  --surface-inset: #e0d5c2;
+  --surface-elevated: #ebe0cc;
+  --surface-inset: #ddd2bc;
+  --nav-sheet: #c4b49a;
   --text-primary: #2c2418;
   --text-muted: #5c4f3e;
   --alert-bg: #fef3c7;
@@ -50,6 +51,7 @@
   --card-border: rgba(197, 162, 93, 0.38);
   --surface-elevated: #2e2a22;
   --surface-inset: #353024;
+  --nav-sheet: #2e2a22;
   --text-primary: #f5efe4;
   --text-muted: #c4b8a8;
   --alert-bg: #3d2e14;
@@ -88,6 +90,7 @@
   --color-card-border: var(--card-border);
   --color-surface-elevated: var(--surface-elevated);
   --color-surface-inset: var(--surface-inset);
+  --color-nav-sheet: var(--nav-sheet);
   --color-text-muted: var(--text-muted);
   --color-header-bg: var(--header-bg);
   --color-header-border: var(--header-border);

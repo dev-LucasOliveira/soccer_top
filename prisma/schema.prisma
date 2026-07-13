@@ -71,6 +71,70 @@ model Round {
   @@index([sessionId])
 }
 
+model AppUser {
+  id          String    @id @default(cuid())
+  googleId    String    @unique
+  email       String    @unique
+  displayName String
+  username    String    @unique
+  usernameSet Boolean   @default(false)
+  avatarUrl   String?
+  createdAt   DateTime  @default(now())
+  lastSeenAt  DateTime?
+
+  participants        Participant[]
+  friendshipsSent     Friendship[]    @relation("sent")
+  friendshipsReceived Friendship[]    @relation("received")
+  matchRecords        MatchRecord[]
+  modeStats           UserModeStats[]
+}
+
+model Friendship {
+  id          String    @id @default(cuid())
+  requesterId String
+  addresseeId String
+  status      String
+  createdAt   DateTime  @default(now())
+  respondedAt DateTime?
+
+  requester AppUser @relation("sent", fields: [requesterId], references: [id], onDelete: Cascade)
+  addressee AppUser @relation("received", fields: [addresseeId], references: [id], onDelete: Cascade)
+
+  @@unique([requesterId, addresseeId])
+  @@index([addresseeId, status])
+}
+
+model MatchRecord {
+  id        String   @id @default(cuid())
+  userId    String
+  gameMode  String
+  sessionId String?
+  score     Int
+  placement Int?
+  metadata  String   @default("{}")
+  playedAt  DateTime @default(now())
+
+  user AppUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, gameMode, playedAt])
+  @@index([gameMode, score(sort: Desc)])
+}
+
+model UserModeStats {
+  id          String   @id @default(cuid())
+  userId      String
+  gameMode    String
+  gamesPlayed Int      @default(0)
+  wins        Int      @default(0)
+  totalScore  Int      @default(0)
+  bestScore   Int?
+  updatedAt   DateTime @updatedAt
+
+  user AppUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, gameMode])
+}
+
 model Participant {
   id          String    @id @default(cuid())
   sessionId   String
@@ -78,6 +142,7 @@ model Participant {
   displayName String
   status      String    @default("building")
   userId      String?
+  user        AppUser?  @relation(fields: [userId], references: [id], onDelete: SetNull)
   guestToken  String?
   joinedAt    DateTime  @default(now())
   confirmedAt DateTime?
@@ -86,6 +151,7 @@ model Participant {
 
   @@unique([sessionId, guestToken])
   @@index([sessionId])
+  @@index([userId])
 }
 
 model Pick {

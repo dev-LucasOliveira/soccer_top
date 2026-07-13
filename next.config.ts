@@ -18,6 +18,14 @@ function getLocalNetworkHosts(): string[] {
 }
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
+    ],
+  },
   allowedDevOrigins: [
     "localhost",
     "semcriterio.vercel.app",
