@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
@@ -10,11 +11,16 @@ import { buildParticipantPath } from "@/lib/session-info";
 
 export function JoinForm({ defaultCode }: { defaultCode?: string }) {
   const router = useRouter();
+  const { data: session, status } = useSession();
   const [code, setCode] = useState(defaultCode ?? "");
   const [displayName, setDisplayName] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
+
+  const isLoggedIn =
+    status === "authenticated" &&
+    Boolean(session?.user?.usernameSet && session.user.username);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -26,10 +32,17 @@ export function JoinForm({ defaultCode }: { defaultCode?: string }) {
       const sessionCode = code.trim().toLowerCase().replace(/.*\/s\//, "");
       const guestToken = getOrCreateGuestToken();
 
+      if (!isLoggedIn && !displayName.trim()) {
+        throw new Error("Nome é obrigatório");
+      }
+
       const res = await fetch(`/api/sessions/${sessionCode}/join`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ displayName, guestToken }),
+        body: JSON.stringify({
+          displayName: isLoggedIn ? undefined : displayName.trim(),
+          guestToken,
+        }),
       });
 
       const data = await res.json();
@@ -77,15 +90,22 @@ export function JoinForm({ defaultCode }: { defaultCode?: string }) {
           />
         </div>
 
-        <div>
-          <label className="mb-1 block text-sm font-medium">Seu nome</label>
-          <Input
-            value={displayName}
-            onChange={(e) => setDisplayName(e.target.value)}
-            placeholder="Como você quer aparecer"
-            required
-          />
-        </div>
+        {isLoggedIn ? (
+          <p className="text-sm text-text-muted">
+            Você entra como{" "}
+            <span className="text-foreground">@{session?.user?.username}</span>
+          </p>
+        ) : (
+          <div>
+            <label className="mb-1 block text-sm font-medium">Seu nome</label>
+            <Input
+              value={displayName}
+              onChange={(e) => setDisplayName(e.target.value)}
+              placeholder="Como você quer aparecer"
+              required
+            />
+          </div>
+        )}
 
         {error && <p className="text-sm text-red-600">{error}</p>}
         {notice && <p className="text-sm text-text-muted">{notice}</p>}

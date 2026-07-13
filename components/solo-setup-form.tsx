@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
@@ -18,7 +19,12 @@ import type { SessionFilters } from "@/lib/types";
 
 export function SoloSetupForm({ submitLabel = "Montar ranking" }: { submitLabel?: string }) {
   const router = useRouter();
+  const { data: session, status } = useSession();
   const existing = loadSoloDraft();
+
+  const isLoggedIn =
+    status === "authenticated" &&
+    Boolean(session?.user?.usernameSet && session.user.username);
 
   const [authorName, setAuthorName] = useState(
     existing?.authorName ?? getSoloDisplayName() ?? ""
@@ -28,18 +34,37 @@ export function SoloSetupForm({ submitLabel = "Montar ranking" }: { submitLabel?
   const [filters, setFilters] = useState<SessionFilters>(existing?.filters ?? {});
   const [error, setError] = useState("");
 
+  useEffect(() => {
+    if (isLoggedIn && session?.user?.username) {
+      setAuthorName(session.user.username);
+    }
+  }, [isLoggedIn, session?.user?.username]);
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
 
-    const setupError = validateSoloSetup({ authorName, title, topN });
+    const resolvedAuthor = isLoggedIn
+      ? session?.user?.username ?? authorName
+      : authorName;
+
+    const setupError = validateSoloSetup({
+      authorName: resolvedAuthor,
+      title,
+      topN,
+    });
     if (setupError) {
       setError(setupError);
       return;
     }
 
     try {
-      const draft = createEmptySoloDraft({ authorName, title, topN, filters });
+      const draft = createEmptySoloDraft({
+        authorName: resolvedAuthor,
+        title,
+        topN,
+        filters,
+      });
       const previous = loadSoloDraft();
 
       if (previous && soloSetupMatches(previous, draft)) {
@@ -63,15 +88,22 @@ export function SoloSetupForm({ submitLabel = "Montar ranking" }: { submitLabel?
   return (
     <Card>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="mb-1 block text-sm font-medium">Seu nome</label>
-          <Input
-            value={authorName}
-            onChange={(e) => setAuthorName(e.target.value)}
-            placeholder="Como você quer aparecer no ranking"
-            required
-          />
-        </div>
+        {isLoggedIn ? (
+          <p className="text-sm text-text-muted">
+            Ranking como{" "}
+            <span className="text-foreground">@{session?.user?.username}</span>
+          </p>
+        ) : (
+          <div>
+            <label className="mb-1 block text-sm font-medium">Seu nome</label>
+            <Input
+              value={authorName}
+              onChange={(e) => setAuthorName(e.target.value)}
+              placeholder="Como você quer aparecer no ranking"
+              required
+            />
+          </div>
+        )}
 
         <div>
           <label className="mb-1 block text-sm font-medium">Tema do ranking</label>

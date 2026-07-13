@@ -12,20 +12,21 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { displayName, guestToken, gameMode } = body as {
-      displayName: string;
+      displayName?: string;
       guestToken?: string;
       gameMode?: GameMode;
     };
 
-    if (!displayName?.trim()) {
+    const authContext = await getParticipantAuthContext();
+    const resolvedDisplayName =
+      authContext.displayName ?? displayName?.trim() ?? "";
+
+    if (!resolvedDisplayName) {
       return NextResponse.json(
         { error: "Nome é obrigatório" },
         { status: 400 }
       );
     }
-
-    const authContext = await getParticipantAuthContext(displayName);
-    const resolvedDisplayName = authContext.displayName ?? displayName.trim();
 
     const mode: GameMode =
       gameMode === "lobby"

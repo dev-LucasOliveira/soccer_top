@@ -5,19 +5,18 @@ export type ParticipantAuthContext = {
   displayName: string | null;
 };
 
-export async function getParticipantAuthContext(
-  requestedDisplayName?: string
-): Promise<ParticipantAuthContext> {
+/**
+ * Logged-in users always use their nickname (username).
+ * Guests get null here — callers must require a displayName from the client.
+ */
+export async function getParticipantAuthContext(): Promise<ParticipantAuthContext> {
   const user = await getCurrentUser();
   if (!user) {
     return { userId: null, displayName: null };
   }
 
-  const displayName =
-    requestedDisplayName?.trim() || user.displayName || user.username;
-
   return {
     userId: user.id,
-    displayName,
+    displayName: user.username || user.displayName,
   };
 }
