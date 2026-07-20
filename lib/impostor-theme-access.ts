@@ -51,7 +51,18 @@ export function maskThemeTitleForViewer(
 
 export const IMPOSTOR_SESSION_DISPLAY_TITLE = "Impostor";
 
-export function maskImpostorRoundTitle(
+export function maskImpostorRoundTitleForList(round: {
+  number: number;
+  title: string;
+  status: string;
+}): string {
+  if (round.status === "completed") {
+    return round.title;
+  }
+  return `Rodada ${round.number}`;
+}
+
+export function maskImpostorRoundTitleForViewer(
   round: { number: number; title: string; status: string },
   isImpostor: boolean
 ): string {
@@ -59,4 +70,12 @@ export function maskImpostorRoundTitle(
     return round.title;
   }
   return `Rodada ${round.number}`;
+}
+
+/** @deprecated Use maskImpostorRoundTitleForViewer or maskImpostorRoundTitleForList */
+export function maskImpostorRoundTitle(
+  round: { number: number; title: string; status: string },
+  isImpostor: boolean
+): string {
+  return maskImpostorRoundTitleForViewer(round, isImpostor);
 }

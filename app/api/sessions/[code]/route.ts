@@ -10,7 +10,8 @@ import { getImpostorTheme } from "@/lib/impostor-themes";
 import {
   IMPOSTOR_SESSION_DISPLAY_TITLE,
   isSessionImpostor,
-  maskImpostorRoundTitle,
+  maskImpostorRoundTitleForList,
+  maskImpostorRoundTitleForViewer,
 } from "@/lib/impostor-theme-access";
 import { buildDueloViewState } from "@/lib/duelo-session";
 import { buildListaSecretaMpViewState } from "@/lib/lista-secreta-mp-session";
@@ -202,7 +203,7 @@ export async function GET(request: Request, context: RouteContext) {
       session.gameMode === "impostor"
         ? session.rounds.map((round) => ({
             ...toRoundSummary(round),
-            title: maskImpostorRoundTitle(round, viewerIsImpostor),
+            title: maskImpostorRoundTitleForList(round),
           }))
         : session.rounds.map(toRoundSummary);
 
@@ -210,7 +211,7 @@ export async function GET(request: Request, context: RouteContext) {
       currentRound && session.gameMode === "impostor"
         ? {
             ...currentRound,
-            title: maskImpostorRoundTitle(
+            title: maskImpostorRoundTitleForViewer(
               {
                 number: currentRound.number,
                 title: currentRound.title,
@@ -242,9 +243,14 @@ export async function GET(request: Request, context: RouteContext) {
       totalRounds: configuredTotalRounds ?? session.rounds.length,
       createdAt: session.createdAt,
       creatorParticipantId: session.creatorParticipantId,
-      impostorThemeId: viewerIsImpostor ? null : session.impostorThemeId,
+      impostorThemeId:
+        session.gameMode === "impostor" || viewerIsImpostor
+          ? null
+          : session.impostorThemeId,
       impostorTheme:
-        viewerIsImpostor || !session.impostorThemeId
+        session.gameMode === "impostor" ||
+        viewerIsImpostor ||
+        !session.impostorThemeId
           ? null
           : getImpostorTheme(session.impostorThemeId),
       impostorThemeSelected: Boolean(session.impostorThemeId),

@@ -5,7 +5,7 @@ import { normalizeListMessage } from "@/lib/ranking-message";
 import { isSpectator } from "@/lib/participants";
 import {
   isSessionImpostor,
-  maskImpostorRoundTitle,
+  maskImpostorRoundTitleForViewer,
 } from "@/lib/impostor-theme-access";
 
 type RouteContext = { params: Promise<{ code: string }> };
@@ -50,7 +50,7 @@ export async function GET(request: Request, context: RouteContext) {
     );
     const roundTitle =
       session.gameMode === "impostor"
-        ? maskImpostorRoundTitle(currentRound, viewerIsImpostor)
+        ? maskImpostorRoundTitleForViewer(currentRound, viewerIsImpostor)
         : currentRound.title;
 
     if (isSpectator(participant)) {

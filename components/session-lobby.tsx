@@ -511,10 +511,16 @@ export function SessionLobby({
               >
                 <div>
                   <p className="text-sm font-medium text-foreground">
-                    Rodada {round.number}: {round.title}
+                    {isImpostor
+                      ? round.status === "completed"
+                        ? `Rodada ${round.number}: ${round.title}`
+                        : round.title
+                      : `Rodada ${round.number}: ${round.title}`}
                   </p>
                   <p className="text-xs text-text-muted">
-                    {isDuelo
+                    {isImpostor
+                      ? "Tema secreto até a rodada encerrar"
+                      : isDuelo
                       ? "Duelo 1v1"
                       : isLsmp
                         ? "Lista Secreta 1v1"
