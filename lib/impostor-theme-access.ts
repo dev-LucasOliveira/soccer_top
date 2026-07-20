@@ -1,4 +1,8 @@
-import { getImpostorTheme } from "@/lib/impostor-themes";
+import {
+  getImpostorTheme,
+  IMPOSTOR_THEMES,
+  type ImpostorThemeDefinition,
+} from "@/lib/impostor-themes";
 
 export function getRoundImpostorThemeId(filters: string): string | null {
   try {
@@ -47,6 +51,19 @@ export function maskThemeTitleForViewer(
   if (!themeTitle) return null;
   if (canImpostorSeeRoundTheme(isImpostor, roundStatus)) return themeTitle;
   return null;
+}
+
+export function resolveImpostorRoundTheme(
+  round: { filters: string; title: string },
+  sessionThemeId?: string | null
+): ImpostorThemeDefinition | undefined {
+  const themeId =
+    getRoundImpostorThemeId(round.filters) ?? sessionThemeId ?? null;
+  if (themeId) {
+    return getImpostorTheme(themeId);
+  }
+
+  return IMPOSTOR_THEMES.find((theme) => theme.title === round.title);
 }
 
 export const IMPOSTOR_SESSION_DISPLAY_TITLE = "Impostor";

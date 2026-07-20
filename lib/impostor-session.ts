@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/db";
 import { assertCreator } from "@/lib/creator-auth";
 import { getPlayers, isSpectator } from "@/lib/participants";
-import { getCurrentRound } from "@/lib/round";
+import { getActiveImpostorRound } from "@/lib/round";
 import {
   buildRoundCardOptions,
   getImpostorTheme,
@@ -13,6 +13,7 @@ import {
   getRoundImpostorThemeId,
   IMPOSTOR_SESSION_DISPLAY_TITLE,
   maskThemeTitleForViewer,
+  resolveImpostorRoundTheme,
 } from "@/lib/impostor-theme-access";
 import {
   buildImpostorSessionResult,
@@ -72,7 +73,7 @@ async function getSessionOrThrow(sessionCode: string) {
 
 async function getActiveRoundFull(sessionCode: string) {
   const session = await getSessionOrThrow(sessionCode);
-  const currentRound = getCurrentRound(session);
+  const currentRound = getActiveImpostorRound(session);
   if (!currentRound) {
     return { session, round: null };
   }
@@ -576,7 +577,7 @@ export async function advanceImpostorSession(
     throw new Error("Esta sala não é do modo impostor");
   }
 
-  const currentRound = getCurrentRound(sessionFull);
+  const currentRound = getActiveImpostorRound(sessionFull);
   if (!currentRound && sessionFull.status !== "setup") {
     throw new Error("Rodada não encontrada");
   }
@@ -586,8 +587,21 @@ export async function advanceImpostorSession(
     return getSessionOrThrow(sessionCode);
   }
 
+  if (sessionFull.status === "completed") {
+    throw new Error("Partida já encerrada — veja o resultado final");
+  }
+
   if (sessionFull.status !== "active" || !currentRound) {
-    throw new Error("Sala não está ativa");
+    throw new Error(
+      `Não foi possível avançar a sala (status: ${sessionFull.status})`
+    );
+  }
+
+  if (currentRound.number !== sessionFull.currentRoundNumber) {
+    await prisma.session.update({
+      where: { id: sessionFull.id },
+      data: { currentRoundNumber: currentRound.number },
+    });
   }
 
   const roundFull = await prisma.round.findUnique({
@@ -746,8 +760,10 @@ export async function advanceImpostorSession(
         | null = null;
 
       if (nextRound) {
-        const nextThemeId = getRoundImpostorThemeId(nextRound.filters);
-        const nextTheme = nextThemeId ? getImpostorTheme(nextThemeId) : null;
+        const nextTheme = resolveImpostorRoundTheme(
+          nextRound,
+          sessionFull.impostorThemeId
+        );
         if (!nextTheme) {
           throw new Error("Tema da próxima rodada inválido");
         }

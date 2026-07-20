@@ -23,6 +23,22 @@ export function getCurrentRound(session: SessionWithRounds): RoundRecord | null 
   );
 }
 
+export function getActiveImpostorRound(
+  session: SessionWithRounds
+): RoundRecord | null {
+  const activeRound = session.rounds.find(
+    (round) =>
+      round.status === "open" ||
+      round.status === "reveal" ||
+      round.status === "voting"
+  );
+  if (activeRound) {
+    return activeRound;
+  }
+
+  return getCurrentRound(session);
+}
+
 export function toRoundSummary(round: RoundRecord): RoundSummary {
   return {
     id: round.id,

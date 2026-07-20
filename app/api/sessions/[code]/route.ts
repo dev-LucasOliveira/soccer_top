@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { parseFilters } from "@/lib/filters";
-import { getCurrentRound, toCurrentRound, toRoundSummary } from "@/lib/round";
+import { getActiveImpostorRound, getCurrentRound, toCurrentRound, toRoundSummary } from "@/lib/round";
 import { getStandings, getLastCompletedRoundResult } from "@/lib/session";
 import { getPlayers } from "@/lib/participants";
 import { getRoundWinningList } from "@/lib/round-result";
@@ -124,7 +124,10 @@ export async function GET(request: Request, context: RouteContext) {
       }
     }
 
-    const currentRoundRecord = getCurrentRound(session);
+    const currentRoundRecord =
+      session.gameMode === "impostor"
+        ? getActiveImpostorRound(session)
+        : getCurrentRound(session);
     const currentRound = currentRoundRecord
       ? toCurrentRound(currentRoundRecord)
       : null;

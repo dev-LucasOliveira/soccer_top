@@ -81,12 +81,16 @@ export function ImpostorPhaseControls({
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
 
-      const redirect = session.advanceAction.redirect;
-      if (redirect) {
-        router.push(`/s/${sessionCode}${redirect}`);
-      } else {
-        await fetchSession();
+      const sessionRes = await fetch(
+        `/api/sessions/${sessionCode}?participantId=${participantId}`
+      );
+      const sessionData = await sessionRes.json();
+      if (sessionRes.ok) {
+        router.push(buildParticipantPath(sessionCode, sessionData, participantId));
+        return;
       }
+
+      await fetchSession();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erro ao avançar fase");
     } finally {

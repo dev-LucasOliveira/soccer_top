@@ -131,16 +131,21 @@ export function SessionStatusView({
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
 
-      const redirect = session.advanceAction?.redirect;
-      if (redirect) {
-        router.push(`/s/${code}${redirect}`);
-      } else {
-        await fetchData();
+      const sessionRes = await fetch(
+        `/api/sessions/${code}?participantId=${participantId}`
+      );
+      const sessionData = await sessionRes.json();
+      if (sessionRes.ok) {
+        router.push(buildParticipantPath(code, sessionData, participantId));
+        return;
       }
+
+      await fetchData();
     } catch (err) {
       setAdvanceError(
         err instanceof Error ? err.message : "Erro ao avançar fase"
       );
+      await fetchData();
     } finally {
       setAdvancing(false);
     }
