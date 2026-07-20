@@ -9,6 +9,7 @@ import { MyRankingCard } from "@/components/my-ranking-card";
 import { WinningListCard } from "@/components/winning-list-card";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { AbortSessionButton } from "@/components/abort-session-button";
 import { getGuestToken } from "@/lib/guest";
 import {
   buildParticipantPath,
@@ -100,7 +101,7 @@ export function SessionStatusView({
       }
 
       const targetPath = buildParticipantPath(code, sessionData, participantId);
-      if (!targetPath.endsWith("/status")) {
+      if (!sessionData.isCreator && !targetPath.endsWith("/status")) {
         router.replace(targetPath);
       }
     } finally {
@@ -288,6 +289,16 @@ export function SessionStatusView({
           >
             {advancing ? "Processando..." : advanceAction.label}
           </Button>
+        </div>
+      )}
+
+      {session.isCreator && session.status === "active" && (
+        <div className="flex justify-center">
+          <AbortSessionButton
+            sessionCode={code}
+            participantId={participantId}
+            size="sm"
+          />
         </div>
       )}
     </div>

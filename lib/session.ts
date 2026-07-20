@@ -631,10 +631,10 @@ export async function returnSessionToLobby(
     throw new Error("A sala já está no lobby");
   }
 
-  if (session.status !== "completed" && session.status !== "setup") {
-    throw new Error(
-      "Só é possível voltar ao lobby antes ou depois de uma partida"
-    );
+  if (session.status !== "completed" &&
+      session.status !== "setup" &&
+      session.status !== "active") {
+    throw new Error("Não foi possível voltar ao lobby");
   }
 
   await resetSessionToLobbyState(session.id, session.code);

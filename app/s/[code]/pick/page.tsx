@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { PlayerPicker } from "@/components/player-picker";
 import { ImpostorPickView } from "@/components/impostor-pick-view";
 import { SessionHeader } from "@/components/session-header";
+import { AbortSessionButton } from "@/components/abort-session-button";
 import { buildParticipantPath } from "@/lib/session-info";
 
 type Pick = {
@@ -31,6 +32,7 @@ export default function PickPage({
   const [confirmed, setConfirmed] = useState(false);
   const [loading, setLoading] = useState(true);
   const [gameMode, setGameMode] = useState<"ranking" | "impostor">("ranking");
+  const [isCreator, setIsCreator] = useState(false);
 
   useEffect(() => {
     async function init() {
@@ -44,9 +46,12 @@ export default function PickPage({
       }
       setParticipantId(stored);
 
-      const sessionRes = await fetch(`/api/sessions/${p.code}`);
+      const sessionRes = await fetch(
+        `/api/sessions/${p.code}?participantId=${stored}`
+      );
       const sessionData = await sessionRes.json();
       if (sessionRes.ok) {
+        setIsCreator(sessionData.isCreator === true);
         setGameMode(sessionData.gameMode === "impostor" ? "impostor" : "ranking");
 
         if (sessionData.gameMode === "impostor") {
@@ -123,10 +128,15 @@ export default function PickPage({
           title="Escolha sua carta"
           code={code}
           stepLabel="Modo impostor"
-          backHref={`/s/${code}/status`}
+          backHref={isCreator ? `/s/${code}` : `/s/${code}/status`}
           showCode={false}
         />
         <ImpostorPickView sessionCode={code} participantId={participantId} />
+        {isCreator && (
+          <div className="mt-8 flex justify-center">
+            <AbortSessionButton sessionCode={code} participantId={participantId} />
+          </div>
+        )}
       </main>
     );
   }
@@ -144,7 +154,7 @@ export default function PickPage({
         title={roundTitle}
         code={code}
         stepLabel={stepLabel || "Montando ranking"}
-        backHref={`/s/${code}/status`}
+        backHref={isCreator ? `/s/${code}` : `/s/${code}/status`}
         showCode={false}
       />
 
@@ -156,6 +166,12 @@ export default function PickPage({
         initialMessage={initialMessage}
         confirmed={confirmed}
       />
+
+      {isCreator && (
+        <div className="mt-8 flex justify-center">
+          <AbortSessionButton sessionCode={code} participantId={participantId} />
+        </div>
+      )}
     </main>
   );
 }

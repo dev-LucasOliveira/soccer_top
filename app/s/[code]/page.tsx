@@ -43,8 +43,11 @@ export default function SessionPage({
         );
         const data = await res.json();
         if (res.ok && data.status !== "setup") {
-          router.replace(buildParticipantPath(code, data, participantId));
-          return;
+          const isCreator = data.creatorParticipantId === participantId;
+          if (!isCreator) {
+            router.replace(buildParticipantPath(code, data, participantId));
+            return;
+          }
         }
       } finally {
         setCheckingRoute(false);

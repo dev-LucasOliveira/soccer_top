@@ -13,6 +13,7 @@ import { RoundSetupPanel } from "@/components/round-setup-panel";
 import { DueloLobbyConfig } from "@/components/duelo-lobby-config";
 import { ListaSecretaMpLobbyConfig } from "@/components/lista-secreta-mp-lobby-config";
 import { LobbyModeSelector } from "@/components/lobby-mode-selector";
+import { AbortSessionButton } from "@/components/abort-session-button";
 import { MIN_IMPOSTOR_PLAYERS } from "@/lib/impostor-constants";
 import { MIN_DUELO_PLAYERS } from "@/lib/duelo-constants";
 import { MIN_LSMP_PLAYERS } from "@/lib/lista-secreta-mp-constants";
@@ -981,6 +982,17 @@ export function SessionLobby({
           </p>
         )}
       </div>
+
+      {session.isCreator &&
+        session.status === "active" &&
+        session.gameMode !== "lobby" && (
+          <div className="flex justify-center border-t border-card-border pt-4">
+            <AbortSessionButton
+              sessionCode={code}
+              participantId={participantId!}
+            />
+          </div>
+        )}
     </div>
   );
 }
