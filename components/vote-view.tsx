@@ -106,6 +106,14 @@ export function VoteView({
 
   if (!state) return null;
 
+  if (!Array.isArray(state.lists)) {
+    return (
+      <p className="loading-pulse text-center text-on-pitch-muted">
+        Carregando votação...
+      </p>
+    );
+  }
+
   const isSpectator = state.isSpectator === true;
   const highlightAlias = state.hasVoted ? state.votedAlias : selectedAlias;
 

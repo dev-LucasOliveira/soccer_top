@@ -17,7 +17,7 @@ export default function VotePage({
   const [roundTitle, setRoundTitle] = useState("");
   const [stepLabel, setStepLabel] = useState("");
   const [participantId, setParticipantId] = useState<string | null>(null);
-  const [gameMode, setGameMode] = useState<"ranking" | "impostor">("ranking");
+  const [gameMode, setGameMode] = useState<"ranking" | "impostor" | null>(null);
 
   useEffect(() => {
     async function init() {
@@ -36,7 +36,9 @@ export default function VotePage({
       );
       const sessionData = await sessionRes.json();
       if (sessionRes.ok) {
-        setGameMode(sessionData.gameMode === "impostor" ? "impostor" : "ranking");
+        setGameMode(
+          sessionData.gameMode === "impostor" ? "impostor" : "ranking"
+        );
         if (sessionData.currentRound) {
           setRoundTitle(sessionData.currentRound.title);
           setStepLabel(
@@ -66,7 +68,7 @@ export default function VotePage({
     init();
   }, [params, router]);
 
-  if (!participantId) {
+  if (!participantId || gameMode === null) {
     return (
       <main className="mx-auto max-w-4xl px-4 py-12">
         <p className="loading-pulse text-center text-on-pitch-muted">Carregando...</p>
