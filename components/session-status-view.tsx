@@ -208,10 +208,20 @@ export function SessionStatusView({
           </Link>
         </Card>
       ) : session.currentRound?.status === "voting" ? (
-        <Card className="px-4 py-6 text-center text-sm text-text-muted">
-          {session.gameMode === "impostor"
-            ? "Resultado revelado quando o criador encerrar a rodada."
-            : "Classificação revelada quando o criador encerrar a rodada."}
+        <Card className="px-4 py-6 text-center">
+          <p className="mb-4 text-sm text-text-muted">
+            {session.gameMode === "impostor"
+              ? "Vote em quem você acha que é o impostor."
+              : "Resultado revelado quando o criador encerrar a rodada."}
+          </p>
+          {session.gameMode === "impostor" &&
+            !isSpectator &&
+            !session.participants.find((p) => p.id === participantId)
+              ?.hasVoted && (
+              <Link href={`/s/${code}/vote`}>
+                <Button size="lg">Ir votar</Button>
+              </Link>
+            )}
         </Card>
       ) : null}
 

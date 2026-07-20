@@ -17,6 +17,8 @@ export const PLAYER_ALIAS_RULES: PlayerAliasRule[] = [
   { aliasName: "Diego Ribas da Cunha", canonicalName: "Diego Ribas" },
   { aliasName: "Renato Portaluppi", canonicalName: "Renato Gaúcho" },
   { aliasName: "Ademir Menezes", canonicalName: "Ademir de Menezes" },
+  // Planilha criou entrada lixo "Seedorf" (Palmeiras 2010); o canônico é Clarence Seedorf
+  { aliasName: "Seedorf", canonicalName: "Clarence Seedorf" },
 ];
 
 const aliasKeyToCanonical = new Map(

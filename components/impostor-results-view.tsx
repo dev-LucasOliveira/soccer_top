@@ -38,7 +38,14 @@ export function ImpostorResultsView({
         <h2 className="font-display text-2xl text-foreground">
           O impostor era {result.impostorDisplayName}
         </h2>
-        <p className="mt-2 text-sm text-text-muted">Tema: {result.themeTitle}</p>
+        <p className="mt-2 text-sm text-text-muted">
+          Temas:{" "}
+          {(result.themeTitles ??
+            ("themeTitle" in result
+              ? [(result as { themeTitle?: string }).themeTitle].filter(Boolean)
+              : [])
+          ).join(" · ")}
+        </p>
       </Card>
 
       {result.eliminations.length > 0 && (

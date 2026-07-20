@@ -141,12 +141,16 @@ export function ImpostorPickView({
         <div className="card-pitch-header px-4 py-3">
           {state.isImpostor ? (
             <>
-              <Badge variant="default" className="mb-2 border-gold/30 text-gold">
-                Você não conhece o tema
+              <Badge variant="default" className="mb-2 border-red-400/40 text-red-300">
+                Você é o impostor
               </Badge>
-              <h3 className="font-display text-base">Complete a lista</h3>
+              <h3 className="font-display text-base">
+                {state.themeTitle ?? "Complete a lista"}
+              </h3>
               <p className="text-xs text-on-pitch-subtle">
-                Escolha um jogador que faça sentido na lista parcial.
+                {state.themeTitle
+                  ? "Rodada encerrada — este era o tema."
+                  : "Você não vê o tema desta rodada. Escolha uma carta que encaixe na lista parcial."}
               </p>
             </>
           ) : (

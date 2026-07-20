@@ -3,6 +3,10 @@ import { prisma } from "@/lib/db";
 import { getCurrentRound } from "@/lib/round";
 import { normalizeListMessage } from "@/lib/ranking-message";
 import { isSpectator } from "@/lib/participants";
+import {
+  isSessionImpostor,
+  maskImpostorRoundTitle,
+} from "@/lib/impostor-theme-access";
 
 type RouteContext = { params: Promise<{ code: string }> };
 
@@ -39,12 +43,21 @@ export async function GET(request: Request, context: RouteContext) {
     }
 
     const participant = session.participants[0];
+    const viewerIsImpostor = isSessionImpostor(
+      session.gameMode,
+      session.impostorParticipantId,
+      participantId
+    );
+    const roundTitle =
+      session.gameMode === "impostor"
+        ? maskImpostorRoundTitle(currentRound, viewerIsImpostor)
+        : currentRound.title;
 
     if (isSpectator(participant)) {
       return NextResponse.json({
         status: participant.status,
         roundNumber: currentRound.number,
-        roundTitle: currentRound.title,
+        roundTitle,
         topN: currentRound.topN,
         message: null,
         picks: [],
@@ -55,10 +68,7 @@ export async function GET(request: Request, context: RouteContext) {
       session.gameMode === "impostor"
         ? {
             participantId,
-            round: {
-              sessionId: session.id,
-              number: { lte: currentRound.number },
-            },
+            roundId: currentRound.id,
           }
         : {
             roundId: currentRound.id,
@@ -84,7 +94,7 @@ export async function GET(request: Request, context: RouteContext) {
     return NextResponse.json({
       status: participant.status,
       roundNumber: currentRound.number,
-      roundTitle: currentRound.title,
+      roundTitle,
       topN: currentRound.topN,
       message: rankingMeta?.message ?? null,
       picks: picks.map((p) => ({

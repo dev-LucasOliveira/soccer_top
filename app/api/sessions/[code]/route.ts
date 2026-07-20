@@ -7,6 +7,11 @@ import { getPlayers } from "@/lib/participants";
 import { getRoundWinningList } from "@/lib/round-result";
 import { getAdvanceAction, getSessionPhase } from "@/lib/session-info";
 import { getImpostorTheme } from "@/lib/impostor-themes";
+import {
+  IMPOSTOR_SESSION_DISPLAY_TITLE,
+  isSessionImpostor,
+  maskImpostorRoundTitle,
+} from "@/lib/impostor-theme-access";
 import { buildDueloViewState } from "@/lib/duelo-session";
 import { buildListaSecretaMpViewState } from "@/lib/lista-secreta-mp-session";
 import { processExpiredTurnIfNeeded } from "@/lib/pick-timeout";
@@ -187,6 +192,42 @@ export async function GET(request: Request, context: RouteContext) {
       viewerParticipantId != null &&
       viewerParticipantId === session.creatorParticipantId;
 
+    const viewerIsImpostor = isSessionImpostor(
+      session.gameMode,
+      session.impostorParticipantId,
+      viewerParticipantId
+    );
+
+    const maskedRounds =
+      session.gameMode === "impostor"
+        ? session.rounds.map((round) => ({
+            ...toRoundSummary(round),
+            title: maskImpostorRoundTitle(round, viewerIsImpostor),
+          }))
+        : session.rounds.map(toRoundSummary);
+
+    const maskedCurrentRound =
+      currentRound && session.gameMode === "impostor"
+        ? {
+            ...currentRound,
+            title: maskImpostorRoundTitle(
+              {
+                number: currentRound.number,
+                title: currentRound.title,
+                status: currentRound.status,
+              },
+              viewerIsImpostor
+            ),
+          }
+        : currentRound;
+
+    const displayTitle =
+      session.gameMode === "impostor" && session.status === "active"
+        ? viewerIsImpostor
+          ? IMPOSTOR_SESSION_DISPLAY_TITLE
+          : (maskedCurrentRound?.title ?? IMPOSTOR_SESSION_DISPLAY_TITLE)
+        : session.title;
+
     const standings = await getStandings(code);
 
     const playerCount = getPlayers(session.participants).length;
@@ -194,25 +235,27 @@ export async function GET(request: Request, context: RouteContext) {
     const sessionPayload = {
       id: session.id,
       code: session.code,
-      title: session.title,
+      title: displayTitle,
       gameMode: session.gameMode as GameMode,
       status: session.status,
       currentRoundNumber: session.currentRoundNumber,
       totalRounds: configuredTotalRounds ?? session.rounds.length,
       createdAt: session.createdAt,
       creatorParticipantId: session.creatorParticipantId,
-      impostorThemeId: session.impostorThemeId,
-      impostorTheme: session.impostorThemeId
-        ? getImpostorTheme(session.impostorThemeId)
-        : null,
+      impostorThemeId: viewerIsImpostor ? null : session.impostorThemeId,
+      impostorTheme:
+        viewerIsImpostor || !session.impostorThemeId
+          ? null
+          : getImpostorTheme(session.impostorThemeId),
       impostorThemeSelected: Boolean(session.impostorThemeId),
+      isImpostor: viewerIsImpostor,
       umSoTotalRounds: session.umSoTotalRounds,
       listaSecretaTotalRounds: session.listaSecretaTotalRounds,
       listaSecretaSlotCount: session.listaSecretaSlotCount,
       pickTimeLimitSeconds: session.pickTimeLimitSeconds,
       isCreator,
-      rounds: session.rounds.map(toRoundSummary),
-      currentRound,
+      rounds: maskedRounds,
+      currentRound: maskedCurrentRound,
       voteProgress: {
         voted: roundVotes.length,
         total: playerCount,

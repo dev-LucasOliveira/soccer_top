@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { buildParticipantPath } from "@/lib/session-info";
+import { ImpostorPhaseControls } from "@/components/impostor-phase-controls";
 import type { ImpostorVoteState } from "@/lib/types";
 
 export function ImpostorVoteView({
@@ -89,20 +91,30 @@ export function ImpostorVoteView({
 
   return (
     <div className="space-y-4">
+      {state.isImpostor && (
+        <Badge variant="default" className="border-red-400/40 text-red-300">
+          Você é o impostor — vote em quem a tripulação pode suspeitar de você
+        </Badge>
+      )}
+
       <Card className="p-4">
         <h2 className="font-display text-lg text-foreground">
           Quem é o impostor?
         </h2>
         <p className="mt-2 text-sm text-text-muted">
-          O mais votado será eliminado. Rodada {state.roundNumber}.
+          Toque no jogador que vocês querem eliminar. O mais votado sai da
+          rodada.
         </p>
         <p className="mt-1 text-xs text-text-muted">
-          {state.votedCount}/{state.totalVoters} votos registrados
+          Rodada {state.roundNumber} · {state.votedCount}/{state.totalVoters}{" "}
+          votos registrados
         </p>
       </Card>
 
       <div className="grid gap-3 sm:grid-cols-2">
-        {state.participants.map((participant) => (
+        {state.participants
+          .filter((participant) => participant.id !== participantId)
+          .map((participant) => (
           <Button
             key={participant.id}
             variant="secondary"
@@ -121,6 +133,18 @@ export function ImpostorVoteView({
           Voto registrado. Aguardando os outros jogadores.
         </p>
       )}
+
+      <ImpostorPhaseControls
+        sessionCode={sessionCode}
+        participantId={participantId}
+        expectedRoundStatus="voting"
+        creatorHint="Quando todos votarem, encerre a rodada para aplicar a eliminação."
+        waitingHint={
+          state.hasVoted
+            ? "Você já votou. Aguardando os outros ou o criador encerrar a rodada."
+            : undefined
+        }
+      />
 
       {error && <p className="text-center text-sm text-red-400">{error}</p>}
     </div>

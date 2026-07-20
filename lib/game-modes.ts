@@ -56,15 +56,15 @@ export const GAME_MODES: GameModeConfig[] = [
       "Um jogador não sabe o tema — descubra quem está blefando.",
     panelDescription:
       "Todos completam a mesma lista Top 5, exceto o impostor, que não vê o assunto. A cada rodada vocês escolhem cartas, debatem e votam para eliminar o suspeito.",
-    hint: "Escolha um tema pronto no lobby e reúna pelo menos 4 jogadores.",
+    hint: "Reúna pelo menos 4 jogadores — o tema é sorteado ao iniciar.",
     submitLabel: "Criar sala",
     icon: "eye",
     playStyle: "multiplayer",
     landingPath: "/impostor",
     rules: [
       "Mínimo de 4 jogadores",
-      "Um jogador sorteado é o impostor — não vê o tema",
-      "Escolham cartas, debatam e votem para eliminar o suspeito",
+      "Um jogador sorteado é o impostor — não vê o tema da rodada em andamento",
+      "Cada rodada sorteia um tema diferente; escolham cartas, debatam e votem",
       "Tripulação vence se eliminar o impostor; impostor vence se sobreviver",
     ],
     sessionGameMode: "impostor",

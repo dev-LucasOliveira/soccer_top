@@ -208,7 +208,7 @@ export type ImpostorSessionResult = {
   outcome: "crew_win" | "impostor_win";
   impostorParticipantId: string;
   impostorDisplayName: string;
-  themeTitle: string;
+  themeTitles: string[];
   eliminations: ImpostorElimination[];
   participantLists: Record<
     string,
@@ -228,6 +228,7 @@ export type ImpostorVoteState = {
   votedCount: number;
   roundNumber: number;
   isSpectator: boolean;
+  isImpostor: boolean;
 };
 
 export type RoundSummary = {

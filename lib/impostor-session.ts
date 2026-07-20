@@ -6,7 +6,14 @@ import {
   buildRoundCardOptions,
   getImpostorTheme,
   listImpostorThemes,
+  pickRandomImpostorThemes,
 } from "@/lib/impostor-themes";
+import {
+  buildRoundImpostorFilters,
+  getRoundImpostorThemeId,
+  IMPOSTOR_SESSION_DISPLAY_TITLE,
+  maskThemeTitleForViewer,
+} from "@/lib/impostor-theme-access";
 import {
   buildImpostorSessionResult,
   checkImpostorOutcome,
@@ -95,6 +102,26 @@ function parseCardOptions(raw: string | null | undefined): string[] {
   }
 }
 
+async function aggregateParticipantPicksForRound(
+  roundId: string,
+  participantId: string
+) {
+  const picks = await prisma.pick.findMany({
+    where: {
+      roundId,
+      participantId,
+    },
+    include: { player: true },
+    orderBy: { rank: "asc" },
+  });
+
+  return picks.map((pick) => ({
+    rank: pick.rank,
+    playerId: pick.playerId,
+    playerName: pick.player.name,
+  }));
+}
+
 async function aggregateParticipantPicks(
   sessionId: string,
   participantId: string,
@@ -117,6 +144,39 @@ async function aggregateParticipantPicks(
     playerId: pick.playerId,
     playerName: pick.player.name,
   }));
+}
+
+async function createRoundSeedPicks(
+  roundId: string,
+  theme: { seededPicks: { rank: number; playerName: string }[] },
+  participantIds: string[],
+  playersByName: Map<string, { id: string }>,
+  tx: Pick<typeof prisma, "pick"> = prisma
+) {
+  const seedPickData = participantIds.flatMap((participantId) =>
+    theme.seededPicks.map((seed) => ({
+      roundId,
+      participantId,
+      playerId: playersByName.get(seed.playerName)!.id,
+      rank: seed.rank,
+    }))
+  );
+
+  if (seedPickData.length > 0) {
+    await tx.pick.createMany({ data: seedPickData });
+  }
+}
+
+function collectSessionThemeTitles(
+  rounds: { filters: string; title: string }[]
+): string[] {
+  return rounds.map((round) => {
+    const themeId = getRoundImpostorThemeId(round.filters);
+    if (themeId) {
+      return getImpostorTheme(themeId)?.title ?? round.title;
+    }
+    return round.title;
+  });
 }
 
 export async function setImpostorTheme(
@@ -162,14 +222,8 @@ export async function startImpostorGame(
   if (session.status !== "setup") {
     throw new Error("O jogo já foi iniciado");
   }
-  if (!session.impostorThemeId) {
-    throw new Error("Escolha um tema antes de iniciar");
-  }
 
-  const theme = getImpostorTheme(session.impostorThemeId);
-  if (!theme) {
-    throw new Error("Tema inválido");
-  }
+  const themes = pickRandomImpostorThemes(IMPOSTOR_TOTAL_ROUNDS);
 
   const players = getPlayers(
     (
@@ -185,26 +239,31 @@ export async function startImpostorGame(
   }
 
   const allNames = [
-    ...theme.seededPicks.map((pick) => pick.playerName),
-    ...theme.pool,
+    ...new Set(
+      themes.flatMap((theme) => [
+        ...theme.seededPicks.map((pick) => pick.playerName),
+        ...theme.pool,
+      ])
+    ),
   ];
   const playersByName = await resolvePlayerIdsByName(allNames);
-  const seededNames = theme.seededPicks.map((pick) => pick.playerName);
 
   const impostor =
     players[Math.floor(Math.random() * players.length)];
 
-  const roundCreates = IMPOSTOR_TARGET_RANKS.map((targetRank, index) => {
-    const cardNames = buildRoundCardOptions(theme.pool, seededNames, index);
+  const roundCreates = themes.map((theme, index) => {
+    const seededNames = theme.seededPicks.map((pick) => pick.playerName);
+    const cardNames = buildRoundCardOptions(theme.pool, seededNames, 0);
     const cardIds = cardNames.map((name) => playersByName.get(name)!.id);
 
     return {
       number: index + 1,
       title: theme.title,
       topN: IMPOSTOR_TOP_N,
-      filters: "{}",
+      filters: buildRoundImpostorFilters(theme.id),
       status: index === 0 ? "open" : "pending",
       cardOptions: JSON.stringify(cardIds),
+      theme,
     };
   });
 
@@ -212,7 +271,7 @@ export async function startImpostorGame(
     await tx.round.deleteMany({ where: { sessionId: session.id } });
 
     const createdRounds = await Promise.all(
-      roundCreates.map((round) =>
+      roundCreates.map(({ theme: _theme, ...round }) =>
         tx.round.create({
           data: {
             sessionId: session.id,
@@ -223,16 +282,14 @@ export async function startImpostorGame(
     );
 
     const firstRound = createdRounds[0];
-    const seedPickData = players.flatMap((participant) =>
-      theme.seededPicks.map((seed) => ({
-        roundId: firstRound.id,
-        participantId: participant.id,
-        playerId: playersByName.get(seed.playerName)!.id,
-        rank: seed.rank,
-      }))
+    const firstTheme = themes[0];
+    await createRoundSeedPicks(
+      firstRound.id,
+      firstTheme,
+      players.map((player) => player.id),
+      playersByName,
+      tx
     );
-
-    await tx.pick.createMany({ data: seedPickData });
 
     await tx.session.update({
       where: { id: session.id },
@@ -240,6 +297,8 @@ export async function startImpostorGame(
         status: "active",
         currentRoundNumber: 1,
         impostorParticipantId: impostor.id,
+        impostorThemeId: null,
+        title: IMPOSTOR_SESSION_DISPLAY_TITLE,
       },
     });
   });
@@ -270,9 +329,13 @@ export async function getImpostorView(
     session.status === "active" &&
     session.impostorParticipantId === participantId;
 
-  const theme = session.impostorThemeId
-    ? getImpostorTheme(session.impostorThemeId)
-    : null;
+  const roundThemeId = getRoundImpostorThemeId(round.filters);
+  const theme = roundThemeId ? getImpostorTheme(roundThemeId) : null;
+  const themeTitle = maskThemeTitleForViewer(
+    theme?.title ?? round.title,
+    isImpostor,
+    round.status
+  );
 
   const cardIds = parseCardOptions(round.cardOptions);
   const cardPlayers = cardIds.length
@@ -280,10 +343,9 @@ export async function getImpostorView(
     : [];
   const cardById = new Map(cardPlayers.map((player) => [player.id, player]));
 
-  const myPicks = await aggregateParticipantPicks(
-    session.id,
-    participantId,
-    session.currentRoundNumber
+  const myPicks = await aggregateParticipantPicksForRound(
+    round.id,
+    participantId
   );
 
 
@@ -298,10 +360,9 @@ export async function getImpostorView(
           participantId: participant.id,
           displayName: participant.displayName,
           status: participant.status as ImpostorViewState["participantLists"][number]["status"],
-          picks: await aggregateParticipantPicks(
-            session.id,
-            participant.id,
-            session.currentRoundNumber
+          picks: await aggregateParticipantPicksForRound(
+            round.id,
+            participant.id
           ),
           hasConfirmed:
             round.status === "open"
@@ -318,7 +379,7 @@ export async function getImpostorView(
   );
 
   return {
-    themeTitle: isImpostor ? null : theme?.title ?? null,
+    themeTitle,
     isImpostor,
     roundNumber: round.number,
     totalRounds: IMPOSTOR_TOTAL_ROUNDS,
@@ -431,6 +492,7 @@ export async function getImpostorVoteState(
     votedCount: round.votes.length,
     roundNumber: round.number,
     isSpectator: isSpectator(viewer),
+    isImpostor: session.impostorParticipantId === participantId,
   };
 }
 
@@ -596,9 +658,7 @@ export async function advanceImpostorSession(
     const roundResultData = { elimination };
 
     if (outcome === "crew_win" || outcome === "impostor_win") {
-      const theme = sessionFull.impostorThemeId
-        ? getImpostorTheme(sessionFull.impostorThemeId)
-        : null;
+      const themeTitles = collectSessionThemeTitles(sessionFull.rounds);
       const impostor = sessionFull.participants.find(
         (p) => p.id === impostorId
       );
@@ -628,7 +688,7 @@ export async function advanceImpostorSession(
         outcome,
         impostorParticipantId: impostorId,
         impostorDisplayName: impostor?.displayName ?? "Impostor",
-        themeTitle: theme?.title ?? sessionFull.title,
+        themeTitles,
         eliminations,
         participantLists: await buildParticipantListsPayload(sessionFull.id),
       });
@@ -676,47 +736,87 @@ export async function advanceImpostorSession(
         (round) => round.number === sessionFull.currentRoundNumber + 1
       );
 
-      await prisma.$transaction([
-        prisma.round.update({
+      let nextRoundSeed:
+        | {
+            roundId: string;
+            theme: NonNullable<ReturnType<typeof getImpostorTheme>>;
+            participantIds: string[];
+            playersByName: Map<string, { id: string }>;
+          }
+        | null = null;
+
+      if (nextRound) {
+        const nextThemeId = getRoundImpostorThemeId(nextRound.filters);
+        const nextTheme = nextThemeId ? getImpostorTheme(nextThemeId) : null;
+        if (!nextTheme) {
+          throw new Error("Tema da próxima rodada inválido");
+        }
+
+        const activeParticipants = players.filter(
+          (participant) => participant.id !== eliminatedId
+        );
+        const playersByName = await resolvePlayerIdsByName([
+          ...nextTheme.seededPicks.map((pick) => pick.playerName),
+          ...nextTheme.pool,
+        ]);
+
+        nextRoundSeed = {
+          roundId: nextRound.id,
+          theme: nextTheme,
+          participantIds: activeParticipants.map((participant) => participant.id),
+          playersByName,
+        };
+      }
+
+      await prisma.$transaction(async (tx) => {
+        await tx.round.update({
           where: { id: roundFull.id },
           data: { status: "completed" },
-        }),
-        prisma.roundResult.upsert({
+        });
+        await tx.roundResult.upsert({
           where: { roundId: roundFull.id },
           create: {
             roundId: roundFull.id,
             data: JSON.stringify(roundResultData),
           },
           update: { data: JSON.stringify(roundResultData) },
-        }),
-        ...(eliminatedId
-          ? [
-              prisma.participant.update({
-                where: { id: eliminatedId },
-                data: { status: "spectator", confirmedAt: null },
-              }),
-            ]
-          : []),
-        ...(nextRound
-          ? [
-              prisma.session.update({
-                where: { id: sessionFull.id },
-                data: { currentRoundNumber: nextRound.number },
-              }),
-              prisma.round.update({
-                where: { id: nextRound.id },
-                data: { status: "open" },
-              }),
-              prisma.participant.updateMany({
-                where: {
-                  sessionId: sessionFull.id,
-                  status: { not: "spectator" },
-                },
-                data: { status: "building", confirmedAt: null },
-              }),
-            ]
-          : []),
-      ]);
+        });
+
+        if (eliminatedId) {
+          await tx.participant.update({
+            where: { id: eliminatedId },
+            data: { status: "spectator", confirmedAt: null },
+          });
+        }
+
+        if (nextRound) {
+          await tx.session.update({
+            where: { id: sessionFull.id },
+            data: { currentRoundNumber: nextRound.number },
+          });
+          await tx.round.update({
+            where: { id: nextRound.id },
+            data: { status: "open" },
+          });
+          await tx.participant.updateMany({
+            where: {
+              sessionId: sessionFull.id,
+              status: { not: "spectator" },
+            },
+            data: { status: "building", confirmedAt: null },
+          });
+
+          if (nextRoundSeed) {
+            await createRoundSeedPicks(
+              nextRoundSeed.roundId,
+              nextRoundSeed.theme,
+              nextRoundSeed.participantIds,
+              nextRoundSeed.playersByName,
+              tx
+            );
+          }
+        }
+      });
     }
   } else if (roundFull.status === "completed") {
     throw new Error("Rodada já encerrada");

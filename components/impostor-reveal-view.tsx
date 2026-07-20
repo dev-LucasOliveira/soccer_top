@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { buildParticipantPath } from "@/lib/session-info";
+import { ImpostorPhaseControls } from "@/components/impostor-phase-controls";
 import type { ImpostorViewState } from "@/lib/types";
 
 export function ImpostorRevealView({
@@ -61,12 +62,28 @@ export function ImpostorRevealView({
   return (
     <div className="space-y-6">
       <Card className="p-4">
-        <h2 className="font-display text-lg text-foreground">
-          {state.isImpostor ? "Debate — complete o papo" : state.themeTitle}
-        </h2>
+        {state.isImpostor ? (
+          <>
+            <Badge variant="default" className="mb-2 border-red-400/40 text-red-300">
+              Você é o impostor
+            </Badge>
+            <h2 className="font-display text-lg text-foreground">
+              {state.themeTitle ?? "Debate — complete o papo"}
+            </h2>
+            {!state.themeTitle && (
+              <p className="mt-2 text-sm text-text-muted">
+                Blefe com naturalidade. O tema só aparece para você depois que a
+                rodada encerrar.
+              </p>
+            )}
+          </>
+        ) : (
+          <h2 className="font-display text-lg text-foreground">{state.themeTitle}</h2>
+        )}
         <p className="mt-2 text-sm text-text-muted">
-          Rodada {state.roundNumber}/{state.totalRounds}. Comparem as escolhas e
-          tentem descobrir quem não sabe o tema.
+          Rodada {state.roundNumber}/{state.totalRounds}. Comparem as escolhas,
+          discutam quem errou no #3 e, quando estiverem prontos, o criador abre
+          a votação.
         </p>
       </Card>
 
@@ -99,6 +116,14 @@ export function ImpostorRevealView({
           </Card>
         ))}
       </div>
+
+      <ImpostorPhaseControls
+        sessionCode={sessionCode}
+        participantId={participantId}
+        expectedRoundStatus="reveal"
+        creatorHint="Quando o debate terminar, abra a votação para todos escolherem quem eliminar."
+        waitingHint="Debatam com calma. O criador abre a votação quando vocês estiverem prontos."
+      />
 
       {error && <p className="text-center text-sm text-red-400">{error}</p>}
     </div>

@@ -63,14 +63,14 @@ export function buildImpostorSessionResult({
   outcome,
   impostorParticipantId,
   impostorDisplayName,
-  themeTitle,
+  themeTitles,
   eliminations,
   participantLists,
 }: {
   outcome: "crew_win" | "impostor_win";
   impostorParticipantId: string;
   impostorDisplayName: string;
-  themeTitle: string;
+  themeTitles: string[];
   eliminations: ImpostorElimination[];
   participantLists: ImpostorSessionResult["participantLists"];
 }): ImpostorSessionResult {
@@ -78,7 +78,7 @@ export function buildImpostorSessionResult({
     outcome,
     impostorParticipantId,
     impostorDisplayName,
-    themeTitle,
+    themeTitles,
     eliminations,
     participantLists,
   };

@@ -201,18 +201,10 @@ function getImpostorSessionPhase(session: {
       };
     }
 
-    if (!session.impostorThemeSelected) {
-      return {
-        step: 1,
-        label: "Escolhendo tema",
-        description: "O criador deve escolher um tema antes de iniciar.",
-      };
-    }
-
     return {
       step: 1,
       label: "Pronta para iniciar",
-      description: `${count} participantes no jogo. Criador pode iniciar a partida.`,
+      description: `${count} participantes no jogo. O tema será sorteado ao iniciar — criador pode começar a partida.`,
     };
   }
 
@@ -359,9 +351,7 @@ function getImpostorAdvanceAction(session: {
   if (session.status === "setup") {
     const players = getPlayers(session.participants);
     return {
-      canAdvance:
-        players.length >= MIN_IMPOSTOR_PLAYERS &&
-        Boolean(session.impostorThemeSelected),
+      canAdvance: players.length >= MIN_IMPOSTOR_PLAYERS,
       label: "Iniciar jogo",
     };
   }

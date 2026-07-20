@@ -10,7 +10,6 @@ import { Badge } from "@/components/ui/badge";
 import { SessionHeader } from "@/components/session-header";
 import { StandingsTable } from "@/components/standings-table";
 import { RoundSetupPanel } from "@/components/round-setup-panel";
-import { ImpostorThemePicker } from "@/components/impostor-theme-picker";
 import { DueloLobbyConfig } from "@/components/duelo-lobby-config";
 import { ListaSecretaMpLobbyConfig } from "@/components/lista-secreta-mp-lobby-config";
 import { LobbyModeSelector } from "@/components/lobby-mode-selector";
@@ -439,23 +438,10 @@ export function SessionLobby({
             </Card>
           )
         ) : isImpostor ? (
-          session.isCreator ? (
-            <Card>
-              <h2 className="mb-4 font-display text-lg text-foreground">
-                Tema da partida
-              </h2>
-              <ImpostorThemePicker
-                code={code}
-                participantId={participantId}
-                selectedThemeId={session.impostorThemeId}
-                onThemeSelected={fetchSession}
-              />
-            </Card>
-          ) : (
-            <Card className="p-4 text-sm text-text-muted">
-              Aguardando o criador escolher o tema da partida.
-            </Card>
-          )
+          <Card className="p-4 text-sm text-text-muted">
+            O tema da partida será sorteado quando o criador iniciar o jogo — assim
+            ninguém sabe o assunto antes do impostor ser definido.
+          </Card>
         ) : isDuelo ? (
           session.isCreator ? (
             <Card>
@@ -971,18 +957,11 @@ export function SessionLobby({
                       : "Aguardando mais participantes"}
                   </p>
                 )}
-              {!advanceAction.canAdvance &&
-                isImpostor &&
-                !session.impostorThemeId && (
-                  <p className="text-center text-sm text-on-pitch-muted">
-                    Escolha um tema para iniciar
-                  </p>
-                )}
             </>
           ) : (
             <p className="text-center text-sm text-on-pitch-muted">
               {isImpostor
-                ? "Aguardando criador escolher o tema e iniciar"
+                ? "Aguardando criador iniciar a partida"
                 : isDuelo
                   ? "Aguardando criador configurar e iniciar o duelo"
                   : isLsmp

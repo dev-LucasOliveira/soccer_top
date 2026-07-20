@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { filterPlayers, parseFilters } from "@/lib/filters";
 import { getCurrentRound } from "@/lib/round";
-import { matchesSearch } from "@/lib/normalize";
+import { matchesSearch, searchMatchRank } from "@/lib/normalize";
 
 export async function GET(request: Request) {
   try {
@@ -48,7 +48,15 @@ export async function GET(request: Request) {
       const idSet = new Set(idsParam.split(",").filter(Boolean));
       players = players.filter((p) => idSet.has(p.id));
     } else if (search) {
-      players = players.filter((p) => matchesSearch(p.name, search));
+      players = players
+        .filter((p) => matchesSearch(p.name, search))
+        .sort((a, b) => {
+          const rankDiff =
+            searchMatchRank(a.name, search) - searchMatchRank(b.name, search);
+          if (rankDiff !== 0) return rankDiff;
+          // Prefer fuller names when ranks tie (e.g. "Clarence Seedorf" over junk)
+          return b.name.length - a.name.length || a.name.localeCompare(b.name);
+        });
     }
 
     return NextResponse.json({

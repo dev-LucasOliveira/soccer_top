@@ -214,6 +214,19 @@ export function listImpostorThemes() {
   }));
 }
 
+export function pickRandomImpostorTheme(): ImpostorThemeDefinition {
+  return IMPOSTOR_THEMES[Math.floor(Math.random() * IMPOSTOR_THEMES.length)];
+}
+
+export function pickRandomImpostorThemes(count: number): ImpostorThemeDefinition[] {
+  if (count > IMPOSTOR_THEMES.length) {
+    throw new Error(
+      `São necessários ${count} temas distintos, mas só existem ${IMPOSTOR_THEMES.length}`
+    );
+  }
+  return shuffleArray([...IMPOSTOR_THEMES]).slice(0, count);
+}
+
 export function shuffleArray<T>(items: T[]): T[] {
   const copy = [...items];
   for (let i = copy.length - 1; i > 0; i--) {
