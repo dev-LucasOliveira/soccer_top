@@ -168,7 +168,7 @@ async function advanceRankingSession(
       }),
       prisma.round.update({
         where: { id: currentRound.id },
-        data: { status: "open" },
+        data: { status: "open", openedAt: new Date() },
       }),
     ]);
   } else if (sessionFull.status === "active") {
@@ -325,7 +325,7 @@ async function advanceRankingSession(
         }),
         prisma.round.update({
           where: { id: nextRound.id },
-          data: { status: "open" },
+          data: { status: "open", openedAt: new Date() },
         }),
         prisma.participant.updateMany({
           where: { sessionId: sessionFull.id },

@@ -6,6 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { RoundFiltersSection } from "@/components/round-filters-section";
+import { PickTimeLimitSelect } from "@/components/pick-time-limit-select";
+import { RANKING_ROUND_TIME_LIMIT_OPTIONS } from "@/lib/pick-time-limit";
 import type { RoundConfig } from "@/lib/types";
 import { Trash2 } from "lucide-react";
 
@@ -113,6 +115,17 @@ export function RoundConfigCard({
       <RoundFiltersSection
         filters={filters}
         onChange={(next) => onChange({ ...round, filters: next })}
+        readOnly={readOnly}
+      />
+
+      <PickTimeLimitSelect
+        value={round.pickTimeLimitSeconds ?? null}
+        onChange={(pickTimeLimitSeconds) =>
+          onChange({ ...round, pickTimeLimitSeconds })
+        }
+        options={RANKING_ROUND_TIME_LIMIT_OPTIONS}
+        label="Tempo para montar a lista"
+        description='Quanto tempo cada jogador tem para montar o ranking desta rodada. Ao acabar, listas incompletas são enviadas automaticamente.'
         readOnly={readOnly}
       />
     </Card>

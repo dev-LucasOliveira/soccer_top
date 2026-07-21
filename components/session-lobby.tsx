@@ -17,7 +17,10 @@ import { AbortSessionButton } from "@/components/abort-session-button";
 import { MIN_IMPOSTOR_PLAYERS } from "@/lib/impostor-constants";
 import { MIN_DUELO_PLAYERS } from "@/lib/duelo-constants";
 import { MIN_LSMP_PLAYERS } from "@/lib/lista-secreta-mp-constants";
-import { formatPickTimeLimit } from "@/lib/pick-time-limit";
+import {
+  formatPickTimeLimit,
+  formatRankingRoundTimeLimit,
+} from "@/lib/pick-time-limit";
 import { getGuestToken } from "@/lib/guest";
 import { Copy, Check, Users, Share2, ListOrdered, UserMinus } from "lucide-react";
 import { describeSessionFilters } from "@/lib/session-info";
@@ -525,7 +528,11 @@ export function SessionLobby({
                       ? "Duelo 1v1"
                       : isLsmp
                         ? "Lista Secreta 1v1"
-                        : `Top de ${round.topN}`}
+                        : `Top de ${round.topN}${
+                            round.pickTimeLimitSeconds
+                              ? ` · ${formatRankingRoundTimeLimit(round.pickTimeLimitSeconds)}`
+                              : ""
+                          }`}
                   </p>
                 </div>
                 <Badge

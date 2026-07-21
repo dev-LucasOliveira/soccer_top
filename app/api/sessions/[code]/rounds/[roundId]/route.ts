@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { assertCreator } from "@/lib/creator-auth";
 import { validateRoundConfig } from "@/lib/round-config";
+import { validateRankingRoundTimeLimit } from "@/lib/pick-time-limit";
 import { toRoundSummary } from "@/lib/round";
 import type { RoundConfig } from "@/lib/types";
 
@@ -45,6 +46,10 @@ export async function PATCH(request: Request, context: RouteContext) {
       title: round.title?.trim() ?? existing.title,
       topN: round.topN ?? existing.topN,
       filters: round.filters ?? JSON.parse(existing.filters),
+      pickTimeLimitSeconds:
+        round.pickTimeLimitSeconds !== undefined
+          ? validateRankingRoundTimeLimit(round.pickTimeLimitSeconds)
+          : existing.pickTimeLimitSeconds,
     };
 
     const validationError = validateRoundConfig(
@@ -61,6 +66,7 @@ export async function PATCH(request: Request, context: RouteContext) {
         title: config.title.trim(),
         topN: config.topN,
         filters: JSON.stringify(config.filters ?? {}),
+        pickTimeLimitSeconds: config.pickTimeLimitSeconds ?? null,
       },
     });
 

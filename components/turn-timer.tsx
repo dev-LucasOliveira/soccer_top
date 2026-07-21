@@ -15,11 +15,13 @@ export function TurnTimer({
   pickTimeLimitSeconds,
   isMyTurn,
   onExpire,
+  timeLabel,
 }: {
   turnDeadlineAt: string | null;
   pickTimeLimitSeconds: number | null;
   isMyTurn: boolean;
   onExpire?: () => void;
+  timeLabel?: string;
 }) {
   const active = Boolean(pickTimeLimitSeconds && turnDeadlineAt);
   const deadlineMs = turnDeadlineAt ? new Date(turnDeadlineAt).getTime() : 0;
@@ -62,7 +64,7 @@ export function TurnTimer({
     <div className="mt-3 space-y-2">
       <div className="flex items-center justify-between text-xs">
         <span className="text-on-pitch-subtle">
-          {isMyTurn ? "Seu tempo" : "Tempo do oponente"}
+          {timeLabel ?? (isMyTurn ? "Seu tempo" : "Tempo do oponente")}
         </span>
         <span
           className={cn(

@@ -6,6 +6,7 @@ import {
   applyListaSecretaMpTimeout,
   parseListaSecretaMpPayload,
 } from "@/lib/lista-secreta-mp-session";
+import { applyRankingRoundTimeout } from "@/lib/ranking-round-timeout";
 
 export async function processExpiredTurnIfNeeded(sessionCode: string): Promise<void> {
   const session = await prisma.session.findUnique({
@@ -17,12 +18,40 @@ export async function processExpiredTurnIfNeeded(sessionCode: string): Promise<v
     },
   });
 
-  if (!session || session.status !== "active" || !session.pickTimeLimitSeconds) {
+  if (!session || session.status !== "active") {
     return;
   }
 
   const currentRound = getCurrentRound(session);
   if (!currentRound || currentRound.status !== "open") {
+    return;
+  }
+
+  if (session.gameMode === "ranking") {
+    const roundFull = await prisma.round.findUnique({
+      where: { id: currentRound.id },
+      select: {
+        pickTimeLimitSeconds: true,
+        openedAt: true,
+      },
+    });
+
+    if (
+      !roundFull?.pickTimeLimitSeconds ||
+      !roundFull.openedAt ||
+      !isTurnExpired(
+        roundFull.openedAt.toISOString(),
+        roundFull.pickTimeLimitSeconds
+      )
+    ) {
+      return;
+    }
+
+    await applyRankingRoundTimeout(sessionCode);
+    return;
+  }
+
+  if (!session.pickTimeLimitSeconds) {
     return;
   }
 

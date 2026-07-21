@@ -61,6 +61,8 @@ model Round {
   status      String       @default("pending")
   listAliases String?
   cardOptions String?
+  pickTimeLimitSeconds Int?
+  openedAt    DateTime?
   createdAt   DateTime     @default(now())
   picks       Pick[]
   votes       Vote[]

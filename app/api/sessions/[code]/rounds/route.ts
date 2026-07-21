@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { assertCreator } from "@/lib/creator-auth";
 import { validateRoundConfig } from "@/lib/round-config";
+import { validateRankingRoundTimeLimit } from "@/lib/pick-time-limit";
 import { toRoundSummary } from "@/lib/round";
 import type { RoundConfig } from "@/lib/types";
 
@@ -42,6 +43,9 @@ export async function POST(request: Request, context: RouteContext) {
       title: round?.title?.trim() || `Rodada ${nextNumber}`,
       topN: round?.topN ?? 10,
       filters: round?.filters ?? {},
+      pickTimeLimitSeconds: validateRankingRoundTimeLimit(
+        round?.pickTimeLimitSeconds ?? null
+      ),
     };
 
     const validationError = validateRoundConfig(config, `Rodada ${nextNumber}`);
@@ -56,6 +60,7 @@ export async function POST(request: Request, context: RouteContext) {
         title: config.title.trim(),
         topN: config.topN,
         filters: JSON.stringify(config.filters ?? {}),
+        pickTimeLimitSeconds: config.pickTimeLimitSeconds ?? null,
         status: "pending",
       },
     });

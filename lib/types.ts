@@ -14,6 +14,7 @@ export type RoundConfig = {
   title: string;
   topN: number;
   filters?: SessionFilters;
+  pickTimeLimitSeconds?: number | null;
 };
 
 export type TopItem = {
@@ -238,10 +239,12 @@ export type RoundSummary = {
   topN: number;
   status: RoundStatus;
   filters: SessionFilters;
+  pickTimeLimitSeconds?: number | null;
 };
 
 export type CurrentRound = RoundSummary & {
   listAliases?: ListAliases;
+  openedAt?: string | null;
 };
 
 export type DueloWrongGuess = {

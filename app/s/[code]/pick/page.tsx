@@ -33,6 +33,10 @@ export default function PickPage({
   const [loading, setLoading] = useState(true);
   const [gameMode, setGameMode] = useState<"ranking" | "impostor">("ranking");
   const [isCreator, setIsCreator] = useState(false);
+  const [pickTimeLimitSeconds, setPickTimeLimitSeconds] = useState<number | null>(
+    null
+  );
+  const [roundOpenedAt, setRoundOpenedAt] = useState<string | null>(null);
 
   useEffect(() => {
     async function init() {
@@ -76,6 +80,10 @@ export default function PickPage({
           setStepLabel(
             `Rodada ${sessionData.currentRoundNumber}/${sessionData.totalRounds}`
           );
+          setPickTimeLimitSeconds(
+            sessionData.currentRound.pickTimeLimitSeconds ?? null
+          );
+          setRoundOpenedAt(sessionData.currentRound.openedAt ?? null);
         }
         if (sessionData.status === "completed") {
           router.push(`/s/${p.code}/results`);
@@ -165,6 +173,8 @@ export default function PickPage({
         initialPicks={topItems}
         initialMessage={initialMessage}
         confirmed={confirmed}
+        pickTimeLimitSeconds={pickTimeLimitSeconds}
+        roundOpenedAt={roundOpenedAt}
       />
 
       {isCreator && (

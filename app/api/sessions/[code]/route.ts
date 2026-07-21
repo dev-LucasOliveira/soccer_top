@@ -104,8 +104,40 @@ export async function GET(request: Request, context: RouteContext) {
 
     if (
       session.status === "active" &&
-      (session.gameMode === "duelo" || session.gameMode === "lista-secreta-mp")
+      (session.gameMode === "duelo" ||
+        session.gameMode === "lista-secreta-mp" ||
+        session.gameMode === "ranking")
     ) {
+      if (session.gameMode === "ranking") {
+        const rankingRound = getCurrentRound(session);
+        if (rankingRound?.status === "open") {
+          const roundTiming = await prisma.round.findUnique({
+            where: { id: rankingRound.id },
+            select: { pickTimeLimitSeconds: true, openedAt: true },
+          });
+          if (roundTiming?.pickTimeLimitSeconds && !roundTiming.openedAt) {
+            await prisma.round.update({
+              where: { id: rankingRound.id },
+              data: { openedAt: new Date() },
+            });
+            session = await prisma.session.findUnique({
+              where: { code },
+              include: {
+                participants: { orderBy: { joinedAt: "asc" } },
+                rounds: { orderBy: { number: "asc" } },
+                result: true,
+              },
+            });
+            if (!session) {
+              return NextResponse.json(
+                { error: "Sala não encontrada" },
+                { status: 404 }
+              );
+            }
+          }
+        }
+      }
+
       await processExpiredTurnIfNeeded(code);
       const refreshedSession = await prisma.session.findUnique({
         where: { code },

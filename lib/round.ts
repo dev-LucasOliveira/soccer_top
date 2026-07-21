@@ -10,6 +10,8 @@ type RoundRecord = {
   status: string;
   listAliases?: string | null;
   cardOptions?: string | null;
+  pickTimeLimitSeconds?: number | null;
+  openedAt?: Date | null;
 };
 
 type SessionWithRounds = {
@@ -47,11 +49,15 @@ export function toRoundSummary(round: RoundRecord): RoundSummary {
     topN: round.topN,
     status: round.status as RoundSummary["status"],
     filters: parseFilters(round.filters),
+    pickTimeLimitSeconds: round.pickTimeLimitSeconds ?? null,
   };
 }
 
 export function toCurrentRound(round: RoundRecord): CurrentRound {
-  return toRoundSummary(round);
+  return {
+    ...toRoundSummary(round),
+    openedAt: round.openedAt?.toISOString() ?? null,
+  };
 }
 
 export function mapLegacySessionStatus(

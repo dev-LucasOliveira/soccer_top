@@ -7,6 +7,8 @@ import { Card } from "@/components/ui/card";
 import { TopList } from "@/components/top-list";
 import { AvailablePlayersCard } from "@/components/available-players-card";
 import { ConfirmRankingDialog } from "@/components/confirm-ranking-dialog";
+import { TurnTimer } from "@/components/turn-timer";
+import { getRankingRoundDeadline } from "@/lib/pick-time-limit";
 import { LIST_MESSAGE_MAX_LENGTH } from "@/lib/constants";
 import type { TopItem } from "@/lib/types";
 
@@ -26,6 +28,8 @@ export function PlayerPicker({
   initialPicks,
   initialMessage = "",
   confirmed,
+  pickTimeLimitSeconds = null,
+  roundOpenedAt = null,
 }: {
   sessionCode: string;
   participantId: string;
@@ -33,6 +37,8 @@ export function PlayerPicker({
   initialPicks: TopItem[];
   initialMessage?: string;
   confirmed: boolean;
+  pickTimeLimitSeconds?: number | null;
+  roundOpenedAt?: string | null;
 }) {
   const router = useRouter();
   const [players, setPlayers] = useState<Player[]>([]);
@@ -44,6 +50,29 @@ export function PlayerPicker({
   const [error, setError] = useState("");
   const [lastAction, setLastAction] = useState<ListAction | null>(null);
   const [confirmOpen, setConfirmOpen] = useState(false);
+  const roundDeadlineAt = getRankingRoundDeadline(
+    roundOpenedAt,
+    pickTimeLimitSeconds
+  );
+
+  async function handleRoundTimeout() {
+    if (confirmed) return;
+
+    try {
+      if (top.length > 0) {
+        await savePicks(false);
+      }
+
+      await fetch(`/api/sessions/${sessionCode}/ranking/timeout`, {
+        method: "POST",
+      });
+
+      router.push(`/s/${sessionCode}/status`);
+      router.refresh();
+    } catch {
+      router.push(`/s/${sessionCode}/status`);
+    }
+  }
 
   const MIN_SEARCH_LENGTH = 2;
   const trimmedSearch = search.trim();
@@ -166,6 +195,16 @@ export function PlayerPicker({
           </span>
         )}
       </div>
+
+      {!confirmed && (
+        <TurnTimer
+          turnDeadlineAt={roundDeadlineAt}
+          pickTimeLimitSeconds={pickTimeLimitSeconds}
+          isMyTurn
+          timeLabel="Tempo para montar a lista"
+          onExpire={() => void handleRoundTimeout()}
+        />
+      )}
 
       <div className="grid gap-4 lg:grid-cols-2">
         {!confirmed && (

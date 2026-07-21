@@ -1,3 +1,4 @@
+import { validateRankingRoundTimeLimit } from "@/lib/pick-time-limit";
 import type { RoundConfig } from "@/lib/types";
 
 export function validateRoundConfig(
@@ -10,6 +11,15 @@ export function validateRoundConfig(
   if (!round.topN || round.topN < 1 || round.topN > 50) {
     return `${label}: Top de N deve ser entre 1 e 50`;
   }
+
+  if (round.pickTimeLimitSeconds !== undefined) {
+    try {
+      validateRankingRoundTimeLimit(round.pickTimeLimitSeconds);
+    } catch (err) {
+      return err instanceof Error ? err.message : `${label}: limite de tempo inválido`;
+    }
+  }
+
   return null;
 }
 

@@ -13,6 +13,7 @@ function toRoundConfig(round: RoundSummary): RoundConfig {
     title: round.title,
     topN: round.topN,
     filters: round.filters,
+    pickTimeLimitSeconds: round.pickTimeLimitSeconds ?? null,
   };
 }
 
@@ -70,6 +71,7 @@ export function RoundSetupPanel({
               title: config.title,
               topN: config.topN,
               filters: config.filters ?? {},
+              pickTimeLimitSeconds: config.pickTimeLimitSeconds ?? null,
             }
           : round
       )
